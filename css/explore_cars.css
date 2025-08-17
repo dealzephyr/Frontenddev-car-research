@@ -1,0 +1,142 @@
+/* ---- Palette (yours) ---- */
+:root {
+  --primary-color: #5d4037;
+  --primary-light: #4e342e;
+  --primary-dark: #212121;
+  --secondary-color: #e2c2bb;
+  --text-on-primary: #ffffff;
+  --neutral-light: #ffffff;
+  --neutral-mid: #d4d4d4;
+  --neutral-dark: #757575;
+
+  /* Bootstrap color hooks (quick theme) */
+  --bs-primary: #5d4037;
+  --bs-secondary: #e2c2bb;
+  --bs-body-font-family: "Poppins", sans-serif;
+}
+
+/* breadcump */
+.toppart {
+  margin-left: 138px;
+  margin-top: 16px;
+}
+.breadcrumb {
+  background: none;
+  font-weight: 500;
+  font-size: 14px;
+  padding: 0;
+}
+
+.breadcrumb-item + .breadcrumb-item::before {
+  content: "›";
+  color: #999;
+  padding: 0 5px;
+}
+
+.breadcrumb a {
+  color: #757575;
+  text-decoration: none;
+}
+
+.breadcrumb-item.active a {
+  font-weight: bold;
+  color: #212121;
+}
+/* Sidebar look per your spec */
+.mk-filter-card {
+  background: #fff;
+  border-radius: 7px;
+  box-shadow: 0 8px 17.6px -9px rgba(0, 0, 0, 0.25);
+  border-bottom: 1px solid #d4d4d4;
+  padding: 6px;
+  width: 227px;
+}
+.sidebar-sticky {
+  position: sticky;
+  top: 90px;
+}
+.body-parts {
+  margin-top: 20px;
+}
+
+/* Accordion rows */
+.mk-filter-item {
+  border-bottom: 1px solid #efefef;
+  padding: 0 6px;
+}
+.mk-filter-item summary {
+  list-style: none;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 14px 6px;
+  cursor: pointer;
+}
+.mk-filter-item summary::-webkit-details-marker {
+  display: none;
+}
+.mk-filter-title {
+  font-family: "Poppins", sans-serif;
+  font-weight: 600;
+  font-size: 13px;
+  line-height: 1;
+  color: #212121;
+}
+.mk-chevron {
+  font-size: 18px;
+  color: #212121;
+  transition: transform 0.2s ease;
+}
+.mk-filter-item[open] .mk-chevron {
+  transform: rotate(180deg);
+}
+
+.mk-filter-body {
+  padding: 0 6px 12px 6px;
+  font-size: 13px;
+  color: #212121;
+}
+
+/* Small selects row on the right */
+.mini-filter {
+  width: 205px;
+
+  padding: 8px 12px;
+  border-radius: 4px;
+  background: #fff;
+  border: 1px solid #e7e7e7;
+  box-shadow: 0 0 4px rgba(0, 0, 0, 0.25);
+  outline: 0;
+  font-size: 14px;
+}
+.custom-gap {
+  gap: 16px !important;
+}
+.btn-outline-secondary,
+.load {
+  margin-left: 40px;
+
+  border: 1px solid var(--primary-color);
+  border-radius: 7px;
+  height: 41px;
+  color: var(--primary-color);
+  box-shadow: 0px 24px 48px -12px #10182840;
+  background-color: var(--neutral-light);
+  font-weight: 500;
+  font-size: 16px;
+}
+
+.btn-outline-secondary:hover,
+.load:hover {
+  box-shadow: 0px 24px 48px -12px #10182840;
+  color: var(--neutral-light);
+  background-color: var(--primary-color);
+}
+.right-parts {
+  padding-left: 0px !important;
+}
+/*  hover polish for cards in results grid */
+.results-grid .car-card.v2:hover {
+  box-shadow: 0 10px 24px rgba(0, 0, 0, 0.1);
+  outline: 1px solid rgba(93, 64, 55, 0.3);
+}

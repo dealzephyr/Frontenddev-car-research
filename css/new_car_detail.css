@@ -1,0 +1,516 @@
+/* palette hooks you already use */
+:root {
+  --primary-color: #5d4037; /* chocolaty */
+  --primary-dark: #212121;
+  --secondary-color: #e2c2bb;
+  --text-on-primary: #fff;
+}
+:root {
+  --mi-icon: #7b61ff; /* purple calendar */
+}
+
+/* wrapper with dual gradient & big radius like the mock */
+
+.car-hero .row {
+  --bs-gutter-x: 0;
+}
+
+@media (min-width: 992px) {
+  .car-hero .row {
+    display: grid;
+    grid-template-columns: 1fr 557px; /* left grows, right is 557px */
+    align-items: center;
+  }
+}
+
+.hero-right {
+  padding-right: 0 !important;
+}
+#heroCarCarousel {
+  width: 557px;
+  margin-left: auto;
+} /* sticks to the right edge */
+
+/* (nice-to-have) keep the image clean inside the carousel */
+.hero-right .carousel-inner {
+  border-radius: 16px;
+  overflow: hidden;
+}
+.hero-right .car-shot {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+.car-hero {
+  background: linear-gradient(
+      90deg,
+      rgba(255, 255, 255, 0) 47.68%,
+      #feffd3 100%
+    ),
+    linear-gradient(
+      270.14deg,
+      rgba(0, 0, 0, 0) 10.42%,
+      rgba(78, 52, 46, 0.2) 99.88%
+    );
+}
+
+/* left side padding on small screens */
+.hero-left {
+  background: transparent;
+  margin-left: 73px;
+  width: 40%;
+}
+.hero-left .year {
+  color: #000000;
+  font-weight: 500;
+  font-size: 16px;
+
+  margin-top: 38px;
+}
+.hero-left h1 {
+  color: #000000;
+  font-weight: 500;
+  font-size: 38px;
+}
+.hero-left .starts {
+  color: #757575;
+  font-weight: 400;
+  font-size: 14px;
+
+  margin-top: 9px;
+}
+.hero-left .price {
+  color: #000000;
+  font-weight: 500;
+  font-size: 16px;
+}
+
+/* buttons that match the mock */
+.btn-hero {
+  background: var(--primary-color);
+  color: var(--text-on-primary);
+  border: 0;
+  padding: 0.6rem 1.25rem;
+  border-radius: 12px;
+  box-shadow: 0 8px 18px -10px rgba(0, 0, 0, 0.35);
+  width: 119px;
+}
+.btn-hero:hover {
+  background: var(--secondary-color);
+  color: var(--primary-color);
+}
+.btn-hero-outline {
+  background: rgba(255, 255, 255, 0.08);
+  color: #fff;
+  border: 1px solid rgba(255, 255, 255, 0.25);
+  padding: 0.6rem 1.25rem;
+  border-radius: 12px;
+  backdrop-filter: blur(4px);
+}
+.btn-hero-outline:hover {
+  background: rgba(255, 255, 255, 0.16);
+}
+
+/* colour dots */
+.swatch {
+  width: 18px;
+  height: 18px;
+  border-radius: 999px;
+  display: inline-block;
+  box-shadow: 0 0 0 2px rgba(0, 0, 0, 0.05);
+}
+
+/* right side image constraints so the car sits nicely */
+.hero-right {
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2));
+  width: 557px;
+}
+
+.car-shot {
+  object-fit: contain;
+  height: 420px; /* adjust if your image aspect differs */
+  filter: drop-shadow(0 35px 35px rgba(0, 0, 0, 0.35));
+}
+
+/* round nav buttons */
+.hero-nav {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 56px;
+  height: 56px;
+  border-radius: 50%;
+  background: #fff !important;
+  border: 0;
+  display: grid;
+  place-items: center;
+  color: var(--primary-dark);
+  box-shadow: 0 10px 24px rgba(0, 0, 0, 0.18);
+  opacity: 1; /* override Bootstrap’s default fade */
+}
+.carousel-control-prev.hero-nav {
+  left: 16px;
+}
+.carousel-control-next.hero-nav {
+  right: 16px;
+}
+.hero-right {
+  display: flex;
+  justify-content: flex-start;
+  padding-left: 0;
+}
+
+.hero-carousel-wrapper {
+  width: 557px; /* fixed width for the carousel */
+  margin-left: auto; /* pushes it to the right */
+}
+
+.hero-nav i {
+  font-size: 1.35rem;
+}
+
+/* small & medium adjustments */
+@media (max-width: 991.98px) {
+  .car-shot {
+    height: 360px;
+  }
+  .hero-nav {
+    width: 48px;
+    height: 48px;
+  }
+}
+@media (max-width: 575.98px) {
+  .car-shot {
+    height: 300px;
+  }
+  .hero-left {
+    padding-bottom: 1rem !important;
+  }
+}
+/* navigation below  section  */
+.specs-nav {
+  display: flex;
+  justify-content: center;
+  background-color: #f5f5f5;
+  border-radius: 12px;
+  padding: 12px 0;
+}
+
+.specs-nav a {
+  font-weight: 500;
+  color: #212121;
+  font-size: 14px;
+  padding: 0 20px;
+  text-decoration: none;
+  border-right: 1px solid #d4d4d4;
+}
+
+.specs-nav a:last-child {
+  border-right: none;
+}
+
+.specs-nav a:hover {
+  color: #000;
+  transform: translateY(-2px);
+}
+
+/* Technical specification and right part */
+/* Cards & accordion shells */
+.mk-item,
+.mk-sidecard {
+  background: #fff;
+  border-radius: 14px;
+  box-shadow: 0 8px 18px -9px rgba(0, 0, 0, 0.25);
+  border: 1px solid #d4d4d4;
+}
+.mk-item + .mk-item {
+  margin-top: 12px;
+}
+
+.mk-btn {
+  border-radius: 14px;
+  padding: 16px 18px;
+  background: #fff;
+  box-shadow: none !important;
+  color: #212121;
+  font-weight: 600;
+}
+.mk-btn:focus {
+  box-shadow: none;
+}
+.mk-chevron {
+  transition: transform 0.2s ease;
+  font-size: 1rem;
+}
+/* rotate chevron when open */
+.accordion-button:not(.collapsed) .mk-chevron {
+  transform: rotate(180deg);
+}
+
+/* remove Bootstrap default borders */
+.mk-acc .accordion-item {
+  border: 0;
+}
+.mk-acc .accordion-button {
+  border: 0;
+}
+.mk-acc .accordion-body {
+  border-top: 1px solid #efefef;
+}
+
+/* Spec grid  */
+.mk-spec-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0;
+  border-radius: 0 0 14px 14px;
+  overflow: hidden;
+}
+.mk-cell {
+  display: grid;
+  grid-template-columns: 1.1fr 1fr;
+  align-items: center;
+  padding: 12px 16px;
+  border-bottom: 1px solid #f1f1f1;
+}
+.mk-cell:nth-child(odd) {
+  background: #fafafa;
+}
+.mk-cell span {
+  color: #777;
+  font-size: 0.95rem;
+}
+.mk-cell strong {
+  color: #212121;
+  font-weight: 600;
+}
+
+/* Right column cards */
+.mk-sidecard {
+  padding: 16px;
+}
+.mk-bullets {
+  padding-left: 1rem;
+  margin: 0;
+}
+.mk-bullets li {
+  margin-bottom: 0.4rem;
+}
+.mk-chevron {
+  display: none;
+}
+/* Make it breathe slightly on small screens */
+@media (max-width: 991.98px) {
+  .mk-spec-grid {
+    grid-template-columns: 1fr;
+  }
+  .mk-cell {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+/* Review section  */
+/* Card shell (soft shadow + rounded) */
+.mk-card {
+  background: #fff;
+  border: 1px solid #efefef;
+  border-radius: 14px;
+  box-shadow: 0 8px 18px rgba(0, 0, 0, 0.08);
+}
+
+/* Stars use your primary color */
+.rating-stars .bi {
+  color: var(--primary-color, #5d4037);
+  font-size: 0.95rem;
+}
+
+/* Category rows */
+.mk-rating-row {
+  display: grid;
+  grid-template-columns: 1fr auto auto;
+  align-items: center;
+  gap: 12px;
+  padding: 10px 0;
+}
+.mk-rating-label {
+  color: #212121;
+  font-weight: 500;
+}
+.mk-rating-score {
+  font-weight: 700;
+  color: #212121;
+}
+
+/* Progress bar look (thin rounded with subtle track) */
+.mk-rating-bar {
+  position: relative;
+  height: 10px;
+  border-radius: 999px;
+  background: #eaeaea;
+  min-width: 200px;
+}
+.mk-rating-fill {
+  position: absolute;
+  inset: 0 auto 0 0;
+  height: 100%;
+  border-radius: 999px;
+  background: var(--primary-color, #5d4037);
+}
+
+/* Owner satisfaction */
+/* Reusable card shell */
+.mk-card {
+  width: 482px;
+  background: #fff;
+  border: 1px solid #efefef;
+  border-radius: 12px;
+  box-shadow: 0 8px 18px rgba(0, 0, 0, 0.08);
+}
+
+/* KPI chips */
+.kpi-dot {
+  width: 82px;
+  height: 82px;
+  margin: 0 auto 10px;
+  border-radius: 50%;
+  display: grid;
+  place-items: center;
+}
+.kpi-dot i {
+  font-size: 28px;
+  color: #2c2c2c;
+}
+.bg-green-100 {
+  background: #e9f7ec;
+}
+.bg-blue-100 {
+  background: #e9f1ff;
+}
+.bg-lilac-100 {
+  background: #f1e9ff;
+}
+
+.kpi-value {
+  font-size: 2rem;
+  font-weight: 800;
+  color: #212121;
+  line-height: 1.1;
+}
+.kpi-label {
+  color: #6b6b6b;
+  font-size: 0.95rem;
+}
+
+/* Lists */
+.mk-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+.mk-list-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  padding: 14px 0;
+  border-bottom: 1px solid #f0f0f0;
+}
+.mk-list-row:last-child {
+  border-bottom: 0;
+}
+.mk-score {
+  font-weight: 700;
+}
+
+/* small helper */
+.text-primary-choco {
+  color: var(--primary-color);
+}
+
+/* market insights */
+
+#market-insights {
+  background-color: #f4f4f4;
+}
+.market-insights-header h2 {
+  color: #212121;
+  font-size: 24px;
+  font-weight: 700;
+}
+.market-insights-header p {
+  font-size: 14px;
+  font-weight: 400;
+}
+
+.mi-card {
+  margin-top: 0px;
+  background: var(--mi-card-bg);
+  border: 1px solid var(--mi-border);
+  border-radius: 18px;
+  box-shadow: var(--mi-shadow);
+  padding: 28px 32px;
+  max-width: 643px;
+  margin-inline: auto;
+  box-shadow: 0px 2px 4px 0px #00000040;
+}
+
+.mi-title {
+  font-weight: 600;
+  font-size: 17px;
+
+  color: #212121;
+}
+
+/* Rows (term/value) */
+.mi-row {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 16px;
+  padding: 8px 0;
+}
+
+.mi-term {
+  color: #757575;
+  font-size: 14px;
+  font-weight: 400;
+}
+
+.mi-val {
+  color: var(--primary-color);
+  font-weight: 600;
+  font-size: 14px;
+}
+
+.mi-danger {
+  color: #c72500;
+}
+
+.mi-sep {
+  border: 1px;
+  border-top: 1px solid #d4d4d4;
+  margin: 18px 0 14px;
+}
+
+/* Calendar + big number */
+.mi-icon {
+  color: var(--mi-icon);
+  font-size: 14px;
+}
+
+.mi-bignum {
+  font-size: 16px;
+  font-weight: 600;
+  color: #212121;
+}
+
+/* Responsive niceties */
+@media (max-width: 576px) {
+  .mi-card {
+    padding: 22px 20px;
+  }
+  .mi-bignum {
+    font-size: 1.25rem;
+  }
+}

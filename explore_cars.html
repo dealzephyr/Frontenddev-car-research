@@ -1,0 +1,882 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- Bootstrap CSS -->
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+    <!-- Google Font -->
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <!--  Ionicons CDN for exact compare Icons -->
+
+    <script
+      type="module"
+      src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"
+    ></script>
+    <script
+      nomodule
+      src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"
+    ></script>
+    <!-- Bootstrap icon link -->
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css"
+    />
+    <link rel="stylesheet" href="css/style.css" />
+    <link rel="stylesheet" href="css/explore_cars.css" />
+
+    <title>Explore Cars</title>
+  </head>
+  <body>
+    <header class="site-header sticky-top">
+      <!-- TOP NAV -->
+      <nav class="navbar navbar-expand-lg navbar-light header-top shadow-sm">
+        <div class="container header-container">
+          <!-- Logo -->
+          <a class="navbar-brand d-flex align-items-center" href="#">
+            <img
+              src="assets/images/logo.png"
+              alt="Motokhabar"
+              class="site-logo"
+            />
+          </a>
+
+          <!-- Mobile toggler -->
+          <button
+            class="navbar-toggler"
+            type="button"
+            data-bs-toggle="collapse"
+            data-bs-target="#topNav"
+            aria-controls="topNav"
+            aria-expanded="false"
+            aria-label="Toggle navigation"
+          >
+            <span class="navbar-toggler-icon"></span>
+          </button>
+
+          <!-- Search + right items -->
+          <div class="collapse navbar-collapse" id="topNav">
+            <!-- Search -->
+            <form
+              class="ms-lg-3 me-lg-4 my-3 my-lg-0 w-100 w-lg-auto header-search"
+              role="search"
+            >
+              <div class="input-group">
+                <span class="input-group-text bg-transparent border-0 ps-3">
+                  <i class="bi bi-search"></i>
+                </span>
+                <input
+                  type="search"
+                  class="form-control search-input"
+                  placeholder="Search Cars"
+                  aria-label="Search Cars"
+                />
+              </div>
+            </form>
+
+            <!-- Right items -->
+            <ul class="navbar-nav ms-auto align-items-center header-actions">
+              <li class="nav-item d-flex align-items-center me-3">
+                <!-- <i class="bi bi-shuffle me-2"></i> -->
+                <ion-icon
+                  name="git-compare-outline"
+                  style="width: 20px; height: 20px; padding-right: 3px"
+                ></ion-icon>
+
+                <a class="nav-link p-0" href="#">Compare</a>
+              </li>
+              <li class="nav-item d-flex align-items-center me-3">
+                <i class="bi bi-bell me-2"></i>
+                <a class="nav-link p-0" href="#">Notification</a>
+              </li>
+              <li class="nav-item">
+                <a
+                  class="nav-link p-0 d-flex align-items-center"
+                  href="#"
+                  style="white-space: nowrap"
+                >
+                  <i class="bi bi-person me-2"></i>
+                  Hello, Login
+                  <span class="badge-dot ms-2"></span>
+                </a>
+              </li>
+              <li>
+                <a href="#" class="flag-nepal" aria-label="Nepal Flag">
+                  <img src="assets/images/nepal-flag.png" alt="Nepal Flag" />
+                </a>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </nav>
+
+      <!-- BOTTOM NAV -->
+      <nav
+        class="navbar navbar-expand-lg navbar-light header-bottom border-top"
+      >
+        <div class="container header-container">
+          <button
+            class="navbar-toggler"
+            type="button"
+            data-bs-toggle="collapse"
+            data-bs-target="#bottomNav"
+            aria-controls="bottomNav"
+            aria-expanded="false"
+            aria-label="Toggle navigation"
+          >
+            <span class="navbar-toggler-icon"></span>
+          </button>
+
+          <div
+            class="collapse navbar-collapse justify-content-center"
+            id="bottomNav"
+          >
+            <ul class="navbar-nav header-subnav">
+              <li class="nav-item">
+                <a class="nav-link" href="#">New Cars</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="#">Used Cars</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="#">Expert Review</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="#">News &amp; Blogs</a>
+              </li>
+              <li class="nav-item"><a class="nav-link" href="#">Contact</a></li>
+            </ul>
+          </div>
+        </div>
+      </nav>
+    </header>
+    <!-- Top breadcrump -->
+    <section class="toppart">
+      <nav aria-label="breadcrumb">
+        <ol class="breadcrumb">
+          <li class="breadcrumb-item">
+            <a href="home.html">Home</a>
+          </li>
+          <li class="breadcrumb-item active" aria-current="page">
+            <a href="explore_cars.html">Explore Cars</a>
+          </li>
+        </ol>
+      </nav>
+
+      <h3 class="fw-bold">Explore Cars</h3>
+      <p class="text-muted">Find your perfect car with our advanced filters</p>
+    </section>
+    <main>
+      <section class="container my-4">
+        <div class="row g-4 body-parts">
+          <!-- LEFT: Sidebar Filters -->
+          <aside class="col-lg-3">
+            <div class="mk-filter-card sidebar-sticky">
+              <details class="mk-filter-item" open>
+                <summary>
+                  <span class="mk-filter-title">Sort by</span>
+                  <i class="bi bi-chevron-down mk-chevron"></i>
+                </summary>
+                <div class="mk-filter-body">
+                  <label class="form-check mb-1"
+                    ><input
+                      class="form-check-input me-1"
+                      type="radio"
+                      name="sort"
+                    />
+                    Popular</label
+                  >
+                  <label class="form-check mb-1"
+                    ><input
+                      class="form-check-input me-1"
+                      type="radio"
+                      name="sort"
+                    />
+                    Price: Low → High</label
+                  >
+                  <label class="form-check"
+                    ><input
+                      class="form-check-input me-1"
+                      type="radio"
+                      name="sort"
+                    />
+                    Price: High → Low</label
+                  >
+                </div>
+              </details>
+
+              <details class="mk-filter-item">
+                <summary>
+                  <span class="mk-filter-title">MPG</span
+                  ><i class="bi bi-chevron-down mk-chevron"></i>
+                </summary>
+                <div class="mk-filter-body">
+                  <label class="form-check mb-1"
+                    ><input class="form-check-input me-1" type="checkbox" />
+                    15–20</label
+                  >
+                  <label class="form-check mb-1"
+                    ><input class="form-check-input me-1" type="checkbox" />
+                    20–30</label
+                  >
+                  <label class="form-check"
+                    ><input class="form-check-input me-1" type="checkbox" />
+                    30+</label
+                  >
+                </div>
+              </details>
+
+              <details class="mk-filter-item">
+                <summary>
+                  <span class="mk-filter-title">Sitting Capacity</span
+                  ><i class="bi bi-chevron-down mk-chevron"></i>
+                </summary>
+                <div class="mk-filter-body">
+                  <label class="form-check mb-1"
+                    ><input class="form-check-input me-1" type="checkbox" /> 4
+                    Seater</label
+                  >
+                  <label class="form-check mb-1"
+                    ><input class="form-check-input me-1" type="checkbox" /> 5
+                    Seater</label
+                  >
+                  <label class="form-check"
+                    ><input class="form-check-input me-1" type="checkbox" /> 7+
+                    Seater</label
+                  >
+                </div>
+              </details>
+
+              <details class="mk-filter-item">
+                <summary>
+                  <span class="mk-filter-title">Drive Train</span
+                  ><i class="bi bi-chevron-down mk-chevron"></i>
+                </summary>
+                <div class="mk-filter-body">
+                  <label class="form-check mb-1"
+                    ><input class="form-check-input me-1" type="checkbox" />
+                    FWD</label
+                  >
+                  <label class="form-check mb-1"
+                    ><input class="form-check-input me-1" type="checkbox" />
+                    RWD</label
+                  >
+                  <label class="form-check"
+                    ><input class="form-check-input me-1" type="checkbox" />
+                    AWD/4WD</label
+                  >
+                </div>
+              </details>
+
+              <details class="mk-filter-item">
+                <summary>
+                  <span class="mk-filter-title">Transmission</span
+                  ><i class="bi bi-chevron-down mk-chevron"></i>
+                </summary>
+                <div class="mk-filter-body">
+                  <label class="form-check mb-1"
+                    ><input class="form-check-input me-1" type="checkbox" />
+                    Manual</label
+                  >
+                  <label class="form-check"
+                    ><input class="form-check-input me-1" type="checkbox" />
+                    Automatic</label
+                  >
+                </div>
+              </details>
+
+              <details class="mk-filter-item">
+                <summary>
+                  <span class="mk-filter-title">Engine</span
+                  ><i class="bi bi-chevron-down mk-chevron"></i>
+                </summary>
+                <div class="mk-filter-body">
+                  <label class="form-check mb-1"
+                    ><input class="form-check-input me-1" type="checkbox" />
+                    &lt; 1.2L</label
+                  >
+                  <label class="form-check mb-1"
+                    ><input class="form-check-input me-1" type="checkbox" />
+                    1.2–2.0L</label
+                  >
+                  <label class="form-check"
+                    ><input class="form-check-input me-1" type="checkbox" />
+                    &gt; 2.0L</label
+                  >
+                </div>
+              </details>
+
+              <details class="mk-filter-item">
+                <summary>
+                  <span class="mk-filter-title">Fuel Type</span
+                  ><i class="bi bi-chevron-down mk-chevron"></i>
+                </summary>
+                <div class="mk-filter-body">
+                  <label class="form-check mb-1"
+                    ><input class="form-check-input me-1" type="checkbox" />
+                    Petrol</label
+                  >
+                  <label class="form-check mb-1"
+                    ><input class="form-check-input me-1" type="checkbox" />
+                    Diesel</label
+                  >
+                  <label class="form-check"
+                    ><input class="form-check-input me-1" type="checkbox" />
+                    Electric/Hybrid</label
+                  >
+                </div>
+              </details>
+
+              <details class="mk-filter-item">
+                <summary>
+                  <span class="mk-filter-title">Features</span
+                  ><i class="bi bi-chevron-down mk-chevron"></i>
+                </summary>
+                <div class="mk-filter-body">
+                  <label class="form-check mb-1"
+                    ><input class="form-check-input me-1" type="checkbox" />
+                    Sunroof</label
+                  >
+                  <label class="form-check mb-1"
+                    ><input class="form-check-input me-1" type="checkbox" />
+                    Cruise Control</label
+                  >
+                  <label class="form-check"
+                    ><input class="form-check-input me-1" type="checkbox" />
+                    Parking Sensors</label
+                  >
+                </div>
+              </details>
+            </div>
+          </aside>
+
+          <!-- RIGHT: Filters row + cards -->
+          <div class="col-lg-8 right-parts">
+            <!-- Top filter row with small selects + Clear button -->
+            <div class="d-flex justify-content-between top-filter gap-2 mb-3">
+              <div class="d-flex mini-filter-items custom-gap">
+                <select class="mini-filter">
+                  <option>Brand</option>
+                </select>
+                <select class="mini-filter">
+                  <option>Model</option>
+                </select>
+                <select class="mini-filter">
+                  <option>Year</option>
+                </select>
+                <select class="mini-filter">
+                  <option>Price Range</option>
+                </select>
+              </div>
+              <div class="flex-shrink-0">
+                <button class="btn btn-outline-secondary btn-sm px-3">
+                  Clear Filters
+                </button>
+              </div>
+            </div>
+
+            <!-- Results count -->
+            <div class="small text-muted mb-2">275 matches</div>
+
+            <!-- Cards grid -->
+            <div class="row g-3 g-md-4">
+              <!-- repeat this col for many cards -->
+              <div class="col-12 col-md-6 col-lg-4">
+                <article class="car-card v2 h-100">
+                  <div class="car-card__media">
+                    <img
+                      src="assets/images/marutisuzuki.png"
+                      alt="Maruti Suzuki Swift"
+                    />
+                  </div>
+                  <div class="car-card__body">
+                    <h6 class="car-card__title">Maruti Suzuki Swift</h6>
+                    <div class="car-card__location">
+                      <i class="bi bi-geo-alt-fill me-1"></i
+                      ><span>Pokhara, Nepal</span>
+                    </div>
+                    <div class="car-card__divider"></div>
+                    <div class="car-card__row mb-2">
+                      <i class="bi bi-speedometer2 me-2"></i
+                      ><span>25,100 mileage</span>
+                    </div>
+                    <div class="car-card__grid mb-2">
+                      <div class="d-flex align-items-center">
+                        <i class="bi bi-fuel-pump me-2"></i><span>Diesel</span>
+                      </div>
+                      <div class="d-flex align-items-center">
+                        <i class="bi bi-people me-2"></i><span>Seater</span>
+                      </div>
+                    </div>
+                    <div class="car-card__price">Rs 9.70 - 10.93 Lakh*</div>
+                    <div class="d-flex gap-2">
+                      <button class="btn btn-primary btn-sm px-3">
+                        View Details
+                      </button>
+                      <button class="btn btn-secondary btn-sm px-3">
+                        Compare
+                      </button>
+                    </div>
+                  </div>
+                </article>
+              </div>
+
+              <!-- Duplicate more cards as needed... -->
+              <div class="col-12 col-md-6 col-lg-4">
+                <article class="car-card v2 h-100">
+                  <div class="car-card__media">
+                    <img
+                      src="assets/images/marutisuzuki.png"
+                      alt="Maruti Suzuki Swift"
+                    />
+                  </div>
+                  <div class="car-card__body">
+                    <h6 class="car-card__title">Maruti Suzuki Swift</h6>
+                    <div class="car-card__location">
+                      <i class="bi bi-geo-alt-fill me-1"></i
+                      ><span>Pokhara, Nepal</span>
+                    </div>
+                    <div class="car-card__divider"></div>
+                    <div class="car-card__row mb-2">
+                      <i class="bi bi-speedometer2 me-2"></i
+                      ><span>25,100 mileage</span>
+                    </div>
+                    <div class="car-card__grid mb-2">
+                      <div class="d-flex align-items-center">
+                        <i class="bi bi-fuel-pump me-2"></i><span>Diesel</span>
+                      </div>
+                      <div class="d-flex align-items-center">
+                        <i class="bi bi-people me-2"></i><span>Seater</span>
+                      </div>
+                    </div>
+                    <div class="car-card__price">Rs 9.70 - 10.93 Lakh*</div>
+                    <div class="d-flex gap-2">
+                      <button class="btn btn-primary btn-sm px-3">
+                        View Details
+                      </button>
+                      <button class="btn btn-secondary btn-sm px-3">
+                        Compare
+                      </button>
+                    </div>
+                  </div>
+                </article>
+              </div>
+
+              <div class="col-12 col-md-6 col-lg-4">
+                <article class="car-card v2 h-100">
+                  <div class="car-card__media">
+                    <img
+                      src="assets/images/marutisuzuki.png"
+                      alt="Maruti Suzuki Swift"
+                    />
+                  </div>
+                  <div class="car-card__body">
+                    <h6 class="car-card__title">Maruti Suzuki Swift</h6>
+                    <div class="car-card__location">
+                      <i class="bi bi-geo-alt-fill me-1"></i
+                      ><span>Pokhara, Nepal</span>
+                    </div>
+                    <div class="car-card__divider"></div>
+                    <div class="car-card__row mb-2">
+                      <i class="bi bi-speedometer2 me-2"></i
+                      ><span>25,100 mileage</span>
+                    </div>
+                    <div class="car-card__grid mb-2">
+                      <div class="d-flex align-items-center">
+                        <i class="bi bi-fuel-pump me-2"></i><span>Diesel</span>
+                      </div>
+                      <div class="d-flex align-items-center">
+                        <i class="bi bi-people me-2"></i><span>Seater</span>
+                      </div>
+                    </div>
+                    <div class="car-card__price">Rs 9.70 - 10.93 Lakh*</div>
+                    <div class="d-flex gap-2">
+                      <button class="btn btn-primary btn-sm px-3">
+                        View Details
+                      </button>
+                      <button class="btn btn-secondary btn-sm px-3">
+                        Compare
+                      </button>
+                    </div>
+                  </div>
+                </article>
+              </div>
+
+              <div class="col-12 col-md-6 col-lg-4">
+                <article class="car-card v2 h-100">
+                  <div class="car-card__media">
+                    <img
+                      src="assets/images/marutisuzuki.png"
+                      alt="Maruti Suzuki Swift"
+                    />
+                  </div>
+                  <div class="car-card__body">
+                    <h6 class="car-card__title">Maruti Suzuki Swift</h6>
+                    <div class="car-card__location">
+                      <i class="bi bi-geo-alt-fill me-1"></i
+                      ><span>Pokhara, Nepal</span>
+                    </div>
+                    <div class="car-card__divider"></div>
+                    <div class="car-card__row mb-2">
+                      <i class="bi bi-speedometer2 me-2"></i
+                      ><span>25,100 mileage</span>
+                    </div>
+                    <div class="car-card__grid mb-2">
+                      <div class="d-flex align-items-center">
+                        <i class="bi bi-fuel-pump me-2"></i><span>Diesel</span>
+                      </div>
+                      <div class="d-flex align-items-center">
+                        <i class="bi bi-people me-2"></i><span>Seater</span>
+                      </div>
+                    </div>
+                    <div class="car-card__price">Rs 9.70 - 10.93 Lakh*</div>
+                    <div class="d-flex gap-2">
+                      <button class="btn btn-primary btn-sm px-3">
+                        View Details
+                      </button>
+                      <button class="btn btn-secondary btn-sm px-3">
+                        Compare
+                      </button>
+                    </div>
+                  </div>
+                </article>
+              </div>
+
+              <div class="col-12 col-md-6 col-lg-4">
+                <article class="car-card v2 h-100">
+                  <div class="car-card__media">
+                    <img
+                      src="assets/images/marutisuzuki.png"
+                      alt="Maruti Suzuki Swift"
+                    />
+                  </div>
+                  <div class="car-card__body">
+                    <h6 class="car-card__title">Maruti Suzuki Swift</h6>
+                    <div class="car-card__location">
+                      <i class="bi bi-geo-alt-fill me-1"></i
+                      ><span>Pokhara, Nepal</span>
+                    </div>
+                    <div class="car-card__divider"></div>
+                    <div class="car-card__row mb-2">
+                      <i class="bi bi-speedometer2 me-2"></i
+                      ><span>25,100 mileage</span>
+                    </div>
+                    <div class="car-card__grid mb-2">
+                      <div class="d-flex align-items-center">
+                        <i class="bi bi-fuel-pump me-2"></i><span>Diesel</span>
+                      </div>
+                      <div class="d-flex align-items-center">
+                        <i class="bi bi-people me-2"></i><span>Seater</span>
+                      </div>
+                    </div>
+                    <div class="car-card__price">Rs 9.70 - 10.93 Lakh*</div>
+                    <div class="d-flex gap-2">
+                      <button class="btn btn-primary btn-sm px-3">
+                        View Details
+                      </button>
+                      <button class="btn btn-secondary btn-sm px-3">
+                        Compare
+                      </button>
+                    </div>
+                  </div>
+                </article>
+              </div>
+
+              <div class="col-12 col-md-6 col-lg-4">
+                <article class="car-card v2 h-100">
+                  <div class="car-card__media">
+                    <img
+                      src="assets/images/marutisuzuki.png"
+                      alt="Maruti Suzuki Swift"
+                    />
+                  </div>
+                  <div class="car-card__body">
+                    <h6 class="car-card__title">Maruti Suzuki Swift</h6>
+                    <div class="car-card__location">
+                      <i class="bi bi-geo-alt-fill me-1"></i
+                      ><span>Pokhara, Nepal</span>
+                    </div>
+                    <div class="car-card__divider"></div>
+                    <div class="car-card__row mb-2">
+                      <i class="bi bi-speedometer2 me-2"></i
+                      ><span>25,100 mileage</span>
+                    </div>
+                    <div class="car-card__grid mb-2">
+                      <div class="d-flex align-items-center">
+                        <i class="bi bi-fuel-pump me-2"></i><span>Diesel</span>
+                      </div>
+                      <div class="d-flex align-items-center">
+                        <i class="bi bi-people me-2"></i><span>Seater</span>
+                      </div>
+                    </div>
+                    <div class="car-card__price">Rs 9.70 - 10.93 Lakh*</div>
+                    <div class="d-flex gap-2">
+                      <button class="btn btn-primary btn-sm px-3">
+                        View Details
+                      </button>
+                      <button class="btn btn-secondary btn-sm px-3">
+                        Compare
+                      </button>
+                    </div>
+                  </div>
+                </article>
+              </div>
+
+              <div class="col-12 col-md-6 col-lg-4">
+                <article class="car-card v2 h-100">
+                  <div class="car-card__media">
+                    <img
+                      src="assets/images/marutisuzuki.png"
+                      alt="Maruti Suzuki Swift"
+                    />
+                  </div>
+                  <div class="car-card__body">
+                    <h6 class="car-card__title">Maruti Suzuki Swift</h6>
+                    <div class="car-card__location">
+                      <i class="bi bi-geo-alt-fill me-1"></i
+                      ><span>Pokhara, Nepal</span>
+                    </div>
+                    <div class="car-card__divider"></div>
+                    <div class="car-card__row mb-2">
+                      <i class="bi bi-speedometer2 me-2"></i
+                      ><span>25,100 mileage</span>
+                    </div>
+                    <div class="car-card__grid mb-2">
+                      <div class="d-flex align-items-center">
+                        <i class="bi bi-fuel-pump me-2"></i><span>Diesel</span>
+                      </div>
+                      <div class="d-flex align-items-center">
+                        <i class="bi bi-people me-2"></i><span>Seater</span>
+                      </div>
+                    </div>
+                    <div class="car-card__price">Rs 9.70 - 10.93 Lakh*</div>
+                    <div class="d-flex gap-2">
+                      <button class="btn btn-primary btn-sm px-3">
+                        View Details
+                      </button>
+                      <button class="btn btn-secondary btn-sm px-3">
+                        Compare
+                      </button>
+                    </div>
+                  </div>
+                </article>
+              </div>
+
+              <div class="col-12 col-md-6 col-lg-4">
+                <article class="car-card v2 h-100">
+                  <div class="car-card__media">
+                    <img
+                      src="assets/images/marutisuzuki.png"
+                      alt="Maruti Suzuki Swift"
+                    />
+                  </div>
+                  <div class="car-card__body">
+                    <h6 class="car-card__title">Maruti Suzuki Swift</h6>
+                    <div class="car-card__location">
+                      <i class="bi bi-geo-alt-fill me-1"></i
+                      ><span>Pokhara, Nepal</span>
+                    </div>
+                    <div class="car-card__divider"></div>
+                    <div class="car-card__row mb-2">
+                      <i class="bi bi-speedometer2 me-2"></i
+                      ><span>25,100 mileage</span>
+                    </div>
+                    <div class="car-card__grid mb-2">
+                      <div class="d-flex align-items-center">
+                        <i class="bi bi-fuel-pump me-2"></i><span>Diesel</span>
+                      </div>
+                      <div class="d-flex align-items-center">
+                        <i class="bi bi-people me-2"></i><span>Seater</span>
+                      </div>
+                    </div>
+                    <div class="car-card__price">Rs 9.70 - 10.93 Lakh*</div>
+                    <div class="d-flex gap-2">
+                      <button class="btn btn-primary btn-sm px-3">
+                        View Details
+                      </button>
+                      <button class="btn btn-secondary btn-sm px-3">
+                        Compare
+                      </button>
+                    </div>
+                  </div>
+                </article>
+              </div>
+
+              <div class="col-12 col-md-6 col-lg-4">
+                <article class="car-card v2 h-100">
+                  <div class="car-card__media">
+                    <img
+                      src="assets/images/marutisuzuki.png"
+                      alt="Maruti Suzuki Swift"
+                    />
+                  </div>
+                  <div class="car-card__body">
+                    <h6 class="car-card__title">Maruti Suzuki Swift</h6>
+                    <div class="car-card__location">
+                      <i class="bi bi-geo-alt-fill me-1"></i
+                      ><span>Pokhara, Nepal</span>
+                    </div>
+                    <div class="car-card__divider"></div>
+                    <div class="car-card__row mb-2">
+                      <i class="bi bi-speedometer2 me-2"></i
+                      ><span>25,100 mileage</span>
+                    </div>
+                    <div class="car-card__grid mb-2">
+                      <div class="d-flex align-items-center">
+                        <i class="bi bi-fuel-pump me-2"></i><span>Diesel</span>
+                      </div>
+                      <div class="d-flex align-items-center">
+                        <i class="bi bi-people me-2"></i><span>Seater</span>
+                      </div>
+                    </div>
+                    <div class="car-card__price">Rs 9.70 - 10.93 Lakh*</div>
+                    <div class="d-flex gap-2">
+                      <button class="btn btn-primary btn-sm px-3">
+                        View Details
+                      </button>
+                      <button class="btn btn-secondary btn-sm px-3">
+                        Compare
+                      </button>
+                    </div>
+                  </div>
+                </article>
+              </div>
+
+              <div class="col-12 col-md-6 col-lg-4">
+                <article class="car-card v2 h-100">
+                  <div class="car-card__media">
+                    <img
+                      src="assets/images/marutisuzuki.png"
+                      alt="Maruti Suzuki Swift"
+                    />
+                  </div>
+                  <div class="car-card__body">
+                    <h6 class="car-card__title">Maruti Suzuki Swift</h6>
+                    <div class="car-card__location">
+                      <i class="bi bi-geo-alt-fill me-1"></i
+                      ><span>Pokhara, Nepal</span>
+                    </div>
+                    <div class="car-card__divider"></div>
+                    <div class="car-card__row mb-2">
+                      <i class="bi bi-speedometer2 me-2"></i
+                      ><span>25,100 mileage</span>
+                    </div>
+                    <div class="car-card__grid mb-2">
+                      <div class="d-flex align-items-center">
+                        <i class="bi bi-fuel-pump me-2"></i><span>Diesel</span>
+                      </div>
+                      <div class="d-flex align-items-center">
+                        <i class="bi bi-people me-2"></i><span>Seater</span>
+                      </div>
+                    </div>
+                    <div class="car-card__price">Rs 9.70 - 10.93 Lakh*</div>
+                    <div class="d-flex gap-2">
+                      <button class="btn btn-primary btn-sm px-3">
+                        View Details
+                      </button>
+                      <button class="btn btn-secondary btn-sm px-3">
+                        Compare
+                      </button>
+                    </div>
+                  </div>
+                </article>
+              </div>
+            </div>
+
+            <div class="text-center mt-4">
+              <button class="btn btn-secondary load px-4">Load More</button>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <!-- FOOTER -->
+    <footer class="footer-motokhabar pt-5 pb-4">
+      <div class="container footer-container">
+        <div class="row gx-0 footer-row">
+          <!-- Brand & Contact -->
+          <div class="col-lg-5">
+            <img
+              src="assets/images/logo-white.png"
+              alt="Motokhabar"
+              class="footer-logo mb-3"
+            />
+            <p class="footer-text mb-4 footer-contact">
+              Your trusted companion for making informed<br />
+              car buying decisions in Nepal.
+            </p>
+
+            <div class="d-flex align-items-start mb-2 footer-contact">
+              <i class="bi bi-telephone me-2 mt-1"></i>
+              <span>+977 9800000000, +977 9800000000</span>
+            </div>
+            <div class="d-flex align-items-start mb-4 footer-contact">
+              <i class="bi bi-envelope me-2 mt-1"></i>
+              <span>motokhabar@gmail.com</span>
+            </div>
+          </div>
+
+          <!-- Explore -->
+          <div class="col-6 col-lg-3">
+            <h5 class="footer-heading">Explore</h5>
+            <ul class="list-unstyled footer-links">
+              <li><a href="#">Explore cars</a></li>
+              <li><a href="#">Reviews</a></li>
+              <li><a href="#">Latest Deals</a></li>
+              <li><a href="#">News & Blogs</a></li>
+              <li><a href="#">Contact</a></li>
+            </ul>
+          </div>
+
+          <!-- Resources -->
+          <div class="col-6 col-lg-2">
+            <h5 class="footer-heading">Resources</h5>
+            <ul class="list-unstyled footer-links">
+              <li><a href="#">Buying Guide</a></li>
+              <li><a href="#">Car Comparison</a></li>
+              <li><a href="#">Notifications</a></li>
+              <li><a href="#">Ask Questions</a></li>
+            </ul>
+          </div>
+
+          <!-- Support -->
+          <div class="col-6 col-lg-2">
+            <h5 class="footer-heading">Support</h5>
+            <ul class="list-unstyled footer-links">
+              <li><a href="#">Help Center</a></li>
+              <li><a href="#">Privacy Policy</a></li>
+              <li><a href="#">Terms of Service</a></li>
+              <li><a href="#">Cookie Policy</a></li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- Horizintal lina -->
+        <hr class="footer-hr my-4" />
+
+        <!-- Bottom bar -->
+        <div
+          class="d-flex flex-column flex-lg-row align-items-center justify-content-between"
+        >
+          <p class="copyright mb-2 mb-lg-0 small">
+            &copy; 2024 Motokhabar. All rights reserved.
+          </p>
+          <ul class="list-inline mb-0 footer-bottom-links">
+            <li class="list-inline-item"><a href="#">Privacy</a></li>
+            <li class="list-inline-item"><a href="#">Terms</a></li>
+            <li class="list-inline-item"><a href="#">Contact</a></li>
+          </ul>
+        </div>
+      </div>
+    </footer>
+    <!-- Bootstrap Bundle JS (includes Popper) -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+  </body>
+</html>

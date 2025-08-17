@@ -1,0 +1,1033 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- Bootstrap CSS -->
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+    <!-- Google Font -->
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <!--  Ionicons CDN for exact compare Icons -->
+
+    <script
+      type="module"
+      src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"
+    ></script>
+    <script
+      nomodule
+      src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"
+    ></script>
+    <!-- Bootstrap icon link -->
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css"
+    />
+    <link rel="stylesheet" href="css/style.css" />
+    <link rel="stylesheet" href="css/explore_cars.css" />
+    <link rel="stylesheet" href="css/new_car_detail.css" />
+
+    <title>Car Details</title>
+  </head>
+  <body>
+    <header class="site-header sticky-top">
+      <!-- TOP NAV -->
+      <nav class="navbar navbar-expand-lg navbar-light header-top shadow-sm">
+        <div class="container header-container">
+          <!-- Logo -->
+          <a class="navbar-brand d-flex align-items-center" href="#">
+            <img
+              src="assets/images/logo.png"
+              alt="Motokhabar"
+              class="site-logo"
+            />
+          </a>
+
+          <!-- Mobile toggler -->
+          <button
+            class="navbar-toggler"
+            type="button"
+            data-bs-toggle="collapse"
+            data-bs-target="#topNav"
+            aria-controls="topNav"
+            aria-expanded="false"
+            aria-label="Toggle navigation"
+          >
+            <span class="navbar-toggler-icon"></span>
+          </button>
+
+          <!-- Search + right items -->
+          <div class="collapse navbar-collapse" id="topNav">
+            <!-- Search -->
+            <form
+              class="ms-lg-3 me-lg-4 my-3 my-lg-0 w-100 w-lg-auto header-search"
+              role="search"
+            >
+              <div class="input-group">
+                <span class="input-group-text bg-transparent border-0 ps-3">
+                  <i class="bi bi-search"></i>
+                </span>
+                <input
+                  type="search"
+                  class="form-control search-input"
+                  placeholder="Search Cars"
+                  aria-label="Search Cars"
+                />
+              </div>
+            </form>
+
+            <!-- Right items -->
+            <ul class="navbar-nav ms-auto align-items-center header-actions">
+              <li class="nav-item d-flex align-items-center me-3">
+                <!-- <i class="bi bi-shuffle me-2"></i> -->
+                <ion-icon
+                  name="git-compare-outline"
+                  style="width: 20px; height: 20px; padding-right: 3px"
+                ></ion-icon>
+
+                <a class="nav-link p-0" href="#">Compare</a>
+              </li>
+              <li class="nav-item d-flex align-items-center me-3">
+                <i class="bi bi-bell me-2"></i>
+                <a class="nav-link p-0" href="#"> Notification </a>
+              </li>
+
+              <li class="nav-item">
+                <a
+                  class="nav-link p-0 d-flex align-items-center"
+                  href="#"
+                  style="white-space: nowrap"
+                >
+                  <i class="bi bi-person me-2"></i>
+                  Hello, Login
+                  <span class="badge-dot ms-2"></span>
+                </a>
+              </li>
+              <li>
+                <a href="#" class="flag-nepal" aria-label="Nepal Flag">
+                  <img src="assets/images/nepal-flag.png" alt="Nepal Flag" />
+                </a>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </nav>
+
+      <!-- BOTTOM NAV -->
+      <nav
+        class="navbar navbar-expand-lg navbar-light header-bottom border-top"
+      >
+        <div class="container header-container">
+          <button
+            class="navbar-toggler"
+            type="button"
+            data-bs-toggle="collapse"
+            data-bs-target="#bottomNav"
+            aria-controls="bottomNav"
+            aria-expanded="false"
+            aria-label="Toggle navigation"
+          >
+            <span class="navbar-toggler-icon"></span>
+          </button>
+
+          <div
+            class="collapse navbar-collapse justify-content-center"
+            id="bottomNav"
+          >
+            <ul class="navbar-nav header-subnav">
+              <li class="nav-item">
+                <a class="nav-link" href="#">New Cars</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="#">Used Cars</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="#">Expert Review</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="#">News &amp; Blogs</a>
+              </li>
+              <li class="nav-item"><a class="nav-link" href="#">Contact</a></li>
+            </ul>
+          </div>
+        </div>
+      </nav>
+    </header>
+    <!-- Top breadcrump -->
+    <section class="toppart">
+      <nav aria-label="breadcrumb">
+        <ol class="breadcrumb">
+          <li class="breadcrumb-item">
+            <a href="home.html">Home</a>
+          </li>
+          <li class="breadcrumb-item">
+            <a href="explore_cars.html">Explore Cars</a>
+          </li>
+          <li class="breadcrumb-item active" aria-current="page">
+            <a href="new_car_detail.html">Car Details</a>
+          </li>
+        </ol>
+      </nav>
+    </section>
+    <!-- ============ CAR HERO ============ -->
+    <section class="container my-4">
+      <div class="car-hero rounded-4 overflow-hidden shadow-sm">
+        <div class="row g-0 align-items-center">
+          <!-- LEFT: details -->
+          <div class="col-lg-6 p-4 p-lg-5 hero-left">
+            <div class="mb-2 fw-semibold year">2024</div>
+
+            <h1 class="display-5 fw-bold mb-3">Car Name</h1>
+
+            <div class="fw-semibold mb-1 starts">Starts at:</div>
+            <div class="h3 fw-bold mb-4 price">Rs 37,56,000</div>
+
+            <!-- actions -->
+            <div class="d-flex flex-wrap gap-3 mb-4">
+              <div class="dropdown">
+                <button
+                  class="btn btn-hero btn-lg dropdown-toggle"
+                  data-bs-toggle="dropdown"
+                  aria-expanded="false"
+                >
+                  Add Variant
+                </button>
+                <ul class="dropdown-menu">
+                  <li><a class="dropdown-item" href="#">Variant A</a></li>
+                  <li><a class="dropdown-item" href="#">Variant B</a></li>
+                  <li><a class="dropdown-item" href="#">Variant C</a></li>
+                </ul>
+              </div>
+
+              <button class="btn btn-hero-outline btn-lg">
+                Ownership Calculator
+              </button>
+              <button class="btn btn-hero-outline btn-lg">
+                View Used Versions
+              </button>
+            </div>
+
+            <!-- colours -->
+            <div class="text-white-50 fw-semibold mb-2">Colour Options:</div>
+            <div class="d-flex align-items-center gap-3 mb-4">
+              <span class="swatch bg-white border"></span>
+              <span class="swatch bg-secondary"></span>
+              <span class="swatch bg-dark"></span>
+              <span class="swatch bg-danger"></span>
+              <span class="swatch bg-warning"></span>
+              <span class="swatch bg-primary"></span>
+            </div>
+
+            <!-- rating -->
+            <div class="d-flex align-items-center gap-3 text-white">
+              <div class="text-warning fs-5">
+                <i class="bi bi-star-fill"></i>
+                <i class="bi bi-star-fill"></i>
+                <i class="bi bi-star-fill"></i>
+                <i class="bi bi-star-fill"></i>
+                <i class="bi bi-star-fill"></i>
+              </div>
+              <div class="fw-semibold">4.9 Rating</div>
+              <div class="opacity-75">|</div>
+              <a
+                href="#"
+                class="link-light text-decoration-none d-inline-flex align-items-center gap-1"
+              >
+                Write a Review <i class="bi bi-box-arrow-up-right"></i>
+              </a>
+            </div>
+          </div>
+
+          <!-- RIGHT: image slider -->
+          <div class="col-lg-6 d-flex justify-content-end hero-right">
+            <div class="hero-carousel-wrapper">
+              <div
+                id="heroCarCarousel"
+                class="carousel slide"
+                data-bs-ride="false"
+              >
+                <div class="carousel-inner">
+                  <div class="carousel-item active">
+                    <img
+                      src="assets/images/cardetailsimg.png"
+                      class="d-block w-100 car-shot"
+                      alt="Car view 1"
+                    />
+                  </div>
+                  <div class="carousel-item">
+                    <img
+                      src="assets/images/cardetailsimg.png"
+                      class="d-block w-100 car-shot"
+                      alt="Car view 2"
+                    />
+                  </div>
+                  <div class="carousel-item">
+                    <img
+                      src="assets/images/cardetailsimg.png"
+                      class="d-block w-100 car-shot"
+                      alt="Car view 3"
+                    />
+                  </div>
+                </div>
+
+                <!-- round arrows -->
+                <button
+                  class="carousel-control-prev hero-nav"
+                  type="button"
+                  data-bs-target="#heroCarCarousel"
+                  data-bs-slide="prev"
+                >
+                  <span class="visually-hidden">Previous</span>
+                  <i class="bi bi-chevron-left"></i>
+                </button>
+                <button
+                  class="carousel-control-next hero-nav"
+                  type="button"
+                  data-bs-target="#heroCarCarousel"
+                  data-bs-slide="next"
+                >
+                  <span class="visually-hidden">Next</span>
+                  <i class="bi bi-chevron-right"></i>
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <!-- section navigation -->
+    <section class="container w-100">
+      <div class="specs-nav">
+        <a href="#tech-specs">Specs</a>
+        <a href="#ratings-reviews">Rating & Reviews</a>
+        <a href="#owner-satisfaction">Owner Satisfaction</a>
+        <a href="#market-insights">Market Insights</a>
+      </div>
+    </section>
+
+    <!-- Technical Specification -->
+    <section id="tech-specs" class="container my-5">
+      <h2 class="text-center fw-bold mb-1">Technical Specification</h2>
+      <p class="text-center text-muted mb-4">
+        Detailed Performance And Technical Data
+      </p>
+
+      <div class="row g-4">
+        <!-- LEFT: Specs accordions -->
+        <div class="col-lg-8">
+          <div class="accordion mk-acc" id="specAccordion">
+            <!-- Basic Info -->
+            <div class="accordion-item mk-item">
+              <h2 class="accordion-header" id="basicHeading">
+                <button
+                  class="accordion-button mk-btn"
+                  type="button"
+                  data-bs-toggle="collapse"
+                  data-bs-target="#basicCollapse"
+                  aria-expanded="true"
+                  aria-controls="basicCollapse"
+                >
+                  <i class="bi bi-star me-2"></i> Basic Info
+                  <i class="bi bi-chevron-down ms-auto mk-chevron"></i>
+                </button>
+              </h2>
+              <div
+                id="basicCollapse"
+                class="accordion-collapse collapse show"
+                aria-labelledby="basicHeading"
+                data-bs-parent="#specAccordion"
+              >
+                <div class="accordion-body p-0">
+                  <div class="mk-spec-grid">
+                    <div class="mk-cell">
+                      <span>Body Type</span><strong>Sedan</strong>
+                    </div>
+                    <div class="mk-cell">
+                      <span>Transmission</span
+                      ><strong>6-speed Automatic</strong>
+                    </div>
+                    <div class="mk-cell">
+                      <span>Doors</span><strong>4 doors</strong>
+                    </div>
+                    <div class="mk-cell">
+                      <span>Drivetrain</span><strong>FWD</strong>
+                    </div>
+                    <div class="mk-cell">
+                      <span>Seats</span><strong>5 seats</strong>
+                    </div>
+                    <div class="mk-cell">
+                      <span>Warranty</span><strong>4 yrs / 80,000 km</strong>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Performance -->
+            <div class="accordion-item mk-item">
+              <h2 class="accordion-header" id="perfHeading">
+                <button
+                  class="accordion-button collapsed mk-btn"
+                  type="button"
+                  data-bs-toggle="collapse"
+                  data-bs-target="#perfCollapse"
+                  aria-expanded="false"
+                  aria-controls="perfCollapse"
+                >
+                  <i class="bi bi-speedometer2 me-2"></i> Performance
+                  <i class="bi bi-chevron-down ms-auto mk-chevron"></i>
+                </button>
+              </h2>
+              <div
+                id="perfCollapse"
+                class="accordion-collapse collapse"
+                aria-labelledby="perfHeading"
+                data-bs-parent="#specAccordion"
+              >
+                <div class="accordion-body p-0">
+                  <div class="mk-spec-grid">
+                    <div class="mk-cell">
+                      <span>Power</span><strong>120 hp @ 6,000 rpm</strong>
+                    </div>
+                    <div class="mk-cell">
+                      <span>Torque</span><strong>155 Nm @ 4,000 rpm</strong>
+                    </div>
+                    <div class="mk-cell">
+                      <span>0-100 km/h</span><strong>10.9 s</strong>
+                    </div>
+                    <div class="mk-cell">
+                      <span>Top Speed</span><strong>180 km/h</strong>
+                    </div>
+                    <div class="mk-cell">
+                      <span>Drive</span><strong>FWD</strong>
+                    </div>
+                    <div class="mk-cell">
+                      <span>Steering</span><strong>Electric Power</strong>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Efficiency -->
+            <div class="accordion-item mk-item">
+              <h2 class="accordion-header" id="effHeading">
+                <button
+                  class="accordion-button collapsed mk-btn"
+                  type="button"
+                  data-bs-toggle="collapse"
+                  data-bs-target="#effCollapse"
+                  aria-expanded="false"
+                  aria-controls="effCollapse"
+                >
+                  <i class="bi bi-ev-front me-2"></i> Efficiency
+                  <i class="bi bi-chevron-down ms-auto mk-chevron"></i>
+                </button>
+              </h2>
+              <div
+                id="effCollapse"
+                class="accordion-collapse collapse"
+                aria-labelledby="effHeading"
+                data-bs-parent="#specAccordion"
+              >
+                <div class="accordion-body p-0">
+                  <div class="mk-spec-grid">
+                    <div class="mk-cell">
+                      <span>City</span><strong>16 km/l</strong>
+                    </div>
+                    <div class="mk-cell">
+                      <span>Highway</span><strong>22 km/l</strong>
+                    </div>
+                    <div class="mk-cell">
+                      <span>Combined</span><strong>19 km/l</strong>
+                    </div>
+                    <div class="mk-cell">
+                      <span>Fuel Tank</span><strong>42 L</strong>
+                    </div>
+                    <div class="mk-cell">
+                      <span>CO₂ Emission</span><strong>120 g/km</strong>
+                    </div>
+                    <div class="mk-cell">
+                      <span>Start/Stop</span><strong>Yes</strong>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Dimension -->
+            <div class="accordion-item mk-item">
+              <h2 class="accordion-header" id="dimHeading">
+                <button
+                  class="accordion-button collapsed mk-btn"
+                  type="button"
+                  data-bs-toggle="collapse"
+                  data-bs-target="#dimCollapse"
+                  aria-expanded="false"
+                  aria-controls="dimCollapse"
+                >
+                  <i class="bi bi-bounding-box-circles me-2"></i> Dimension
+                  <i class="bi bi-chevron-down ms-auto mk-chevron"></i>
+                </button>
+              </h2>
+              <div
+                id="dimCollapse"
+                class="accordion-collapse collapse"
+                aria-labelledby="dimHeading"
+                data-bs-parent="#specAccordion"
+              >
+                <div class="accordion-body p-0">
+                  <div class="mk-spec-grid">
+                    <div class="mk-cell">
+                      <span>Length</span><strong>3,845 mm</strong>
+                    </div>
+                    <div class="mk-cell">
+                      <span>Width</span><strong>1,735 mm</strong>
+                    </div>
+                    <div class="mk-cell">
+                      <span>Height</span><strong>1,530 mm</strong>
+                    </div>
+                    <div class="mk-cell">
+                      <span>Wheelbase</span><strong>2,450 mm</strong>
+                    </div>
+                    <div class="mk-cell">
+                      <span>Ground Clearance</span><strong>170 mm</strong>
+                    </div>
+                    <div class="mk-cell">
+                      <span>Boot Space</span><strong>268 L</strong>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Safety -->
+            <div class="accordion-item mk-item">
+              <h2 class="accordion-header" id="safetyHeading">
+                <button
+                  class="accordion-button collapsed mk-btn"
+                  type="button"
+                  data-bs-toggle="collapse"
+                  data-bs-target="#safetyCollapse"
+                  aria-expanded="false"
+                  aria-controls="safetyCollapse"
+                >
+                  <i class="bi bi-shield-check me-2"></i> Safety
+                  <i class="bi bi-chevron-down ms-auto mk-chevron"></i>
+                </button>
+              </h2>
+              <div
+                id="safetyCollapse"
+                class="accordion-collapse collapse"
+                aria-labelledby="safetyHeading"
+                data-bs-parent="#specAccordion"
+              >
+                <div class="accordion-body p-0">
+                  <div class="mk-spec-grid">
+                    <div class="mk-cell">
+                      <span>Airbags</span><strong>6</strong>
+                    </div>
+                    <div class="mk-cell">
+                      <span>ABS / EBD</span><strong>Yes / Yes</strong>
+                    </div>
+                    <div class="mk-cell">
+                      <span>ESC</span><strong>Yes</strong>
+                    </div>
+                    <div class="mk-cell">
+                      <span>ISOFIX</span><strong>Yes</strong>
+                    </div>
+                    <div class="mk-cell">
+                      <span>NCAP</span><strong>4-Star</strong>
+                    </div>
+                    <div class="mk-cell">
+                      <span>TPMS</span><strong>Yes</strong>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Features -->
+            <div class="accordion-item mk-item">
+              <h2 class="accordion-header" id="featHeading">
+                <button
+                  class="accordion-button collapsed mk-btn"
+                  type="button"
+                  data-bs-toggle="collapse"
+                  data-bs-target="#featCollapse"
+                  aria-expanded="false"
+                  aria-controls="featCollapse"
+                >
+                  <i class="bi bi-gear-wide-connected me-2"></i> Features
+                  <i class="bi bi-chevron-down ms-auto mk-chevron"></i>
+                </button>
+              </h2>
+              <div
+                id="featCollapse"
+                class="accordion-collapse collapse"
+                aria-labelledby="featHeading"
+                data-bs-parent="#specAccordion"
+              >
+                <div class="accordion-body p-0">
+                  <div class="mk-spec-grid">
+                    <div class="mk-cell">
+                      <span>Infotainment</span><strong>9" Touchscreen</strong>
+                    </div>
+                    <div class="mk-cell">
+                      <span>Connectivity</span
+                      ><strong>Apple CarPlay / Android Auto</strong>
+                    </div>
+                    <div class="mk-cell">
+                      <span>Climate Control</span><strong>Auto (1-zone)</strong>
+                    </div>
+                    <div class="mk-cell">
+                      <span>Seats</span
+                      ><strong>Fabric, Height-Adjust Driver</strong>
+                    </div>
+                    <div class="mk-cell">
+                      <span>Sunroof</span><strong>—</strong>
+                    </div>
+                    <div class="mk-cell">
+                      <span>ADAS</span><strong>Lane Assist, AEB</strong>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <!-- /accordion -->
+        </div>
+
+        <!-- RIGHT: Good/Bad & EMI -->
+        <div class="col-lg-4">
+          <!-- What's good card -->
+          <div class="mk-sidecard mb-3">
+            <h6 class="fw-semibold mb-3">
+              <i class="bi bi-check2-square me-2 text-primary"></i>What’s Good?
+            </h6>
+            <ul class="mk-bullets mb-3">
+              <li>Up to 375-mile range</li>
+              <li>Comfortable to drive</li>
+              <li>Roomy back seats and boot</li>
+            </ul>
+            <h6 class="fw-semibold mb-2">
+              <i class="bi bi-x-octagon me-2 text-danger"></i>What’s not so
+              Good?
+            </h6>
+            <ul class="mk-bullets">
+              <li>Heat pump only on top variants</li>
+              <li>Average cornering feel</li>
+              <li>Rear visibility could be better</li>
+            </ul>
+          </div>
+
+          <!-- EMI card -->
+          <div class="mk-sidecard">
+            <h6 class="fw-semibold mb-3">
+              <i class="bi bi-calculator me-2"></i>Calculate EMI
+            </h6>
+
+            <div class="h5 fw-bold" id="emiOut">Rs 45,00,000</div>
+            <div class="mb-2 small text-muted">Monthly EMI</div>
+            <div class="small text-muted mb-3">
+              Interest calculated at 9.8% for 48 months
+            </div>
+
+            <!-- Small inputs (optional tweak anytime) -->
+            <!-- <div class="row g-2 mb-3">
+              <div class="col-6">
+                <label class="form-label small mb-1">Loan Amount (Rs)</label>
+                <input
+                  type="number"
+                  id="loanAmt"
+                  class="form-control form-control-sm"
+                  value="2000000"
+                />
+              </div>
+              <div class="col-3">
+                <label class="form-label small mb-1">Rate %</label>
+                <input
+                  type="number"
+                  id="loanRate"
+                  class="form-control form-control-sm"
+                  value="9.8"
+                  step="0.1"
+                />
+              </div>
+              <div class="col-3">
+                <label class="form-label small mb-1">Tenure (mo)</label>
+                <input
+                  type="number"
+                  id="loanTenure"
+                  class="form-control form-control-sm"
+                  value="48"
+                />
+              </div>
+            </div> -->
+
+            <button id="emiBtn" class="btn btn-primary w-100">
+              Calculate EMI
+            </button>
+          </div>
+        </div>
+      </div>
+    </section>
+    <!-- Reviews -->
+    <section class="container my-5" id="ratings-reviews">
+      <div class="text-center mb-4">
+        <h2 class="fw-bold">Ratings & Reviews</h2>
+        <p class="text-muted mb-0">Expert Opinion And User Feedback</p>
+      </div>
+
+      <div class="row g-4 align-items-stretch">
+        <!-- Left: Overall rating -->
+        <div class="col-lg-5">
+          <div class="mk-card h-100 p-4">
+            <h4 class="fw-semibold mb-4">Overall Rating</h4>
+
+            <div class="d-flex align-items-end gap-3 mb-4">
+              <div class="display-5 fw-bold mb-0" style="line-height: 1">
+                4.9
+              </div>
+              <div>
+                <div class="rating-stars mb-1">
+                  <i class="bi bi-star-fill"></i>
+                  <i class="bi bi-star-fill"></i>
+                  <i class="bi bi-star-fill"></i>
+                  <i class="bi bi-star-fill"></i>
+                  <i class="bi bi-star-half"></i>
+                </div>
+                <div class="text-muted small">Based On 1000 Reviews</div>
+              </div>
+            </div>
+
+            <!-- Category rows -->
+            <div class="mk-rating-row">
+              <span class="mk-rating-label">Performance</span>
+              <div class="mk-rating-bar">
+                <div class="mk-rating-fill" style="width: 92%"></div>
+              </div>
+              <span class="mk-rating-score">4.8</span>
+            </div>
+
+            <div class="mk-rating-row">
+              <span class="mk-rating-label">Comfort</span>
+              <div class="mk-rating-bar">
+                <div class="mk-rating-fill" style="width: 92%"></div>
+              </div>
+              <span class="mk-rating-score">4.8</span>
+            </div>
+
+            <div class="mk-rating-row">
+              <span class="mk-rating-label">Technology</span>
+              <div class="mk-rating-bar">
+                <div class="mk-rating-fill" style="width: 92%"></div>
+              </div>
+              <span class="mk-rating-score">4.8</span>
+            </div>
+
+            <div class="mk-rating-row">
+              <span class="mk-rating-label">Value</span>
+              <div class="mk-rating-bar">
+                <div class="mk-rating-fill" style="width: 92%"></div>
+              </div>
+              <span class="mk-rating-score">4.8</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Right: individual reviews -->
+        <div class="col-lg-7">
+          <div class="d-flex flex-column gap-4">
+            <!-- Review card -->
+            <article class="mk-card p-4">
+              <div
+                class="d-flex align-items-center justify-content-between flex-wrap gap-2 mb-2"
+              >
+                <div class="d-flex align-items-center gap-2">
+                  <div class="rating-stars">
+                    <i class="bi bi-star-fill"></i>
+                    <i class="bi bi-star-fill"></i>
+                    <i class="bi bi-star-fill"></i>
+                    <i class="bi bi-star-fill"></i>
+                    <i class="bi bi-star-fill"></i>
+                  </div>
+                  <span class="text-muted">5.0 • 2 Days Ago</span>
+                </div>
+              </div>
+
+              <p class="mb-3 fs-6">
+                "Absolutely love this car! The acceleration is incredible and
+                the autopilot features work flawlessly. Best purchase I've made
+                in years."
+              </p>
+
+              <div class="d-flex align-items-center gap-2">
+                <img
+                  src="https://ui-avatars.com/api/?name=Dikshya+Devkota&background=E2C2BB&color=5D4037"
+                  alt="User"
+                  class="rounded-circle"
+                  width="32"
+                  height="32"
+                />
+                <div class="small text-muted">Dikshya Devkota, Pokhara</div>
+              </div>
+            </article>
+
+            <!-- Review card -->
+            <article class="mk-card p-4">
+              <div
+                class="d-flex align-items-center justify-content-between flex-wrap gap-2 mb-2"
+              >
+                <div class="d-flex align-items-center gap-2">
+                  <div class="rating-stars">
+                    <i class="bi bi-star-fill"></i>
+                    <i class="bi bi-star-fill"></i>
+                    <i class="bi bi-star-fill"></i>
+                    <i class="bi bi-star-fill"></i>
+                    <i class="bi bi-star-half"></i>
+                  </div>
+                  <span class="text-muted">4.5 • 1 Week Ago</span>
+                </div>
+              </div>
+
+              <p class="mb-3 fs-6">
+                "Smooth drive and solid comfort. Infotainment is great and the
+                safety features give confidence. Could use a tad more boot
+                space."
+              </p>
+
+              <div class="d-flex align-items-center gap-2">
+                <img
+                  src="https://ui-avatars.com/api/?name=Sanjay+Rai&background=E2C2BB&color=5D4037"
+                  alt="User"
+                  class="rounded-circle"
+                  width="32"
+                  height="32"
+                />
+                <div class="small text-muted">Sanjay Rai, Kathmandu</div>
+              </div>
+            </article>
+          </div>
+        </div>
+      </div>
+    </section>
+    <!-- ownwer Satisfaction -->
+    <section class="container my-5" id="owner-satisfaction">
+      <div class="text-center mb-4">
+        <h2 class="fw-bold">Owner Satisfaction</h2>
+        <p class="text-muted mb-0">Real Feedback From Long-Term Owners</p>
+      </div>
+
+      <!-- KPIs -->
+      <div class="row g-4 justify-content-center text-center mb-4">
+        <div class="col-6 col-md-4 col-lg-3">
+          <div class="kpi-dot bg-green-100">
+            <i class="bi bi-check2-circle"></i>
+          </div>
+          <div class="kpi-value">92%</div>
+          <div class="kpi-label">Would Recommend</div>
+        </div>
+        <div class="col-6 col-md-4 col-lg-3">
+          <div class="kpi-dot bg-blue-100">
+            <i class="bi bi-cart-check"></i>
+          </div>
+          <div class="kpi-value">4.7</div>
+          <div class="kpi-label">Reliability Score</div>
+        </div>
+        <div class="col-6 col-md-4 col-lg-3">
+          <div class="kpi-dot bg-lilac-100">
+            <i class="bi bi-hand-thumbs-up"></i>
+          </div>
+          <div class="kpi-value">89%</div>
+          <div class="kpi-label">Owner Satisfaction</div>
+        </div>
+      </div>
+
+      <!-- Cards -->
+      <div class="row g-4">
+        <!-- Loved Features -->
+        <div class="col-lg-6">
+          <div class="mk-card p-4 h-100">
+            <div class="d-flex align-items-center gap-2 mb-3">
+              <i class="bi bi-heart-fill text-primary-choco"></i>
+              <h5 class="mb-0 fw-semibold">Most Loved Features</h5>
+            </div>
+
+            <ul class="mk-list">
+              <li class="mk-list-row">
+                <span>Autopilot Technology</span>
+                <span class="mk-score text-primary-choco">8/10</span>
+              </li>
+              <li class="mk-list-row">
+                <span>Performance &amp; Acceleration</span>
+                <span class="mk-score text-primary-choco">8/10</span>
+              </li>
+              <li class="mk-list-row">
+                <span>Interior Design</span>
+                <span class="mk-score text-primary-choco">8/10</span>
+              </li>
+              <li class="mk-list-row">
+                <span>Over-the-air Updates</span>
+                <span class="mk-score text-primary-choco">8/10</span>
+              </li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- Concerns -->
+        <div class="col-lg-6">
+          <div class="mk-card p-4 h-100">
+            <div class="d-flex align-items-center gap-2 mb-3">
+              <i class="bi bi-exclamation-octagon-fill text-danger"></i>
+              <h5 class="mb-0 fw-semibold">Common Concerns</h5>
+            </div>
+
+            <ul class="mk-list">
+              <li class="mk-list-row">
+                <span>Charging Infrastructure</span>
+                <span class="mk-score text-danger">8/10</span>
+              </li>
+              <li class="mk-list-row">
+                <span>Service Center Availability</span>
+                <span class="mk-score text-danger">8/10</span>
+              </li>
+              <li class="mk-list-row">
+                <span>Initial Purchase Price</span>
+                <span class="mk-score text-danger">8/10</span>
+              </li>
+              <li class="mk-list-row">
+                <span>Build Quality Issues</span>
+                <span class="mk-score text-danger">8/10</span>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Market Insights -->
+    <section class="container my-5" id="market-insights">
+      <div class="text-center market-insights-header">
+        <h2 class="">Market Insights</h2>
+        <p class="text-muted mb-0">Trends, Pricing, And Competitive Analysis</p>
+      </div>
+
+      <div class="mi-card">
+        <h5 class="mi-title mb-4">Retention Over Years</h5>
+
+        <!-- Retention rows -->
+        <div class="mi-row">
+          <span class="mi-term">1 Year</span>
+          <span class="mi-val">85% retained</span>
+        </div>
+        <div class="mi-row">
+          <span class="mi-term">3 Years</span>
+          <span class="mi-val">72% retained</span>
+        </div>
+        <div class="mi-row">
+          <span class="mi-term">5 Years</span>
+          <span class="mi-val mi-danger">58% retained</span>
+        </div>
+
+        <hr class="mi-sep" />
+
+        <!-- Wait time -->
+        <div class="mi-row align-items-center calender-part">
+          <span class="mi-term d-flex align-items-center gap-2">
+            <i class="bi bi-calendar2-fill mi-icon"></i>
+            Current Wait Time
+          </span>
+          <span class="mi-bignum">3–4 months</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer class="footer-motokhabar pt-5 pb-4">
+      <div class="container footer-container">
+        <div class="row gx-0 footer-row">
+          <!-- Brand & Contact -->
+          <div class="col-lg-5">
+            <img
+              src="assets/images/logo-white.png"
+              alt="Motokhabar"
+              class="footer-logo mb-3"
+            />
+            <p class="footer-text mb-4 footer-contact">
+              Your trusted companion for making informed<br />
+              car buying decisions in Nepal.
+            </p>
+
+            <div class="d-flex align-items-start mb-2 footer-contact">
+              <i class="bi bi-telephone me-2 mt-1"></i>
+              <span>+977 9800000000, +977 9800000000</span>
+            </div>
+            <div class="d-flex align-items-start mb-4 footer-contact">
+              <i class="bi bi-envelope me-2 mt-1"></i>
+              <span>motokhabar@gmail.com</span>
+            </div>
+          </div>
+
+          <!-- Explore -->
+          <div class="col-6 col-lg-3">
+            <h5 class="footer-heading">Explore</h5>
+            <ul class="list-unstyled footer-links">
+              <li><a href="#">Explore cars</a></li>
+              <li><a href="#">Reviews</a></li>
+              <li><a href="#">Latest Deals</a></li>
+              <li><a href="#">News & Blogs</a></li>
+              <li><a href="#">Contact</a></li>
+            </ul>
+          </div>
+
+          <!-- Resources -->
+          <div class="col-6 col-lg-2">
+            <h5 class="footer-heading">Resources</h5>
+            <ul class="list-unstyled footer-links">
+              <li><a href="#">Buying Guide</a></li>
+              <li><a href="#">Car Comparison</a></li>
+              <li><a href="#">Notifications</a></li>
+              <li><a href="#">Ask Questions</a></li>
+            </ul>
+          </div>
+
+          <!-- Support -->
+          <div class="col-6 col-lg-2">
+            <h5 class="footer-heading">Support</h5>
+            <ul class="list-unstyled footer-links">
+              <li><a href="#">Help Center</a></li>
+              <li><a href="#">Privacy Policy</a></li>
+              <li><a href="#">Terms of Service</a></li>
+              <li><a href="#">Cookie Policy</a></li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- Horizintal lina -->
+        <hr class="footer-hr my-4" />
+
+        <!-- Bottom bar -->
+        <div
+          class="d-flex flex-column flex-lg-row align-items-center justify-content-between"
+        >
+          <p class="copyright mb-2 mb-lg-0 small">
+            &copy; 2024 Motokhabar. All rights reserved.
+          </p>
+          <ul class="list-inline mb-0 footer-bottom-links">
+            <li class="list-inline-item"><a href="#">Privacy</a></li>
+            <li class="list-inline-item"><a href="#">Terms</a></li>
+            <li class="list-inline-item"><a href="#">Contact</a></li>
+          </ul>
+        </div>
+      </div>
+    </footer>
+    <!-- Bootstrap Bundle JS (includes Popper) -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+  </body>
+</html>
