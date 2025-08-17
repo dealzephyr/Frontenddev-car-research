@@ -179,7 +179,7 @@
       <div class="car-hero rounded-4 overflow-hidden shadow-sm">
         <div class="row g-0 align-items-center">
           <!-- LEFT: details -->
-          <div class="col-lg-6 p-4 p-lg-5 hero-left">
+          <div class="col-lg-6 p-4 p-lg-2 hero-left">
             <div class="mb-2 fw-semibold year">2024</div>
 
             <h1 class="display-5 fw-bold mb-3">Car Name</h1>
@@ -213,34 +213,38 @@
             </div>
 
             <!-- colours -->
-            <div class="text-white-50 fw-semibold mb-2">Colour Options:</div>
-            <div class="d-flex align-items-center gap-3 mb-4">
-              <span class="swatch bg-white border"></span>
-              <span class="swatch bg-secondary"></span>
-              <span class="swatch bg-dark"></span>
-              <span class="swatch bg-danger"></span>
-              <span class="swatch bg-warning"></span>
-              <span class="swatch bg-primary"></span>
-            </div>
+            <div class="d-flex align-items-center gap-2 flex-wrap mb-4">
+  <span class="fw-semibold me-2 color-options">Colour Options:</span>
+  <span class="swatch bg-white border"></span>
+  <span class="swatch bg-secondary"></span>
+  <span class="swatch bg-dark"></span>
+  <span class="swatch bg-danger"></span>
+  <span class="swatch bg-warning"></span>
+  <span class="swatch bg-primary"></span>
+</div>
+
 
             <!-- rating -->
-            <div class="d-flex align-items-center gap-3 text-white">
-              <div class="text-warning fs-5">
-                <i class="bi bi-star-fill"></i>
-                <i class="bi bi-star-fill"></i>
-                <i class="bi bi-star-fill"></i>
-                <i class="bi bi-star-fill"></i>
-                <i class="bi bi-star-fill"></i>
-              </div>
-              <div class="fw-semibold">4.9 Rating</div>
-              <div class="opacity-75">|</div>
-              <a
-                href="#"
-                class="link-light text-decoration-none d-inline-flex align-items-center gap-1"
-              >
-                Write a Review <i class="bi bi-box-arrow-up-right"></i>
-              </a>
-            </div>
+           <div class="d-flex align-items-center flex-nowrap gap-2 rating">
+  <span class="d-inline-flex text-warning fs-5">
+    <i class="bi bi-star-fill"></i>
+    <i class="bi bi-star-fill"></i>
+    <i class="bi bi-star-fill"></i>
+    <i class="bi bi-star-fill"></i>
+    <i class="bi bi-star-fill"></i>
+  </span>
+
+  <span class="fw-semibold rate">4.9 Rating</span>
+  <span class="opacity-75 mx-2 rate">|</span>
+
+  <a href="#"
+     class="link-light d-inline-flex align-items-center gap-1 text-decoration-none text-truncate rev"
+     style="max-width: 160px;">
+    Write a Review<i class="bi bi-pencil-square edit-square-icon" aria-hidden="true"></i>
+
+  </a>
+</div>
+
           </div>
 
           <!-- RIGHT: image slider -->

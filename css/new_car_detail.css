@@ -1,9 +1,18 @@
 /* palette hooks you already use */
 :root {
-  --primary-color: #5d4037; /* chocolaty */
+  --primary-color: #5d4037;
+  --primary-light: #4e342e;
   --primary-dark: #212121;
   --secondary-color: #e2c2bb;
-  --text-on-primary: #fff;
+  --text-on-primary: #ffffff;
+  --neutral-light: #ffffff;
+  --neutral-mid: #d4d4d4;
+  --neutral-dark: #757575;
+
+  /* Bootstrap color hooks (quick theme) */
+  --bs-primary: #5d4037;
+  --bs-secondary: #e2c2bb;
+  --bs-body-font-family: "Poppins", sans-serif;
 }
 :root {
   --mi-icon: #7b61ff; /* purple calendar */
@@ -18,7 +27,7 @@
 @media (min-width: 992px) {
   .car-hero .row {
     display: grid;
-    grid-template-columns: 1fr 557px; /* left grows, right is 557px */
+    grid-template-columns: 1fr 400px; /* left grows, right is 557px */
     align-items: center;
   }
 }
@@ -59,8 +68,9 @@
 .hero-left {
   background: transparent;
   margin-left: 73px;
-  width: 40%;
+  width: 593px;
 }
+
 .hero-left .year {
   color: #000000;
   font-weight: 500;
@@ -95,30 +105,41 @@
   border-radius: 12px;
   box-shadow: 0 8px 18px -10px rgba(0, 0, 0, 0.35);
   width: 119px;
+  font-size: 13px;
 }
 .btn-hero:hover {
   background: var(--secondary-color);
   color: var(--primary-color);
 }
 .btn-hero-outline {
-  background: rgba(255, 255, 255, 0.08);
-  color: #fff;
-  border: 1px solid rgba(255, 255, 255, 0.25);
+  background:var(--neutral-light);
+  color: var(--primary-color);
+  border: 1px solid var(--primary-color);
   padding: 0.6rem 1.25rem;
-  border-radius: 12px;
+  border-radius: 7px;
   backdrop-filter: blur(4px);
+    font-size: 13px;
+  padding: 4px 8px;
+
 }
 .btn-hero-outline:hover {
-  background: rgba(255, 255, 255, 0.16);
+  background: var(--primary-color);
+  color: var(--neutral-light);
+  border: 1px soli var(--primary-color);
 }
-
+.color-options{
+  color: #757575 ;
+  font-size: 13px;
+  font-weight: 400;
+}
 /* colour dots */
 .swatch {
-  width: 18px;
-  height: 18px;
+  width: 15px;
+  height: 15px;
   border-radius: 999px;
   display: inline-block;
-  box-shadow: 0 0 0 2px rgba(0, 0, 0, 0.05);
+ box-shadow: 1px 4px 4px 0px #00000040;
+
 }
 
 /* right side image constraints so the car sits nicely */
@@ -130,7 +151,7 @@
 .car-shot {
   object-fit: contain;
   height: 420px; /* adjust if your image aspect differs */
-  filter: drop-shadow(0 35px 35px rgba(0, 0, 0, 0.35));
+  border: none;
 }
 
 /* round nav buttons */
@@ -138,27 +159,28 @@
   position: absolute;
   top: 50%;
   transform: translateY(-50%);
-  width: 56px;
-  height: 56px;
-  border-radius: 50%;
-  background: #fff !important;
+  width: 40px;
+  height: 40px;
+  border-radius: 53px;
+  background: #ffffff !important;
   border: 0;
   display: grid;
   place-items: center;
-  color: var(--primary-dark);
-  box-shadow: 0 10px 24px rgba(0, 0, 0, 0.18);
+  box-shadow: 3px 4px 4px 0px #00000040;
+
   opacity: 1; /* override Bootstrap’s default fade */
 }
 .carousel-control-prev.hero-nav {
-  left: 16px;
+  left: 0px;
 }
 .carousel-control-next.hero-nav {
-  right: 16px;
+  right: 0px;
 }
 .hero-right {
   display: flex;
   justify-content: flex-start;
   padding-left: 0;
+  
 }
 
 .hero-carousel-wrapper {
@@ -167,7 +189,19 @@
 }
 
 .hero-nav i {
-  font-size: 1.35rem;
+  font-size: 0.88rem;
+  color: #101828;
+}
+.rating .rate{
+  color: #757575 !important;
+  font-size: 14px !important;
+}
+.text-warning i{
+  font-size: 12px;
+  color: #D4AF37 !important;
+}
+.rating .rev{
+  color: var(--primary-color) !important;
 }
 
 /* small & medium adjustments */
@@ -188,19 +222,20 @@
     padding-bottom: 1rem !important;
   }
 }
+
 /* navigation below  section  */
 .specs-nav {
   display: flex;
   justify-content: center;
   background-color: #f5f5f5;
-  border-radius: 12px;
+  border-radius: 7px;
   padding: 12px 0;
 }
 
 .specs-nav a {
   font-weight: 500;
   color: #212121;
-  font-size: 14px;
+  font-size: 16px;
   padding: 0 20px;
   text-decoration: none;
   border-right: 1px solid #d4d4d4;
