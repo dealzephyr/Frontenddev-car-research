@@ -2456,7 +2456,11 @@ i {
   background: #40302c; /* chocolaty */
   color: #ffffff; /* white */
   font-family: "Poppins", sans-serif;
+
 }
+  
+
+  
 
 /* Headings */
 .footer-heading {
@@ -2527,6 +2531,7 @@ i {
 
 /* ---------- MOBILE/TABLET: brand on top-left, 3 cols below, all left-aligned ---------- */
 @media (max-width: 991.98px){
+   
   /* Turn the row into a left-aligned 3-col grid */
   .footer-row{
     display: grid !important;
@@ -2534,6 +2539,8 @@ i {
     gap: 18px 16px;
     justify-items: start;   /* align grid items to the left */
     text-align: left;       /* ensure text is left aligned */
+   
+    
   }
 
   /* Brand & Contact spans the full width on the first row (top-left) */
@@ -2552,11 +2559,16 @@ i {
   .footer-links a{ font-size: 0.92rem; }
   .footer-logo{ max-width: 180px; }
   .footer-contact{ font-size: 14px; line-height: 1.5; }
+   .footer-motokhabar .footer-margin{
+margin-left: 10px !important;
+
+  }
 }
 
 /* Optional: slightly smaller side padding on very small phones */
 @media (max-width: 575.98px){
   .footer-container{ padding-inline: 16px; }
+   
 }
 
 /* ---------- Bottom bar: keep your existing centered behavior on mobile, split on desktop ---------- */
@@ -2567,10 +2579,16 @@ i {
   align-items: center !important;
   justify-content: center !important;
 }
+
 @media (min-width:992px){
   .footer-motokhabar .container .d-flex.flex-column{
     text-align: left;
     justify-content: space-between !important;
+    
+  }
+  .footer-motokhabar .footer-margin{
+margin-left: 90px !important;
+margin-right: 90px !important;
   }
 }
 
