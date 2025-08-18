@@ -1226,6 +1226,96 @@ section.hero-landing.container {
   .launches-name{ font-size:13.5px; }
   .launches-meta{ font-size:12px; }
 }
+/* ========= MOBILE ≤991.98px — keep tab filtering; 2x2; 4 items ========= */
+@media (max-width: 991.98px){
+  /* Put Launches ABOVE and Rankings BELOW */
+  .rankings-block .row.g-3{ display:flex; flex-direction:column; gap:16px; }
+  .rankings-block .col-lg-3{ order:1; }
+  .rankings-block .col-lg-9{ order:2; }
+
+  /* Remove slider chrome */
+  .rankings-block .slider-shell{
+    background: transparent;
+    border: 0;
+    padding: 0;
+  }
+  .rankings-block .slider-btn{ display: none !important; }
+
+  /* IMPORTANT: keep filtering — only active track shows */
+  .rankings-block .slider-shell .cards-track[data-cat]{ display:none !important; }
+  .rankings-block .slider-shell .cards-track.is-active{
+    display:grid !important;
+    grid-template-columns: repeat(2, minmax(0,1fr));
+    gap:12px;
+    overflow:visible !important;
+    grid-auto-flow:row;
+    scroll-snap-type:none;
+    padding-bottom:0;
+  }
+
+  /* Card fills cell; compact internals */
+  .rankings-block .cards-track.is-active .car-card.v2{ width:100% !important; }
+  .rankings-block .car-card__media img{ height:130px; object-fit:cover; }
+  .rankings-block .car-card__body{ padding:12px; }
+  .rankings-block .car-card__title{ font-size:14.5px; }
+  .rankings-block .car-card__location,
+  .rankings-block .car-card__row,
+  .rankings-block .car-card__grid{ font-size:12px; }
+  .rankings-block .car-card__price{ font-size:14.5px; margin:6px 0 8px; }
+
+  /* Show only 4 cards by default */
+  .rankings-block .cards-track.is-active .car-card.v2:nth-child(n+5){ display:none; }
+
+  /* When expanded, reveal items 5+ ONLY (won’t unhide JS-filtered items) */
+  .rankings-block.is-expanded .cards-track.is-active .car-card.v2:nth-child(n+5){
+    display: revert; /* or 'block' if you prefer */
+  }
+
+  /* Respect any JS hide classes/attributes */
+  .rankings-block .car-card.v2.d-none,
+  .rankings-block .car-card.v2[hidden]{ display:none !important; }
+
+  /* Load More / Close button */
+  .rankings-load-btn{
+    display:inline-flex; align-items:center; justify-content:center;
+    width:180px; max-width:80vw;
+    margin:12px auto 0;
+    padding:10px 14px;
+    border-radius:8px;
+    border:1px solid var(--primary-color, #5d4037);
+    background:#fff; color:var(--primary-color, #5d4037);
+    font-weight:600; line-height:1; text-decoration:none;
+  }
+  .rankings-load-btn:hover{ background:var(--primary-color, #5d4037); color:#fff; }
+  .rankings-block.is-expanded .rankings-load-btn{ background:var(--primary-color, #5d4037); color:#fff; }
+   .launches-card .rankings-load-btn{align-items: center;}
+  /* Very narrow phones: stack action buttons inside card */
+  @media (max-width: 360px){
+    .rankings-block .car-card__media img{ height:120px; }
+    .rankings-block .d-flex.gap-2{
+      display:grid !important; grid-template-columns:1fr; gap:8px;
+    }
+    .rankings-block .d-flex.gap-2 > .btn{ width:100%; justify-content:center; }
+  }
+}
+/* show on mobile/tablet */
+@media (max-width: 991.98px){
+  .rankings-load-btn{
+    display: block;            /* not inline/inline-flex */
+    width: 180px;              /* or fit-content */
+    max-width: 80vw;
+    margin: 12px auto 0;       /* centers horizontally */
+    float: none !important;    /* in case something floated it */
+    justify-self: center;      /* if parent is a CSS grid */
+    align-self: center;        /* if parent is a flex column */
+  }
+}
+
+/* hide on desktop */
+@media (min-width: 992px){
+  .rankings-load-btn{ display:none !important; }
+ 
+}
 
 
   
@@ -2624,7 +2714,7 @@ section.hero-landing.container {
 .footer-links{
   display: flex;
   flex-direction: column;
-  row-gap: 0.4rem;
+  row-gap: 0.5rem;
 }
 .copyright {
   margin-left: 117px;
