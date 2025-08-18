@@ -267,9 +267,10 @@
   border-radius: 14px;
   padding: 16px 18px;
   background: #fff;
-  box-shadow: none !important;
+ 
   color: #212121;
-  font-weight: 600;
+  font-size: 16px;
+  font-weight: 500;
 }
 .mk-btn:focus {
   box-shadow: none;
@@ -285,13 +286,16 @@
 
 /* remove Bootstrap default borders */
 .mk-acc .accordion-item {
-  border: 0;
+ 
+  box-shadow: none !important;
+  border: 1px solid #e8e8e8;
+  height: 89px;
 }
 .mk-acc .accordion-button {
   border: 0;
 }
 .mk-acc .accordion-body {
-  border-top: 1px solid #efefef;
+  border-top: 1px solid #e8e8e8 ;
 }
 
 /* Spec grid  */
@@ -308,6 +312,7 @@
   align-items: center;
   padding: 12px 16px;
   border-bottom: 1px solid #f1f1f1;
+  
 }
 .mk-cell:nth-child(odd) {
   background: #fafafa;
