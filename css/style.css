@@ -60,13 +60,12 @@ body {
 } /* vertically center logo look */
 
 .header-search .input-group {
-  
-  height: 34px;
   border-radius: 28px;
   background: #fff;
   box-shadow: 0 8px 17.6px -9px rgba(0, 0, 0, 0.25);
   overflow: hidden;
   border: 1px solid #efefef;
+ 
   
 }
 .header-search .input-group-text {
@@ -78,6 +77,7 @@ body {
   height: 34px;
   padding: 6px 14px 6px 4px;
   font-size: 0.95rem;
+ 
 }
 .search-input:focus {
   box-shadow: none;
@@ -204,7 +204,7 @@ html, body { width: 100%; max-width: 100%; overflow-x: hidden; }
 /*
    TOP NAV — MOBILE & TABLET (≤991.98)
    */
-@media (max-width: 991.98px){
+@media (max-width:575px){
   /* Tight side padding; keep one row */
   .header-top.navbar{ padding: 0 8px; flex-wrap: nowrap !important; }
 
@@ -268,7 +268,105 @@ html, body { width: 100%; max-width: 100%; overflow-x: hidden; }
   /* Logo size on phones/tablets */
   .site-logo{ width: 130px !important; height:auto !important; margin:0 !important; object-fit:contain; }
 }
+@media (min-width:576px) and (max-width:911px){
+  /* Tight side padding; keep one row */
+  .header-top.navbar{ padding: 0 10px; flex-wrap: nowrap !important; }
 
+  .header-top .header-container{
+    display:flex !important; align-items:center !important;
+    flex-wrap: nowrap !important; width:100%;
+  }
+
+  /* Brand left, everything else next to it (reduced gap) */
+  .header-top .navbar-brand{
+    margin-right: 8px !important;
+    flex: 0 0 auto !important;
+  }
+
+  /* Force collapse content inline (no dropdown menu UI), and keep near logo */
+  .header-top #topNav.collapse,
+  .header-top #topNav.collapse:not(.show){
+    display:flex !important; flex-direction:row !important;
+    align-items:center !important; justify-content:flex-start !important;
+    flex: 0 0 auto !important; width:auto !important; height:auto !important;
+    visibility:visible !important;
+  }
+
+  /* Hide the search on ≤991.98 to avoid wrapping */
+  .header-top #topNav > .header-search{ display:none !important; }
+
+  /* Right actions: tighter spacing and smaller text */
+  .header-top .header-actions{
+    display:flex !important; flex-direction:row !important; align-items:center !important;
+    flex-wrap: nowrap !important; 
+    gap: 4px !important; /* Reduced gap */
+    margin-left: 4px !important;
+  }
+
+  /* Hide Notification (2nd item) on mobile/tablet */
+  .header-top .header-actions > li:nth-child(2){ display:none !important; }
+
+  /* Reorder: Hello/Login (3rd) first, Compare (1st) second, Flag (4th) third */
+  .header-top .header-actions > li:nth-child(3){ order:1; } /* Hello, Login */
+  .header-top .header-actions > li:nth-child(1){ order:2; } /* Compare */
+  .header-top .header-actions > li:nth-child(4){ order:3; } /* Flag */
+
+  /* Hello/Login - much smaller text */
+  .header-top .header-actions > li:nth-child(3) .nav-link{
+    display:inline-flex !important; align-items:center !important;
+    gap:2px !important; /* Reduced gap */
+    font-size: 0.75rem !important; /* Much smaller font */
+    line-height:1.1 !important;
+    padding:0 !important; 
+    white-space:nowrap !important;
+  }
+  .header-top .header-actions > li:nth-child(3) .bi-person{ 
+    margin-right:0 !important; 
+    font-size:0.85rem !important; /* Smaller icon */
+    line-height:1; 
+  }
+  .header-top .header-actions > li:nth-child(3) .badge-dot{ 
+    margin-left:0 !important; 
+    width: 5px !important; /* Smaller dot */
+    height: 5px !important;
+  }
+
+  /* Compare icon - smaller */
+  .header-top .header-actions > li:nth-child(1) .nav-link{ 
+    font-size:0 !important; 
+    padding:0 !important; 
+  }
+  .header-top .header-actions > li:nth-child(1) ion-icon{ 
+    width:16px !important; /* Smaller icon */
+    height:16px !important; 
+    padding:0; 
+  }
+
+  /* Flag - smaller */
+  .header-top .flag-nepal{
+    width:18px !important; /* Smaller flag */
+    height:18px !important; 
+    display:inline-flex !important; 
+    align-items:center; 
+    justify-content:center;
+    margin:0 !important;
+  }
+  .header-top .flag-nepal img{ max-width:80%; max-height:80%; }
+
+  /* Logo - smaller for this screen size */
+  .site-logo{ 
+    width: 110px !important; /* Reduced logo size */
+    height:auto !important; 
+    margin:0 !important; 
+    object-fit:contain; 
+  }
+
+  /* Navigation links - smaller if any are visible */
+  .header-top #topNav .nav-link {
+    font-size: 0.8rem !important;
+    padding: 2px 4px !important;
+  }
+}
 /* Small phones micro-tweaks (optional) */
 @media (max-width: 360px){
   .header-top.navbar{ padding: 0 6px; }
@@ -1026,15 +1124,15 @@ section.hero-landing.container {
   flex: 0 0 auto;                    /* don't stretch in flex rows */
 
   /* fixed sizing (responsive) */
-  width: 180px;                      /* fixed width */
+  width: 301px;                      /* fixed width */
   max-width: 80vw;                   /* safety on tiny phones */
 
   /* styling */
-  padding: 10px 14px;
-  border-radius: 8px;
+ 
+  border-radius: 7px;
   border: 1px solid var(--primary-color);
-  background: #fff;
-  color: var(--primary-color);
+  background:var(--primary-color);
+  color: #ffffff;
   font-weight: 600;
   line-height: 1;
   text-decoration: none;
@@ -1050,20 +1148,14 @@ section.hero-landing.container {
   font-size: 24px;
  padding: 10px 14px;
   border-radius: 8px;
-  border: 1px solid var(--primary-color);
+  border: none;
   background: #fff;
   color: var(--primary-color);
   font-weight: 600;
   line-height: 1;
   text-decoration: none;}
+  
 
-
-/* If something forces full-width (e.g. .w-100), override it */
-.launches-toggle-btn.w-100 { width: 180px !important; }
-@media (min-width: 991.98px){
-  .launches-close-btn{display: none;}
-  .launches-toggle-btn{display: none !important; } /* hide toggle on desktop */
-}
 /* --- Mobile: put Launches above Rankings, center it, show 3 items + toggle --- */
 @media (max-width: 991.98px){
   /* Reorder columns */
@@ -1085,7 +1177,8 @@ section.hero-landing.container {
     padding-right:0;
   }
 /* Push Close to the far right of the row */
-.launches-close-btn{ margin-left:400px; }
+.launches-close-btn{ margin-left:300px;
+    }
   /* Show only 3 items by default */
   .launches-card__list .launches-item:nth-child(n+4){ display:none; }
 
@@ -1420,12 +1513,12 @@ section.hero-landing.container {
 
 /* Feature icons */
 
-.research-features ion-icon,
-i {
+.research-features ion-icon {
   color: var(--primary-color);
   height: 24px;
   width: 24px;
 }
+.research-features i{font-size: 24px;}
 .research-features .research-features span {
   color: var(--primary-dark);
   font-weight: 400;
@@ -1486,6 +1579,9 @@ i {
   .play-btn{ width: 64px; height: 64px; } /* slightly smaller on phones */
 
   /* Tighten right-side text for small screens */
+  .advideo-right {
+  text-align: center;
+}
   .advideo-right-top{ font-size: 13px; }
   .advideo-right h2{ font-size: 20px; line-height: 1.25; margin: 6px 0 8px; }
   .advideo-right p{ font-size: 14px; margin-bottom: 12px; }
@@ -1497,6 +1593,7 @@ i {
     grid-template-columns: repeat(2, minmax(0,1fr));
     gap: 10px 14px;
     margin-top: 6px;
+    margin-left: 3px;
   }
   /* neutralize Bootstrap's column paddings inside our grid */
   .research-features > [class*="col-"]{
@@ -1511,7 +1608,12 @@ i {
     flex: 0 0 auto;
   }
 }
+@media (max-width:991px){
+  .advideo-right,.advideo-right-top {
+  text-align: center;
+}
 
+}
 
 /* Browse by type  */
 /* Card base (reuse hover effect from previous car cards) */
@@ -2494,6 +2596,9 @@ i {
   color: #ffffff;
   font-size: 1rem;
 }
+.footer-motokhabar .footer-col{
+  margin-left: 50px !important;
+}
 
 /* Divider */
 .footer-hr {
@@ -2512,7 +2617,11 @@ i {
 .footer-bottom-links .list-inline-item:not(:last-child) {
   margin-right: 1.75rem; /* space like screenshot */
 }
-
+.footer-links{
+  display: flex;
+  flex-direction: column;
+  row-gap: 0.4rem;
+}
 .copyright {
   margin-left: 20px;
   color: #ffffff;

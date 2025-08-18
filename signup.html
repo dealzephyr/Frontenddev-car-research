@@ -45,125 +45,114 @@
 <body class="auth-bg d-flex flex-column min-vh-100">
   <!-- Header -->
   <header class="site-header sticky-top">
-    <!-- TOP NAV -->
-    <nav class="navbar navbar-expand-lg navbar-light header-top shadow-sm">
-      <div class="container header-container">
-        <!-- Logo -->
-        <a class="navbar-brand d-flex align-items-center" href="#">
-          <img
-            src="assets/images/logo.png"
-            alt="Motokhabar"
-            class="site-logo"
-          />
-        </a>
+      <!-- TOP NAV -->
+      <nav class="navbar navbar-expand-lg navbar-light header-top shadow-sm">
+        <div class="container header-container">
+          <!-- Logo -->
+          <a class="navbar-brand d-flex align-items-center" href="#">
+            <img
+              src="assets/images/logo.png"
+              alt="Motokhabar"
+              class="site-logo"
+            />
+          </a>
+          <!-- Search + right items -->
+          <div class="collapse navbar-collapse" id="topNav">
+            <!-- Search -->
+            <form
+              class="ms-lg-3 me-lg-4 my-3 my-lg-0 w-100 w-lg-auto header-search"
+              role="search"
+            >
+              <div class="input-group">
+                <span class="input-group-text bg-transparent border-0 ps-3">
+                  <i class="bi bi-search"></i>
+                </span>
+                <input
+                  type="search"
+                  class="form-control search-input"
+                  placeholder="Search Cars"
+                  aria-label="Search Cars"
+                />
+              </div>
+            </form>
 
-        <!-- Mobile toggler -->
-        <button
-          class="navbar-toggler"
-          type="button"
-          data-bs-toggle="collapse"
-          data-bs-target="#topNav"
-          aria-controls="topNav"
-          aria-expanded="false"
-          aria-label="Toggle navigation"
-        >
-          <span class="navbar-toggler-icon"></span>
-        </button>
+            <!-- Right items -->
+            <ul class="navbar-nav ms-auto align-items-center header-actions">
+               <li class="nav-item">
+                <a
+                  class="nav-link p-0 d-flex align-items-center"
+                  href="#"
+                  style="white-space: nowrap"
+                >
+                  <ion-icon
+                  name="git-compare-outline"
+                  style="width: 20px; height: 20px; margin-right:8px"
+                ></ion-icon>
+                  Compare
+                </a>
+              </li>
+              <li class="nav-item">
+                <a
+                  class="nav-link p-0 d-flex align-items-center"
+                  href="#"
+                  style="white-space: nowrap"
+                >
+                   <ion-icon
+                  name="notifications-outline"
+                  style="width: 20px; height: 20px; margin-right:8px"
+                ></ion-icon>
+                  Notification
+                </a>
+              </li>
+              <li class="nav-item">
+                <a
+                  class="nav-link p-0 d-flex align-items-center"
+                  href="#"
+                  style="white-space: nowrap"
+                >
+                  <i class="bi bi-person me-1"></i>
+                  Hello, Login
+                  <span class="badge-dot ms-2"></span>
+                </a>
+              </li>
+              <li>
+                <a href="#" class="flag-nepal" aria-label="Nepal Flag">
+                  <img src="assets/images/nepal-flag.png" alt="Nepal Flag" />
+                </a>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </nav>
 
-        <!-- Search + right items -->
-        <div class="collapse navbar-collapse" id="topNav">
-          <!-- Search -->
-          <form
-            class="ms-lg-3 me-lg-4 my-3 my-lg-0 w-100 w-lg-auto header-search"
-            role="search"
+      <!-- BOTTOM NAV -->
+      <nav
+        class="navbar navbar-expand-lg navbar-light header-bottom border-top"
+      >
+        <div class="container header-container">
+          <div
+            class="collapse navbar-collapse justify-content-center"
+            id="bottomNav"
           >
-            <div class="input-group">
-              <span class="input-group-text bg-transparent border-0 ps-3">
-                <i class="bi bi-search"></i>
-              </span>
-              <input
-                type="search"
-                class="form-control search-input"
-                placeholder="Search Cars"
-                aria-label="Search Cars"
-              />
-            </div>
-          </form>
-
-          <!-- Right items -->
-          <ul class="navbar-nav ms-auto align-items-center header-actions">
-            <li class="nav-item d-flex align-items-center me-3">
-              <!-- <i class="bi bi-shuffle me-2"></i> -->
-              <ion-icon
-                name="git-compare-outline"
-                style="width: 20px; height: 20px; padding-right: 3px"
-              ></ion-icon>
-
-              <a class="nav-link p-0" href="#">Compare</a>
-            </li>
-            <li class="nav-item d-flex align-items-center me-3">
-              <i class="bi bi-bell me-2"></i>
-              <a class="nav-link p-0" href="#">Notification</a>
-            </li>
-            <li class="nav-item">
-              <a
-                class="nav-link p-0 d-flex align-items-center"
-                href="#"
-                style="white-space: nowrap"
-              >
-                <i class="bi bi-person me-2"></i>
-                Hello, Login
-                <span class="badge-dot ms-2"></span>
-              </a>
-            </li>
-            <li>
-              <a href="#" class="flag-nepal" aria-label="Nepal Flag">
-                <img src="assets/images/nepal-flag.png" alt="Nepal Flag" />
-              </a>
-            </li>
-          </ul>
+            <ul class="navbar-nav header-subnav">
+              <li class="nav-item">
+                <a class="nav-link" href="#">New Cars</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="#">Used Cars</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="#">Expert Review</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="#">News &amp; Blogs</a>
+              </li>
+              <li class="nav-item"><a class="nav-link" href="#">Contact</a></li>
+            </ul>
+          </div>
         </div>
-      </div>
-    </nav>
-
-    <!-- BOTTOM NAV -->
-    <nav class="navbar navbar-expand-lg navbar-light header-bottom border-top">
-      <div class="container header-container">
-        <button
-          class="navbar-toggler"
-          type="button"
-          data-bs-toggle="collapse"
-          data-bs-target="#bottomNav"
-          aria-controls="bottomNav"
-          aria-expanded="false"
-          aria-label="Toggle navigation"
-        >
-          <span class="navbar-toggler-icon"></span>
-        </button>
-
-        <div
-          class="collapse navbar-collapse justify-content-center"
-          id="bottomNav"
-        >
-          <ul class="navbar-nav header-subnav">
-            <li class="nav-item">
-              <a class="nav-link" href="#">New Cars</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="#">Used Cars</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="#">Expert Review</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="#">News &amp; Blogs</a>
-            </li>
-            <li class="nav-item"><a class="nav-link" href="#">Contact</a></li>
-          </ul>
-        </div>
-      </div>
-    </nav>
-  </header>
+      </nav>
+    </header>
   <!-- Auth card -->
   <main class="flex-grow-1 py-5">
     <div class="container-xxl">

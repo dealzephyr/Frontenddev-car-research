@@ -50,6 +50,7 @@
   border-bottom: 1px solid #d4d4d4;
   padding: 6px;
   width: 227px;
+  
 }
 .sidebar-sticky {
   position: sticky;
@@ -140,3 +141,5 @@
   box-shadow: 0 10px 24px rgba(0, 0, 0, 0.1);
   outline: 1px solid rgba(93, 64, 55, 0.3);
 }
+
+

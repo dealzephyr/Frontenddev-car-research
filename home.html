@@ -868,11 +868,13 @@
           <!-- RIGHT: New Car Launches (scrollable) -->
           <aside class="col-lg-3">
             <div class="launches-card">
+              <button type="button" class="launches-close-btn d-none" aria-label="Close list">×</button>
               <div class="launches-card__header">
+                                                                 
+
                 <i class="bi bi-rocket-takeoff me-2"></i>
-                <div>
-                  <h5 class="m-0">New Car Launches</h5>
-                                <button type="button" class="launches-close-btn d-none" aria-label="Close list">×</button>
+                <div> 
+                    <h5 class="m-0">New Car Launches</h5>
 
                   <small class="text-muted"
                     >Stay updated with the latest upcoming car models.</small
@@ -929,7 +931,7 @@
                   </div>
                 </a>
               </div>
-              <button type="button" class="launches-toggle-btn" aria-expanded="false">View More</button>
+              <button type="button" class="launches-toggle-btn" aria-expanded="false">See more launches</button>
 
             </div>
           </aside>
@@ -2058,7 +2060,7 @@ document.addEventListener('click', (e) => {
       <div class="container footer-container" >
         <div class="row gx-0 footer-row" >
           <!-- Brand & Contact -->
-          <div class="col-lg-5" >
+          <div class="col-lg-4" >
             <img
               src="assets/images/logo-white.png"
               alt="Motokhabar"
@@ -2080,9 +2082,9 @@ document.addEventListener('click', (e) => {
           </div>
 
           <!-- Explore -->
-          <div class="col-6 col-lg-3" >
+          <div class="col-6 col-lg-2 footer-col" >
             <h5 class="footer-heading">Explore</h5>
-            <ul class="list-unstyled footer-links">
+            <ul class="list-unstyled footer-links  ">
               <li><a href="#">Explore cars</a></li>
               <li><a href="#">Reviews</a></li>
               <li><a href="#">Latest Deals</a></li>
@@ -2092,7 +2094,7 @@ document.addEventListener('click', (e) => {
           </div>
 
           <!-- Resources -->
-          <div class="col-6 col-lg-2">
+          <div class="col-6 col-lg-2 footer-col">
             <h5 class="footer-heading">Resources</h5>
             <ul class="list-unstyled footer-links">
               <li><a href="#">Buying Guide</a></li>
@@ -2103,7 +2105,7 @@ document.addEventListener('click', (e) => {
           </div>
 
           <!-- Support -->
-          <div class="col-6 col-lg-2" >
+          <div class="col-6 col-lg-2 footer-col" >
             <h5 class="footer-heading">Support</h5>
             <ul class="list-unstyled footer-links">
               <li><a href="#">Help Center</a></li>

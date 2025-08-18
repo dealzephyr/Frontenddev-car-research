@@ -1,0 +1,501 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, shrink-to-fit=no">
+    <!-- Bootstrap CSS -->
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+    <!-- Google Font -->
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <!--  Ionicons CDN for exact compare Icons -->
+
+    <script
+      type="module"
+      src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"
+    ></script>
+    <script
+      nomodule
+      src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"
+    ></script>
+    <!-- Bootstrap icon link -->
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css"
+    />
+    <link rel="stylesheet" href="css/style.css" />
+    <link rel="stylesheet" href="css/test.css" />
+
+    <title>Explore Cars</title>
+  </head>
+  <body>
+    <header class="site-header sticky-top">
+      <!-- TOP NAV -->
+      <nav class="navbar navbar-expand-lg navbar-light header-top shadow-sm">
+        <div class="container header-container">
+          <!-- Logo -->
+          <a class="navbar-brand d-flex align-items-center" href="#">
+            <img
+              src="assets/images/logo.png"
+              alt="Motokhabar"
+              class="site-logo"
+            />
+          </a>
+
+          <!-- Mobile toggler -->
+          <button
+            class="navbar-toggler"
+            type="button"
+            data-bs-toggle="collapse"
+            data-bs-target="#topNav"
+            aria-controls="topNav"
+            aria-expanded="false"
+            aria-label="Toggle navigation"
+          >
+            <span class="navbar-toggler-icon"></span>
+          </button>
+
+          <!-- Search + right items -->
+          <div class="collapse navbar-collapse" id="topNav">
+            <!-- Search -->
+            <form
+              class="ms-lg-3 me-lg-4 my-3 my-lg-0 w-100 w-lg-auto header-search"
+              role="search"
+            >
+              <div class="input-group">
+                <span class="input-group-text bg-transparent border-0 ps-3">
+                  <i class="bi bi-search"></i>
+                </span>
+                <input
+                  type="search"
+                  class="form-control search-input"
+                  placeholder="Search Cars"
+                  aria-label="Search Cars"
+                />
+              </div>
+            </form>
+
+            <!-- Right items -->
+            <ul class="navbar-nav ms-auto align-items-center header-actions">
+              <li class="nav-item d-flex align-items-center me-3">
+                <!-- <i class="bi bi-shuffle me-2"></i> -->
+                <ion-icon
+                  name="git-compare-outline"
+                  style="width: 20px; height: 20px; padding-right: 3px"
+                ></ion-icon>
+
+                <a class="nav-link p-0" href="#">Compare</a>
+              </li>
+              <li class="nav-item d-flex align-items-center me-3">
+                <i class="bi bi-bell me-2"></i>
+                <a class="nav-link p-0" href="#">Notification</a>
+              </li>
+              <li class="nav-item">
+                <a
+                  class="nav-link p-0 d-flex align-items-center"
+                  href="#"
+                  style="white-space: nowrap"
+                >
+                  <i class="bi bi-person me-2"></i>
+                  Hello, Login
+                  <span class="badge-dot ms-2"></span>
+                </a>
+              </li>
+              <li>
+                <a href="#" class="flag-nepal" aria-label="Nepal Flag">
+                  <img src="assets/images/nepal-flag.png" alt="Nepal Flag" />
+                </a>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </nav>
+
+      <!-- BOTTOM NAV -->
+      <nav
+        class="navbar navbar-expand-lg navbar-light header-bottom border-top"
+      >
+        <div class="container header-container">
+          <button
+            class="navbar-toggler"
+            type="button"
+            data-bs-toggle="collapse"
+            data-bs-target="#bottomNav"
+            aria-controls="bottomNav"
+            aria-expanded="false"
+            aria-label="Toggle navigation"
+          >
+            <span class="navbar-toggler-icon"></span>
+          </button>
+
+          <div
+            class="collapse navbar-collapse justify-content-center"
+            id="bottomNav"
+          >
+            <ul class="navbar-nav header-subnav">
+              <li class="nav-item">
+                <a class="nav-link" href="#">New Cars</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="#">Used Cars</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="#">Expert Review</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="#">News &amp; Blogs</a>
+              </li>
+              <li class="nav-item"><a class="nav-link" href="#">Contact</a></li>
+            </ul>
+          </div>
+        </div>
+      </nav>
+    </header>
+    <!-- Top breadcrump -->
+<!-- Top: breadcrumb + title -->
+<section class="container py-3">
+  <nav aria-label="breadcrumb">
+    <ol class="breadcrumb mb-2">
+      <li class="breadcrumb-item"><a href="home.html">Home</a></li>
+      <li class="breadcrumb-item active" aria-current="page">Explore Cars</li>
+    </ol>
+  </nav>
+
+  <h3 class="fw-bold mb-1">Explore New Cars</h3>
+  <p class="text-muted mb-0">Find your perfect car with our advanced filters</p>
+</section>
+
+<main>
+  <section class="container my-4">
+    <div class="row g-4">
+      <!-- =============== FILTERS =============== -->
+      <!-- Desktop/LG+: visible sticky sidebar -->
+      <aside class="col-lg-3 d-none d-lg-block">
+        <div class="card shadow-sm sticky-top" style="top: 90px;">
+          <div class="card-body p-2">
+            <div class="accordion accordion-flush" id="filtersDesktop">
+              <!-- Sort -->
+              <div class="accordion-item">
+                <h2 class="accordion-header" id="flt-sort-h">
+                  <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flt-sort" aria-expanded="false">
+                    Sort by
+                  </button>
+                </h2>
+                <div id="flt-sort" class="accordion-collapse collapse" data-bs-parent="#filtersDesktop">
+                  <div class="accordion-body">
+                    <div class="form-check mb-1">
+                      <input class="form-check-input" type="radio" name="sort" id="s1">
+                      <label class="form-check-label" for="s1">Popular</label>
+                    </div>
+                    <div class="form-check mb-1">
+                      <input class="form-check-input" type="radio" name="sort" id="s2">
+                      <label class="form-check-label" for="s2">Price: Low → High</label>
+                    </div>
+                    <div class="form-check">
+                      <input class="form-check-input" type="radio" name="sort" id="s3">
+                      <label class="form-check-label" for="s3">Price: High → Low</label>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <!-- MPG -->
+              <div class="accordion-item">
+                <h2 class="accordion-header" id="flt-mpg-h">
+                  <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flt-mpg">MPG</button>
+                </h2>
+                <div id="flt-mpg" class="accordion-collapse collapse" data-bs-parent="#filtersDesktop">
+                  <div class="accordion-body">
+                    <div class="form-check mb-1"><input class="form-check-input" type="checkbox" id="mpg1"><label class="form-check-label" for="mpg1">15–20</label></div>
+                    <div class="form-check mb-1"><input class="form-check-input" type="checkbox" id="mpg2"><label class="form-check-label" for="mpg2">20–30</label></div>
+                    <div class="form-check"><input class="form-check-input" type="checkbox" id="mpg3"><label class="form-check-label" for="mpg3">30+</label></div>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Seating -->
+              <div class="accordion-item">
+                <h2 class="accordion-header" id="flt-seat-h">
+                  <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flt-seat">Sitting Capacity</button>
+                </h2>
+                <div id="flt-seat" class="accordion-collapse collapse" data-bs-parent="#filtersDesktop">
+                  <div class="accordion-body">
+                    <div class="form-check mb-1"><input class="form-check-input" type="checkbox" id="st4"><label class="form-check-label" for="st4">4 Seater</label></div>
+                    <div class="form-check mb-1"><input class="form-check-input" type="checkbox" id="st5"><label class="form-check-label" for="st5">5 Seater</label></div>
+                    <div class="form-check"><input class="form-check-input" type="checkbox" id="st7"><label class="form-check-label" for="st7">7+ Seater</label></div>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Drivetrain -->
+              <div class="accordion-item">
+                <h2 class="accordion-header" id="flt-drive-h">
+                  <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flt-drive">Drive Train</button>
+                </h2>
+                <div id="flt-drive" class="accordion-collapse collapse" data-bs-parent="#filtersDesktop">
+                  <div class="accordion-body">
+                    <div class="form-check mb-1"><input class="form-check-input" type="checkbox" id="dr1"><label class="form-check-label" for="dr1">FWD</label></div>
+                    <div class="form-check mb-1"><input class="form-check-input" type="checkbox" id="dr2"><label class="form-check-label" for="dr2">RWD</label></div>
+                    <div class="form-check"><input class="form-check-input" type="checkbox" id="dr3"><label class="form-check-label" for="dr3">AWD/4WD</label></div>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Transmission -->
+              <div class="accordion-item">
+                <h2 class="accordion-header" id="flt-tr-h">
+                  <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flt-tr">Transmission</button>
+                </h2>
+                <div id="flt-tr" class="accordion-collapse collapse" data-bs-parent="#filtersDesktop">
+                  <div class="accordion-body">
+                    <div class="form-check mb-1"><input class="form-check-input" type="checkbox" id="mt"><label class="form-check-label" for="mt">Manual</label></div>
+                    <div class="form-check"><input class="form-check-input" type="checkbox" id="at"><label class="form-check-label" for="at">Automatic</label></div>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Engine -->
+              <div class="accordion-item">
+                <h2 class="accordion-header" id="flt-eng-h">
+                  <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flt-eng">Engine</button>
+                </h2>
+                <div id="flt-eng" class="accordion-collapse collapse" data-bs-parent="#filtersDesktop">
+                  <div class="accordion-body">
+                    <div class="form-check mb-1"><input class="form-check-input" type="checkbox" id="e1"><label class="form-check-label" for="e1">&lt; 1.2L</label></div>
+                    <div class="form-check mb-1"><input class="form-check-input" type="checkbox" id="e2"><label class="form-check-label" for="e2">1.2–2.0L</label></div>
+                    <div class="form-check"><input class="form-check-input" type="checkbox" id="e3"><label class="form-check-label" for="e3">&gt; 2.0L</label></div>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Fuel -->
+              <div class="accordion-item">
+                <h2 class="accordion-header" id="flt-fuel-h">
+                  <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flt-fuel">Fuel Type</button>
+                </h2>
+                <div id="flt-fuel" class="accordion-collapse collapse" data-bs-parent="#filtersDesktop">
+                  <div class="accordion-body">
+                    <div class="form-check mb-1"><input class="form-check-input" type="checkbox" id="f1"><label class="form-check-label" for="f1">Petrol</label></div>
+                    <div class="form-check mb-1"><input class="form-check-input" type="checkbox" id="f2"><label class="form-check-label" for="f2">Diesel</label></div>
+                    <div class="form-check"><input class="form-check-input" type="checkbox" id="f3"><label class="form-check-label" for="f3">Electric/Hybrid</label></div>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Features -->
+              <div class="accordion-item">
+                <h2 class="accordion-header" id="flt-feat-h">
+                  <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flt-feat">Features</button>
+                </h2>
+                <div id="flt-feat" class="accordion-collapse collapse" data-bs-parent="#filtersDesktop">
+                  <div class="accordion-body">
+                    <div class="form-check mb-1"><input class="form-check-input" type="checkbox" id="ft1"><label class="form-check-label" for="ft1">Sunroof</label></div>
+                    <div class="form-check mb-1"><input class="form-check-input" type="checkbox" id="ft2"><label class="form-check-label" for="ft2">Cruise Control</label></div>
+                    <div class="form-check"><input class="form-check-input" type="checkbox" id="ft3"><label class="form-check-label" for="ft3">Parking Sensors</label></div>
+                  </div>
+                </div>
+              </div>
+            </div> <!-- /accordion -->
+          </div>
+        </div>
+      </aside>
+
+      <!-- Mobile/Tablet: Filter button + Offcanvas -->
+      <div class="col-12 d-lg-none">
+        <div class="d-flex justify-content-between align-items-center">
+          <button class="btn btn-outline-primary btn-sm" data-bs-toggle="offcanvas" data-bs-target="#filtersOffcanvas">
+            <i class="bi bi-sliders me-1"></i> Filters
+          </button>
+          <button class="btn btn-outline-secondary btn-sm">Clear Filters</button>
+        </div>
+      </div>
+
+      <div class="offcanvas offcanvas-bottom d-lg-none" tabindex="-1" id="filtersOffcanvas" aria-labelledby="filtersOffcanvasLabel">
+        <div class="offcanvas-header">
+          <h5 class="offcanvas-title" id="filtersOffcanvasLabel">Filters</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+        </div>
+        <div class="offcanvas-body">
+          <!-- reuse same filter structure as desktop -->
+          <div class="accordion" id="filtersMobile">
+            <!-- (copy of the accordion items from desktop; omitted here to keep this short) -->
+            <!-- You can paste the same items with different IDs (e.g., fltM-*) -->
+          </div>
+        </div>
+      </div>
+      <!-- =============== /FILTERS =============== -->
+
+      <!-- =============== RESULTS =============== -->
+      <div class="col-lg-9">
+        <!-- Quick selects + Clear (desktop) -->
+        <div class="d-none d-lg-flex justify-content-between align-items-center mb-3 flex-wrap gap-2">
+          <div class="d-flex flex-wrap gap-2">
+            <select class="form-select form-select-sm minw-160">
+              <option>Brand</option>
+            </select>
+            <select class="form-select form-select-sm minw-160">
+              <option>Model</option>
+            </select>
+            <select class="form-select form-select-sm minw-160">
+              <option>Year</option>
+            </select>
+            <select class="form-select form-select-sm minw-160">
+              <option>Price Range</option>
+            </select>
+          </div>
+          <button class="btn btn-outline-secondary btn-sm">Clear Filters</button>
+        </div>
+
+        <div class="small text-muted mb-2">275 matches</div>
+
+        <!-- Cards grid -->
+        <div class="row row-cols-1 row-cols-md-2 row-cols-lg-3 g-3 g-md-4">
+          <!-- Card -->
+          <div class="col">
+            <article class="card h-100 shadow-sm car-card">
+              <img src="assets/images/marutisuzuki.png" class="card-img-top car-img" alt="Maruti Suzuki Swift">
+              <div class="card-body">
+                <h6 class="card-title mb-1 fw-semibold">Maruti Suzuki Swift</h6>
+                <div class="text-muted small d-flex align-items-center mb-2">
+                  <i class="bi bi-geo-alt-fill me-1"></i> Pokhara, Nepal
+                </div>
+                <hr class="my-2">
+                <div class="small d-flex align-items-center mb-1">
+                  <i class="bi bi-speedometer2 me-2"></i> 25,100 mileage
+                </div>
+                <div class="row row-cols-2 g-2 small text-muted mb-2">
+                  <div class="col d-flex align-items-center"><i class="bi bi-fuel-pump me-2"></i> Diesel</div>
+                  <div class="col d-flex align-items-center"><i class="bi bi-people me-2"></i> Seater</div>
+                </div>
+                <div class="fw-semibold mb-2">Rs 9.70 - 10.93 Lakh*</div>
+                <div class="d-flex gap-2">
+                  <button class="btn btn-primary btn-sm">View Details</button>
+                  <button class="btn btn-outline-primary btn-sm">Compare</button>
+                </div>
+              </div>
+            </article>
+          </div>
+
+          <!-- Duplicate more .col cards as needed ... -->
+          <div class="col">
+            <article class="card h-100 shadow-sm car-card">
+              <img src="assets/images/marutisuzuki.png" class="card-img-top car-img" alt="">
+              <div class="card-body">…</div>
+            </article>
+          </div>
+
+          <div class="col">
+            <article class="card h-100 shadow-sm car-card">
+              <img src="assets/images/marutisuzuki.png" class="card-img-top car-img" alt="">
+              <div class="card-body">…</div>
+            </article>
+          </div>
+
+          <div class="col">
+            <article class="card h-100 shadow-sm car-card">
+              <img src="assets/images/marutisuzuki.png" class="card-img-top car-img" alt="">
+              <div class="card-body">…</div>
+            </article>
+          </div>
+
+          <!-- add as many as you need -->
+        </div>
+
+        <div class="text-center mt-4">
+          <button class="btn btn-outline-primary px-4">Load More</button>
+        </div>
+      </div>
+      <!-- =============== /RESULTS =============== -->
+    </div>
+  </section>
+</main>
+
+
+    <!-- FOOTER -->
+    <footer class="footer-motokhabar pt-5 pb-4">
+      <div class="container footer-container">
+        <div class="row gx-0 footer-row">
+          <!-- Brand & Contact -->
+          <div class="col-lg-5">
+            <img
+              src="assets/images/logo-white.png"
+              alt="Motokhabar"
+              class="footer-logo mb-3"
+            />
+            <p class="footer-text mb-4 footer-contact">
+              Your trusted companion for making informed<br />
+              car buying decisions in Nepal.
+            </p>
+
+            <div class="d-flex align-items-start mb-2 footer-contact">
+              <i class="bi bi-telephone me-2 mt-1"></i>
+              <span>+977 9800000000, +977 9800000000</span>
+            </div>
+            <div class="d-flex align-items-start mb-4 footer-contact">
+              <i class="bi bi-envelope me-2 mt-1"></i>
+              <span>motokhabar@gmail.com</span>
+            </div>
+          </div>
+
+          <!-- Explore -->
+          <div class="col-6 col-lg-3">
+            <h5 class="footer-heading">Explore</h5>
+            <ul class="list-unstyled footer-links">
+              <li><a href="#">Explore cars</a></li>
+              <li><a href="#">Reviews</a></li>
+              <li><a href="#">Latest Deals</a></li>
+              <li><a href="#">News & Blogs</a></li>
+              <li><a href="#">Contact</a></li>
+            </ul>
+          </div>
+
+          <!-- Resources -->
+          <div class="col-6 col-lg-2">
+            <h5 class="footer-heading">Resources</h5>
+            <ul class="list-unstyled footer-links">
+              <li><a href="#">Buying Guide</a></li>
+              <li><a href="#">Car Comparison</a></li>
+              <li><a href="#">Notifications</a></li>
+              <li><a href="#">Ask Questions</a></li>
+            </ul>
+          </div>
+
+          <!-- Support -->
+          <div class="col-6 col-lg-2">
+            <h5 class="footer-heading">Support</h5>
+            <ul class="list-unstyled footer-links">
+              <li><a href="#">Help Center</a></li>
+              <li><a href="#">Privacy Policy</a></li>
+              <li><a href="#">Terms of Service</a></li>
+              <li><a href="#">Cookie Policy</a></li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- Horizintal lina -->
+        <hr class="footer-hr my-4" />
+
+        <!-- Bottom bar -->
+        <div
+          class="d-flex flex-column flex-lg-row align-items-center justify-content-between"
+        >
+          <p class="copyright mb-2 mb-lg-0 small">
+            &copy; 2024 Motokhabar. All rights reserved.
+          </p>
+          <ul class="list-inline mb-0 footer-bottom-links">
+            <li class="list-inline-item"><a href="#">Privacy</a></li>
+            <li class="list-inline-item"><a href="#">Terms</a></li>
+            <li class="list-inline-item"><a href="#">Contact</a></li>
+          </ul>
+        </div>
+      </div>
+    </footer>
+    <!-- Bootstrap Bundle JS (includes Popper) -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+  </body>
+</html>

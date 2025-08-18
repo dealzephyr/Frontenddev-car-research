@@ -55,20 +55,6 @@
               class="site-logo"
             />
           </a>
-
-          <!-- Mobile toggler -->
-          <button
-            class="navbar-toggler"
-            type="button"
-            data-bs-toggle="collapse"
-            data-bs-target="#topNav"
-            aria-controls="topNav"
-            aria-expanded="false"
-            aria-label="Toggle navigation"
-          >
-            <span class="navbar-toggler-icon"></span>
-          </button>
-
           <!-- Search + right items -->
           <div class="collapse navbar-collapse" id="topNav">
             <!-- Search -->
@@ -91,18 +77,18 @@
 
             <!-- Right items -->
             <ul class="navbar-nav ms-auto align-items-center header-actions">
-              <li class="nav-item d-flex align-items-center me-3">
-                <!-- <i class="bi bi-shuffle me-2"></i> -->
-                <ion-icon
+               <li class="nav-item">
+                <a
+                  class="nav-link p-0 d-flex align-items-center"
+                  href="#"
+                  style="white-space: nowrap"
+                >
+                  <ion-icon
                   name="git-compare-outline"
-                  style="width: 20px; height: 20px; padding-right: 3px"
+                  style="width: 20px; height: 20px; margin-right:8px"
                 ></ion-icon>
-
-                <a class="nav-link p-0" href="#">Compare</a>
-              </li>
-              <li class="nav-item d-flex align-items-center me-3">
-                <i class="bi bi-bell me-2"></i>
-                <a class="nav-link p-0" href="#">Notification</a>
+                  Compare
+                </a>
               </li>
               <li class="nav-item">
                 <a
@@ -110,7 +96,20 @@
                   href="#"
                   style="white-space: nowrap"
                 >
-                  <i class="bi bi-person me-2"></i>
+                   <ion-icon
+                  name="notifications-outline"
+                  style="width: 20px; height: 20px; margin-right:8px"
+                ></ion-icon>
+                  Notification
+                </a>
+              </li>
+              <li class="nav-item">
+                <a
+                  class="nav-link p-0 d-flex align-items-center"
+                  href="#"
+                  style="white-space: nowrap"
+                >
+                  <i class="bi bi-person me-1"></i>
                   Hello, Login
                   <span class="badge-dot ms-2"></span>
                 </a>
@@ -130,18 +129,6 @@
         class="navbar navbar-expand-lg navbar-light header-bottom border-top"
       >
         <div class="container header-container">
-          <button
-            class="navbar-toggler"
-            type="button"
-            data-bs-toggle="collapse"
-            data-bs-target="#bottomNav"
-            aria-controls="bottomNav"
-            aria-expanded="false"
-            aria-label="Toggle navigation"
-          >
-            <span class="navbar-toggler-icon"></span>
-          </button>
-
           <div
             class="collapse navbar-collapse justify-content-center"
             id="bottomNav"

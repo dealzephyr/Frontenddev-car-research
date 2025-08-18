@@ -1,0 +1,86 @@
+/* ---- Palette (yours) ---- */
+:root {
+  --primary-color: #5d4037;
+  --primary-light: #4e342e;
+  --primary-dark: #212121;
+  --secondary-color: #e2c2bb;
+  --text-on-primary: #ffffff;
+  --neutral-light: #ffffff;
+  --neutral-mid: #d4d4d4;
+  --neutral-dark: #757575;
+
+  /* Bootstrap color hooks (quick theme) */
+  --bs-primary: #5d4037;
+  --bs-secondary: #e2c2bb;
+  --bs-body-font-family: "Poppins", sans-serif;
+}
+/* Theme hooks (optional) */
+:root{
+  --primary-color:#5d4037;
+  --primary-light:#4e342e;
+  --bs-primary:#5d4037; /* make Bootstrap primary match your brand */
+  --bs-body-font-family:"Poppins",sans-serif;
+}
+
+/* Breadcrumb look */
+.breadcrumb{
+  background:transparent;
+  padding:0;
+}
+.breadcrumb-item + .breadcrumb-item::before{
+  content:"›";
+}
+
+/* Desktop filter card */
+.card.shadow-sm .accordion-button{
+  font-weight:600;
+  font-size:.9rem;
+}
+.card.shadow-sm .accordion-body{
+  padding-top:.5rem;
+  padding-bottom:.5rem;
+}
+
+/* Quick selects */
+.minw-160{ min-width:160px; }
+
+/* Car card polish */
+.car-card{ border-radius:12px; }
+.car-img{
+  height:160px;
+  object-fit:cover;
+  border-top-left-radius:12px;
+  border-top-right-radius:12px;
+}
+
+/* Buttons */
+.btn-primary{
+  background-color:var(--primary-color);
+  border-color:var(--primary-color);
+}
+.btn-primary:hover{
+  background-color:var(--primary-light);
+  border-color:var(--primary-light);
+}
+.btn-outline-primary{
+  color:var(--primary-color);
+  border-color:var(--primary-color);
+}
+.btn-outline-primary:hover{
+  background-color:var(--primary-color);
+  border-color:var(--primary-color);
+}
+
+/* Make gutters steady across sizes */
+.row.g-4{ --bs-gutter-y:1.5rem; --bs-gutter-x:1.5rem; }
+
+/* Tablet & down adjustments */
+@media (max-width: 991.98px){
+  /* let selects wrap naturally on smaller screens */
+  .minw-160{ min-width:140px; }
+}
+
+/* Very small phones */
+@media (max-width: 360px){
+  .car-img{ height:140px; }
+}
