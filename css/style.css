@@ -2341,7 +2341,7 @@ section.hero-landing.container {
   width: 70px;
   height: 70px;
   border-radius: 50%;
-
+ color:var(--primary-light);
   font-size: 50px;
 }
 
@@ -2551,6 +2551,8 @@ section.hero-landing.container {
 /* Gap between columns */
 .footer-container .row {
   --bs-gutter-x: 11px; /* Bootstrap gutter variable */
+  margin-left: 90px;
+  margin-right: 90px;
 }
 
 /* Footer wrapper */
@@ -2604,6 +2606,8 @@ section.hero-landing.container {
 .footer-hr {
   border: 1px;
   border-top: 1px solid #ffffff;
+  margin-left: 84px;
+  margin-right: 84px;
 }
 
 /* Logo sizing for dark footer */
@@ -2623,20 +2627,97 @@ section.hero-landing.container {
   row-gap: 0.4rem;
 }
 .copyright {
-  margin-left: 20px;
+  margin-left: 117px;
   color: #ffffff;
 }
 .footer-bottom-links {
   color: #ffffff;
-  margin-right: 20px;
+  margin-right:117px;
+}
+@media (max-width: 991.98px){
+  /* neutralize big offsets on small screens */
+  .footer-container .row{ margin-left:22px !important; margin-right:0 !important; }
+  .footer-hr{ margin-left:22px !important; margin-right:22px !important; }
+  .copyright{ margin-left:0 !important; text-align:center; }
+  .footer-bottom-links{ margin-right:0 !important; justify-content:center; }
+
+  /* layout: brand block first, then three link columns on same row */
+  .footer-row{
+    display:flex;            /* control the row explicitly */
+    flex-wrap:wrap;
+    row-gap:16px;
+  }
+  /* brand & contact block */
+  .footer-row > .col-lg-4{
+    order:0;                 /* stays on top */
+    flex:0 0 100%;
+    max-width:100%;
+    text-align:left;         /* per request: left top */
+  }
+  /* Explore / Resources / Support — force 3 columns in one row */
+  .footer-row .footer-col{
+    order:1;
+    flex:0 0 33.3333%;
+    max-width:33.3333%;
+    text-align:center;       /* center headings & links */
+    margin-left:0 !important;
+  }
+  
+  .footer-links li{ display:block; text-align: left;}
+
+  /* friendlier spacing for bottom links on small screens */
+  .footer-bottom-links .list-inline-item:not(:last-child){
+    margin-right:1rem;
+  }
+
+  /* type sizes (mobile/tablet) */
+  .footer-heading{ font-size:1rem; text-align: left; }                 /* ~16px */
+  .footer-text,
+  .footer-links a,
+  .footer-bottom-links a{ font-size:.9rem; }         /* ~14.4px */
 }
 
-/* Center the container on the page (remove old left offset) */
-.footer-container{
-  max-width: 1440px;
-  margin: 0 auto !important;   /* override old margin-left:90px */
-  padding-inline: 20px;
+/* Small phones (≤ 575.98px): slightly tighter copy */
+@media (max-width: 575.98px){
+  .footer-row{ row-gap:12px; }
+  .footer-heading{ font-size:.95rem; }               /* ~15px */
+  .footer-text,
+  .footer-links a,
+  .footer-bottom-links a{ font-size:.85rem; }        /* ~13.6px */
+  
 }
 
+/* Medium tablets (768–991.98px): bump type a bit */
+@media (min-width: 768px) and (max-width: 991.98px){
+  .footer-heading{ font-size:1.0625rem; }            /* 17px */
+  .footer-text,
+  .footer-links a,
+  .footer-bottom-links a{ font-size:.9375rem; }      /* 15px */
+}
+/* ====== Responsive: force ALL 4 columns on ONE row around 1000px and up ====== */
+
+/* 992–1199px (≈1000px): make the 4 footer columns equal-width on one line */
+@media (min-width: 992px) and (max-width: 1199.98px){
+  /* relax heavy side margins so all 4 fit comfortably */
+  .footer-container .row{ margin-left:20px !important; margin-right:20px !important; }
+  .footer-hr{ margin-left:20px !important; margin-right:20px !important; }
+
+  /* put columns in a single line and give them equal width */
+  .footer-row{
+    display:flex;
+    flex-wrap:nowrap;          /* keep in one row */
+    column-gap:24px;           /* space between columns */
+    row-gap:0;
+  }
+  /* brand block + three link blocks -> 25% each */
+  .footer-row > .col-lg-4,
+  .footer-row > .footer-col{
+    flex:0 0 25%;
+    max-width:25%;
+  }
+
+  /* remove custom left margin that would break alignment */
+  .footer-motokhabar .footer-col{ margin-left:0 !important; }
+}
 
 
