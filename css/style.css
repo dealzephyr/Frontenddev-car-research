@@ -449,31 +449,16 @@ section.hero-landing.container {
   min-height: 420px;
   border-radius: 28px;
   overflow: hidden;
+
 }
 .hero-img {
   position: absolute;
-  inset: 0;
+   inset: 0;
   width: 100%;
   height: 100%;
   object-fit: cover;
+  object-position:bottom center; /* ADD THIS LINE */
 }
-.hero-overlay {
-  position: absolute;
-  inset: 0;
-  background: radial-gradient(
-      80% 80% at 50% 40%,
-      rgba(0, 0, 0, 0) 0%,
-      rgba(0, 0, 0, 0.25) 55%,
-      rgba(0, 0, 0, 0.45) 100%
-    ),
-    linear-gradient(
-      180deg,
-      rgba(0, 0, 0, 0.15) 0%,
-      rgba(0, 0, 0, 0.35) 60%,
-      rgba(0, 0, 0, 0.25) 100%
-    );
-}
-
 .hero-content {
   position: relative;
   z-index: 2;
@@ -560,6 +545,7 @@ font-size: 13px;
 }
 .dropdown-item{
   color: #757575;
+  font-size: 13px;
 }
 .dropdown-item:hover {
   background: #f3f5f7;
@@ -614,6 +600,8 @@ font-size: 13px;
 
 /* Quiz button */
 .btn-quiz {
+  width:127px;
+  font-size: 14px;
   border-radius: 12px;
   height: 37px;
   margin-top: 20px;
@@ -624,8 +612,8 @@ font-size: 13px;
 }
 .btn-quiz:hover {
   color: var(--primary-color);
-  background: #fff;
-  border-color: #fff;
+  background: #ffffff;
+  border-color: #ffffff;
 }
 /* Main section class */
 /* Mobile-only hero simplification */
