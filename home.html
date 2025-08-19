@@ -176,7 +176,6 @@
       </a>
       <a href="/profile" class="tab-item" role="tab" aria-selected="false">
         <i class="bi bi-person-circle"></i>
-        <span>Profile</span>
       </a>
     </nav>
 
@@ -194,7 +193,8 @@
       <h1 class="hero-title text-center">Find Your Perfect Car</h1>
 
       <!-- Finder row -->
-      <div class=" d-flex justify-content-center align-items-center">
+  
+ <div class=" d-flex justify-content-center align-items-center">
         <div class="finder-wrap">
           <div class="finder-bar">
             <!-- Brand -->
@@ -245,8 +245,7 @@
           </div>
         </div>
       </div>
-
-      <!-- Sub / CTA -->
+     <!-- Sub / CTA -->
       <div class="text-center mt-4">
         <h5 class="text-white fw-semibold mb-2">Not Sure What You Need?</h5>
         <p class="hero-desc text-white-50 mb-3">
@@ -276,6 +275,7 @@
       
       <!-- Top 10 car ranking  -->
       <section class="container rankings-block my-5">
+        
         <div class="row g-3">
           <!-- LEFT: heading + tabs + slider -->
           <div class="col-lg-9">
@@ -307,13 +307,14 @@
             <!-- Slider shell (kept same so your JS still works) -->
             <div class="slider-shell position-relative">
               <!-- arrows -->
+               <div>
               <button class="slider-btn prev" aria-label="Previous">
                 <i class="bi bi-chevron-left"></i>
               </button>
               <button class="slider-btn next" aria-label="Next">
                 <i class="bi bi-chevron-right"></i>
               </button>
-              <div class="slider-shell position-relative"></div>
+              </div>
 
   <!-- Budget (default visible) -->
   <div class="cards-track is-active" data-cat="budget">
@@ -1394,6 +1395,7 @@ document.addEventListener('DOMContentLoaded', () => {
       </section>
       <!-- Browse by type  -->
       <section class="container my-5">
+        <div class="container browsebytype">
         <h3 class="fw-bold" style="color: #212121">Browse by Type</h3>
         <p class="text-muted mb-4">Find the perfect ride for any occasion</p>
 
@@ -1485,7 +1487,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
           <!-- Repeat for all categories -->
         </div>
-      
+      </div>
 
       </section>
 
