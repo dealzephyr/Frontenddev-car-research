@@ -59,14 +59,15 @@ body {
   margin-left: 85px;
 } /* vertically center logo look */
 
+
 .header-search .input-group {
   border-radius: 28px;
   background: #fff;
   box-shadow: 0 8px 17.6px -9px rgba(0, 0, 0, 0.25);
   overflow: hidden;
   border: 1px solid #efefef;
- 
-  
+max-width: 429px;
+margin: 0 auto; 
 }
 .header-search .input-group-text {
   border: 0;
@@ -603,8 +604,12 @@ font-size: 13px;
 
 /* Sub text */
 .hero-desc {
-  max-width: 700px;
+  max-width: 772px;
   margin: 0 auto;
+  color: #FFFFFF !important;
+  font-weight: 400;
+  font-size: 15px;
+
 }
 
 /* Quiz button */
@@ -1809,8 +1814,170 @@ font-size: 13px;
   transform: translateX(6px);
   background-color: #ebebeb; /* slightly darker on hover */
 }
+/* ===========================
+   Browse by Type – Responsive
+   (no HTML changes)
+   =========================== */
+
+/* Base: make cards fluid inside their Bootstrap columns */
+.browsebytype { margin-left: 0; } /* remove fixed left offset on all screens */
+
+.browsebytype .row.g-4{
+  /* gentler default gap; adjusted further per breakpoint below */
+  --bs-gutter-x: 1rem;
+  --bs-gutter-y: 1rem;
+}
+
+.browsebytype .type-card{
+  width: 100% !important;      /* fill the column */
+  max-width: 100%;
+  height: auto;                 /* let content define height */
+}
+
+.browsebytype .type-card img{
+  width: 100% !important;       /* remove fixed 223px */
+  margin-left: 0 !important;    /* kill left nudge */
+  height: clamp(120px, 22vw, 170px);
+  object-fit: cover;
+  border-radius: 7px;
+}
+
+/* fix doubled left indent coming from .type-card h5 */
+.browsebytype .type-info h5{ 
+  margin-left: 0 !important;
+  font-size: clamp(14px, 2vw, 18px);
+}
+
+.browsebytype .type-info{
+  padding: clamp(10px, 1.6vw, 14px);
+}
+
+.browsebytype .type-count{
+  font-size: clamp(10px, 1.6vw, 12px);
+  padding: 4px 10px;
+}
+
+.browsebytype .arrow{
+  right: clamp(12px, 2vw, 20px);
+  bottom: clamp(10px, 1.6vw, 14px);
+  width: 21px; height: 21px;
+}
+
+/* ===== SM (≥576px) — still 2 columns via col-6 ===== */
+@media (min-width: 576px){
+  .browsebytype .row.g-4{
+    --bs-gutter-x: 1.25rem;
+    --bs-gutter-y: 1.25rem;
+  }
+  .browsebytype .type-card img{
+    height: clamp(130px, 20vw, 190px);
+  }
+}
+
+/* ===== MD (≥768px) — 3 columns via col-md-4 ===== */
+@media (min-width: 768px){
+  .browsebytype .row.g-4{
+    --bs-gutter-x: 1.25rem;   /* comfy gaps on tablets */
+    --bs-gutter-y: 1.25rem;
+  }
+  .browsebytype .type-card img{
+    height: clamp(140px, 18vw, 200px);
+  }
+}
+
+/* ===== LG (≥992px) — 4 columns via col-lg-3 ===== */
+@media (min-width: 992px){
+  .browsebytype .row.g-4{
+    --bs-gutter-x: 1.5rem;
+    --bs-gutter-y: 1.5rem;
+  }
+  .browsebytype .type-card img{ height: 160px; }
+}
+
+/* ===== XL (≥1200px) ===== */
+@media (min-width: 1200px){
+  .browsebytype .type-card img{ height: 170px; }
+}
+
+/* ===== XXL (≥1400px) ===== */
+@media (min-width: 1400px){
+  .browsebytype .type-card img{ height: 180px; }
+}
+
+/* ===== Extra-small phones (≤360px) — tighter gutters ===== */
+@media (max-width: 360px){
+  .browsebytype .row.g-4{
+    --bs-gutter-x: 0.75rem;
+    --bs-gutter-y: 0.75rem;
+  }
+  .browsebytype .type-card img{ height: 120px; }
+}
 
 
+
+/* =========================
+   Popular EVs (scoped)
+   ========================= */
+
+/* MOBILE & TABLET (≤991.98px): grid 2x2, show 4 cards, hide arrows */
+@media (max-width: 991.98px){
+  
+  .popular-evs .slider-btn{ display: none !important; }
+
+  .popular-evs .cards-track{
+    display: grid !important;
+    grid-template-columns: repeat(2, minmax(0,1fr));
+    gap: 12px;
+    grid-auto-flow: row;
+    overflow: visible !important;
+    padding: 0;
+  }
+  /* only first 4 cards */
+  .popular-evs .cards-track .car-card.v2:nth-child(n+5){
+    display: none !important;
+  }
+
+  /* tighter card internals on small screens */
+  .popular-evs .cards-track .car-card.v2{ width: 100% !important; }
+  .popular-evs .car-card__media img{ height: 130px; object-fit: cover; }
+  .popular-evs .car-card__body{ padding: 12px; }
+  .popular-evs .car-card__title{ font-size: 14.5px; }
+  .popular-evs .car-card__location,
+  .popular-evs .car-card__row,
+  .popular-evs .car-card__grid{ font-size: 12px; }
+  .popular-evs .car-card__price{ font-size: 14.5px; margin: 6px 0 8px; }
+}
+
+/* DESKTOP (≥992px): keep original horizontal slider */
+@media (min-width: 992px){
+  
+  .popular-evs .slider-btn{ display: grid !important; }
+
+  .popular-evs .cards-track{
+    display: grid !important;
+    grid-auto-flow: column;
+    grid-auto-columns: 275px;
+    gap: 16px;
+    overflow-x: auto !important;
+    scroll-snap-type: x mandatory;
+    scroll-behavior: smooth;
+    padding-bottom: 8px;
+  }
+  .popular-evs .car-card.v2{ width: 275px !important; }
+  .popular-evs .car-card__media img{ height: 160px; }
+}
+
+/* OPTIONAL: make the section’s background bleed full-width */
+.popular-evs.bg-bleed{ position: relative; isolation: isolate; }
+.popular-evs.bg-bleed::before{
+  content:"";
+  position:absolute;
+  top:0; bottom:0;
+  left: calc(50% - 50vw);
+  right: calc(50% - 50vw);
+  background: #f7f7f7;       /* change if you want a different band color */
+  z-index:-1;
+}
 
 
 
@@ -2139,6 +2306,7 @@ font-size: 13px;
     height:32px;
     border-radius:6px;
   }
+ 
 }
 
 /* ====== XS phones (≤360px) ====== */
@@ -2163,6 +2331,9 @@ font-size: 13px;
   .expert-reviews .chip{ font-size:8px; padding:5px 9px; }
   
   .expert-reviews .btn.btn-outline-choco{ padding:8px 10px; font-size:12px; }
+  .expert-reviews .d-flex.gap-2{
+    display: block !important; /* override Bootstrap flex */
+  }
 }
 
 /* ====== Phones (361–575.98px) ====== */
@@ -2190,7 +2361,10 @@ font-size: 13px;
   .expert-reviews .review-title{ font-size:16px; }
   .expert-reviews .review-excerpt{ font-size:13px; }
   .expert-reviews .btn.btn-outline-choco{ padding:9px 12px; font-size:12.5px; }
-  
+  .expert-reviews .chip{ font-size:8px; padding:6px 10px; }
+  .expert-reviews .d-flex.gap-2{
+    display: block !important; /* override Bootstrap flex */
+  }
 }
 
 /* ====== Small tablets (576–767.98px) ====== */
@@ -2206,8 +2380,10 @@ font-size: 13px;
   .expert-reviews .review-excerpt{ font-size:13.5px; }
   
   .expert-reviews .chip{ font-size:8px; padding:6px 10px; }
-  .expert-reviews .btn.btn-outline-choco{ padding:10px 14px
-}}
+  .expert-reviews .btn.btn-outline-choco{ padding:10px 14px  }
+.expert-reviews .d-flex.gap-2{
+    display: block !important; /* override Bootstrap flex */
+  }}
 
 /* ====== Tablets (768–991.98px) ====== */
 @media (max-width:767.98px){
@@ -2428,11 +2604,14 @@ font-size: 13px;
   flex: 0 0 14.2857%;
   max-width: 14.2857%;
 }
-
 @media (max-width: 575.98px) {
   .col-3 {
     flex: 0 0 50%;
     max-width: 50%;
+  }
+
+  .brands-section .row > [class*="col-"]:nth-child(n+9){
+    display:none;
   }
 }
 @media (max-width: 767.98px) {
@@ -2440,21 +2619,25 @@ font-size: 13px;
     flex: 0 0 25%;
     max-width: 25%;
   }
+
+  .brands-section .row > [class*="col-"]:nth-child(n+9){ display:none; }
+
 }
 @media (min-width: 768px) and (max-width: 991.98px) {
   .col-sm-5th {
     flex: 0 0 20%;
     max-width: 20%;
   }
+  .brands-section .row > [class*="col-"]:nth-child(n+11){ display:none; }
 }
 @media (min-width: 992px) {
   .col-lg-7th {
     flex: 0 0 14.2857%;
     max-width: 14.2857%;
   }
+
+  .brands-section .row > [class*="col-"]:nth-child(n+15){ display:none; }
 }
-
-
 
 
 
