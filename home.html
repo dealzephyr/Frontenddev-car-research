@@ -16,6 +16,7 @@
       href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap"
       rel="stylesheet"
     />
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;300;400;700&display=swap" rel="stylesheet">
     <!--  Ionicons CDN for exact compare Icons -->
 
     <script
@@ -97,7 +98,7 @@
                 >
                    <ion-icon
                   name="notifications-outline"
-                  style="width: 20px; height: 20px; margin-right:8px"
+                  style="width: 18px; height: 18px; margin-right:8px"
                 ></ion-icon>
                   Notification
                 </a>
@@ -108,7 +109,10 @@
                   href="#"
                   style="white-space: nowrap"
                 >
-                  <i class="bi bi-person me-1"></i>
+                   <ion-icon
+                  name="person-outline"
+                  style="width: 18px; height: 18px; margin-right:8px"
+                ></ion-icon>
                   Hello, Login
                   <span class="badge-dot ms-2"></span>
                 </a>
@@ -1096,6 +1100,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
 
       <!-- Popular cars in 2025  -->
+   
       <section class="container popular-cars my-5">
         <!-- heading + view all -->
         <div class="d-flex justify-content-between align-items-start mb-3">
@@ -1480,14 +1485,12 @@ document.addEventListener('DOMContentLoaded', () => {
 
           <!-- Repeat for all categories -->
         </div>
-        <div class="load-more-wrap">
-  <button type="button" class="load-more-btn">Load More</button>
-</div>
+      
 
       </section>
 
       <!-- Popular EVs -->
-        <section class="container my-5">
+        <section class="container my-5 popular-evs">
         <!-- heading + view all -->
         <div class="d-flex justify-content-between align-items-start mb-3">
           <div>
@@ -1508,7 +1511,7 @@ document.addEventListener('DOMContentLoaded', () => {
             <i class="bi bi-chevron-right"></i>
           </button>
 
-          <div class="cards-track" id="popularTrack">
+          <div class="cards-track" id="evsTrack">
             <!-- card 1 -->
            <article class="car-card v2">
                   <div class="car-card__media">
@@ -1956,83 +1959,201 @@ document.addEventListener('DOMContentLoaded', () => {
   </div>
 </section>
 <!-- Popular Brands -->
-<section class="container my-5 brands-section ">
-  <div class="d-flex justify-content-between align-items-start flex-wrap gap-2 mb-2">
-    <div>
-      <h2 class="section-title mb-1">Popular Brands</h2>
-      <p class="section-subtitle mb-0">Browse by car manufacturer</p>
+<section class="container my-5 brands-section">
+  <div class="d-flex justify-content-between align-items-start mb-4"> 
+  <div>
+  <h3 class="section-title mb-1">Popular Brands</h3>
+  <p class="section-subtitle mb-0">Browse by car manufacturer</p>
     </div>
-    <a href="#" class="btn btn-secondary btn-sm view-btn">View All</a>
-  </div>
+<a href="#" class="btn btn-secondary btn-sm view-btn">View All</a>
+</div>
+ 
+<div class="row g-2 g-md-3">
+  <!-- Brand Cards - 4 on mobile, 5 on tablet, 7 on desktop -->
+    <div class="col-3 col-sm-5th col-lg-7th">
+      <div class="brand-card">
+        <img src="assets/images/brandimagehundai.jpg" alt="Hyundai Logo" class="brand-logo">
+        <h3 class="brand-name">Hyundai</h3>
+        <div class="brand-meta">
+          <span class="brand-count">25 Cars</span>
+          <button class="brand-arrow">
+            <i class="bi bi-arrow-right"></i>
+          </button>
+        </div>
+      </div>
+    </div>
+    <div class="col-3 col-sm-5th col-lg-7th">
+      <div class="brand-card">
+        <img src="assets/images/brandimagehundai.jpg" alt="Hyundai Logo" class="brand-logo">
+        <h3 class="brand-name">Hyundai</h3>
+        <div class="brand-meta">
+          <span class="brand-count">25 Cars</span>
+          <button class="brand-arrow">
+            <i class="bi bi-arrow-right"></i>
+          </button>
+        </div>
+      </div>
+    </div>
+        <div class="col-3 col-sm-5th col-lg-7th">
+      <div class="brand-card">
+        <img src="assets/images/brandimagehundai.jpg" alt="Hyundai Logo" class="brand-logo">
+        <h3 class="brand-name">Hyundai</h3>
+        <div class="brand-meta">
+          <span class="brand-count">25 Cars</span>
+          <button class="brand-arrow">
+            <i class="bi bi-arrow-right"></i>
+          </button>
+        </div>
+      </div>
+    </div>
 
-  <div class="brands-grid">
-    <!-- Single brand card -->
-    <div class="brand-card">
-      <img src="assets/images/brandimagehundai.jpg" alt="Hyundai Logo" class="brand-logo">
-      <h3 class="brand-name">Hyundai</h3>
-      <span class="brand-count">
-        25 Cars
-        <i class="bi bi-arrow-right"></i>
-      </span>
+        <div class="col-3 col-sm-5th col-lg-7th">
+      <div class="brand-card">
+        <img src="assets/images/brandimagehundai.jpg" alt="Hyundai Logo" class="brand-logo">
+        <h3 class="brand-name">Hyundai</h3>
+        <div class="brand-meta">
+          <span class="brand-count">25 Cars</span>
+          <button class="brand-arrow">
+            <i class="bi bi-arrow-right"></i>
+          </button>
+        </div>
+      </div>
     </div>
-    <div class="brand-card">
-      <img src="assets/images/brandimagehundai.jpg" alt="Hyundai Logo" class="brand-logo">
-      <h3 class="brand-name">Hyundai</h3>
-      <span class="brand-count">
-        25 Cars
-        <i class="bi bi-arrow-right"></i>
-      </span>
+        <div class="col-3 col-sm-5th col-lg-7th">
+      <div class="brand-card">
+        <img src="assets/images/brandimagehundai.jpg" alt="Hyundai Logo" class="brand-logo">
+        <h3 class="brand-name">Hyundai</h3>
+        <div class="brand-meta">
+          <span class="brand-count">25 Cars</span>
+          <button class="brand-arrow">
+            <i class="bi bi-arrow-right"></i>
+          </button>
+        </div>
+      </div>
     </div>
-    <div class="brand-card">
-      <img src="assets/images/brandimagehundai.jpg" alt="Hyundai Logo" class="brand-logo">
-      <h3 class="brand-name">Hyundai</h3>
-      <span class="brand-count">
-        25 Cars
-        <i class="bi bi-arrow-right"></i>
-      </span>
+        <div class="col-3 col-sm-5th col-lg-7th">
+      <div class="brand-card">
+        <img src="assets/images/brandimagehundai.jpg" alt="Hyundai Logo" class="brand-logo">
+        <h3 class="brand-name">Hyundai</h3>
+        <div class="brand-meta">
+          <span class="brand-count">25 Cars</span>
+          <button class="brand-arrow">
+            <i class="bi bi-arrow-right"></i>
+          </button>
+        </div>
+      </div>
     </div>
-    <div class="brand-card">
-      <img src="assets/images/brandimagehundai.jpg" alt="Hyundai Logo" class="brand-logo">
-      <h3 class="brand-name">Hyundai</h3>
-      <span class="brand-count">
-        25 Cars
-        <i class="bi bi-arrow-right"></i>
-      </span>
+        <div class="col-3 col-sm-5th col-lg-7th">
+      <div class="brand-card">
+        <img src="assets/images/brandimagehundai.jpg" alt="Hyundai Logo" class="brand-logo">
+        <h3 class="brand-name">Hyundai</h3>
+        <div class="brand-meta">
+          <span class="brand-count">25 Cars</span>
+          <button class="brand-arrow">
+            <i class="bi bi-arrow-right"></i>
+          </button>
+        </div>
+      </div>
     </div>
-    <div class="brand-card">
-      <img src="assets/images/brandimagehundai.jpg" alt="Hyundai Logo" class="brand-logo">
-      <h3 class="brand-name">Hyundai</h3>
-      <span class="brand-count">
-        25 Cars
-        <i class="bi bi-arrow-right"></i>
-      </span>
+        <div class="col-3 col-sm-5th col-lg-7th">
+      <div class="brand-card">
+        <img src="assets/images/brandimagehundai.jpg" alt="Hyundai Logo" class="brand-logo">
+        <h3 class="brand-name">Hyundai</h3>
+        <div class="brand-meta">
+          <span class="brand-count">25 Cars</span>
+          <button class="brand-arrow">
+            <i class="bi bi-arrow-right"></i>
+          </button>
+        </div>
+      </div>
     </div>
-    <div class="brand-card">
-      <img src="assets/images/brandimagehundai.jpg" alt="Hyundai Logo" class="brand-logo">
-      <h3 class="brand-name">Hyundai</h3>
-      <span class="brand-count">
-        25 Cars
-        <i class="bi bi-arrow-right"></i>
-      </span>
+        <div class="col-3 col-sm-5th col-lg-7th">
+      <div class="brand-card">
+        <img src="assets/images/brandimagehundai.jpg" alt="Hyundai Logo" class="brand-logo">
+        <h3 class="brand-name">Hyundai</h3>
+        <div class="brand-meta">
+          <span class="brand-count">25 Cars</span>
+          <button class="brand-arrow">
+            <i class="bi bi-arrow-right"></i>
+          </button>
+        </div>
+      </div>
     </div>
-    <div class="brand-card">
-      <img src="assets/images/brandimagehundai.jpg" alt="Hyundai Logo" class="brand-logo">
-      <h3 class="brand-name">Hyundai</h3>
-      <span class="brand-count">
-        25 Cars
-        <i class="bi bi-arrow-right"></i>
-      </span>
+        <div class="col-3 col-sm-5th col-lg-7th">
+      <div class="brand-card">
+        <img src="assets/images/brandimagehundai.jpg" alt="Hyundai Logo" class="brand-logo">
+        <h3 class="brand-name">Hyundai</h3>
+        <div class="brand-meta">
+          <span class="brand-count">25 Cars</span>
+          <button class="brand-arrow">
+            <i class="bi bi-arrow-right"></i>
+          </button>
+        </div>
+      </div>
     </div>
-    <div class="brand-card">
-      <img src="assets/images/brandimagehundai.jpg" alt="Hyundai Logo" class="brand-logo">
-      <h3 class="brand-name">Hyundai</h3>
-      <span class="brand-count">
-        25 Cars
-        <i class="bi bi-arrow-right"></i>
-      </span>
+        <div class="col-3 col-sm-5th col-lg-7th">
+      <div class="brand-card">
+        <img src="assets/images/brandimagehundai.jpg" alt="Hyundai Logo" class="brand-logo">
+        <h3 class="brand-name">Hyundai</h3>
+        <div class="brand-meta">
+          <span class="brand-count">25 Cars</span>
+          <button class="brand-arrow">
+            <i class="bi bi-arrow-right"></i>
+          </button>
+        </div>
+      </div>
     </div>
-    <!-- duplicate brand-card as needed -->
-  </div>
+        <div class="col-3 col-sm-5th col-lg-7th">
+      <div class="brand-card">
+        <img src="assets/images/brandimagehundai.jpg" alt="Hyundai Logo" class="brand-logo">
+        <h3 class="brand-name">Hyundai</h3>
+        <div class="brand-meta">
+          <span class="brand-count">25 Cars</span>
+          <button class="brand-arrow">
+            <i class="bi bi-arrow-right"></i>
+          </button>
+        </div>
+      </div>
+    </div>
+        <div class="col-3 col-sm-5th col-lg-7th">
+      <div class="brand-card">
+        <img src="assets/images/brandimagehundai.jpg" alt="Hyundai Logo" class="brand-logo">
+        <h3 class="brand-name">Hyundai</h3>
+        <div class="brand-meta">
+          <span class="brand-count">25 Cars</span>
+          <button class="brand-arrow">
+            <i class="bi bi-arrow-right"></i>
+          </button>
+        </div>
+      </div>
+    </div>
+        <div class="col-3 col-sm-5th col-lg-7th">
+      <div class="brand-card">
+        <img src="assets/images/brandimagehundai.jpg" alt="Hyundai Logo" class="brand-logo">
+        <h3 class="brand-name">Hyundai</h3>
+        <div class="brand-meta">
+          <span class="brand-count">25 Cars</span>
+          <button class="brand-arrow">
+            <i class="bi bi-arrow-right"></i>
+          </button>
+        </div>
+      </div>
+    </div>
+        <div class="col-3 col-sm-5th col-lg-7th">
+      <div class="brand-card">
+        <img src="assets/images/brandimagehundai.jpg" alt="Hyundai Logo" class="brand-logo">
+        <h3 class="brand-name">Hyundai</h3>
+        <div class="brand-meta">
+          <span class="brand-count">25 Cars</span>
+          <button class="brand-arrow">
+            <i class="bi bi-arrow-right"></i>
+          </button>
+        </div>
+      </div>
+    </div>
+</div>
+
+
 </section>
 
 <!-- Ask our Ai Expert Section -->
