@@ -52,8 +52,8 @@ body {
 }
 
 .site-logo {
-  width: 193px;
-  height: 105px;
+  width: 140px;
+  height: 40px;
   object-fit: contain;
   margin-top: -8px;
   margin-left: 85px;
@@ -403,10 +403,10 @@ html, body { width: 100%; max-width: 100%; overflow-x: hidden; }
     gap: 22px !important; flex-wrap: nowrap !important; margin-left: 0 !important;
   }
   .header-top .header-actions > li:nth-child(2){ display:list-item !important; } /* Notification back */
-  .header-top .header-actions > li:nth-child(1) .nav-link{ font-size: 1rem !important; } /* show "Compare" text */
+  .header-top .header-actions > li:nth-child(1) .nav-link{ font-size: inherit !important; } /* show "Compare" text */
 
   /* Desktop logo size */
-  .site-logo{ width: 193px !important; height:auto !important; }
+  .site-logo{ width: 140px !important; height:auto !important; }
 }
 
 /* Wider desktops: mild polish */
