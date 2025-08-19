@@ -1560,6 +1560,24 @@ font-size: 13px;
 }
 /* Research section Ad video*/
 /* Media card with rounded corners and soft shadow */
+/* add this class to the same element that has .container */
+.bg-bleed{
+  position: relative;
+  isolation: isolate;          /* ensures the pseudo stays behind */
+}
+
+/* paints a full-viewport-wide background behind the container */
+.bg-bleed::before{
+  content:"";
+  position:absolute;
+  inset:0;                     /* top/bottom fill */
+  left: calc(50% - 50vw);      /* extend to left edge of viewport */
+  right: calc(50% - 50vw);     /* extend to right edge of viewport */
+  background:#f7f7f7;          /* your color */
+  z-index:-1;
+}
+
+
 .research-media {
   position: relative;
 
@@ -1791,6 +1809,7 @@ font-size: 13px;
   transform: translateX(6px);
   background-color: #ebebeb; /* slightly darker on hover */
 }
+
 
 
 
