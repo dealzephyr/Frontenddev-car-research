@@ -577,6 +577,7 @@ font-size: 13px;
   color: var(--primary-light);
   box-shadow: 0 8px 18px -10px rgba(0, 0, 0, 0.25);
   white-space: nowrap;
+  font-size: 14px;
 }
 
 .btn-search:hover {
@@ -586,6 +587,7 @@ font-size: 13px;
 
 .btn-search i {
   color: inherit; /* Takes color from parent */
+  font: 14px;
 }
 .notsure{font-size: 17px;font-weight: 600;}
 
