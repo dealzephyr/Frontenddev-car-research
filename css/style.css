@@ -855,9 +855,8 @@ font-size: 13px;
   background-color: #D4D4D4;
 }
 
-.rankings-tabs .nav-link:nth-child(4)::after {
-  display: none;
-}
+ .rankings-tabs .nav-item:last-child .nav-link::after {
+  display: none;}
 
 .rankings-tabs .nav-link.active {
  color: #212121;
