@@ -240,36 +240,32 @@ html, body { width: 100%; max-width: 100%; overflow-x: hidden; }
 
   /* Hide Notification (2nd item) on mobile/tablet */
   .header-top .header-actions > li:nth-child(2){ display:none !important; }
+  .header-top .header-actions > li:nth-child(1){ display:none !important; }
+  .header-top .header-actions .badge-dot{ display:none !important; }
 
   /* Reorder: Hello/Login (3rd) first, Compare (1st) second, Flag (4th) third */
   .header-top .header-actions > li:nth-child(3){ order:1; } /* Hello, Login */
-  .header-top .header-actions > li:nth-child(1){ order:2; } /* Compare */
+
   .header-top .header-actions > li:nth-child(4){ order:3; } /* Flag */
 
   /* Hello/Login compact */
   .header-top .header-actions > li:nth-child(3) .nav-link{
     display:inline-flex !important; align-items:center !important;
-    gap:4px !important; font-size: .9rem !important; line-height:1.2 !important;
-    padding:0 !important; white-space:nowrap !important;
+    gap:4px !important; font-size: 14px !important; line-height:1 !important;
+    padding:0!important; white-space:nowrap !important;
+    margin-right: 20px !important; /* space from flag */
   }
-  .header-top .header-actions > li:nth-child(3) .bi-person{ margin-right:0 !important; font-size:1rem; line-height:1; }
-  .header-top .header-actions > li:nth-child(3) .badge-dot{ margin-left:0 !important; }
-
-  /* Compare icon only */
-  .header-top .header-actions > li:nth-child(1) .nav-link{ font-size:0 !important; padding:0 !important; }
-  .header-top .header-actions > li:nth-child(1) ion-icon{ width:20px; height:20px; padding:0; }
-
   /* Flag compact */
   .header-top .flag-nepal{
-    width:22px; height:22px; display:inline-flex !important; align-items:center; justify-content:center;
+    width:27px; height:27px; display:inline-flex !important; align-items:center; justify-content:center;
     margin:0 !important;
   }
   .header-top .flag-nepal img{ max-width:80%; max-height:80%; }
 
   /* Logo size on phones/tablets */
-  .site-logo{ width: 130px !important; height:auto !important; margin:0 !important; object-fit:contain; }
+  .site-logo{ width: 136px !important; height:auto !important; margin:0 !important; object-fit:contain; }
 }
-@media (min-width:576px) and (max-width:911px){
+@media (min-width:576px) and (max-width:9px){
   /* Tight side padding; keep one row */
   .header-top.navbar{ padding: 0 10px; flex-wrap: nowrap !important; }
 
@@ -306,10 +302,11 @@ html, body { width: 100%; max-width: 100%; overflow-x: hidden; }
 
   /* Hide Notification (2nd item) on mobile/tablet */
   .header-top .header-actions > li:nth-child(2){ display:none !important; }
+  .header-top .header-actions > li:nth-child(1){ display:none !important; }
 
   /* Reorder: Hello/Login (3rd) first, Compare (1st) second, Flag (4th) third */
   .header-top .header-actions > li:nth-child(3){ order:1; } /* Hello, Login */
-  .header-top .header-actions > li:nth-child(1){ order:2; } /* Compare */
+  
   .header-top .header-actions > li:nth-child(4){ order:3; } /* Flag */
 
   /* Hello/Login - much smaller text */
@@ -326,17 +323,8 @@ html, body { width: 100%; max-width: 100%; overflow-x: hidden; }
     font-size:0.85rem !important; /* Smaller icon */
     line-height:1; 
   }
-  .header-top .header-actions > li:nth-child(3) .badge-dot{ 
-    margin-left:0 !important; 
-    width: 5px !important; /* Smaller dot */
-    height: 5px !important;
-  }
+  
 
-  /* Compare icon - smaller */
-  .header-top .header-actions > li:nth-child(1) .nav-link{ 
-    font-size:0 !important; 
-    padding:0 !important; 
-  }
   .header-top .header-actions > li:nth-child(1) ion-icon{ 
     width:16px !important; /* Smaller icon */
     height:16px !important; 
@@ -345,8 +333,8 @@ html, body { width: 100%; max-width: 100%; overflow-x: hidden; }
 
   /* Flag - smaller */
   .header-top .flag-nepal{
-    width:18px !important; /* Smaller flag */
-    height:18px !important; 
+    width:27px !important; /* Smaller flag */
+    height:27px !important; 
     display:inline-flex !important; 
     align-items:center; 
     justify-content:center;
@@ -356,7 +344,7 @@ html, body { width: 100%; max-width: 100%; overflow-x: hidden; }
 
   /* Logo - smaller for this screen size */
   .site-logo{ 
-    width: 110px !important; /* Reduced logo size */
+    width: 136px !important; /* Reduced logo size */
     height:auto !important; 
     margin:0 !important; 
     object-fit:contain; 
@@ -1053,13 +1041,14 @@ z-index: 10; /* Ensure above cards */
 .launches-card {
   width: 277px;
   max-height: 450px;
-  background: #fff;
+  background: #f4f4f4;
   border-top: 1px solid #f4f4f4;
   border-radius: 7px;
-  box-shadow: 0 6px 14px rgba(0, 0, 0, 0.06);
+  box-shadow: 0px 8px 17.6px -9px #00000040;
   margin-top: 62px;
   margin-left: 18px;
-  padding: 12px;
+ padding-top:32px !important;
+ padding-bottom: 32px !important;
   display: flex;
   flex-direction: column;
 }
@@ -1153,7 +1142,8 @@ z-index: 10; /* Ensure above cards */
 
   /* fixed sizing (responsive) */
   width: 301px;                      /* fixed width */
-  max-width: 80vw;                   /* safety on tiny phones */
+   height: 31px;
+   margin-top:20px !important;              /* safety on tiny phones */
 
   /* styling */
  
@@ -1162,8 +1152,10 @@ z-index: 10; /* Ensure above cards */
   background:var(--primary-color);
   color: #ffffff;
   font-weight: 600;
+  font-size: 14px;
   line-height: 1;
   text-decoration: none;
+  
 }
 
 /* Hover/focus polish */
@@ -1181,56 +1173,75 @@ z-index: 10; /* Ensure above cards */
   color: var(--primary-color);
   font-weight: 600;
   line-height: 1;
-  text-decoration: none;}
+  text-decoration: none;
+margin-left: 280px;}
   
 
 /* --- Mobile: put Launches above Rankings, center it, show 3 items + toggle --- */
 @media (max-width: 991.98px){
-  /* Reorder columns */
-  .rankings-block .row.g-3{ display:flex; flex-direction:column; gap:16px; }
-  .rankings-block .col-lg-3{ order:1; display:flex; justify-content:center; } /* Launches first */
-  .rankings-block .col-lg-9{ order:2; }                                       /* Rankings second */
-
-  /* Center & size card; remove fixed height & scroll on mobile */
+  /* Fixed-height card; header + LIST (scrolls) + button */
   .launches-card{
     width:100%;
     max-width:420px;
-    height:auto;
-    margin:0 auto;
-    padding-bottom: 8px;
+    margin:0 auto 16px;
+    padding:12px;
+    display:grid;
+    grid-template-rows:auto 1fr auto; /* header | list | button */
+    height:363px;                     /* enough for header + 3 items + button */
+    overflow:hidden;                  /* prevent overlapping outside */
+    border-radius:7px;
   }
+
+  /* Tighten header so it doesn't eat space */
+  .launches-card__header{ margin-bottom:8px; }
+  .launches-card__header h5{ margin:0 0 2px; font-size:16px; }
+  .launches-card__header small{ line-height:1.2; }
+
+  /* The scrollable middle area */
   .launches-card__list{
-    max-height:none;
-    overflow:visible;
+    min-height:0;                     /* critical for grid child to shrink */
+    overflow:hidden;                  /* collapsed: no scroll */
+    display:flex; flex-direction:column;
+    gap:8px;                          /* vertical gap between items */
     padding-right:0;
   }
-/* Push Close to the far right of the row */
-.launches-close-btn{ margin-left:300px;
-    }
-  /* Show only 3 items by default */
+
+  /* Item compaction so 3 fit cleanly */
+  .launches-item{
+    padding:8px;
+    min-height:58px;                  /* guide height */
+  }
+  .launches-item img{ width:56px; height:42px; }
+
+  /* Default (collapsed): show exactly 3 items */
   .launches-card__list .launches-item:nth-child(n+4){ display:none; }
 
-  /* When open, show all */
+  /* Opened: show all & let only the LIST scroll */
+  .launches-card.is-open .launches-card__list{
+    overflow-y:auto;
+    padding-right:6px;                /* gutter for scrollbar */
+  }
   .launches-card.is-open .launches-card__list .launches-item{ display:grid; }
 
-  /* Mobile-only View More button */
-  .launches-toggle-btn{
-    display:inline-flex;
-    align-items:center;
-    gap:8px;
-    margin-top:10px;
-    padding:8px 12px;
-    font-size:13px;
-    line-height:1;
-    border-radius:7px;
-    border:1px solid var(--primary-color, #5d4037);
-    background:#fff;
-    color:var(--primary-color, #5d4037);
+  /* Nice scrollbar (on list only) */
+  .launches-card.is-open .launches-card__list::-webkit-scrollbar{ width:6px; }
+  .launches-card.is-open .launches-card__list::-webkit-scrollbar-track{
+    background:#f4f4f4; border-radius:10px;
   }
-  .launches-card.is-open .launches-toggle-btn{
-    background: var(--primary-color, #5d4037);
-    color:#fff;
+  .launches-card.is-open .launches-card__list::-webkit-scrollbar-thumb{
+    background:#d4d4d4; border-radius:10px;
   }
+
+  /* Keep the toggle/“View More” centered and outside the scroll area */
+  .launches-toggle-btn{ justify-self:center; margin-top:8px; }
+     /* Collapsed: show exactly 3 items */
+ 
+
+  /* OPEN: reveal one more row (4 items) + keep list scrollable */
+  .launches-card.is-open{
+    height: 402px;                
+  }
+
 }
 
 /* --- Desktop: restore original behavior (scrollable list, no toggle) --- */
@@ -1658,7 +1669,9 @@ z-index: 10; /* Ensure above cards */
 .research-features .research-features span {
   color: var(--primary-dark);
   font-weight: 400;
+  align-items: center !important;
 }
+
 
 .advideo-right-top ion-icon{
   height: 16px;
@@ -1830,32 +1843,15 @@ line-height: 1;
   width: auto;
 }
 
-/* Arrow */
-.arrow {
-  position: absolute;
-  right: 20px;
-  bottom: 14px;
-  width: 21px;
-  height: 21px;
-  border-radius: 50%;
-  background-color: #ebebeb; /* light grey background */
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-size: 11px;
-  font-weight: 500;
-  color: #4a2c28; /* brownish arrow color */
-  transition: transform 0.3s ease, background-color 0.3s ease;
+.type-info ion-icon{
+border: 1px solid #d4d4d4;
+border-radius: 50%;
+color: var(--primary-light);
+float: right;
+
+
 }
 
-.type-card:hover .arrow {
-  transform: translateX(6px);
-  background-color: #ebebeb; /* slightly darker on hover */
-}
-/* ===========================
-   Browse by Type – Responsive
-   (no HTML changes)
-   =========================== */
 
 /* Base: make cards fluid inside their Bootstrap columns */
 .browsebytype { margin-left: 0; } /* remove fixed left offset on all screens */
@@ -2118,7 +2114,7 @@ line-height: 1;
 .btn-outline-choco:hover {
   color: var(--neutral-light);
   background-color: var(--primary-color);
-  transform: translateY(2px);
+ 
 }
 
 
@@ -2239,13 +2235,13 @@ line-height: 1;
 .expert-reviews h3 {
   font-weight: 700;
   font-size: 24px;
-  height: 36px;
+ 
   line-height: 100%;
 }
 .expert-reviews p {
   font-weight: 400;
-  font-size: 15px;
-
+  font-size: 14px;
+  margin-top: 15px;
   color: #757575;
 }
 .review-card {
@@ -2641,7 +2637,7 @@ line-height: 1;
 
 /* Bootstrap Icon Fix */
 .brand-arrow .bi-arrow-right {
-  font-size:8px;
+ 
   transform: scale(1.3); /* Makes it 30% larger */
   width: 1em;
   height: 1em;
@@ -2728,6 +2724,9 @@ line-height: 1;
 /* wrapper width & spacing */
 .ai-mini {
   max-width: 872px;
+}
+.send-icon{
+  color: #ffffff;
 }
 
 /* card */
