@@ -265,7 +265,7 @@ html, body { width: 100%; max-width: 100%; overflow-x: hidden; }
   /* Logo size on phones/tablets */
   .site-logo{ width: 136px !important; height:auto !important; margin:0 !important; object-fit:contain; }
 }
-@media (min-width:576px) and (max-width:9px){
+@media (min-width:576px) and (max-width:991px){
   /* Tight side padding; keep one row */
   .header-top.navbar{ padding: 0 10px; flex-wrap: nowrap !important; }
 
@@ -1165,16 +1165,18 @@ z-index: 10; /* Ensure above cards */
   color: #fff;
 }
 .launches-close-btn{
-  font-size: 24px;
- padding: 10px 14px;
-  border-radius: 8px;
-  border: none;
-  background: #fff;
-  color: var(--primary-color);
-  font-weight: 600;
-  line-height: 1;
-  text-decoration: none;
+
+    background: none;
+    border: none;
+    padding: 0;
+    margin: 0;
+    cursor: pointer;
+    outline: none;
+    color: #1c1b1f;
 margin-left: 280px;}
+.launches-close-btn i{
+  font-size:24px;
+}
   
 
 /* --- Mobile: put Launches above Rankings, center it, show 3 items + toggle --- */
@@ -1194,8 +1196,9 @@ margin-left: 280px;}
 
   /* Tighten header so it doesn't eat space */
   .launches-card__header{ margin-bottom:8px; }
-  .launches-card__header h5{ margin:0 0 2px; font-size:16px; }
-  .launches-card__header small{ line-height:1.2; }
+  .launches-card__header h5{ margin:0 0 5px; font-size:19px; }
+  .launches-card__header small{ line-height:1.54;font-size: 13px; }
+
 
   /* The scrollable middle area */
   .launches-card__list{
@@ -1211,7 +1214,7 @@ margin-left: 280px;}
     padding:8px;
     min-height:58px;                  /* guide height */
   }
-  .launches-item img{ width:56px; height:42px; }
+  .launches-item img{ width:60px; height:60px; }
 
   /* Default (collapsed): show exactly 3 items */
   .launches-card__list .launches-item:nth-child(n+4){ display:none; }
@@ -1259,16 +1262,15 @@ margin-left: 280px;}
 
 /* Small type polish for headings on mobile */
 @media (max-width:575.98px){
-  .rankings-title{ font-size:20px; }
-  .rankings-sub{ font-size:13px; margin-top:8px; }
-  .launches-card__header h5{ font-size:16px; }
-  .launches-name{ font-size:13.5px; }
-  .launches-meta{ font-size:12px; }
+  .rankings-title{ font-size:18px;line-height: 1; }
+  .rankings-block .left-col{margin-left: 19px; margin-right: 19px !important;}
+  .rankings-sub{ font-size:10px; margin-top:8px;line-height: 1; }
+
 }
 /* ========= MOBILE ≤991.98px — keep tab filtering; 2x2; 4 items ========= */
 @media (max-width: 991.98px){
   /* Put Launches ABOVE and Rankings BELOW */
-  .rankings-block .row.g-3{ display:flex; flex-direction:column; gap:16px; }
+  .rankings-block .row.g-3{ display:flex; flex-direction:column; gap:8px; }
   .rankings-block .col-lg-3{ order:1; }
   .rankings-block .col-lg-9{ order:2; }
 
@@ -1285,22 +1287,22 @@ margin-left: 280px;}
   .rankings-block .slider-shell .cards-track.is-active{
     display:grid !important;
     grid-template-columns: repeat(2, minmax(0,1fr));
-    gap:12px;
+    gap:2px;
     overflow:visible !important;
     grid-auto-flow:row;
     scroll-snap-type:none;
-    padding-bottom:0;
+    padding-bottom:0px;
   }
 
   /* Card fills cell; compact internals */
-  .rankings-block .cards-track.is-active .car-card.v2{ width:100% !important; }
-  .rankings-block .car-card__media img{ height:130px; object-fit:cover; }
-  .rankings-block .car-card__body{ padding:12px; }
-  .rankings-block .car-card__title{ font-size:14.5px; }
+  .rankings-block .cards-track.is-active .car-card.v2{ width:168px !important; }
+  .rankings-block .car-card__media img{ height:92px; object-fit:cover; }
+  .rankings-block .car-card__body{ padding:9px; }
+  .rankings-block .car-card__title{ font-size:12px; }
   .rankings-block .car-card__location,
   .rankings-block .car-card__row,
-  .rankings-block .car-card__grid{ font-size:12px; }
-  .rankings-block .car-card__price{ font-size:14.5px; margin:6px 0 8px; }
+  .rankings-block .car-card__grid{ font-size:9px; }
+  .rankings-block .car-card__price{ font-size:11px; margin:10px 0 8px;}
 
   /* Show only 4 cards by default */
   .rankings-block .cards-track.is-active .car-card.v2:nth-child(n+5){ display:none; }
@@ -1380,7 +1382,9 @@ margin-left: 280px;}
     flex-wrap: wrap;
     gap: 8px;
     align-items: center !important;
+   
   }
+  .popular-cars{ margin-left: 16px;}
   .popular-cars .rankings-title{
     margin-bottom: 2px !important;
     line-height: 1.2;
@@ -1411,6 +1415,7 @@ margin-left: 280px;}
     overflow: visible !important;
     grid-auto-flow: row;
     scroll-snap-type: none;
+    
   }
   .popular-cars #popularTrack .car-card.v2{ width: 100% !important; }
 
@@ -1598,9 +1603,11 @@ margin-left: 280px;}
   .popular-cars #popularTrack .car-card__title{ font-size: 16px; }
   .popular-cars #popularTrack .car-card__price{ font-size: 16px; }
 }
+
+
 /* Research section Ad video*/
-/* Media card with rounded corners and soft shadow */
-/* add this class to the same element that has .container */
+
+
 .bg-bleed{
   position: relative;
   isolation: isolate;          /* ensures the pseudo stays behind */
@@ -1639,24 +1646,25 @@ margin-left: 280px;}
   left: 50%;
   top: 50%;
   transform: translate(-50%, -50%);
-  width: 78px;
-  height: 78px;
+  width: 80px;
+  height: 80px;
   border-radius: 50%;
   border: none;
-  background: rgba(255, 255, 255, 0.85);
+  background: #757575;
   display: grid;
   place-items: center;
-  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.18);
+  
   transition: transform 0.15s ease, background 0.15s ease;
 }
 .play-btn i {
-  font-size: 36px;
+  font-size: 60px;
+
+
+opacity: 1;
+
   color: var(--primary-dark);
 }
-.play-btn:hover {
-  transform: translate(-50%, -50%) scale(1.05);
-  background: #fff;
-}
+
 
 /* Feature icons */
 
@@ -1729,15 +1737,19 @@ margin-left: 280px;}
     width: 100%; height: 100%;
     object-fit: cover;
   }
-  .play-btn{ width: 64px; height: 64px; } /* slightly smaller on phones */
+  .play-btn{ width: 43px; height: 43px; } /* slightly smaller on phones */
 
   /* Tighten right-side text for small screens */
-  .advideo-right {
+ .advideo-right {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
   text-align: center;
 }
-  .advideo-right-top{ font-size: 13px; }
-  .advideo-right h2{ font-size: 20px; line-height: 1.25; margin: 6px 0 8px; }
-  .advideo-right p{ font-size: 14px; margin-bottom: 12px; }
+.advideo-right-top{font-size: 10px; margin-top: 10px;}
+
+.advideo-right h2{ font-size: 18px; line-height: 1.25; margin: 6px 0 8px; }
+  .advideo-right p{ font-size: 11px; margin-bottom: 12px; }
 
   /* Features: force 2 columns on mobile */
   .research-features{
@@ -1746,20 +1758,42 @@ margin-left: 280px;}
     grid-template-columns: repeat(2, minmax(0,1fr));
     gap: 10px 14px;
     margin-top: 6px;
-    margin-left: 3px;
+    
   }
   /* neutralize Bootstrap's column paddings inside our grid */
   .research-features > [class*="col-"]{
     padding: 0 !important;
+     display: flex !important;
+  align-items: center !important;
+  gap: 8px; 
   }
 
   /* Keep icon bubbles aligned/tidy */
-  .research-features .feat-icon{
-    display: inline-grid;
-    place-items: center;
-    width: 28px; height: 28px;
-    flex: 0 0 auto;
-  }
+  .research-features .feat-icon {
+  display: inline-flex; /* Changed from inline-grid to inline-flex */
+  align-items: center;
+  justify-content: center;
+  width: 28px;
+  height: 28px;
+  margin-left: 17px;
+  flex-shrink: 0; /* Prevent icon from shrinking */
+  background-color: #f8f9fa; /* Optional: add background */
+  border-radius: 50%; /* Optional: make it circular */
+}
+.research-features .feat-icon ion-icon{
+  font-size: 14px;
+  line-height: 1;
+}
+.research-features .feat-icon i {
+  font-size: 20px;
+  line-height: 1;
+}
+
+/* Make text responsive */
+.research-features span:not(.feat-icon) {
+  font-size: 12px; /* Adjust as needed */
+  line-height: 1.2;
+}
 }
 @media (max-width:991px){
   .advideo-right,.advideo-right-top {
@@ -2526,6 +2560,7 @@ float: right;
 .section-subtitle {
   color: #666;
   margin-bottom: 20px;
+  margin-top: 15px;
 }
 
 /* Grid Layout for 7 cards per row */
@@ -2647,10 +2682,10 @@ float: right;
   opacity: 1; /* Ensures icon is fully visible */
 }
 
-.col-3 {
-  flex: 0 0 25%;
-  max-width: 25%;
-}
+.col-4 {
+    flex: 0 0 33.333333%;
+    max-width: 33.333333%;
+  }
 
 .col-sm-5th {
   flex: 0 0 20%;
@@ -2662,22 +2697,22 @@ float: right;
   max-width: 14.2857%;
 }
 @media (max-width: 575.98px) {
-  .col-3 {
-    flex: 0 0 50%;
-    max-width: 50%;
+  .col-4 {
+    flex: 0 0 33.333333%;
+    max-width: 33.333333%;
   }
 
-  .brands-section .row > [class*="col-"]:nth-child(n+9){
+  .brands-section .row > [class*="col-"]:nth-child(n+7){
     display:none;
   }
 }
 @media (max-width: 767.98px) {
-  .col-3 {
-    flex: 0 0 25%;
-    max-width: 25%;
+  .col-4 {
+    flex: 0 0 33.333333%;
+    max-width: 33.333333%;
   }
 
-  .brands-section .row > [class*="col-"]:nth-child(n+9){ display:none; }
+  .brands-section .row > [class*="col-"]:nth-child(n+7){ display:none; }
 
 }
 @media (min-width: 768px) and (max-width: 991.98px) {
