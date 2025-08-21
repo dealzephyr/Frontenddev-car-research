@@ -261,7 +261,7 @@
 <!-- Ad slider -->
       <section class="ad-slider-sec my-5">
     <div class="ad-slider-container">
-    <div class="ad-slider">
+    <div class="ad-slider" id="adSlider">
         <img src="assets/images/ad-firstimage.png" alt="Ad 1">
         <img src="assets/images/ad-secondimage.png" alt="Ad 2">
         <img src="assets/images/ad-thirdimage.png" alt="Ad 3">
@@ -270,7 +270,31 @@
     </div>
 </div>
 </section>
-
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+    const slider = document.getElementById('adSlider');
+    const images = slider.querySelectorAll('img');
+    let currentIndex = 0;
+    
+    function slideToNext() {
+        currentIndex = (currentIndex + 1) % images.length;
+        
+        // Calculate the scroll position
+        const imageWidth = images[0].offsetWidth;
+        const gap = 10; // Same as CSS gap
+        const scrollPosition = currentIndex * (imageWidth + gap);
+        
+        // Smooth scroll to the calculated position
+        slider.scrollTo({
+            left: scrollPosition,
+            behavior: 'smooth'
+        });
+    }
+    
+    // Auto-slide every 5 seconds
+    setInterval(slideToNext, 5000);
+});
+</script>
       
       <!-- Top 10 car ranking  -->
       <section class="container rankings-block my-5">

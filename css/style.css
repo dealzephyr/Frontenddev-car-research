@@ -36,6 +36,10 @@ body {
   overflow-x: hidden;
 }
 
+h3{
+  font-size: 24px !important;
+}
+
 /* Keep container at 1440 design width */
 
 /* Header styles */
@@ -1293,6 +1297,9 @@ margin-left: 280px;}
     scroll-snap-type:none;
     padding-bottom:0px;
   }
+  .rankings-tabs{
+    margin-right: 19px;
+  }
 
   /* Card fills cell; compact internals */
   .rankings-block .cards-track.is-active .car-card.v2{ width:168px !important; }
@@ -2152,7 +2159,6 @@ float: right;
   color: #757575; /* neutral-dark */
   font-size: 15px;
   font-weight: 400;
-
   margin-bottom: 10px;
 }
 
@@ -2175,6 +2181,7 @@ float: right;
   border: 1px solid var(--primary-color);
   border-radius: 7px;
   background-color: var(--neutral-light);
+  font-size: 14px;
 }
 .btn-outline-choco:hover {
   color: var(--neutral-light);
@@ -2219,12 +2226,20 @@ float: right;
   .featured-blogs .rankings-sub{ font-size:13px; }
 
   /* Card internals */
-  .featured-blogs .blog-media img{ height:120px; }
+  .featured-blogs .blog-media img{ height:120px;}
   .featured-blogs .blog-body{ padding:14px; }
   .featured-blogs .badge-soft{ font-size:10px; padding:5px 8px; }
-  .featured-blogs .blog-title{ font-size:14px; line-height:1.28; margin-top:6px; }
-  .featured-blogs .blog-excerpt{ font-size:12px; margin-bottom:8px; }
-  .featured-blogs .btn.btn-outline-choco{ padding:8px 10px; font-size:12px; }
+  .featured-blogs .blog-title{ font-size:12px; line-height:1.28; margin-top:6px; }
+  .featured-blogs .blog-excerpt{ 
+  font-size:9px; margin-bottom:8px; 
+  display: -webkit-box;
+  -webkit-line-clamp: 2; /* Number of lines to show */
+  line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  }
+  .featured-blogs .btn.btn-outline-choco{ padding:8px 10px; font-size:10px; }
 }
 /* --- Phones (361–575.98px) — still 2×2 (4 total) --- */
 @media (min-width:361px) and (max-width:575.98px){
@@ -2233,6 +2248,8 @@ float: right;
     flex:0 0 50%;
     max-width:50%;
   }
+
+    .featured-blogs .blog-media img{ height:120px;}
    
   .featured-blogs h3{ font-size:20px; }
   .featured-blogs p.rankings-sub{ font-size:10px; }
@@ -2246,6 +2263,18 @@ float: right;
     height:32px;              /* tidy tap target */
     border-radius:6px;
   }
+  .featured-blogs .blog-title{ font-size:12px; line-height:1.28; margin-top:6px; }
+  .featured-blogs .blog-excerpt{ 
+    font-size:9px; margin-bottom:8px;
+    display: -webkit-box;
+  -webkit-line-clamp: 2; /* Number of lines to show */
+  line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  text-overflow: ellipsis;
+ }
+
+   .featured-blogs .btn.btn-outline-choco{ padding:8px 10px; font-size:10px; }
 }
 
   
@@ -2261,7 +2290,7 @@ float: right;
   .featured-blogs h3{ font-size:22px; }
   .featured-blogs p.rankings-sub{ font-size:13.5px; }
 
-  .featured-blogs .blog-media img{ height:135px; }
+  .featured-blogs .blog-media img{ height:135px; width: 165px; }
   .featured-blogs .blog-body{ padding:16px; }
   .featured-blogs .blog-title{ font-size:15px; line-height:1.3; }
   .featured-blogs .blog-excerpt{ font-size:13px; }
