@@ -2006,14 +2006,45 @@ float: right;
   }
 
   /* tighter card internals on small screens */
-  .popular-evs .cards-track .car-card.v2{ width: 100% !important; }
-  .popular-evs .car-card__media img{ height: 130px; object-fit: cover; }
-  .popular-evs .car-card__body{ padding: 12px; }
-  .popular-evs .car-card__title{ font-size: 14.5px; }
+  .popular-evs .cards-track .car-card.v2{ 
+    width: 100% !important;
+    min-height: 280px; /* Ensure minimum card height */
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .popular-evs .car-card__media img{ 
+    height: 130px; 
+    object-fit: cover; 
+  }
+  
+  .popular-evs .car-card__body{ 
+    padding: 12px;
+    flex: 1; /* Take remaining space */
+    display: flex;
+    flex-direction: column;
+    gap: 6px; /* Consistent spacing */
+  }
+  
+  .popular-evs .car-card__title{ 
+    font-size: 14.5px;
+    line-height: 1.3;
+    margin-bottom: 4px;
+  }
+  
   .popular-evs .car-card__location,
   .popular-evs .car-card__row,
-  .popular-evs .car-card__grid{ font-size: 12px; }
-  .popular-evs .car-card__price{ font-size: 14.5px; margin: 6px 0 8px; }
+  .popular-evs .car-card__grid{ 
+    font-size: 12px;
+    line-height: 1.2;
+  }
+  
+  .popular-evs .car-card__price{ 
+    font-size: 11px; 
+    margin-top: auto; /* Push price to bottom */
+    padding-top: 8px; /* Add spacing above price */
+
+  }
 }
 
 /* DESKTOP (≥992px): keep original horizontal slider */
@@ -2555,11 +2586,13 @@ float: right;
   font-weight: 700;
   color: var(--primary-dark);
   margin-top: 10px;
+  font-size: 24px;
 }
 
 .section-subtitle {
   color: #666;
   margin-bottom: 20px;
+  font-size: 14px;
   margin-top: 15px;
 }
 
