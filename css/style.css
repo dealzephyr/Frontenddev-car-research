@@ -168,6 +168,74 @@ margin: 0 auto;
   max-height: 80%;
   display: block;
 }
+/* Language Switcher - keeps your existing flag-nepal class working */
+.language-switcher {
+  position: relative;
+  display: inline-block;
+}
+
+.language-dropdown {
+  position: absolute;
+  top: 100%;
+  right: 0;
+  background: white;
+  border: 1px solid #dee2e6;
+  border-radius: 8px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  min-width: 160px;
+  z-index: 1000;
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(-10px);
+  transition: all 0.3s ease;
+  display: none; /* Hidden by default */
+}
+
+.language-dropdown.show {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0);
+  display: block;
+}
+
+.language-option {
+  display: flex;
+  align-items: center;
+  padding: 10px 15px;
+  text-decoration: none;
+  color: #333;
+  border: none;
+  background: none;
+  width: 100%;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+  font-size: 14px;
+}
+
+.language-option:hover {
+  background-color: #f8f9fa;
+  color: #333;
+}
+
+.language-option img {
+  width: 20px;
+  height: 14px;
+  margin-right: 10px;
+  border-radius: 2px;
+}
+
+.language-option.active {
+  background-color: #e3f2fd;
+  color: #1976d2;
+}
+
+.language-option:first-child {
+  border-radius: 8px 8px 0 0;
+}
+
+.language-option:last-child {
+  border-radius: 0 0 8px 8px;
+}
 
 .header-container { max-width: 1440px; width: 100%; }
 header, .navbar, .header-container { max-width: 100%; }
@@ -1296,6 +1364,7 @@ margin-left: 280px;}
     grid-auto-flow:row;
     scroll-snap-type:none;
     padding-bottom:0px;
+    margin-right: 19px;
   }
   .rankings-tabs{
     margin-right: 19px;
@@ -1387,21 +1456,24 @@ margin-left: 280px;}
   /* Heading row */
   .popular-cars .mb-3.d-flex{
     flex-wrap: wrap;
-    gap: 8px;
+    gap: 2px;
     align-items: center !important;
+
    
   }
-  .popular-cars{ margin-left: 16px;}
+  .popular-cars{ margin-left: 19px; }
   .popular-cars .rankings-title{
+    font-size: 18px;
     margin-bottom: 2px !important;
-    line-height: 1.2;
+    line-height: 1;
   }
   .popular-cars .rankings-sub{
-    margin-top: 0 !important;
+    margin-top: 8px !important;
     color: #6b7280;
   }
   .popular-cars .view-btn{
     margin-left: auto;
+    margin-right: 19px;
     border-radius: 6px;
   }
 
@@ -1411,6 +1483,7 @@ margin-left: 280px;}
     border: 0;
     padding: 0;
     position: relative;
+    margin-right: 19px;
   }
   .popular-cars .slider-btn{ display: none !important; }
 
@@ -1418,7 +1491,7 @@ margin-left: 280px;}
   .popular-cars #popularTrack{
     display: grid !important;
     grid-template-columns: repeat(2, minmax(0,1fr));
-    gap: 12px;
+    gap: 8px;
     overflow: visible !important;
     grid-auto-flow: row;
     scroll-snap-type: none;
@@ -1428,7 +1501,7 @@ margin-left: 280px;}
 
   /* Card content tightening on mobile */
   .popular-cars #popularTrack .car-card__body{ padding: 12px 12px 14px; }
-  .popular-cars #popularTrack .car-card__divider{ margin: 8px 0 10px; }
+  .popular-cars #popularTrack .car-card__divider{ margin: 8px 0 8px; }
   .popular-cars #popularTrack .btn-sm{ padding: 4px 8px; }
 }
 
@@ -1444,7 +1517,7 @@ margin-left: 280px;}
   .popular-cars #popularTrack{ grid-template-columns: 1fr; }
 
   .popular-cars #popularTrack .car-card__media img{ height: 120px; object-fit: cover; }
-  .popular-cars #popularTrack .car-card__title{ font-size: 13px; }
+  .popular-cars #popularTrack .car-card__title{ font-size: 12px; }
   .popular-cars #popularTrack .car-card__location,
   .popular-cars #popularTrack .car-card__row,
   .popular-cars #popularTrack .car-card__grid{ font-size: 12px; }
@@ -1452,7 +1525,7 @@ margin-left: 280px;}
   .d-flex.gap-2 {
     display: grid !important;        /* override Bootstrap flex */
     grid-template-columns: 1fr;      /* one per row */
-    gap: 8px;                        /* keep spacing */
+    gap: 2px;                        /* keep spacing */
     width: 100%;
   }
   .d-flex.gap-2 > .btn {
@@ -1526,7 +1599,7 @@ margin-left: 280px;}
    .d-flex.gap-2 {
     display: grid !important;        /* override Bootstrap flex */
     grid-template-columns: 1fr;      /* one per row */
-    gap: 8px;                        /* keep spacing */
+    gap: 2px;                        /* keep spacing */
     width: 100%;
   }
   .d-flex.gap-2 > .btn {
@@ -1550,7 +1623,7 @@ margin-left: 280px;}
   .d-flex.gap-2 {
     display: grid !important;        /* override Bootstrap flex */
     grid-template-columns: 1fr;      /* one per row */
-    gap: 8px;                        /* keep spacing */
+    gap: 2px;                        /* keep spacing */
     width: 100%;
   }
   .d-flex.gap-2 > .btn {
@@ -1638,18 +1711,20 @@ margin-left: 280px;}
   border-radius: 20px;
   overflow: hidden;
   box-shadow: 0 18px 36px rgba(0, 0, 0, 0.12);
+display: block;
 }
 .research-media img {
   display: block;
   width: 100%;
   height: 358px; /* tweak to your frame */
   object-fit: cover;
+
 }
 
 /* Play button overlay */
 .play-btn {
   position: absolute;
-  inset: auto;
+  
   left: 50%;
   top: 50%;
   transform: translate(-50%, -50%);
@@ -1658,20 +1733,24 @@ margin-left: 280px;}
   border-radius: 50%;
   border: none;
   background: #757575;
-  display: grid;
-  place-items: center;
-  
+  display: flex;
+ 
   transition: transform 0.15s ease, background 0.15s ease;
+ 
 }
+
+
+
 .play-btn i {
-  font-size: 60px;
+ font-size: 60px;
+ opacity: 1;
+ color: var(--primary-dark);
+margin-left: 7px;
+ margin-top: 10px;
+ line-height: 1;
+ transform:none;
 
-
-opacity: 1;
-
-  color: var(--primary-dark);
 }
-
 
 /* Feature icons */
 
@@ -1745,6 +1824,7 @@ opacity: 1;
     object-fit: cover;
   }
   .play-btn{ width: 43px; height: 43px; } /* slightly smaller on phones */
+  .play-btn i{ font-size: 30px;margin-left: 3px;margin-top:5px; } /* smaller play icon */
 
   /* Tighten right-side text for small screens */
  .advideo-right {
@@ -1940,13 +2020,17 @@ float: right;
 
 /* ===== SM (≥576px) — still 2 columns via col-6 ===== */
 @media (min-width: 576px){
+ 
   .browsebytype .row.g-4{
+
     --bs-gutter-x: 1.25rem;
     --bs-gutter-y: 1.25rem;
   }
+
   .browsebytype .type-card img{
     height: clamp(130px, 20vw, 190px);
   }
+
 }
 
 /* ===== MD (≥768px) — 3 columns via col-md-4 ===== */
@@ -1955,6 +2039,7 @@ float: right;
     --bs-gutter-x: 1.25rem;   /* comfy gaps on tablets */
     --bs-gutter-y: 1.25rem;
   }
+  
   .browsebytype .type-card img{
     height: clamp(140px, 18vw, 200px);
   }
@@ -1987,6 +2072,10 @@ float: right;
   }
   .browsebytype .type-card img{ height: 120px; }
 }
+@media (max-width: 991px){
+  .browsebytype h3{font-size: 18px !important;}
+  .browsebytype p{font-size: 13px !important; margin-top: 8px !important;}
+}
 
 
 
@@ -1998,7 +2087,7 @@ float: right;
 @media (max-width: 991.98px){
   
   .popular-evs .slider-btn{ display: none !important; }
-
+.popular-evs h3{font-size: 18px !important;}
   .popular-evs .cards-track{
     display: grid !important;
     grid-template-columns: repeat(2, minmax(0,1fr));
@@ -2034,21 +2123,37 @@ float: right;
   }
   
   .popular-evs .car-card__title{ 
-    font-size: 14.5px;
-    line-height: 1.3;
-    margin-bottom: 4px;
+    font-size: 12px;
+    line-height: 1;
+    margin-bottom: 2px;
   }
   
-  .popular-evs .car-card__location,
-  .popular-evs .car-card__row,
+  .popular-evs .car-card__location{ 
+    font-size: 9px;
+    line-height: 1;
+    margin-bottom: 8px;
+  }
+  .popular-evs .car-card__row{ 
+    font-size: 9px;
+    line-height: 1;
+    margin-bottom: 0px !important;
+  }
+
+  .popular-evs .car-card__divider{margin-bottom: 8px;}
   .popular-evs .car-card__grid{ 
-    font-size: 12px;
-    line-height: 1.2;
+    font-size: 9px;
+    line-height: 1;
+    width: 100%;/* Ensure grid takes full width */
+    display: flex ;
+    flex-wrap: wrap; /* Wrap items */
+    gap: 8px; /* Space between items */
+
+   
   }
   
   .popular-evs .car-card__price{ 
     font-size: 11px; 
-    margin-top: auto; /* Push price to bottom */
+    margin-top: 8px; /* Push price to bottom */
     padding-top: 8px; /* Add spacing above price */
 
   }
@@ -2243,16 +2348,19 @@ float: right;
 }
 /* --- Phones (361–575.98px) — still 2×2 (4 total) --- */
 @media (min-width:361px) and (max-width:575.98px){
+  .featured-blogs{margin-left: 19px;}
+  
   .featured-blogs .row.g-4{ --bs-gutter-x:12px; --bs-gutter-y:14px; }
   .featured-blogs .row.g-4 > .col-12{
     flex:0 0 50%;
-    max-width:50%;
+    max-width:168px;
+   
   }
 
     .featured-blogs .blog-media img{ height:120px;}
    
-  .featured-blogs h3{ font-size:20px; }
-  .featured-blogs p.rankings-sub{ font-size:10px; }
+  .featured-blogs h3{ font-size:18px !important;  }
+  .featured-blogs p.rankings-sub{ font-size:10px; margin-top: 3px !important;}
 
   .featured-blogs .view-btn{
     margin-left:auto;         /* pin to right */
@@ -2262,8 +2370,9 @@ float: right;
     padding-top:10px;       /* smaller button */
     height:32px;              /* tidy tap target */
     border-radius:6px;
+    margin-right: 19px;
   }
-  .featured-blogs .blog-title{ font-size:12px; line-height:1.28; margin-top:6px; }
+  .featured-blogs .blog-title{ font-size:12px; line-height:1.3; margin-top:15px;  }
   .featured-blogs .blog-excerpt{ 
     font-size:9px; margin-bottom:8px;
     display: -webkit-box;
@@ -2274,8 +2383,11 @@ float: right;
   text-overflow: ellipsis;
  }
 
-   .featured-blogs .btn.btn-outline-choco{ padding:8px 10px; font-size:10px; }
+   .featured-blogs .btn.btn-outline-choco{ height: 25px;padding: 4px; font-size:10px; }
+   .blog-body .badge-soft{
+    font-size: 8px;
 }
+.blog-body .text-muted{font-size: 8px;}}
 
   
 
@@ -2480,6 +2592,7 @@ float: right;
 
 /* ====== Phones (361–575.98px) ====== */
 @media (min-width:361px) and (max-width:575.98px){
+  .expert-reviews{margin-left: 19px; margin-right: 19px;}
   .expert-reviews .row.g-4{ --bs-gutter-x:14px; --bs-gutter-y:16px; }
   .expert-reviews .row.g-4 > .col-12{
     display:flex; justify-content:center; align-items:stretch;
@@ -2493,16 +2606,17 @@ float: right;
     padding-top:10px;       /* smaller button */
     height:32px;              /* tidy tap target */
     border-radius:6px;
+    margin-right: 19px;
   }
-  .expert-reviews .review-card{ max-width: 360px; }
+  .expert-reviews .review-card{ width: 322px !important; }
 
-  .expert-reviews h3{ font-size:22px; }
-  .expert-reviews p.rankings-sub{ font-size:13.5px; }
-  .expert-reviews .review-media img{ height:140px; }
+  .expert-reviews h3{ font-size:18px; }
+  .expert-reviews p.rankings-sub{ font-size:12px; margin-top: 3px;}
+  .expert-reviews .review-media img{ height:161px; }
   .expert-reviews .review-body{ padding:16px; }
   .expert-reviews .review-title{ font-size:16px; }
-  .expert-reviews .review-excerpt{ font-size:13px; }
-  .expert-reviews .btn.btn-outline-choco{ padding:9px 12px; font-size:12.5px; }
+  .expert-reviews .review-excerpt{ font-size:13px; margin-bottom: 11px;}
+  .expert-reviews .btn.btn-outline-choco{ padding:3px 12px; font-size:12.5px; height: 25px; }
   .expert-reviews .chip{ font-size:8px; padding:6px 10px; }
   .expert-reviews .d-flex.gap-2{
     display: block !important; /* override Bootstrap flex */
@@ -2759,6 +2873,8 @@ float: right;
   max-width: 14.2857%;
 }
 @media (max-width: 575.98px) {
+  .brands-section{margin-left: 19px; margin-right: 19px;}
+  .brands-section ,.view-btn{margin-right: 19px;}
   .col-4 {
     flex: 0 0 33.333333%;
     max-width: 33.333333%;
