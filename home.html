@@ -352,55 +352,63 @@ document.addEventListener('DOMContentLoaded', function() {
       <!-- Finder row -->
   
  <div class=" d-flex justify-content-center align-items-center">
-        <div class="finder-wrap">
-          <div class="finder-bar">
-            <!-- Brand -->
-            <div class="dropdown">
-              <button class="btn filter-pill w-100 text-start" data-bs-toggle="dropdown" aria-expanded="false">
-                <span class="label">Select Brand</span>
-                <i class="bi bi-chevron-down caret"></i>
-              </button>
-              <ul class="dropdown-menu w-100">
-                <li><a class="dropdown-item" href="#">Toyota</a></li>
-                <li><a class="dropdown-item" href="#">Honda</a></li>
-                <li><a class="dropdown-item" href="#">Hyundai</a></li>
-              </ul>
-            </div>
+       <!-- Finder row -->
+<form id="hero-finder-form" class="d-flex justify-content-center align-items-center"
+      action="/search" method="GET" novalidate>
+            <!-- Hidden fields that actually submit -->
+      <input type="hidden" name="brand" id="brandInput">
+      <input type="hidden" name="model" id="modelInput">
+      <input type="hidden" name="variant" id="variantInput">
+  <div class="finder-wrap">
+    <div class="finder-bar">
 
-            <!-- Model -->
-            <div class="dropdown">
-              <button class="btn filter-pill w-100 text-start" data-bs-toggle="dropdown" aria-expanded="false">
-                <span class="label">Select Model</span>
-                <i class="bi bi-chevron-down caret"></i>
-              </button>
-              <ul class="dropdown-menu w-100">
-                <li><a class="dropdown-item" href="#">Model A</a></li>
-                <li><a class="dropdown-item" href="#">Model B</a></li>
-                <li><a class="dropdown-item" href="#">Model C</a></li>
-              </ul>
-            </div>
 
-            <!-- Variant -->
-            <div class="dropdown">
-              <button class="btn filter-pill w-100 text-start" data-bs-toggle="dropdown" aria-expanded="false">
-                <span class="label">Select Variant</span>
-                <i class="bi bi-chevron-down caret"></i>
-              </button>
-              <ul class="dropdown-menu w-100">
-                <li><a class="dropdown-item" href="#">Base</a></li>
-                <li><a class="dropdown-item" href="#">Mid</a></li>
-                <li><a class="dropdown-item" href="#">Top</a></li>
-              </ul>
-            </div>
+      <!-- Brand -->
+      <div class="dropdown" id="brandDropdown">
+        <button class="btn filter-pill w-100 text-start" data-bs-toggle="dropdown" aria-expanded="false" type="button">
+          <span class="label">Select Brand</span>
+          <i class="bi bi-chevron-down caret"></i>
+        </button>
+        <ul class="dropdown-menu w-100">
+          <li><a class="dropdown-item" href="#" data-value="Toyota">Toyota</a></li>
+          <li><a class="dropdown-item" href="#" data-value="Honda">Honda</a></li>
+          <li><a class="dropdown-item" href="#" data-value="Hyundai">Hyundai</a></li>
+        </ul>
+      </div>
 
-            <!-- Search (separate) -->
-            <button class="btn btn-search d-flex align-items-center gap-2 ">
-              <span>
-              <i class="bi bi-search"></i> &nbsp; Search
-              </span>
-            </button>
-          </div>
-        </div>
+      <!-- Model -->
+      <div class="dropdown" id="modelDropdown">
+        <button class="btn filter-pill w-100 text-start" data-bs-toggle="dropdown" aria-expanded="false" type="button">
+          <span class="label">Select Model</span>
+          <i class="bi bi-chevron-down caret"></i>
+        </button>
+        <ul class="dropdown-menu w-100">
+          <li><a class="dropdown-item" href="#" data-value="Model A">Model A</a></li>
+          <li><a class="dropdown-item" href="#" data-value="Model B">Model B</a></li>
+          <li><a class="dropdown-item" href="#" data-value="Model C">Model C</a></li>
+        </ul>
+      </div>
+
+      <!-- Variant -->
+      <div class="dropdown" id="variantDropdown">
+        <button class="btn filter-pill w-100 text-start" data-bs-toggle="dropdown" aria-expanded="false" type="button">
+          <span class="label">Select Variant</span>
+          <i class="bi bi-chevron-down caret"></i>
+        </button>
+        <ul class="dropdown-menu w-100">
+          <li><a class="dropdown-item" href="#" data-value="Base">Base</a></li>
+          <li><a class="dropdown-item" href="#" data-value="Mid">Mid</a></li>
+          <li><a class="dropdown-item" href="#" data-value="Top">Top</a></li>
+        </ul>
+      </div>
+
+      <!-- Search (submit) -->
+      <button type="submit" class="btn btn-search d-flex align-items-center gap-2">
+        <span><i class="bi bi-search"></i>&nbsp; Search</span>
+      </button>
+    </div>
+  </div>
+</form>
       </div>
      <!-- Sub / CTA -->
       <div class="text-center mt-4">
@@ -415,6 +423,30 @@ document.addEventListener('DOMContentLoaded', function() {
   </div>
 </section>
 
+<script>
+(function () {
+  function wireDropdown(dropId, inputId) {
+    const dd = document.getElementById(dropId);
+    const input = document.getElementById(inputId);
+    const label = dd.querySelector('.label');
+
+    dd.querySelectorAll('.dropdown-item').forEach(item => {
+      item.addEventListener('click', e => {
+        e.preventDefault(); // don't jump to top
+        const value = item.dataset.value || item.textContent.trim();
+        input.value = value;                 // set hidden input for form submit
+        label.textContent = value;           // reflect selection in the pill
+        dd.querySelectorAll('.dropdown-item.active').forEach(i => i.classList.remove('active'));
+        item.classList.add('active');
+      });
+    });
+  }
+
+  wireDropdown('brandDropdown', 'brandInput');
+  wireDropdown('modelDropdown', 'modelInput');
+  wireDropdown('variantDropdown', 'variantInput');
+})();
+</script>
 
 <!-- Ad slider -->
       <section class="ad-slider-sec my-5">

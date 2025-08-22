@@ -37,6 +37,9 @@
   color: #757575;
   text-decoration: none;
 }
+/* .right-parts{
+  margin-left:-51px !important;
+} */
 
 .breadcrumb-item.active a {
   font-weight: bold;
@@ -59,6 +62,20 @@
 }
 .body-parts {
   margin-top: 20px;
+}
+/* Keep Bootstrap row/col structure but customize */
+.body-parts .col-lg-3 {
+  flex: 0 0 280px !important; /* Fixed 280px width */
+  max-width: 280px !important;
+}
+
+.body-parts .col-lg-9 {
+  flex: 1 !important; /* Take remaining space */
+  max-width: calc(100% - 280px) !important;
+}
+
+.body-parts {
+  --bs-gutter-x:39px; 
 }
 
 /* Accordion rows */
@@ -102,8 +119,8 @@
 /* Small selects row on the right */
 .mini-filter {
   width: 205px;
-
-  padding: 8px 12px;
+  padding-left: 10px;
+  
   border-radius: 4px;
   background: #fff;
   border: 1px solid #e7e7e7;
@@ -111,12 +128,19 @@
   outline: 0;
   font-size: 14px;
 }
+/* remove default styling so we can control the arrow */
+
+
+
 .right-parts .text-muted{
   font-size: 17px;
   color: #212121 !important;
   line-height: 1;
   font-weight: 600;
+  margin-top: 24px;
+  margin-bottom: 24px !important;
 }
+
 .custom-gap {
   gap: 16px !important;
 }
@@ -127,11 +151,14 @@
   border: 1px solid var(--primary-color);
   border-radius: 7px;
   height: 41px;
+  padding: 0px;
   color: var(--primary-color);
   box-shadow: 0px 24px 48px -12px #10182840;
   background-color: var(--neutral-light);
   font-weight: 500;
   font-size: 16px;
+ 
+
 }
 
 .btn-outline-secondary:hover,
@@ -143,9 +170,12 @@
 .right-parts {
   padding-left: 0px !important;
 }
+
 /*  hover polish for cards in results grid */
 .results-grid .car-card.v2:hover {
-  box-shadow: 0 10px 24px rgba(0, 0, 0, 0.1);
+ 
+ box-shadow: 0px 20px 24px -4px #1018281A;
+
   outline: 1px solid rgba(93, 64, 55, 0.3);
 }
 
