@@ -2717,6 +2717,7 @@ float: right;
 }
 
 /* popular brands */
+/* popular brands */
 
 
 /* popular brands */
@@ -2729,14 +2730,11 @@ float: right;
   font-weight: 700;
   color: var(--primary-dark);
   margin-top: 10px;
-  font-size: 24px;
 }
 
 .section-subtitle {
   color: #666;
   margin-bottom: 20px;
-  font-size: 14px;
-  margin-top: 15px;
 }
 
 /* Grid Layout for 7 cards per row */
@@ -2774,8 +2772,8 @@ float: right;
   margin: 0 auto 15px; */
   display: block;
 
-  width: clamp(40px, 10vw, 80px);
-  height: clamp(30px, 7.5vw, 60px);
+  width: clamp(49px, 10vw, 80px);
+  height: clamp(46px, 7.5vw, 60px);
   object-fit: contain;
   margin: 0 auto clamp(8px, 1.5vw, 15px);
 }
@@ -2789,8 +2787,8 @@ float: right;
   overflow: hidden;
   text-overflow: ellipsis;
 
-  font-size: clamp(0.9rem, 2vw, 1.1rem);
-  font-weight: 600;
+  font-size: clamp(11px, 2vw, 14px);
+  font-weight: 500;
   margin-bottom: clamp(6px, 1vw, 12px);
 }
 
@@ -2820,7 +2818,7 @@ float: right;
 
   padding: clamp(2px, 0.5vw, 4px) clamp(6px, 1.5vw, 12px);
   font-size: clamp(0.6rem, 1.5vw, 0.75rem);
-  border-radius: clamp(10px, 2vw, 16px);
+  border-radius: clamp(8px, 2vw, 16px);
 }
 
 /* Arrow Button - Fixed Centering */
@@ -2859,9 +2857,9 @@ float: right;
 }
 
 .col-4 {
-    flex: 0 0 33.333333%;
-    max-width: 33.333333%;
-  }
+  flex: 0 0 33.333333%;
+  max-width: 33.333333%;
+}
 
 .col-sm-5th {
   flex: 0 0 20%;
@@ -2873,12 +2871,11 @@ float: right;
   max-width: 14.2857%;
 }
 @media (max-width: 575.98px) {
-  .brands-section{margin-left: 19px; margin-right: 19px;}
-  .brands-section ,.view-btn{margin-right: 19px;}
   .col-4 {
     flex: 0 0 33.333333%;
     max-width: 33.333333%;
   }
+
 
   .brands-section .row > [class*="col-"]:nth-child(n+7){
     display:none;
@@ -2888,6 +2885,15 @@ float: right;
   .col-4 {
     flex: 0 0 33.333333%;
     max-width: 33.333333%;
+  }
+
+  .brand-name{
+    font-size: 11px !important;
+  }
+
+  .brand-logo{
+    width: 59px;
+    height: 46px;
   }
 
   .brands-section .row > [class*="col-"]:nth-child(n+7){ display:none; }
@@ -2908,8 +2914,6 @@ float: right;
 
   .brands-section .row > [class*="col-"]:nth-child(n+15){ display:none; }
 }
-
-
 
 /* Ask our Ai Expert Section */
 .ai-expert-section {
