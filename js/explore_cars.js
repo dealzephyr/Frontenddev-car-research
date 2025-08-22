@@ -31,30 +31,24 @@ document.addEventListener("DOMContentLoaded", () => {
 //dropdown functionality
 // assets/js/explore_cars.js
 document.addEventListener("DOMContentLoaded", () => {
-  // --- DOM refs ---
+  // DOM
   const grid = document.querySelector(".cards-grid");
-  const loadBtn = document.querySelector(".load");
   const resultsCount = document.getElementById("resultsCount");
+  const loadMoreBtn = document.querySelector(".load");
+  const clearBtn = document.getElementById("clearBtn");
 
   const brandSelect = document.getElementById("brandSelect");
   const modelSelect = document.getElementById("modelSelect");
   const yearSelect  = document.getElementById("yearSelect");
   const priceSelect = document.getElementById("priceSelect");
-  const clearBtn    = document.getElementById("clearBtn");
 
   if (!grid) return;
 
-  // Gather card items
   const ALL_CARDS = Array.from(grid.querySelectorAll(':scope > [class*="col-"]'));
-  const PAGE_SIZE = 9;
+  const PAGE_SIZE = 9; // or 6 if you prefer
   let visibleCount = PAGE_SIZE;
 
-  // Helpers
-  const toInt = (v, d = 0) => {
-    const n = parseInt(v, 10);
-    return Number.isNaN(n) ? d : n;
-  };
-
+  const toInt = (v, d = 0) => (Number.isNaN(parseInt(v,10)) ? d : parseInt(v,10));
   function priceBucketToRange(bucket) {
     switch (bucket) {
       case "under15": return [0, 1500000];
@@ -65,236 +59,167 @@ document.addEventListener("DOMContentLoaded", () => {
     }
   }
 
-  // Build model/year options dynamically based on brand selection + currently visible inventory
-  function populateModelAndYearOptions() {
-    // Scope by brand if chosen; look at ALL cards’ data
-    const b = brandSelect?.value || "";
-    const scope = b
-      ? ALL_CARDS.filter(c => (c.dataset.brand || "").toLowerCase() === b.toLowerCase())
-      : ALL_CARDS;
-
-    // Collect unique models/years
-    const models = [...new Set(scope.map(c => c.dataset.model).filter(Boolean))].sort();
-    const years  = [...new Set(scope.map(c => toInt(c.dataset.year)).filter(Boolean))].sort((a,b)=>b-a);
-
-    resetSelect(modelSelect, "Model");
-    models.forEach(m => appendOption(modelSelect, m, m));
-
-    resetSelect(yearSelect, "Year");
-    years.forEach(y => appendOption(yearSelect, String(y), String(y)));
-  }
-
+  // Build model/year lists from current brand
   function resetSelect(sel, placeholder) {
     if (!sel) return;
     sel.innerHTML = "";
-    const opt = document.createElement("option");
-    opt.value = "";
-    opt.hidden = true;
-    opt.selected = true;
-    opt.textContent = placeholder;
-    sel.appendChild(opt);
-  }
-
-  function appendOption(sel, value, label) {
-    if (!sel) return;
     const o = document.createElement("option");
-    o.value = value;
-    o.textContent = label;
+    o.value = ""; o.hidden = true; o.selected = true; o.textContent = placeholder;
     sel.appendChild(o);
   }
+  function appendOption(sel, value, label) {
+    const o = document.createElement("option"); o.value = value; o.textContent = label; sel.appendChild(o);
+  }
+  function populateModelYear() {
+    const b = brandSelect?.value || "";
+    const scope = b ? ALL_CARDS.filter(c => (c.dataset.brand||"").toLowerCase() === b.toLowerCase()) : ALL_CARDS;
+    const models = [...new Set(scope.map(c => c.dataset.model).filter(Boolean))].sort();
+    const years  = [...new Set(scope.map(c => c.dataset.year).filter(Boolean))].sort((a,b)=>b-a);
 
-  // Read all sidebar filters (checkboxes/radios with data-key)
+    resetSelect(modelSelect, "Model");
+    models.forEach(m => appendOption(modelSelect, m, m));
+    resetSelect(yearSelect, "Year");
+    years.forEach(y => appendOption(yearSelect, y, y));
+  }
+
+  // Read aside (checkbox/radio) selections
   function readAsideFilters() {
-    const filters = {}; // { key: Set(values) }
-    document
-      .querySelectorAll('.mk-filter-card input[type="checkbox"], .mk-filter-card input[type="radio"]')
-      .forEach(input => {
-        const key = input.getAttribute("data-key");
-        if (!key) return;                 // ignore inputs without data-key
-        if (!filters[key]) filters[key] = new Set();
-        if (input.type === "radio") {
-          if (input.checked) {
-            filters[key] = new Set([input.value]);
-          }
-        } else {
-          if (input.checked) filters[key].add(input.value);
-        }
-      });
+    const filters = {}; // key -> Set(values)
+    document.querySelectorAll('.mk-filter-card input[type="checkbox"], .mk-filter-card input[type="radio"]').forEach(inp => {
+      const key = inp.getAttribute("data-key");
+      if (!key) return;
+      if (!filters[key]) filters[key] = new Set();
+      if (inp.type === "radio") {
+        if (inp.checked) filters[key] = new Set([inp.value]);
+      } else {
+        if (inp.checked) filters[key].add(inp.value);
+      }
+    });
     return filters;
   }
 
-  // Top-row selects
+  // Read top selects
   function readTopSelects() {
-    const brand = brandSelect?.value || "";
-    const model = modelSelect?.value || "";
-    const year  = yearSelect?.value  || "";
-    const priceBucket = priceSelect?.value || "";
-    return { brand, model, year, priceBucket };
+    return {
+      brand: brandSelect?.value || "",
+      model: modelSelect?.value || "",
+      year:  yearSelect?.value  || "",
+      priceBucket: priceSelect?.value || ""
+    };
   }
 
-  // Core filtering logic
-  function isCardIncluded(card, top, aside) {
-    // Top selects
-    if (top.brand) {
-      if ((card.dataset.brand || "").toLowerCase() !== top.brand.toLowerCase()) return false;
-    }
-    if (top.model) {
-      if ((card.dataset.model || "") !== top.model) return false;
-    }
-    if (top.year) {
-      if (String(card.dataset.year || "") !== String(top.year)) return false;
-    }
+  // Check if a card matches current filters
+  function cardMatches(card, top, aside) {
+    // top selects (AND)
+    if (top.brand && (card.dataset.brand||"").toLowerCase() !== top.brand.toLowerCase()) return false;
+    if (top.model && (card.dataset.model||"") !== top.model) return false;
+    if (top.year  && String(card.dataset.year||"") !== String(top.year)) return false;
     if (top.priceBucket) {
       const [minP, maxP] = priceBucketToRange(top.priceBucket);
       const price = toInt(card.dataset.price, 0);
       if (price < minP || price > maxP) return false;
     }
 
-    // Aside checkbox/radio groups (match if in the selected set; if set is empty, ignore that key)
+    // aside filters: OR within the same key, AND across different keys
     for (const [key, set] of Object.entries(aside)) {
-      if (set.size === 0) continue; // nothing selected for this key
-      const cardVal = (card.dataset[key] || "").toString();
-      if (!cardVal) return false;
+      if (set.size === 0) continue; // nothing chosen for this key
+      const val = (card.dataset[key] || "").toString();
+      if (!val) return false;
 
-      // features can be comma-separated on cards
       if (key === "features") {
-        const features = cardVal.split(",").map(s => s.trim());
-        // require at least one selected feature to be present
+        const feats = val.split(",").map(s => s.trim());
         let ok = false;
-        for (const want of set) {
-          if (features.includes(want)) { ok = true; break; }
-        }
+        for (const want of set) if (feats.includes(want)) { ok = true; break; }
         if (!ok) return false;
       } else {
-        if (!set.has(cardVal)) return false;
+        if (!set.has(val)) return false;
       }
     }
-
     return true;
   }
 
-  // Apply filters + reset pagination
-  function applyFilters() {
+  function updateCount(total, visible) {
+    if (!resultsCount) return;
+    const showing = Math.min(visible, total);
+    resultsCount.textContent = `Showing ${showing} of ${total}`;
+  }
+
+  function renderCurrent() {
     const top = readTopSelects();
     const aside = readAsideFilters();
 
-    // Filter and mark which cards should be shown
-    const matching = [];
-    ALL_CARDS.forEach(card => {
-      const include = isCardIncluded(card, top, aside);
-      card.style.display = include ? "" : "none";
-      if (include) matching.push(card);
+    // hide/show based on filters
+    const included = [];
+    ALL_CARDS.forEach(c => {
+      const ok = cardMatches(c, top, aside);
+      c.style.display = ok ? "" : "none";
+      if (ok) included.push(c);
     });
 
-    // Reset pagination on the matching subset
-    visibleCount = PAGE_SIZE;
-    applyPagination(matching);
+    // pagination on included
+    visibleCount = Math.min(PAGE_SIZE, included.length);
+    included.forEach((c, i) => c.style.display = (i < visibleCount) ? "" : "none");
 
-    // Update results count
-    if (resultsCount) {
-      resultsCount.textContent = `${matching.length} match${matching.length === 1 ? "" : "es"}`;
-    }
+    // load-more button + count
+    if (loadMoreBtn) loadMoreBtn.style.display = (visibleCount >= included.length) ? "none" : "";
+    updateCount(included.length, visibleCount);
   }
 
-  // Show first N within the currently "included" set; hide the rest
-  function applyPagination(includedCards) {
-    includedCards.forEach((card, idx) => {
-      card.style.display = idx < visibleCount ? "" : "none";
-    });
-    // Hide load button if all are visible or none
-    if (loadBtn) {
-      loadBtn.style.display = (visibleCount >= includedCards.length) ? "none" : "";
-    }
-  }
+  // Events
+  brandSelect && brandSelect.addEventListener("change", () => {
+    populateModelYear();
+    if (modelSelect) modelSelect.value = "";
+    if (yearSelect)  yearSelect.value  = "";
+    renderCurrent();
+  });
+  modelSelect && modelSelect.addEventListener("change", renderCurrent);
+  yearSelect  && yearSelect.addEventListener("change", renderCurrent);
+  priceSelect && priceSelect.addEventListener("change", renderCurrent);
 
-  // Get currently included (after filters), for load-more step
-  function getIncludedCards() {
-    return ALL_CARDS.filter(c => c.style.display !== "none");
-  }
-
-  // Events: Top selects
-  if (brandSelect) {
-    brandSelect.addEventListener("change", () => {
-      // Rebuild Model/Year based on chosen brand
-      populateModelAndYearOptions();
-      if (modelSelect) modelSelect.value = "";
-      if (yearSelect)  yearSelect.value  = "";
-      applyFilters();
-    });
-  }
-  modelSelect && modelSelect.addEventListener("change", applyFilters);
-  yearSelect  && yearSelect.addEventListener("change", applyFilters);
-  priceSelect && priceSelect.addEventListener("change", applyFilters);
-
-  // Events: Aside (delegate so any input works)
   const aside = document.querySelector(".mk-filter-card");
   if (aside) {
     aside.addEventListener("change", (e) => {
       const t = e.target;
       if (t && (t.matches('input[type="checkbox"]') || t.matches('input[type="radio"]'))) {
-        applyFilters();
+        renderCurrent();
       }
     });
   }
 
-  // Load more
-  if (loadBtn) {
-    loadBtn.addEventListener("click", (e) => {
-      e.preventDefault();
-      const included = getIncludedCards();          // includes both shown+hidden within filter
-      // Count only those already included by filters (some may be hidden by pagination)
-      const totalIncluded = included.length;
-      // Find how many currently visible
-      const currentlyVisible = included.filter(c => c.offsetParent !== null).length;
-      visibleCount = Math.min(currentlyVisible + PAGE_SIZE, totalIncluded);
-      applyPagination(included);
-    });
-  }
-
-  // Clear filters → reset everything to default listing
-  if (clearBtn) {
-    clearBtn.addEventListener("click", (e) => {
-      e.preventDefault();
-
-      // Reset top selects
-      if (brandSelect) brandSelect.value = "";
-      if (priceSelect) priceSelect.value = "";
-      if (modelSelect) resetSelect(modelSelect, "Model");
-      if (yearSelect)  resetSelect(yearSelect, "Year");
-      populateModelAndYearOptions(); // from all items
-
-      // Reset aside inputs
-      document
-        .querySelectorAll('.mk-filter-card input[type="checkbox"], .mk-filter-card input[type="radio"]')
-        .forEach(i => { i.checked = false; });
-
-      // Show default listing (first 6 of ALL_CARDS)
-      ALL_CARDS.forEach((card, idx) => {
-        card.style.display = idx < PAGE_SIZE ? "" : "none";
-      });
-      visibleCount = PAGE_SIZE;
-
-      // Count + button
-      if (resultsCount) {
-        resultsCount.textContent = `${ALL_CARDS.length} match${ALL_CARDS.length === 1 ? "" : "es"}`;
-      }
-      if (loadBtn) {
-        loadBtn.style.display = (ALL_CARDS.length > PAGE_SIZE) ? "" : "none";
-      }
-    });
-  }
-
-  // Initial setup
-  populateModelAndYearOptions();
-  // Default: show only first 6 (no filters)
-  ALL_CARDS.forEach((card, idx) => {
-    card.style.display = idx < PAGE_SIZE ? "" : "none";
+  loadMoreBtn && loadMoreBtn.addEventListener("click", (e) => {
+    e.preventDefault();
+    const top = readTopSelects();
+    const aside = readAsideFilters();
+    const included = ALL_CARDS.filter(c => cardMatches(c, top, aside));
+    const currentlyVisible = included.filter((c, i) => c.style.display !== "none").length;
+    visibleCount = Math.min(currentlyVisible + PAGE_SIZE, included.length);
+    included.forEach((c, i) => c.style.display = (i < visibleCount) ? "" : "none");
+    if (loadMoreBtn) loadMoreBtn.style.display = (visibleCount >= included.length) ? "none" : "";
+    updateCount(included.length, visibleCount);
   });
-  if (resultsCount) {
-    resultsCount.textContent = `${ALL_CARDS.length} match${ALL_CARDS.length === 1 ? "" : "es"}`;
-  }
-  if (loadBtn) {
-    loadBtn.style.display = (ALL_CARDS.length > PAGE_SIZE) ? "" : "none";
-  }
-});
 
+  clearBtn && clearBtn.addEventListener("click", (e) => {
+    e.preventDefault();
+    // top selects
+    if (brandSelect) brandSelect.value = "";
+    if (modelSelect) resetSelect(modelSelect, "Model");
+    if (yearSelect)  resetSelect(yearSelect, "Year");
+    if (priceSelect) priceSelect.value = "";
+    populateModelYear();
+
+    // aside
+    document.querySelectorAll('.mk-filter-card input[type="checkbox"], .mk-filter-card input[type="radio"]').forEach(i => i.checked = false);
+
+    // show first PAGE_SIZE by default
+    ALL_CARDS.forEach((c, i) => c.style.display = (i < PAGE_SIZE) ? "" : "none");
+    visibleCount = PAGE_SIZE;
+    if (loadMoreBtn) loadMoreBtn.style.display = (ALL_CARDS.length > PAGE_SIZE) ? "" : "none";
+    updateCount(ALL_CARDS.length, visibleCount);
+  });
+
+  // Initial
+  populateModelYear();
+  ALL_CARDS.forEach((c, i) => c.style.display = (i < PAGE_SIZE) ? "" : "none");
+  if (loadMoreBtn) loadMoreBtn.style.display = (ALL_CARDS.length > PAGE_SIZE) ? "" : "none";
+  updateCount(ALL_CARDS.length, PAGE_SIZE);
+});

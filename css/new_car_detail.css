@@ -471,12 +471,14 @@
 /* market insights */
 
 #market-insights {
-  background-color: #f4f4f4;
+  height: 442px;
+  margin-top: 400px !important;
 }
 .market-insights-header h2 {
   color: #212121;
   font-size: 24px;
   font-weight: 700;
+ 
 }
 .market-insights-header p {
   font-size: 14px;
