@@ -2199,7 +2199,7 @@ float: right;
   font-weight: 700;
   font-size: 24px;
 
-  line-height: 100%;
+  line-height: 1;
 }
 
 .featured-blogs p {
@@ -2240,7 +2240,7 @@ float: right;
 .blog-body h5 {
 
   font-size: 16px;
-  line-height: 100%;
+  line-height: 1.4;
   font-weight: 600;
   color: #212121;
   margin-top: 20px;

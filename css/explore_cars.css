@@ -42,6 +42,7 @@
   font-weight: bold;
   color: #212121;
 }
+
 /* Sidebar look per your spec */
 .mk-filter-card {
   background: #fff;
@@ -109,6 +110,12 @@
   box-shadow: 0 0 4px rgba(0, 0, 0, 0.25);
   outline: 0;
   font-size: 14px;
+}
+.right-parts .text-muted{
+  font-size: 17px;
+  color: #212121 !important;
+  line-height: 1;
+  font-weight: 600;
 }
 .custom-gap {
   gap: 16px !important;
