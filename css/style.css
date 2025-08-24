@@ -1373,6 +1373,8 @@ position: absolute;
     padding-bottom:0px;
     margin-right: 19px;
   }
+  .rankings-block .rankings-title {font-size: 18px !important;line-height: 1;}
+  .rankings-block p{font-size: 10px !important; margin-top: 10px;}
 
   .rankings-tabs{
     margin-right: 19px;
@@ -1477,13 +1479,14 @@ position: absolute;
   }
   .popular-cars{ margin-left: 19px; }
   .popular-cars .rankings-title{
-    font-size: 18px;
-    margin-bottom: 2px !important;
+    font-size: 18px !important;
+    margin-bottom: 3px !important;
     line-height: 1;
   }
   .popular-cars .rankings-sub{
     margin-top: 8px !important;
     color: #6b7280;
+    font-size: 10px !important;
   }
   .popular-cars .view-btn{
     margin-left: auto;
@@ -1581,8 +1584,8 @@ position: absolute;
    PHONES (390–429.98px)
    ========================================================= */
 @media (min-width:390px) and (max-width:429.98px){
-  .popular-cars .rankings-title{ font-size: 18.5px; }
-  .popular-cars .rankings-sub{ font-size: 12.5px; }
+  .popular-cars .rankings-title{ font-size: 18px; }
+  .popular-cars .rankings-sub{ font-size: 10px !important; margin-top: 10px !important; }
   .popular-cars .view-btn{ font-size: 11px; }
 
    .d-flex.gap-2 {
@@ -2079,7 +2082,7 @@ padding: 2.63px;
 }
 @media (max-width: 991px){
   .browsebytype h3{font-size: 18px !important;}
-  .browsebytype p{font-size: 13px !important; margin-top: 8px !important;}
+  .browsebytype p{font-size: 10px !important; margin-top: 10px !important;}
 }
 
 
@@ -2367,8 +2370,8 @@ padding: 2.63px;
 
     .featured-blogs .blog-media img{ height:120px;}
    
-  .featured-blogs h3{ font-size:18px !important;  }
-  .featured-blogs p.rankings-sub{ font-size:10px; margin-top: 3px !important;}
+  .featured-blogs h3{ font-size:18px !important; line-height: 1; }
+  .featured-blogs p.rankings-sub{ font-size:10px; margin-top: 10px !important;line-height: 1;}
 
   .featured-blogs .view-btn{
     margin-left:auto;         /* pin to right */
@@ -2380,7 +2383,7 @@ padding: 2.63px;
     border-radius:6px;
     margin-right: 19px;
   }
-  .featured-blogs .blog-title{ font-size:12px; line-height:1.3; margin-top:15px;  }
+  .featured-blogs .blog-title{ font-size:12px; line-height:1.3; margin-top:15px; }
   .featured-blogs .blog-excerpt{ 
     font-size:9px; margin-bottom:8px;
     display: -webkit-box;
@@ -2621,7 +2624,7 @@ padding: 2.63px;
   .expert-reviews .review-card{ width: 322px !important; }
 
   .expert-reviews h3{ font-size:18px; }
-  .expert-reviews p.rankings-sub{ font-size:12px; margin-top: 3px;}
+  .expert-reviews p.rankings-sub{ font-size:12px; margin-top: 10px;}
   .expert-reviews .review-media img{ height:161px; }
   .expert-reviews .review-body{ padding:16px; }
   .expert-reviews .review-title{ font-size:16px; }
@@ -2897,6 +2900,8 @@ padding: 12px 8px;
     display:none;
   }
 .brands-section .view-btn{font-size: 11px !important;}
+.brands-section .section-title{font-size: 14px !important;margin-bottom: 10px !important; }
+.brands-section .section-subtitle{font-size: 10px; margin-top: 0px !important;}
 }
 @media (max-width: 767.98px) {
   .col-4 {
