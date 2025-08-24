@@ -28,11 +28,15 @@
 }
 
 .breadcrumb-item + .breadcrumb-item::before {
-  content: "›";
-  color: #999;
-  padding: 0 5px;
+  content: "";
+  background-image: url("data:image/svg+xml,%3Csvg width='15' height='15' viewBox='0 0 15 15' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath fill-rule='evenodd' clip-rule='evenodd' d='M4.89344 2.78407C5.16803 2.50948 5.61322 2.50948 5.88781 2.78407L10.1066 7.00282C10.3811 7.2774 10.3811 7.7226 10.1066 7.99718L5.88781 12.2159C5.61322 12.4905 5.16803 12.4905 4.89344 12.2159C4.61885 11.9413 4.61885 11.4962 4.89344 11.2216L8.61501 7.5L4.89344 3.77843C4.61885 3.50385 4.61885 3.05865 4.89344 2.78407Z' fill='%23757575'/%3E%3C/svg%3E");
+  background-size: contain;
+  background-repeat: no-repeat;
+  width: 15px;
+  height: 15px;
+  display: inline-block;
+  margin: 3px 2px;
 }
-
 .breadcrumb a {
   color: #757575;
   text-decoration: none;
@@ -59,6 +63,7 @@
 .sidebar-sticky {
   position: sticky;
   top: 90px;
+
 }
 .body-parts {
   margin-top: 20px;
@@ -102,7 +107,8 @@
   color: #212121;
 }
 .mk-chevron {
-  font-size: 18px;
+ height: 18px;
+  width: 18px;
   color: #212121;
   transition: transform 0.2s ease;
 }
@@ -128,7 +134,34 @@
   outline: 0;
   font-size: 14px;
 }
-/* remove default styling so we can control the arrow */
+.mini-filter {
+  /* Remove default appearance */
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  
+  /* Add padding for the icon space */
+  padding-right: 35px !important;
+  
+  /* Your existing styles */
+  background-color: white;
+  border: 1px solid #ddd;
+  border-radius: 6px;
+  padding: 8px 12px;
+  
+  cursor: pointer;
+  
+  /* Position relative for absolute positioning of icon */
+  position: relative;
+  
+  /* Custom background with ion-icon */
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 512 512'%3E%3Cpath fill='%23666' d='M233.4 406.6c12.5 12.5 32.8 12.5 45.3 0l192-192c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0L256 338.7 86.6 169.4c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3l192 192z'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right 10px center;
+  background-size: 14px 14px;
+}
+
+
 
 
 
@@ -144,6 +177,7 @@
 .custom-gap {
   gap: 16px !important;
 }
+
 .btn-outline-secondary,
 .load {
   margin-left: 40px;
@@ -178,5 +212,4 @@
 
   outline: 1px solid rgba(93, 64, 55, 0.3);
 }
-
 

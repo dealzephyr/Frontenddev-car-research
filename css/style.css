@@ -665,13 +665,15 @@ font-size: 13px;
 .btn-quiz {
   width:127px;
   font-size: 14px;
+  font-weight: 600;
   border-radius: 12px;
   height: 37px;
   margin-top: 20px;
-  border: 1px solid rgba(255, 255, 255, 0.85);
+  border: 1px solid #ffffff;
   color: #fff;
   background: transparent;
   backdrop-filter: blur(1px);
+  padding: 8px;
 }
 .btn-quiz:hover {
   color: var(--primary-color);
