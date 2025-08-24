@@ -1111,12 +1111,14 @@ z-index: 10; /* Ensure above cards */
 
 /* --- Right panel (scrollable) --- */
 .launches-card {
+  position: relative;
   width: 277px;
   max-height: 450px;
-  background: #f4f4f4;
-  border-top: 1px solid #f4f4f4;
+  background: #ffffff;
+  border-top: 1px solid #ffffff;
   border-radius: 7px;
   box-shadow: 0px 8px 17.6px -9px #00000040;
+
   margin-top: 62px;
   margin-left: 18px;
  padding-top:10px !important;
@@ -1239,22 +1241,24 @@ z-index: 10; /* Ensure above cards */
   color: #fff;
 }
 .launches-close-btn{
-
+position: absolute;
     background: none;
     border: none;
   
     cursor: pointer;
     outline: none;
     color: #1c1b1f;
-margin-left: 280px;}
+  right: 0;
+    
+}
 
 .launches-close-btn i{
   font-size:30px;
-  margin-top: 10px;
+ 
 }
   
 
-/* --- Mobile: put Launches above Rankings, center it, show 3 items + toggle --- */
+/* --- Slider of top 10 car ranking */
 @media (max-width: 991.98px){
   /* Fixed-height card; header + LIST (scrolls) + button */
   .launches-card{
@@ -1369,9 +1373,16 @@ margin-left: 280px;}
     padding-bottom:0px;
     margin-right: 19px;
   }
+
   .rankings-tabs{
     margin-right: 19px;
   }
+  .rankings-tabs .nav-link {
+    font-size: 10px;
+    padding: 6px 8px;
+   
+  }
+  
 
   /* Card fills cell; compact internals */
   .rankings-block .cards-track.is-active .car-card.v2{ width:168px !important; }
