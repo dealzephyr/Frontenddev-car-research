@@ -472,14 +472,19 @@
 
 #market-insights {
   height: 442px;
-  margin-top: 400px !important;
+  margin-bottom: 0px !important;
+  padding-top: 43px !important;
+
 }
+
 .market-insights-header h2 {
   color: #212121;
   font-size: 24px;
   font-weight: 700;
+
  
 }
+
 .market-insights-header p {
   font-size: 14px;
   font-weight: 400;
