@@ -74,10 +74,7 @@
   max-width: 280px !important;
 }
 
-.body-parts .col-lg-9 {
-  flex: 1 !important; /* Take remaining space */
-  max-width: calc(100% - 280px) !important;
-}
+
 
 .body-parts {
   --bs-gutter-x:39px; 
@@ -213,3 +210,8 @@
   outline: 1px solid rgba(93, 64, 55, 0.3);
 }
 
+.cards-grid {
+  display: flex !important;
+  gap: 27px;
+  grid-template-columns: 1fr;
+}
