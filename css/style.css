@@ -239,7 +239,7 @@ margin: 0 auto;
 
 .header-container { max-width: 1440px; width: 100%; }
 header, .navbar, .header-container { max-width: 100%; }
-html{width: 100%;} body{ width: 100%; max-width: 100%; overflow-x: hidden; }
+
 
 
 /* Hide the desktop bottom nav on mobile/tablet; show on desktop */
