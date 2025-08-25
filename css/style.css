@@ -1375,14 +1375,14 @@ position: absolute;
     padding-bottom:0px;
     margin-right: 19px;
   }
-  .rankings-block .rankings-title {font-size: 18px !important;line-height: 1;}
-  .rankings-block p{font-size: 10px !important; margin-top: 10px;}
+  .rankings-block .rankings-title {font-size: 19px !important;line-height: 1;}
+  .rankings-block p{font-size: 13px !important; margin-top: 10px;}
 
   .rankings-tabs{
     margin-right: 19px;
   }
   .rankings-tabs .nav-link {
-    font-size: 10px;
+    font-size: 13px;
     padding: 6px 8px;
    
   }
@@ -1392,12 +1392,12 @@ position: absolute;
   .rankings-block .cards-track.is-active .car-card.v2{ width:168px !important; }
   .rankings-block .car-card__media img{ height:92px; object-fit:cover; }
   .rankings-block .car-card__body{ padding:9px; }
-  .rankings-block .car-card__title{ font-size:12px; }
+  .rankings-block .car-card__title{ font-size:14px;margin-top: 10px; }
   .rankings-block .car-card__location,
   .rankings-block .car-card__row,
-  .rankings-block .car-card__grid{ font-size:9px; }
-  .rankings-block .car-card__price{ font-size:11px; margin:10px 0 8px;}
-  .rankings-block .btn-primary, .btn-secondary{font-size: 10px;}
+  .rankings-block .car-card__grid{ font-size:12px; }
+  .rankings-block .car-card__price{ font-size:12px; margin:10px 0 8px;}
+  .rankings-block .btn-primary, .btn-secondary{font-size: 12px;}
   /* Show only 4 cards by default */
   .rankings-block .cards-track.is-active .car-card.v2:nth-child(n+5){ display:none; }
 
@@ -1481,7 +1481,7 @@ position: absolute;
   }
   .popular-cars{ margin-left: 19px; }
   .popular-cars .rankings-title{
-    font-size: 18px !important;
+    font-size: 19px !important;
     margin-bottom: 3px !important;
     line-height: 1;
   }
@@ -1586,8 +1586,8 @@ position: absolute;
    PHONES (390–429.98px)
    ========================================================= */
 @media (min-width:390px) and (max-width:429.98px){
-  .popular-cars .rankings-title{ font-size: 18px; }
-  .popular-cars .rankings-sub{ font-size: 10px !important; margin-top: 10px !important; }
+  .popular-cars .rankings-title{ font-size: 19px !important; }
+  .popular-cars .rankings-sub{ font-size: 13px !important; margin-top: 10px !important; }
   .popular-cars .view-btn{ font-size: 11px; }
 
    .d-flex.gap-2 {
@@ -1601,18 +1601,17 @@ position: absolute;
     justify-content: center;         /* optional: center label */
   }
 
-    /* Card fills cell; compact internals */
+  
+/* Card fills cell; compact internals */
   .popular-cars .cards-track.is-active .car-card.v2{ width:168px !important; }
   .popular-cars .car-card__media img{ height:92px; object-fit:cover; }
   .popular-cars .car-card__body{ padding:9px; }
- .popular-cars .car-card__title{ font-size:12px; }
-
-.popular-cars .car-card__location,
-.popular-cars .car-card__grid{ font-size:9px; }
-.popular-cars .car-card__row{font-size: 9px;}
- .popular-cars .car-card__price{ font-size:11px; margin:10px 0 8px;}
-.popular-cars .btn-primary, .btn-secondary{font-size: 10px;}
- 
+  .popular-cars .car-card__title{ font-size:14px;margin-top: 10px; }
+  .popular-cars .car-card__location,
+  .popular-cars .car-card__row,
+  .popular-cars .car-card__grid{ font-size:12px; }
+  .popular-cars .car-card__price{ font-size:12px; margin:10px 0 8px;}
+  .popular-cars .btn-primary, .btn-secondary{font-size: 12px;} 
 
 }
 /* =========================================================
@@ -1839,10 +1838,10 @@ margin-left: 7px;
   align-items: center;
   text-align: center;
 }
-.advideo-right-top{font-size: 10px; margin-top: 10px;}
+.advideo-right-top{font-size: 13px; margin-top: 10px;}
 
-.advideo-right h2{ font-size: 18px; line-height: 1.32; margin: 6px 0 8px; width: 295px;}
-  .advideo-right p{ font-size: 11px; margin-bottom: 12px; line-height: 1.49;}
+.advideo-right h2{ font-size: 19px; line-height: 1.32; margin: 6px 0 8px; width: 295px;}
+  .advideo-right p{ font-size: 12px; margin-bottom: 12px; line-height: 1.49;}
 
   /* Features: force 2 columns on mobile */
   .research-features{
@@ -1882,7 +1881,7 @@ margin-left: 7px;
 
 /* Make text responsive */
 .research-features span:not(.feat-icon) {
-  font-size: 11px; /* Adjust as needed */
+  font-size: 12px; /* Adjust as needed */
   line-height: 1;
  white-space: nowrap; /* Prevents text wrapping */
 
@@ -2040,14 +2039,20 @@ padding: 2.63px;
   .browsebytype .type-card img{
     height: clamp(130px, 20vw, 190px);
   }
+   .browsebytype h3{font-size: 19px !important;}
+  .browsebytype p{font-size: 13px !important; margin-top: 10px !important;}
 
 }
-
+@media(max-width:575.98px){
+  .browsebytype h3{font-size: 19px !important; line-height: 1;}
+  .browsebytype p{font-size: 13px !important; margin-top: 8px !important; line-height: 1.4;}
+}   
 /* ===== MD (≥768px) — 3 columns via col-md-4 ===== */
 @media (min-width: 768px){
   .browsebytype .row.g-4{
     --bs-gutter-x: 1.25rem;   /* comfy gaps on tablets */
     --bs-gutter-y: 1.25rem;
+    
   }
   
   .browsebytype .type-card img{
@@ -2082,10 +2087,7 @@ padding: 2.63px;
   }
   .browsebytype .type-card img{ height: 120px; }
 }
-@media (max-width: 991px){
-  .browsebytype h3{font-size: 18px !important;}
-  .browsebytype p{font-size: 10px !important; margin-top: 10px !important;}
-}
+
 
 
 
@@ -2097,7 +2099,7 @@ padding: 2.63px;
 @media (max-width: 991.98px){
   
   .popular-evs .slider-btn{ display: none !important; }
-.popular-evs h3{font-size: 18px !important;}
+.popular-evs h3{font-size: 19px !important;}
   .popular-evs .cards-track{
     display: grid !important;
     grid-template-columns: repeat(2, minmax(0,1fr));
@@ -2106,7 +2108,7 @@ padding: 2.63px;
     overflow: visible !important;
     padding: 0;
   }
-  .popular-evs .view-btn{font-size: 11px;}
+  .popular-evs .view-btn{font-size: 12px;}
   /* only first 4 cards */
   .popular-evs .cards-track .car-card.v2:nth-child(n+5){
     display: none !important;
@@ -2134,25 +2136,26 @@ padding: 2.63px;
   }
   
   .popular-evs .car-card__title{ 
-    font-size: 12px;
+    font-size: 14px;
     line-height: 1;
     margin-bottom: 2px;
+    margin-top: 10px;
   }
   
   .popular-evs .car-card__location{ 
-    font-size: 9px;
+    font-size: 12px;
     line-height: 1;
     margin-bottom: 8px;
   }
   .popular-evs .car-card__row{ 
-    font-size: 9px;
+    font-size: 12px;
     line-height: 1;
     margin-bottom: 0px !important;
   }
 
   .popular-evs .car-card__divider{margin-bottom: 8px;}
   .popular-evs .car-card__grid{ 
-    font-size: 9px;
+    font-size: 12px;
     line-height: 1;
     width: 100%;/* Ensure grid takes full width */
     display: flex ;
@@ -2163,7 +2166,7 @@ padding: 2.63px;
   .popular-evs .btn-primary, .btn-secondary{font-size: 10px;}
   
   .popular-evs .car-card__price{ 
-    font-size: 11px; 
+    font-size: 12px; 
     margin-top: 8px; /* Push price to bottom */
     padding-top: 8px; /* Add spacing above price */
 
@@ -2283,7 +2286,7 @@ padding: 2.63px;
 /* Soft badge (category) */
 .badge-soft {
   display: inline-block;
-  padding: 6px 10px;
+  padding:2px 8px;
   letter-spacing: 0%;
   width: 46px;
   font-size: 10px;
@@ -2372,22 +2375,22 @@ padding: 2.63px;
 
     .featured-blogs .blog-media img{ height:120px;}
    
-  .featured-blogs h3{ font-size:18px !important; line-height: 1; }
-  .featured-blogs p.rankings-sub{ font-size:10px; margin-top: 10px !important;line-height: 1;}
+  .featured-blogs h3{ font-size:19px !important; line-height: 1; }
+  .featured-blogs p.rankings-sub{ font-size:13px; margin-top: 10px !important; line-height: 1.2;font-weight: 400;}
 
   .featured-blogs .view-btn{
     margin-left:auto;         /* pin to right */
     white-space:nowrap;
-    font-size:11px;
+    font-size:12px;
     line-height:1;
     padding-top:8px;       /* smaller button */
     height:32px;              /* tidy tap target */
     border-radius:6px;
     margin-right: 19px;
   }
-  .featured-blogs .blog-title{ font-size:12px; line-height:1.3; margin-top:15px; }
+  .featured-blogs .blog-title{ font-size:14px; line-height:1.2; margin-top:15px;}
   .featured-blogs .blog-excerpt{ 
-    font-size:9px; margin-bottom:8px;
+    font-size:12px; margin-bottom:8px;
     display: -webkit-box;
   -webkit-line-clamp: 2; /* Number of lines to show */
   line-clamp: 2;
@@ -2396,11 +2399,13 @@ padding: 2.63px;
   text-overflow: ellipsis;
  }
 
-   .featured-blogs .btn.btn-outline-choco{ height: 25px;padding: 4px; font-size:10px; }
+   .featured-blogs .btn.btn-outline-choco{ height: 25px;padding: 4px; font-size:12px; }
    .blog-body .badge-soft{
-    font-size: 8px;
+
+    
+    font-size: 10px;
 }
-.blog-body .text-muted{font-size: 8px;}}
+.blog-body .text-muted{font-size: 10px;}}
 
   
 
@@ -2569,7 +2574,7 @@ padding: 2.63px;
   .expert-reviews .view-btn{
     margin-left:auto;                /* pin to right */
     white-space:nowrap;
-    font-size:11px;
+    font-size:12px;
     line-height:1;
     padding:6px 10px;
     height:32px;
@@ -2616,7 +2621,7 @@ padding: 2.63px;
   .expert-reviews .view-btn{
     margin-left:auto;         /* pin to right */
     white-space:nowrap;
-    font-size:11px;
+    font-size:12px;
     line-height:1;
     padding-top:10px;       /* smaller button */
     height:32px;              /* tidy tap target */
@@ -2625,14 +2630,15 @@ padding: 2.63px;
   }
   .expert-reviews .review-card{ width: 322px !important; }
 
-  .expert-reviews h3{ font-size:18px; }
-  .expert-reviews p.rankings-sub{ font-size:12px; margin-top: 10px;}
+  .expert-reviews h3{ font-size:19px !important; }
+  .expert-reviews p.rankings-sub{ font-size:14px; margin-top: 10px;}
   .expert-reviews .review-media img{ height:161px; }
   .expert-reviews .review-body{ padding:16px; }
-  .expert-reviews .review-title{ font-size:16px; }
-  .expert-reviews .review-excerpt{ font-size:13px; margin-bottom: 11px;}
-  .expert-reviews .btn.btn-outline-choco{ padding:3px 12px; font-size:12.5px; height: 25px; }
-  .expert-reviews .chip{ font-size:8px; padding:6px 10px; }
+  .expert-reviews .review-title{ font-size:14px; }
+  .expert-reviews .review-excerpt{ font-size:12px; margin-bottom: 11px;}
+  .expert-reviews .btn.btn-outline-choco{ padding:3px 12px; font-size:12px; height: 25px; }
+  .expert-reviews .chip{ font-size:10px; padding:6px 10px; }
+  .expert-reviews .key{ font-size:12px; }
   .expert-reviews .d-flex.gap-2{
     display: block !important; /* override Bootstrap flex */
   }
@@ -2901,9 +2907,9 @@ padding: 12px 8px;
   .brands-section .row > [class*="col-"]:nth-child(n+7){
     display:none;
   }
-.brands-section .view-btn{font-size: 11px !important;}
-.brands-section .section-title{font-size: 14px !important;margin-bottom: 10px !important; }
-.brands-section .section-subtitle{font-size: 10px; margin-top: 0px !important;}
+.brands-section .view-btn{font-size: 12px !important;}
+.brands-section .section-title{font-size: 19px !important;margin-bottom: 10px !important; }
+.brands-section .section-subtitle{font-size: 13px; margin-top: 0px !important;}
 }
 @media (max-width: 767.98px) {
   .col-4 {
@@ -3089,14 +3095,14 @@ color: #757575;
 @media (min-width:361px) and (max-width:575.98px){
   .ai-expert-section{ padding-top:22px !important; padding-bottom:22px !important; }
   .ai-expert-icon i{ width:56px; height:56px; font-size:36px; }
-  .ai-expert-section h5{ font-size:20px; margin-bottom:6px; }
-  .ai-expert-sub{ font-size:13.5px; }
+  .ai-expert-section h5{ font-size:19px; margin-bottom:6px; }
+  .ai-expert-sub{ font-size:14px; }
 
   .ai-mini{ max-width:100%; padding-inline:12px; }
   .ai-mini__card{ padding:14px; }
   .ai-mini__head{ font-size:16.5px; }
   .ai-mini__pill{ font-size:12.5px; padding:8px 10px; }
-  .ai-mini__input{ height:50px; font-size:15px; }
+  .ai-mini__input{ height:50px; font-size:12px; }
   .ai-mini__send{ width:60px; min-width:60px; }
 }
 

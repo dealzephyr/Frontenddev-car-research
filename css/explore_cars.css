@@ -46,7 +46,7 @@
 } */
 
 .breadcrumb-item.active a {
-  font-weight: bold;
+  font-weight: 500;
   color: #212121;
 }
 
@@ -214,4 +214,80 @@
   display: flex !important;
   gap: 27px;
   grid-template-columns: 1fr;
+}
+
+/* ========== MOBILE ONLY (≤575.98px) ========== */
+@media (max-width: 575.98px) {
+  /* --- Breadcrumb / header block --- */
+  .toppart{
+    margin: 0;
+    padding: 12px 16px 8px;
+  }
+  .toppart .breadcrumb{
+    margin: 0 0 6px;
+  }
+  /* Hide all crumbs except the current page */
+  .toppart .breadcrumb .breadcrumb-item:not(:last-child){
+    display: none;
+
+  }
+  .breadcrumb-item + .breadcrumb-item::before {
+    display: none;
+  }
+  /* Add a simple back arrow before the current crumb link */
+.toppart .breadcrumb .breadcrumb-item.active a::before {
+  content: "";
+  display: inline-block;
+  margin-right: 8px;
+  width: 16px;
+  height: 16px;
+  background-image: url("data:image/svg+xml,%3Csvg width='16' height='16' viewBox='0 0 16 16' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath fill-rule='evenodd' clip-rule='evenodd' d='M8.15533 2.96967C8.44822 3.26256 8.44822 3.73744 8.15533 4.03033L4.18566 8L8.15533 11.9697C8.44822 12.2626 8.44822 12.7374 8.15533 13.0303C7.86244 13.3232 7.38756 13.3232 7.09467 13.0303L2.59467 8.53033C2.30178 8.23744 2.30178 7.76256 2.59467 7.46967L7.09467 2.96967C7.38756 2.67678 7.86244 2.67678 8.15533 2.96967Z' fill='%23242424'/%3E%3Cpath fill-rule='evenodd' clip-rule='evenodd' d='M3 8C3 7.58579 3.33579 7.25 3.75 7.25H12.875C13.2892 7.25 13.625 7.58579 13.625 8C13.625 8.41421 13.2892 8.75 12.875 8.75H3.75C3.33579 8.75 3 8.41421 3 8Z' fill='%23242424'/%3E%3C/svg%3E");
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+  .toppart h3{
+    font-size: 20px;
+    margin: 0 0 6px;
+  }
+  .toppart p{
+    font-size: 12px;
+    margin: 0 0 10px;
+  }
+
+  /* --- Main section (right side) --- */
+  /* Hide the left filter sidebar on mobile (layout only) */
+  .body-parts > aside{
+    display: none;
+  }
+  /* Make the cards row a clean 2-col grid with tight gaps */
+  .cards-grid{
+    display: grid !important;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    column-gap: 12px;
+    row-gap: 12px;
+    margin-left: 0 !important;
+    margin-right: 0 !important;
+  }
+  /* Remove column padding so the grid gaps are the only spacing */
+  .cards-grid > [class*="col-"]{
+    padding: 0 !important;
+  }
+
+  /* Show EXACTLY 8 cards on mobile */
+  .cards-grid > [class*="col-"]:nth-child(n+9){
+    display: none !important;
+  }
+
+
+  /* Card fills cell; compact internals */
+  .rankings-block .cards-track.is-active .car-card.v2{ width:168px !important; }
+  .rankings-block .car-card__media img{ height:92px; object-fit:cover; }
+  .rankings-block .car-card__body{ padding:9px; }
+  .rankings-block .car-card__title{ font-size:12px; }
+  .rankings-block .car-card__location,
+  .rankings-block .car-card__row,
+  .rankings-block .car-card__grid{ font-size:9px; }
+  .rankings-block .car-card__price{ font-size:11px; margin:10px 0 8px;}
+  .rankings-block .btn-primary, .btn-secondary{font-size: 10px;}
 }
