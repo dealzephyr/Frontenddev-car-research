@@ -75,7 +75,11 @@
   --bs-gutter-x:39px; 
   align-items: flex-start;
 }
-
+/* Keep Bootstrap row/col structure but customize */
+.body-parts .col-lg-3 {
+  flex: 0 0 280px !important;
+  max-width: 280px !important;
+}
 
 
 
@@ -210,9 +214,10 @@
 }
 
 .cards-grid {
-  display: flex !important;
-  gap: 27px;
-  grid-template-columns: 1fr;
+  display: grid !important;
+  column-gap: 0px;
+  row-gap:20px;
+  grid-template-columns: 1fr 1fr 1fr ;
 }
 
 /* ========== MOBILE ONLY (≤575.98px) ========== */
