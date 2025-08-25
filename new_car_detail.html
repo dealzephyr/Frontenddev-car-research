@@ -224,12 +224,13 @@
   <span class="fw-semibold rate">4.9 Rating</span>
   <span class="opacity-75 mx-2 rate">|</span>
 
-  <a href="#"
-     class="link-light d-inline-flex align-items-center gap-1 text-decoration-none text-truncate rev"
-     style="max-width: 160px;">
-    Write a Review<i class="bi bi-pencil-square edit-square-icon" aria-hidden="true"></i>
+  <a href="#" role="button"
+   class="link-light d-inline-flex align-items-center gap-1 text-decoration-none text-truncate rev"
+   style="max-width:160px"
+   data-bs-toggle="modal" data-bs-target="#mkReviewModal">
+  Write a Review <i class="bi bi-pencil-square edit-square-icon" aria-hidden="true"></i>
+</a>
 
-  </a>
 </div>
 
           </div>
@@ -678,7 +679,7 @@
       <div class="row g-4 align-items-stretch">
         <!-- Left: Overall rating -->
         <div class="col-lg-5">
-          <div class="mk-card h-100 p-4">
+          <div class="mk-card-review h-100 p-4">
             <h4 class="fw-semibold mb-4">Overall Rating</h4>
 
             <div class="d-flex align-items-end gap-3 mb-4">
@@ -736,7 +737,7 @@
         <div class="col-lg-7">
           <div class="d-flex flex-column gap-4">
             <!-- Review card -->
-            <article class="mk-card p-4">
+            <article class="mk-card-review p-4">
               <div
                 class="d-flex align-items-center justify-content-between flex-wrap gap-2 mb-2"
               >
@@ -771,7 +772,7 @@
             </article>
 
             <!-- Review card -->
-            <article class="mk-card p-4">
+            <article class="mk-card-review p-4">
               <div
                 class="d-flex align-items-center justify-content-between flex-wrap gap-2 mb-2"
               >
@@ -819,21 +820,37 @@
       <div class="row g-4 justify-content-center text-center mb-4">
         <div class="col-6 col-md-4 col-lg-3">
           <div class="kpi-dot bg-green-100">
-            <i class="bi bi-check2-circle"></i>
+           <svg width="61" height="60" viewBox="0 0 61 60" fill="none" xmlns="http://www.w3.org/2000/svg">
+<rect x="0.5" width="60" height="60" rx="30" fill="#D3F4DE"/>
+<path d="M37.25 20.25H23.75C22.9546 20.2509 22.1921 20.5672 21.6296 21.1296C21.0672 21.6921 20.7509 22.4546 20.75 23.25V36.75C20.7509 37.5454 21.0672 38.3079 21.6296 38.8704C22.1921 39.4328 22.9546 39.7491 23.75 39.75H37.25C38.0454 39.7491 38.8079 39.4328 39.3704 38.8704C39.9328 38.3079 40.2491 37.5454 40.25 36.75V23.25C40.2491 22.4546 39.9328 21.6921 39.3704 21.1296C38.8079 20.5672 38.0454 20.2509 37.25 20.25ZM35.5742 26.7323L29.2742 34.2323C29.2051 34.3147 29.1191 34.3812 29.0221 34.4273C28.925 34.4735 28.8192 34.4983 28.7117 34.5H28.6991C28.5939 34.5 28.49 34.4778 28.394 34.435C28.298 34.3922 28.212 34.3297 28.1417 34.2516L25.4417 31.2516C25.3731 31.1788 25.3198 31.0931 25.2848 30.9995C25.2499 30.9059 25.234 30.8062 25.238 30.7063C25.2421 30.6064 25.2662 30.5084 25.3087 30.4179C25.3512 30.3275 25.4114 30.2464 25.4857 30.1796C25.56 30.1127 25.6469 30.0614 25.7414 30.0286C25.8358 29.9958 25.9358 29.9822 26.0356 29.9886C26.1353 29.995 26.2328 30.0213 26.3222 30.0659C26.4117 30.1106 26.4913 30.1726 26.5564 30.2484L28.6794 32.6072L34.4258 25.7677C34.5547 25.6186 34.737 25.5263 34.9335 25.5107C35.1299 25.495 35.3246 25.5573 35.4754 25.684C35.6263 25.8107 35.7212 25.9918 35.7397 26.1879C35.7582 26.3841 35.6988 26.5797 35.5742 26.7323Z" fill="#1D6D00"/>
+</svg>
+
           </div>
           <div class="kpi-value">92%</div>
           <div class="kpi-label">Would Recommend</div>
         </div>
         <div class="col-6 col-md-4 col-lg-3">
           <div class="kpi-dot bg-blue-100">
-            <i class="bi bi-cart-check"></i>
+           <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+<path d="M12 18C12.8284 18 13.5 17.3284 13.5 16.5C13.5 15.6716 12.8284 15 12 15C11.1716 15 10.5 15.6716 10.5 16.5C10.5 17.3284 11.1716 18 12 18Z" fill="#0C06BB"/>
+<path d="M4.67733 1.5C4.25943 1.49992 3.84977 1.61622 3.49426 1.83587C3.13875 2.05552 2.85143 2.36984 2.66451 2.74359L1.21139 5.64984C1.06939 5.93563 0.989466 6.24823 0.976863 6.5671C0.96426 6.88597 1.01926 7.2039 1.13826 7.5H14.1789C14.2106 7.50003 14.2419 7.49201 14.2697 7.47668C14.2974 7.46135 14.3209 7.43921 14.3378 7.41234L17.8769 1.78734C17.8947 1.75903 17.9046 1.72646 17.9056 1.69302C17.9066 1.65958 17.8986 1.62649 17.8825 1.59717C17.8663 1.56785 17.8427 1.54338 17.8139 1.5263C17.7852 1.50921 17.7523 1.50013 17.7189 1.5H4.67733Z" fill="#0C06BB"/>
+<path d="M22.7892 5.65145L21.3361 2.7452C21.1863 2.44331 20.9703 2.17916 20.7042 1.9725C20.438 1.76584 20.1286 1.62201 19.799 1.55176L16.0546 7.5002L13.9687 10.8321C12.6936 10.3891 11.3063 10.3891 10.0312 10.8321L8.93809 9.08832C8.92124 9.06137 8.89782 9.03914 8.87002 9.02372C8.84223 9.00831 8.81097 9.00021 8.77918 9.0002H2.39715C2.36352 9.00025 2.33052 9.00935 2.30161 9.02654C2.27271 9.04374 2.24896 9.06839 2.23286 9.09791C2.21675 9.12744 2.20888 9.16075 2.21008 9.19436C2.21127 9.22797 2.22149 9.26064 2.23965 9.28895L6.11621 15.3232C5.94156 16.1938 5.96235 17.0924 6.17707 17.954C6.3918 18.8157 6.7951 19.6189 7.35789 20.3058C7.92067 20.9927 8.62891 21.5461 9.4315 21.9261C10.2341 22.3061 11.111 22.5032 11.999 22.5032C12.887 22.5032 13.764 22.3061 14.5665 21.9261C15.3691 21.5461 16.0774 20.9927 16.6402 20.3058C17.2029 19.6189 17.6063 18.8157 17.821 17.954C18.0357 17.0924 18.0565 16.1938 17.8818 15.3232L22.6696 7.8752C22.8798 7.54639 23.0013 7.16876 23.0223 6.77906C23.0432 6.38937 22.9629 6.00089 22.7892 5.65145ZM12.1954 19.4941C11.5867 19.5339 10.9803 19.3871 10.4571 19.0735C9.93392 18.7598 9.51879 18.294 9.26708 17.7384C9.01537 17.1827 8.93904 16.5635 9.04827 15.9633C9.15751 15.3631 9.44711 14.8105 9.87847 14.3792C10.3098 13.9478 10.8624 13.6582 11.4626 13.549C12.0628 13.4397 12.682 13.5161 13.2376 13.7678C13.7933 14.0195 14.2591 14.4346 14.5728 14.9578C14.8864 15.481 15.0332 16.0874 14.9934 16.6961C14.9452 17.4223 14.6349 18.1062 14.1204 18.6208C13.6059 19.1354 12.922 19.4457 12.1959 19.4941H12.1954Z" fill="#0C06BB"/>
+</svg>
+
           </div>
           <div class="kpi-value">4.7</div>
           <div class="kpi-label">Reliability Score</div>
         </div>
         <div class="col-6 col-md-4 col-lg-3">
           <div class="kpi-dot bg-lilac-100">
-            <i class="bi bi-hand-thumbs-up"></i>
+           <svg width="27" height="27" viewBox="0 0 27 27" fill="none" xmlns="http://www.w3.org/2000/svg">
+<path d="M13.4665 7.43779C13.0763 7.62674 12.6896 7.88856 12.331 8.24763C10.5332 10.0458 8.89899 11.68 8.89899 11.68L8.89968 11.6811C8.88992 11.6909 8.88011 11.6989 8.8703 11.709C8.40498 12.1747 8.38652 12.9171 8.81625 13.4042C8.83329 13.4238 8.85148 13.443 8.8703 13.4615C9.3534 13.9453 10.1378 13.9464 10.6228 13.4615L12.5105 11.5737C12.8362 11.6931 13.1564 11.7627 13.4636 11.7975C13.8822 11.8439 14.2753 11.8265 14.6249 11.7772C15.4772 11.6564 15.388 11.6916 15.8823 11.5291C16.3756 11.3673 16.9298 11.0359 16.9298 11.0359L17.2652 11.371C17.3022 11.4069 18.1575 12.2635 18.5937 12.6991C18.671 12.7767 18.7366 12.8405 18.7805 12.8863C18.8309 12.9388 18.8871 12.9769 18.922 13.0277L21.0987 15.2045C21.7262 14.5005 22.4428 13.452 22.3543 12.2483L16.9152 6.80993C16.9152 6.80993 15.0325 6.67541 13.4665 7.43779Z" fill="#782ABE"/>
+<path d="M13.7697 20.7963C13.288 20.3139 12.5061 20.3139 12.0241 20.7963L11.6658 21.1546C12.1467 20.673 12.1463 19.8928 11.6647 19.4108C11.1827 18.9296 10.4019 18.9296 9.91988 19.4112C10.4019 18.9296 10.4019 18.1488 9.91988 17.6664C9.43826 17.184 8.65705 17.1848 8.17506 17.6664C8.65705 17.1848 8.65705 16.4036 8.17506 15.9211C7.69338 15.4396 6.91223 15.4396 6.43019 15.9219L5.35124 17.0005C4.86925 17.4828 4.86925 18.2633 5.35124 18.7457C5.83286 19.2273 6.61375 19.2273 7.09569 18.7457C6.6137 19.2273 6.6137 20.0085 7.09569 20.4905C7.57806 20.9721 8.35889 20.9721 8.84089 20.4905C8.35889 20.9721 8.35889 21.753 8.84089 22.2353C9.32288 22.717 10.1037 22.717 10.5858 22.2353L10.9445 21.8763C10.4636 22.3586 10.4639 23.1387 10.9455 23.6208C11.4275 24.1024 12.2083 24.1024 12.6904 23.6208L13.7697 22.5414C14.2513 22.0587 14.2513 21.2779 13.7697 20.7963Z" fill="#782ABE"/>
+<path d="M26.7883 9.40125L20.4368 3.04897C20.1546 2.76753 19.6984 2.76753 19.417 3.04897L17.3798 5.0861C17.0983 5.36755 17.0983 5.8238 17.3798 6.10562L23.7321 12.4575C24.0131 12.7397 24.4701 12.7397 24.7512 12.4575L26.7883 10.42C27.0705 10.1393 27.0705 9.68306 26.7883 9.40125ZM24.9779 10.8099C24.6746 11.1124 24.1843 11.1124 23.8822 10.8099C23.5798 10.507 23.5798 10.0167 23.8822 9.71423C24.1843 9.41174 24.6746 9.41174 24.9779 9.71423C25.2803 10.0167 25.28 10.507 24.9779 10.8099Z" fill="#782ABE"/>
+<path d="M9.61963 5.26579L7.58282 3.22866C7.30143 2.94722 6.8448 2.94722 6.56336 3.22866L0.211083 9.58089C-0.0703608 9.86159 -0.0703608 10.3186 0.211083 10.5997L2.24826 12.6375C2.52934 12.9187 2.98665 12.9187 3.26736 12.6375L9.61963 6.28525C9.90145 6.00381 9.90145 5.54755 9.61963 5.26579ZM3.11754 10.9895C2.81505 11.2916 2.32441 11.2916 2.02188 10.9895C1.71944 10.6867 1.71944 10.1963 2.02188 9.89387C2.32436 9.59143 2.81505 9.59143 3.11754 9.89387C3.42002 10.1963 3.42002 10.6867 3.11754 10.9895Z" fill="#782ABE"/>
+<path d="M20.9634 16.4954L20.5696 16.1009L16.7459 12.2772L16.4884 12.3914L16.208 12.4926L16.1878 12.4988C16.1384 12.5144 15.6771 12.6554 14.7675 12.7842C14.2866 12.8513 13.8101 12.8596 13.3488 12.807C13.1664 12.7867 12.985 12.7569 12.8058 12.7178L11.3421 14.1809C10.4626 15.0604 9.0304 15.0604 8.1509 14.1809C8.12005 14.1497 8.0903 14.1181 8.06278 14.087L8.05334 14.0764C7.4981 13.4468 7.35703 12.5851 7.61817 11.8373L8.18101 10.9614L8.17995 10.9603L11.612 7.5287C11.7515 7.38943 11.8981 7.2596 12.0504 7.13699C10.9809 6.927 10.0836 6.98902 10.0836 6.98902L4.64554 12.428C4.57229 13.4294 5.25995 14.5268 5.74916 15.1677C6.6294 14.3259 8.02934 14.3368 8.89429 15.2022C9.21634 15.5239 9.41911 15.9203 9.50464 16.3359C9.92098 16.4222 10.3171 16.6246 10.6391 16.9466C10.9612 17.2691 11.1639 17.6655 11.2495 18.0814C11.6655 18.167 12.0623 18.3694 12.384 18.6915C12.599 18.9065 12.7611 19.1546 12.8703 19.4201C13.4557 19.4129 14.0432 19.6319 14.4886 20.0769C15.3666 20.9542 15.3663 22.3831 14.4886 23.2601L14.1296 23.6199L14.3094 23.7998C14.7918 24.2822 15.5726 24.2822 16.0547 23.7998C16.5367 23.3181 16.5367 22.537 16.0547 22.0549L16.4137 22.4151C16.8961 22.8967 17.6765 22.8967 18.1585 22.4151C18.6405 21.9327 18.6409 21.1519 18.1585 20.6695C18.6409 21.1519 19.4213 21.1519 19.9033 20.6695C20.385 20.1883 20.3861 19.4071 19.9033 18.9247C20.3861 19.4071 21.1665 19.4071 21.6482 18.9247C22.1306 18.4431 22.1306 17.6618 21.6482 17.1802L20.9634 16.4954Z" fill="#782ABE"/>
+</svg>
+
           </div>
           <div class="kpi-value">89%</div>
           <div class="kpi-label">Owner Satisfaction</div>
@@ -841,10 +858,10 @@
       </div>
 
       <!-- Cards -->
-      <div class="row g-4">
+      <div class="row g-4 custom-gap">
         <!-- Loved Features -->
-        <div class="col-lg-6">
-          <div class="mk-card p-4 h-100">
+        <div class="col-lg-5">
+          <div class="mk-card-satisfaction p-4 h-100">
             <div class="d-flex align-items-center gap-2 mb-3">
               <i class="bi bi-heart-fill text-primary-choco"></i>
               <h5 class="mb-0 fw-semibold">Most Loved Features</h5>
@@ -872,8 +889,8 @@
         </div>
 
         <!-- Concerns -->
-        <div class="col-lg-6">
-          <div class="mk-card p-4 h-100">
+        <div class="col-lg-5">
+          <div class="mk-card-satisfaction p-4 h-100">
             <div class="d-flex align-items-center gap-2 mb-3">
               <i class="bi bi-exclamation-octagon-fill text-danger"></i>
               <h5 class="mb-0 fw-semibold">Common Concerns</h5>
@@ -939,6 +956,65 @@
       </div>
     </section>
     </main>
+    <!-- for  -->
+
+<div class="modal fade mk-review-modal" id="mkReviewModal" tabindex="-1" aria-hidden="true" aria-labelledby="mkReviewTitle">
+  <div class="modal-dialog modal-dialog-centered modal-lg">
+    <div class="modal-content">
+      <button type="button" class="btn-close ms-auto p-3" data-bs-dismiss="modal" aria-label="Close"></button>
+
+      <div class="modal-body pt-0">
+        <h3 id="mkReviewTitle" class="fw-bold mb-1">Submit Your Review</h3>
+        <p class="text-muted mb-3">Share your experience with this car. Your feedback helps others!</p>
+
+        <div class="mb-2 fw-semibold">Overall Rating</div>
+        <div class="mk-rating mb-3" aria-label="Overall rating">
+          <input type="radio" name="mk-stars" id="mk-star5" value="5"><label for="mk-star5">★</label>
+          <input type="radio" name="mk-stars" id="mk-star4" value="4"><label for="mk-star4">★</label>
+          <input type="radio" name="mk-stars" id="mk-star3" value="3"><label for="mk-star3">★</label>
+          <input type="radio" name="mk-stars" id="mk-star2" value="2"><label for="mk-star2">★</label>
+          <input type="radio" name="mk-stars" id="mk-star1" value="1"><label for="mk-star1">★</label>
+        </div>
+
+        <form id="mkReviewForm" novalidate>
+          <div class="mb-3">
+            <label class="form-label">Review Title</label>
+            <input type="text" class="form-control" placeholder="e.g., Great car, Smooth ride !">
+          </div>
+
+          <div class="mb-3">
+            <label class="form-label">Your Review</label>
+            <textarea class="form-control" rows="4" placeholder="Write your detailed review here..."></textarea>
+          </div>
+
+          <div class="row g-3 mb-3">
+            <div class="col-sm-6">
+              <label class="form-label">Name</label>
+              <input type="text" class="form-control" placeholder="John Doe">
+            </div>
+            <div class="col-sm-6">
+              <label class="form-label">Email</label>
+              <input type="email" class="form-control" placeholder="doe.john.77@gmail.com">
+            </div>
+          </div>
+
+          <div class="d-flex justify-content-end gap-3 pt-1">
+            <button type="button" class="btn btn-outline-secondary" data-bs-dismiss="modal">Cancel</button>
+            <button type="submit" class="btn mk-btn-primary">Submit Review</button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+<script>
+  document.getElementById('mkReviewForm')?.addEventListener('submit', (e)=>{
+    e.preventDefault();
+    bootstrap.Modal.getInstance(document.getElementById('mkReviewModal'))?.hide();
+  });
+</script>
+
+
 
     <!-- FOOTER -->
     <footer class="footer-motokhabar pt-5 pb-4">

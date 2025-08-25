@@ -1053,6 +1053,7 @@ z-index: 10; /* Ensure above cards */
   color: #757575;
   display: flex;
   align-items: center;
+
 }
 .car-card__row .bi,
 .car-card__grid .bi {
@@ -1088,6 +1089,49 @@ z-index: 10; /* Ensure above cards */
   color: var(--primary-color);
   border: 1px solid var(--primary-color);
   
+}
+.car-card__grid{
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  column-gap: 8px;
+  align-items: center;
+}
+.car-card__grid > div{            /* each spec cell */
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  min-width: 0;                   /* CRUCIAL: allow text to shrink */
+}
+.car-card__grid > div i{
+  flex: 0 0 auto;                 /* icon fixed */
+}
+.car-card__grid > div span{
+  flex: 1 1 auto;
+  min-width: 0;                   /* allow ellipsis */
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+/* Same treatment for single-row spec like mileage */
+.car-card__row{
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  min-width: 0;
+}
+.car-card__row span{
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+/* Titles: cap to 2 lines to keep card heights consistent */
+.car-card__title{
+  display: -webkit-box;
+  -webkit-line-clamp: 2;          /* max 2 lines */
+  -webkit-box-orient: vertical;
+  overflow: hidden;
 }
 .btn a {
   text-decoration: none;

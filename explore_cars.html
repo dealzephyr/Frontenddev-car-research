@@ -163,7 +163,14 @@
       <p class="text-muted">Find your perfect car with our advanced filters</p>
     </section>
  <main>
-  <section class="container my-4 masin-section">
+ <!-- place this where you want the 2 buttons -->
+<div class="mobile-filterbar" role="group" aria-label="Mobile filters">
+<button class="chip"> Filter <ion-icon name="funnel"></ion-icon></button>
+  <button class="chip"> Choose your car options <ion-icon name="options"></ion-icon></button>
+</div>
+
+  <section class="container my-4 main-section">
+
     <div class="row g-0 g-lg-3 body-parts">
       <!-- LEFT: Sidebar Filters -->
       <aside class="col-lg-3">
@@ -263,7 +270,9 @@
             <div class="mk-filter-body">
               <label class="form-check mb-1"><input class="form-check-input me-1" type="checkbox" data-key="fuel" value="Petrol" />Petrol</label>
               <label class="form-check mb-1"><input class="form-check-input me-1" type="checkbox" data-key="fuel" value="Diesel" />Diesel</label>
-              <label class="form-check"><input class="form-check-input me-1" type="checkbox" data-key="fuel" value="Electric/Hybrid" />Electric/Hybrid</label>
+              <label class="form-check"><input class="form-check-input me-1" type="checkbox" data-key="fuel" value="Electric/Hybrid" />Electric</label>
+              <label class="form-check"><input class="form-check-input me-1" type="checkbox" data-key="fuel" value="Electric/Hybrid" />Hybrid</label>
+
             </div>
           </details>
 

@@ -61,10 +61,11 @@
   
 }
 .sidebar-sticky {
-  position: sticky;
+  position: sticky !important;
   top: 90px;
-
+z-index: 10;
 }
+
 .body-parts {
   margin-top: 20px;
 }
@@ -177,7 +178,7 @@
 
 .btn-outline-secondary,
 .load {
-  margin-left: 40px;
+ 
 
   border: 1px solid var(--primary-color);
   border-radius: 7px;
@@ -203,7 +204,7 @@
 }
 
 /*  hover polish for cards in results grid */
-.results-grid .car-card.v2:hover {
+ .car-card.v2:hover {
  
  box-shadow: 0px 20px 24px -4px #1018281A;
 
@@ -221,10 +222,7 @@
   /* --- Breadcrumb / header block --- */
   .toppart{
     margin: 0;
-    padding: 12px 16px 8px;
-  }
-  .toppart .breadcrumb{
-    margin: 0 0 6px;
+    padding: 12px 19px 8px;
   }
   /* Hide all crumbs except the current page */
   .toppart .breadcrumb .breadcrumb-item:not(:last-child){
@@ -245,49 +243,98 @@
   background-size: contain;
   background-repeat: no-repeat;
   background-position: center;
+   
 }
   .toppart h3{
-    font-size: 20px;
-    margin: 0 0 6px;
+    font-size: 18px !important;
+  font-weight: 600;
+  color: #212121;
+  margin-top: 17px;
+
   }
   .toppart p{
-    font-size: 12px;
-    margin: 0 0 10px;
+    font-size: 11px;
+    font-weight: 400;
+  margin-bottom: 0px;
   }
+
 
   /* --- Main section (right side) --- */
   /* Hide the left filter sidebar on mobile (layout only) */
   .body-parts > aside{
     display: none;
   }
-  /* Make the cards row a clean 2-col grid with tight gaps */
-  .cards-grid{
-    display: grid !important;
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-    column-gap: 12px;
-    row-gap: 12px;
-    margin-left: 0 !important;
-    margin-right: 0 !important;
+  .right-parts .text-muted{font-size: 12px !important;margin-left: 19px;
   }
-  /* Remove column padding so the grid gaps are the only spacing */
-  .cards-grid > [class*="col-"]{
-    padding: 0 !important;
-  }
-
-  /* Show EXACTLY 8 cards on mobile */
-  .cards-grid > [class*="col-"]:nth-child(n+9){
+/* hide desktop filter selects + Clear button */
+  .top-filter .mini-filter-items,
+  .top-filter #clearBtn {
     display: none !important;
   }
+ 
+  .right-parts {margin-left: 19px !important;}
+  .mobile-filterbar{
+    display:flex;
+    gap:14px;
+    margin:11px 19px 10px;
+  
+  }
+  .mobile-filterbar .chip{
+    display:inline-flex;
+    align-items:center;
+    gap:6px;
+    height:36px;
+    padding:0 12px;
+    font-size:13px;
+    color:#757575;
+    background:#f1f1f1;
+border: none;
+    border-radius:5px;
+    margin-bottom: 0px !important;
+   
+  }
+  .mobile-filterbar .chip .bi,
+  .mobile-filterbar .chip i{
+    font-size:16px;
+    line-height:1;
+    
+  }
+  /* .mobile-filterbar .chip:focus{ outline:2px solid rgba(93,64,55,.25); outline-offset:2px; }
+  .mobile-filterbar .chip:active{ transform:translateY(1px); } */
 
 
-  /* Card fills cell; compact internals */
-  .rankings-block .cards-track.is-active .car-card.v2{ width:168px !important; }
-  .rankings-block .car-card__media img{ height:92px; object-fit:cover; }
-  .rankings-block .car-card__body{ padding:9px; }
-  .rankings-block .car-card__title{ font-size:12px; }
-  .rankings-block .car-card__location,
-  .rankings-block .car-card__row,
-  .rankings-block .car-card__grid{ font-size:9px; }
-  .rankings-block .car-card__price{ font-size:11px; margin:10px 0 8px;}
-  .rankings-block .btn-primary, .btn-secondary{font-size: 10px;}
-}
+    .cards-grid {
+    display: grid !important;
+    grid-template-columns: repeat(2, 168px);
+    column-gap: 19px;
+    row-gap: 30px;
+    justify-content: space-between;   /* spread to edges */
+    margin-left: 10px !important;
+    margin-right: 19px !important;
+  }
+  /* Remove Bootstrap’s column padding so only grid gaps apply */
+  .cards-grid > [class*="col-"] { padding: 0 !important; }
+
+  /* Card fill cell; compact internals */
+  .cards-grid .car-card.v2 { width: 168px !important; }
+  .cards-grid .car-card__media img { height: 92px; object-fit: cover; }
+  .cards-grid .car-card__body { padding: 9px; }
+  .cards-grid .car-card__title { font-size: 14px; margin-top: 10px; }
+  .cards-grid .car-card__location,
+  .cards-grid .car-card__row,
+  .cards-grid .car-card__grid { font-size: 12px;}
+  .cards-grid .car-card__price { font-size: 12px; margin: 10px 0 8px; }
+  .cards-grid .btn-primary,
+  .cards-grid .btn-secondary { font-size: 12px; }
+  .cards-grid .car-card__grid > div,.car-card__row { gap:0px !important; }   /* was 6px */
+ 
+  .body-parts .right-parts .load { 
+    display: inline-block;
+    font-size: 12px;
+    width: 138px;height: 36px;
+  }}
+  @media(min-width: 575.98px){
+    .mobile-filterbar{
+      display: none !important;
+    }
+  }
