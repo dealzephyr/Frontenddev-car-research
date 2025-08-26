@@ -676,10 +676,10 @@
         <p class="text-muted mb-0">Expert Opinion And User Feedback</p>
       </div>
 
-      <div class="row g-4 align-items-stretch">
+      <div class="row g-4 align-items-stretch main-review">
         <!-- Left: Overall rating -->
         <div class="col-lg-5">
-          <div class="mk-card-review h-100 p-4">
+          <div class="mk-card-review h-100  overall-rating">
             <h4 class="fw-semibold mb-4">Overall Rating</h4>
 
             <div class="d-flex align-items-end gap-3 mb-4">
@@ -688,21 +688,34 @@
               </div>
               <div>
                 <div class="rating-stars mb-1">
-                  <i class="bi bi-star-fill"></i>
-                  <i class="bi bi-star-fill"></i>
-                  <i class="bi bi-star-fill"></i>
-                  <i class="bi bi-star-fill"></i>
-                  <i class="bi bi-star-half"></i>
+                  <svg width="12" height="12" viewBox="0 0 12 12" fill="none" xmlns="http://www.w3.org/2000/svg">
+<path fill-rule="evenodd" clip-rule="evenodd" d="M6.00025 0.296875L7.41675 4.65637H12.0005L8.29225 7.35063L9.70875 11.7101L6.00025 9.01587L2.292 11.7101L3.7085 7.35063L0 4.65637H4.58375L6.00025 0.296875Z" fill="#D4AF37"/>
+</svg>
+<svg width="12" height="12" viewBox="0 0 12 12" fill="none" xmlns="http://www.w3.org/2000/svg">
+<path fill-rule="evenodd" clip-rule="evenodd" d="M6.00025 0.296875L7.41675 4.65637H12.0005L8.29225 7.35063L9.70875 11.7101L6.00025 9.01587L2.292 11.7101L3.7085 7.35063L0 4.65637H4.58375L6.00025 0.296875Z" fill="#D4AF37"/>
+</svg>
+<svg width="12" height="12" viewBox="0 0 12 12" fill="none" xmlns="http://www.w3.org/2000/svg">
+<path fill-rule="evenodd" clip-rule="evenodd" d="M6.00025 0.296875L7.41675 4.65637H12.0005L8.29225 7.35063L9.70875 11.7101L6.00025 9.01587L2.292 11.7101L3.7085 7.35063L0 4.65637H4.58375L6.00025 0.296875Z" fill="#D4AF37"/>
+</svg>
+<svg width="12" height="12" viewBox="0 0 12 12" fill="none" xmlns="http://www.w3.org/2000/svg">
+<path fill-rule="evenodd" clip-rule="evenodd" d="M6.00025 0.296875L7.41675 4.65637H12.0005L8.29225 7.35063L9.70875 11.7101L6.00025 9.01587L2.292 11.7101L3.7085 7.35063L0 4.65637H4.58375L6.00025 0.296875Z" fill="#D4AF37"/>
+</svg>
+<svg width="12" height="12" viewBox="0 0 12 12" fill="none" xmlns="http://www.w3.org/2000/svg">
+<path d="M7.41737 4.65306H12.0012L8.29302 7.34732L9.70942 11.7067L6.00097 9.0124L2.29252 11.7067L3.70892 7.34732L0.000732422 4.65306H4.58457L6.00097 0.293457C6.4731 1.74666 6.94524 3.19986 7.41737 4.65306ZM6.00097 3.5508V7.76818L7.79486 9.07155L7.10953 6.96272L8.90343 5.65963H6.68604L6.00097 3.5508Z" fill="#D4AF37"/>
+</svg>
+
+
+                 
                 </div>
                 <div class="text-muted small">Based On 1000 Reviews</div>
               </div>
             </div>
 
             <!-- Category rows -->
-            <div class="mk-rating-row">
+            <div class="mk-rating-row ">
               <span class="mk-rating-label">Performance</span>
               <div class="mk-rating-bar">
-                <div class="mk-rating-fill" style="width: 92%"></div>
+                <div class="mk-rating-fill" style="width: 94%"></div>
               </div>
               <span class="mk-rating-score">4.8</span>
             </div>
@@ -710,7 +723,7 @@
             <div class="mk-rating-row">
               <span class="mk-rating-label">Comfort</span>
               <div class="mk-rating-bar">
-                <div class="mk-rating-fill" style="width: 92%"></div>
+                <div class="mk-rating-fill" style="width: 94%"></div>
               </div>
               <span class="mk-rating-score">4.8</span>
             </div>
@@ -718,7 +731,7 @@
             <div class="mk-rating-row">
               <span class="mk-rating-label">Technology</span>
               <div class="mk-rating-bar">
-                <div class="mk-rating-fill" style="width: 92%"></div>
+                <div class="mk-rating-fill" style="width: 94%"></div>
               </div>
               <span class="mk-rating-score">4.8</span>
             </div>
@@ -726,7 +739,7 @@
             <div class="mk-rating-row">
               <span class="mk-rating-label">Value</span>
               <div class="mk-rating-bar">
-                <div class="mk-rating-fill" style="width: 92%"></div>
+                <div class="mk-rating-fill" style="width: 94%"></div>
               </div>
               <span class="mk-rating-score">4.8</span>
             </div>
@@ -737,17 +750,22 @@
         <div class="col-lg-7">
           <div class="d-flex flex-column gap-4">
             <!-- Review card -->
-            <article class="mk-card-review p-4">
+            <article class="mk-card-review individual-review">
               <div
-                class="d-flex align-items-center justify-content-between flex-wrap gap-2 mb-2"
-              >
+                class="d-flex align-items-center justify-content-between flex-wrap gap-2 mb-2">
                 <div class="d-flex align-items-center gap-2">
                   <div class="rating-stars">
-                    <i class="bi bi-star-fill"></i>
-                    <i class="bi bi-star-fill"></i>
-                    <i class="bi bi-star-fill"></i>
-                    <i class="bi bi-star-fill"></i>
-                    <i class="bi bi-star-fill"></i>
+                                      <svg width="12" height="12" viewBox="0 0 12 12" fill="none" xmlns="http://www.w3.org/2000/svg">
+<path fill-rule="evenodd" clip-rule="evenodd" d="M6.00025 0.296875L7.41675 4.65637H12.0005L8.29225 7.35063L9.70875 11.7101L6.00025 9.01587L2.292 11.7101L3.7085 7.35063L0 4.65637H4.58375L6.00025 0.296875Z" fill="#D4AF37"/>
+</svg>                  <svg width="12" height="12" viewBox="0 0 12 12" fill="none" xmlns="http://www.w3.org/2000/svg">
+<path fill-rule="evenodd" clip-rule="evenodd" d="M6.00025 0.296875L7.41675 4.65637H12.0005L8.29225 7.35063L9.70875 11.7101L6.00025 9.01587L2.292 11.7101L3.7085 7.35063L0 4.65637H4.58375L6.00025 0.296875Z" fill="#D4AF37"/>
+</svg>                  <svg width="12" height="12" viewBox="0 0 12 12" fill="none" xmlns="http://www.w3.org/2000/svg">
+<path fill-rule="evenodd" clip-rule="evenodd" d="M6.00025 0.296875L7.41675 4.65637H12.0005L8.29225 7.35063L9.70875 11.7101L6.00025 9.01587L2.292 11.7101L3.7085 7.35063L0 4.65637H4.58375L6.00025 0.296875Z" fill="#D4AF37"/>
+</svg>                  <svg width="12" height="12" viewBox="0 0 12 12" fill="none" xmlns="http://www.w3.org/2000/svg">
+<path fill-rule="evenodd" clip-rule="evenodd" d="M6.00025 0.296875L7.41675 4.65637H12.0005L8.29225 7.35063L9.70875 11.7101L6.00025 9.01587L2.292 11.7101L3.7085 7.35063L0 4.65637H4.58375L6.00025 0.296875Z" fill="#D4AF37"/>
+</svg>                  <svg width="12" height="12" viewBox="0 0 12 12" fill="none" xmlns="http://www.w3.org/2000/svg">
+<path fill-rule="evenodd" clip-rule="evenodd" d="M6.00025 0.296875L7.41675 4.65637H12.0005L8.29225 7.35063L9.70875 11.7101L6.00025 9.01587L2.292 11.7101L3.7085 7.35063L0 4.65637H4.58375L6.00025 0.296875Z" fill="#D4AF37"/>
+</svg>
                   </div>
                   <span class="text-muted">5.0 • 2 Days Ago</span>
                 </div>
@@ -761,7 +779,7 @@
 
               <div class="d-flex align-items-center gap-2">
                 <img
-                  src="https://ui-avatars.com/api/?name=Dikshya+Devkota&background=E2C2BB&color=5D4037"
+                  src="assets/images/avatar.webp"
                   alt="User"
                   class="rounded-circle"
                   width="32"
@@ -772,17 +790,26 @@
             </article>
 
             <!-- Review card -->
-            <article class="mk-card-review p-4">
+            <article class="mk-card-review individual-review">
               <div
-                class="d-flex align-items-center justify-content-between flex-wrap gap-2 mb-2"
-              >
+                class="d-flex align-items-center justify-content-between flex-wrap gap-2 mb-2">
                 <div class="d-flex align-items-center gap-2">
                   <div class="rating-stars">
-                    <i class="bi bi-star-fill"></i>
-                    <i class="bi bi-star-fill"></i>
-                    <i class="bi bi-star-fill"></i>
-                    <i class="bi bi-star-fill"></i>
-                    <i class="bi bi-star-half"></i>
+                                         <svg width="12" height="12" viewBox="0 0 12 12" fill="none" xmlns="http://www.w3.org/2000/svg">
+<path fill-rule="evenodd" clip-rule="evenodd" d="M6.00025 0.296875L7.41675 4.65637H12.0005L8.29225 7.35063L9.70875 11.7101L6.00025 9.01587L2.292 11.7101L3.7085 7.35063L0 4.65637H4.58375L6.00025 0.296875Z" fill="#D4AF37"/>
+</svg>
+                  <svg width="12" height="12" viewBox="0 0 12 12" fill="none" xmlns="http://www.w3.org/2000/svg">
+<path fill-rule="evenodd" clip-rule="evenodd" d="M6.00025 0.296875L7.41675 4.65637H12.0005L8.29225 7.35063L9.70875 11.7101L6.00025 9.01587L2.292 11.7101L3.7085 7.35063L0 4.65637H4.58375L6.00025 0.296875Z" fill="#D4AF37"/>
+</svg>
+                  <svg width="12" height="12" viewBox="0 0 12 12" fill="none" xmlns="http://www.w3.org/2000/svg">
+<path fill-rule="evenodd" clip-rule="evenodd" d="M6.00025 0.296875L7.41675 4.65637H12.0005L8.29225 7.35063L9.70875 11.7101L6.00025 9.01587L2.292 11.7101L3.7085 7.35063L0 4.65637H4.58375L6.00025 0.296875Z" fill="#D4AF37"/>
+</svg>
+                  <svg width="12" height="12" viewBox="0 0 12 12" fill="none" xmlns="http://www.w3.org/2000/svg">
+<path fill-rule="evenodd" clip-rule="evenodd" d="M6.00025 0.296875L7.41675 4.65637H12.0005L8.29225 7.35063L9.70875 11.7101L6.00025 9.01587L2.292 11.7101L3.7085 7.35063L0 4.65637H4.58375L6.00025 0.296875Z" fill="#D4AF37"/>
+</svg>
+                  <svg width="12" height="12" viewBox="0 0 12 12" fill="none" xmlns="http://www.w3.org/2000/svg">
+<path fill-rule="evenodd" clip-rule="evenodd" d="M6.00025 0.296875L7.41675 4.65637H12.0005L8.29225 7.35063L9.70875 11.7101L6.00025 9.01587L2.292 11.7101L3.7085 7.35063L0 4.65637H4.58375L6.00025 0.296875Z" fill="#D4AF37"/>
+</svg>
                   </div>
                   <span class="text-muted">4.5 • 1 Week Ago</span>
                 </div>
@@ -796,7 +823,7 @@
 
               <div class="d-flex align-items-center gap-2">
                 <img
-                  src="https://ui-avatars.com/api/?name=Sanjay+Rai&background=E2C2BB&color=5D4037"
+                  src="assets/images/avatar.png"
                   alt="User"
                   class="rounded-circle"
                   width="32"
