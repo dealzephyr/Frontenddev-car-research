@@ -161,6 +161,29 @@
         </ol>
       </nav>
     </section>
+
+<script>
+document.addEventListener("DOMContentLoaded", function () {
+  const swatches = document.querySelectorAll(".swatch");
+  const carouselEl = document.getElementById("heroCarCarousel");
+  const bsCarousel = new bootstrap.Carousel(carouselEl);
+
+  swatches.forEach(swatch => {
+    swatch.addEventListener("click", () => {
+      const index = parseInt(swatch.getAttribute("data-slide"), 10);
+      bsCarousel.to(index); // jump directly to that slide
+
+      // optional highlight active swatch
+      swatches.forEach(s => s.classList.remove("active"));
+      swatch.classList.add("active");
+    });
+  });
+});
+</script>
+
+
+
+
     <!-- ============ CAR HERO ============ -->
     <section class="container my-4">
       <div class="car-hero rounded-4 overflow-hidden shadow-sm">
@@ -202,12 +225,13 @@
             <!-- colours -->
             <div class="d-flex align-items-center gap-2 flex-wrap mb-4">
   <span class="fw-semibold me-2 color-options">Colour Options:</span>
-  <span class="swatch bg-white border"></span>
-  <span class="swatch bg-secondary"></span>
-  <span class="swatch bg-dark"></span>
-  <span class="swatch bg-danger"></span>
-  <span class="swatch bg-warning"></span>
-  <span class="swatch bg-primary"></span>
+  <span class="swatch bg-white border" data-slide="0"></span>
+  <span class="swatch bg-secondary" data-slide="1"></span>
+  
+  <span class="swatch bg-danger" data-slide="2"></span>
+  <span class="swatch bg-warning" data-slide="3"></span>
+  <span class="swatch bg-primary" data-slide="4"></span>
+   
 </div>
 
 
@@ -246,7 +270,7 @@
                 <div class="carousel-inner">
                   <div class="carousel-item active">
                     <img
-                      src="assets/images/cardetailsimg.png"
+                      src="assets/images/whitecar.png"
                       class="d-block w-100 car-shot"
                       alt="Car view 1"
                     />
@@ -260,9 +284,23 @@
                   </div>
                   <div class="carousel-item">
                     <img
-                      src="assets/images/cardetailsimg.png"
+                      src="assets/images/redcar.png"
                       class="d-block w-100 car-shot"
                       alt="Car view 3"
+                    />
+                  </div>
+                  <div class="carousel-item">
+                    <img
+                      src="assets/images/yellowcar.png"
+                      class="d-block w-100 car-shot"
+                      alt="Car view 4"
+                    />
+                  </div>
+                  <div class="carousel-item">
+                    <img
+                      src="assets/images/bluecar.png"
+                      class="d-block w-100 car-shot"
+                      alt="Car view 5"
                     />
                   </div>
                 </div>
@@ -791,95 +829,71 @@ Calculate EMI
         </div>
 
         <!-- Right: individual reviews -->
-        <div class="col-lg-7">
-          <div class="d-flex flex-column gap-4">
-            <!-- Review card -->
-            <article class="mk-card-review individual-review">
-              <div
-                class="d-flex align-items-center justify-content-between flex-wrap gap-2 mb-2">
-                <div class="d-flex align-items-center gap-2">
-                  <div class="rating-stars">
-                                      <svg width="12" height="12" viewBox="0 0 12 12" fill="none" xmlns="http://www.w3.org/2000/svg">
-<path fill-rule="evenodd" clip-rule="evenodd" d="M6.00025 0.296875L7.41675 4.65637H12.0005L8.29225 7.35063L9.70875 11.7101L6.00025 9.01587L2.292 11.7101L3.7085 7.35063L0 4.65637H4.58375L6.00025 0.296875Z" fill="#D4AF37"/>
-</svg>                  <svg width="12" height="12" viewBox="0 0 12 12" fill="none" xmlns="http://www.w3.org/2000/svg">
-<path fill-rule="evenodd" clip-rule="evenodd" d="M6.00025 0.296875L7.41675 4.65637H12.0005L8.29225 7.35063L9.70875 11.7101L6.00025 9.01587L2.292 11.7101L3.7085 7.35063L0 4.65637H4.58375L6.00025 0.296875Z" fill="#D4AF37"/>
-</svg>                  <svg width="12" height="12" viewBox="0 0 12 12" fill="none" xmlns="http://www.w3.org/2000/svg">
-<path fill-rule="evenodd" clip-rule="evenodd" d="M6.00025 0.296875L7.41675 4.65637H12.0005L8.29225 7.35063L9.70875 11.7101L6.00025 9.01587L2.292 11.7101L3.7085 7.35063L0 4.65637H4.58375L6.00025 0.296875Z" fill="#D4AF37"/>
-</svg>                  <svg width="12" height="12" viewBox="0 0 12 12" fill="none" xmlns="http://www.w3.org/2000/svg">
-<path fill-rule="evenodd" clip-rule="evenodd" d="M6.00025 0.296875L7.41675 4.65637H12.0005L8.29225 7.35063L9.70875 11.7101L6.00025 9.01587L2.292 11.7101L3.7085 7.35063L0 4.65637H4.58375L6.00025 0.296875Z" fill="#D4AF37"/>
-</svg>                  <svg width="12" height="12" viewBox="0 0 12 12" fill="none" xmlns="http://www.w3.org/2000/svg">
-<path fill-rule="evenodd" clip-rule="evenodd" d="M6.00025 0.296875L7.41675 4.65637H12.0005L8.29225 7.35063L9.70875 11.7101L6.00025 9.01587L2.292 11.7101L3.7085 7.35063L0 4.65637H4.58375L6.00025 0.296875Z" fill="#D4AF37"/>
-</svg>
-                  </div>
-                  <span class="text-muted">5.0 • 2 Days Ago</span>
-                </div>
-              </div>
+       
+<div class="col-lg-7">
+  <div class="d-flex flex-column gap-4">
 
-              <p class="mb-3 fs-6">
-                "Absolutely love this car! The acceleration is incredible and
-                the autopilot features work flawlessly. Best purchase I've made
-                in years."
-              </p>
-
-              <div class="d-flex align-items-center gap-2">
-                <img
-                  src="assets/images/avatar.webp"
-                  alt="User"
-                  class="rounded-circle"
-                  width="32"
-                  height="32"
-                />
-                <div class="small text-muted">Dikshya Devkota, Pokhara</div>
-              </div>
-            </article>
-
-            <!-- Review card -->
-            <article class="mk-card-review individual-review">
-              <div
-                class="d-flex align-items-center justify-content-between flex-wrap gap-2 mb-2">
-                <div class="d-flex align-items-center gap-2">
-                  <div class="rating-stars">
-                                         <svg width="12" height="12" viewBox="0 0 12 12" fill="none" xmlns="http://www.w3.org/2000/svg">
-<path fill-rule="evenodd" clip-rule="evenodd" d="M6.00025 0.296875L7.41675 4.65637H12.0005L8.29225 7.35063L9.70875 11.7101L6.00025 9.01587L2.292 11.7101L3.7085 7.35063L0 4.65637H4.58375L6.00025 0.296875Z" fill="#D4AF37"/>
-</svg>
-                  <svg width="12" height="12" viewBox="0 0 12 12" fill="none" xmlns="http://www.w3.org/2000/svg">
-<path fill-rule="evenodd" clip-rule="evenodd" d="M6.00025 0.296875L7.41675 4.65637H12.0005L8.29225 7.35063L9.70875 11.7101L6.00025 9.01587L2.292 11.7101L3.7085 7.35063L0 4.65637H4.58375L6.00025 0.296875Z" fill="#D4AF37"/>
-</svg>
-                  <svg width="12" height="12" viewBox="0 0 12 12" fill="none" xmlns="http://www.w3.org/2000/svg">
-<path fill-rule="evenodd" clip-rule="evenodd" d="M6.00025 0.296875L7.41675 4.65637H12.0005L8.29225 7.35063L9.70875 11.7101L6.00025 9.01587L2.292 11.7101L3.7085 7.35063L0 4.65637H4.58375L6.00025 0.296875Z" fill="#D4AF37"/>
-</svg>
-                  <svg width="12" height="12" viewBox="0 0 12 12" fill="none" xmlns="http://www.w3.org/2000/svg">
-<path fill-rule="evenodd" clip-rule="evenodd" d="M6.00025 0.296875L7.41675 4.65637H12.0005L8.29225 7.35063L9.70875 11.7101L6.00025 9.01587L2.292 11.7101L3.7085 7.35063L0 4.65637H4.58375L6.00025 0.296875Z" fill="#D4AF37"/>
-</svg>
-                  <svg width="12" height="12" viewBox="0 0 12 12" fill="none" xmlns="http://www.w3.org/2000/svg">
-<path fill-rule="evenodd" clip-rule="evenodd" d="M6.00025 0.296875L7.41675 4.65637H12.0005L8.29225 7.35063L9.70875 11.7101L6.00025 9.01587L2.292 11.7101L3.7085 7.35063L0 4.65637H4.58375L6.00025 0.296875Z" fill="#D4AF37"/>
-</svg>
-                  </div>
-                  <span class="text-muted">4.5 • 1 Week Ago</span>
-                </div>
-              </div>
-
-              <p class="mb-3 fs-6">
-                "Smooth drive and solid comfort. Infotainment is great and the
-                safety features give confidence. Could use a tad more boot
-                space."
-              </p>
-
-              <div class="d-flex align-items-center gap-2">
-                <img
-                  src="assets/images/avatar.png"
-                  alt="User"
-                  class="rounded-circle"
-                  width="32"
-                  height="32"
-                />
-                <div class="small text-muted">Sanjay Rai, Kathmandu</div>
-              </div>
-            </article>
+    <!-- Review card 1 -->
+    <article class="mk-card-review individual-review">
+      <div class="d-flex align-items-center justify-content-between flex-wrap gap-2 mb-2">
+        <div class="d-flex align-items-center gap-2">
+          <div class="rating-stars">
+            <svg width="12" height="12" viewBox="0 0 12 12" fill="none" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" clip-rule="evenodd" d="M6.00025 0.296875L7.41675 4.65637H12.0005L8.29225 7.35063L9.70875 11.7101L6.00025 9.01587L2.292 11.7101L3.7085 7.35063L0 4.65637H4.58375L6.00025 0.296875Z" fill="#D4AF37"/></svg>
+            <svg width="12" height="12" viewBox="0 0 12 12" fill="none" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" clip-rule="evenodd" d="M6.00025 0.296875L7.41675 4.65637H12.0005L8.29225 7.35063L9.70875 11.7101L6.00025 9.01587L2.292 11.7101L3.7085 7.35063L0 4.65637H4.58375L6.00025 0.296875Z" fill="#D4AF37"/></svg>
+            <svg width="12" height="12" viewBox="0 0 12 12" fill="none" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" clip-rule="evenodd" d="M6.00025 0.296875L7.41675 4.65637H12.0005L8.29225 7.35063L9.70875 11.7101L6.00025 9.01587L2.292 11.7101L3.7085 7.35063L0 4.65637H4.58375L6.00025 0.296875Z" fill="#D4AF37"/></svg>
+            <svg width="12" height="12" viewBox="0 0 12 12" fill="none" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" clip-rule="evenodd" d="M6.00025 0.296875L7.41675 4.65637H12.0005L8.29225 7.35063L9.70875 11.7101L6.00025 9.01587L2.292 11.7101L3.7085 7.35063L0 4.65637H4.58375L6.00025 0.296875Z" fill="#D4AF37"/></svg>
+            <svg width="12" height="12" viewBox="0 0 12 12" fill="none" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" clip-rule="evenodd" d="M6.00025 0.296875L7.41675 4.65637H12.0005L8.29225 7.35063L9.70875 11.7101L6.00025 9.01587L2.292 11.7101L3.7085 7.35063L0 4.65637H4.58375L6.00025 0.296875Z" fill="#D4AF37"/></svg>
           </div>
+          <span class="text-muted">5.0 • 2 Days Ago</span>
         </div>
       </div>
+
+      <p class="mb-3 fs-6">
+        "Absolutely love this car! The acceleration is incredible and
+        the autopilot features work flawlessly. Best purchase I've made
+        in years."
+      </p>
+
+      <div class="d-flex align-items-center gap-2">
+        <img src="assets/images/avatar.webp" alt="User" class="rounded-circle" width="32" height="32" />
+        <div class="small text-muted">Dikshya Devkota, Pokhara</div>
+      </div>
+    </article>
+
+    <!-- Review card 2 -->
+    <article class="mk-card-review individual-review">
+      <div class="d-flex align-items-center justify-content-between flex-wrap gap-2 mb-2">
+        <div class="d-flex align-items-center gap-2">
+          <div class="rating-stars">
+            <svg width="12" height="12" viewBox="0 0 12 12" fill="none" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" clip-rule="evenodd" d="M6.00025 0.296875L7.41675 4.65637H12.0005L8.29225 7.35063L9.70875 11.7101L6.00025 9.01587L2.292 11.7101L3.7085 7.35063L0 4.65637H4.58375L6.00025 0.296875Z" fill="#D4AF37"/></svg>
+            <svg width="12" height="12" viewBox="0 0 12 12" fill="none" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" clip-rule="evenodd" d="M6.00025 0.296875L7.41675 4.65637H12.0005L8.29225 7.35063L9.70875 11.7101L6.00025 9.01587L2.292 11.7101L3.7085 7.35063L0 4.65637H4.58375L6.00025 0.296875Z" fill="#D4AF37"/></svg>
+            <svg width="12" height="12" viewBox="0 0 12 12" fill="none" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" clip-rule="evenodd" d="M6.00025 0.296875L7.41675 4.65637H12.0005L8.29225 7.35063L9.70875 11.7101L6.00025 9.01587L2.292 11.7101L3.7085 7.35063L0 4.65637H4.58375L6.00025 0.296875Z" fill="#D4AF37"/></svg>
+            <svg width="12" height="12" viewBox="0 0 12 12" fill="none" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" clip-rule="evenodd" d="M6.00025 0.296875L7.41675 4.65637H12.0005L8.29225 7.35063L9.70875 11.7101L6.00025 9.01587L2.292 11.7101L3.7085 7.35063L0 4.65637H4.58375L6.00025 0.296875Z" fill="#D4AF37"/></svg>
+            <svg width="12" height="12" viewBox="0 0 12 12" fill="none" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" clip-rule="evenodd" d="M6.00025 0.296875L7.41675 4.65637H12.0005L8.29225 7.35063L9.70875 11.7101L6.00025 9.01587L2.292 11.7101L3.7085 7.35063L0 4.65637H4.58375L6.00025 0.296875Z" fill="#D4AF37"/></svg>
+          </div>
+          <span class="text-muted">4.5 • 1 Week Ago</span>
+        </div>
+      </div>
+
+      <p class="mb-3 fs-6">
+        "Smooth drive and solid comfort. Infotainment is great and the
+        safety features give confidence. Could use a tad more boot space."
+      </p>
+
+      <div class="d-flex align-items-center gap-2">
+        <img src="assets/images/avatar.png" alt="User" class="rounded-circle" width="32" height="32" />
+        <div class="small text-muted">Sanjay Rai, Kathmandu</div>
+      </div>
+    </article>
+
+  </div>
+</div>
+
+
+      </div>
     </section>
+
+
     <!-- ownwer Satisfaction -->
     <section class="container my-5" id="owner-satisfaction">
       <div class="text-center mb-4">
@@ -1038,7 +1052,7 @@ Calculate EMI
         <h3 id="mkReviewTitle" class="fw-bold mb-1">Submit Your Review</h3>
         <p class="text-muted mb-3">Share your experience with this car. Your feedback helps others!</p>
 
-        <div class="mb-2 fw-semibold overall-rating">Overall Rating</div>
+        <div class="fw-semibold overallrating">Overall Rating</div>
         <div class="mk-rating mb-3" aria-label="Overall rating">
           <input type="radio" name="mk-stars" id="mk-star5" value="5"><label for="mk-star5">★</label>
           <input type="radio" name="mk-stars" id="mk-star4" value="4"><label for="mk-star4">★</label>

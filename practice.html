@@ -1,274 +1,213 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>Explore Cars</title>
-
-<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
-<link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css" rel="stylesheet">
-<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
-
-<style>
-  :root{
-    --primary:#5d4037;
-    --primary-dark:#3a2b25;
-    --neutral-100:#ffffff;
-    --neutral-200:#efefef;
-    --neutral-300:#e6e3de;
-    --neutral-800:#212121;
-    --bg:#fbf7f0;
-  }
-
-  *{box-sizing:border-box}
-  body{font-family:"Poppins",system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;background:var(--bg);color:var(--neutral-800)}
-
-  /* page header */
-  .toppart{padding:16px 0 0}
-  .breadcrumb{--bs-breadcrumb-divider:"›";margin-bottom:.25rem}
-  .breadcrumb a{color:#757575;text-decoration:none}
-  .breadcrumb .active a{font-weight:600;color:#212121}
-  .page-title{font-weight:700;margin:0}
-  .page-sub{color:#757575;margin:.25rem 0 1rem}
-
-  /* layout */
-  .rankings-layout{--bs-gutter-x:24px}
-  .sidebar{position:sticky;top:72px}
-  .mk-card{
-    background:var(--neutral-100);
-    border-radius:10px;
-    border:1px solid #e9e7e2;
-    box-shadow:0 12px 28px -20px rgba(0,0,0,.35);
-  }
-
-  /* sidebar filters */
-  .filter-card{padding:8px}
-  .filter-item{border-bottom:1px solid var(--neutral-200)}
-  .filter-item summary{
-    list-style:none;cursor:pointer;display:flex;align-items:center;justify-content:space-between;
-    padding:14px 8px
-  }
-  .filter-item summary::-webkit-details-marker{display:none}
-  .filter-title{font-size:13px;font-weight:600}
-  .chev{transition:transform .2s ease}
-  .filter-item[open] .chev{transform:rotate(180deg)}
-  .filter-body{padding:0 8px 12px 8px;font-size:13px}
-  .form-check{user-select:none}
-
-  /* top controls */
-  .topbar{gap:12px}
-  .mini{
-    display:block; min-width:210px; height:44px; padding:8px 12px; border-radius:8px;
-    border:1px solid #e7e5e0; background:#fff; box-shadow:0 3px 10px rgba(0,0,0,.05); font-size:14px
-  }
-  .btn-clear{
-    border:1px solid var(--primary); color:var(--primary); background:#fff;
-    height:44px; padding:0 16px; border-radius:10px; font-weight:600;
-    box-shadow:0 10px 28px -14px rgba(16,24,40,.25)
-  }
-  .btn-clear:hover{background:var(--primary);color:#fff}
-
-  /* grid + card */
-  .cards-grid{--bs-gutter-x:16px; --bs-gutter-y:16px}
-  .car-card{
-    background:#fff; border:1px solid #eee9e0; border-radius:14px; overflow:hidden;
-    box-shadow:0 18px 40px -24px rgba(0,0,0,.35); transition:box-shadow .2s ease,transform .2s ease
-  }
-  .car-card:hover{box-shadow:0 24px 50px -20px rgba(0,0,0,.35)}
-  .car-card__media img{display:block;width:100%;height:180px;object-fit:cover}
-  .car-card__body{padding:14px}
-  .car-card__title{font-size:16px;font-weight:700;margin:0 0 .35rem}
-  .car-card__location{font-size:13px;color:#6b6b6b}
-  .car-card__divider{height:1px;background:#eee;margin:10px 0}
-  .car-card__row{font-size:13px;color:#4a4a4a}
-  .car-card__grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:8px}
-  .car-card__price{font-weight:800;margin:.5rem 0 1rem}
-  .btn-hero{background:var(--primary);border-color:var(--primary)}
-  .btn-hero:hover{background:var(--primary-dark);border-color:var(--primary-dark)}
-  .btn-secondary{background:#fff;border:1px solid #cfc9c0;color:#3b3b3b}
-  .btn-secondary:hover{background:#faf8f5}
-
-  /* small laptops */
-  @media (min-width:992px) and (max-width:1366px){
-    .mini{min-width:180px}
-    .cards-grid{--bs-gutter-x:12px; --bs-gutter-y:16px}
-  }
-</style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Car Hero Section - Mobile View</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.0/font/bootstrap-icons.css">
+    <style>
+        :root {
+            --primary-color: #D4AF37;
+            --text-on-primary: #000;
+            --neutral-light: #feffd3;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #f8f9fa;
+            padding: 20px;
+        }
+        
+        .car-hero {
+            background: linear-gradient(
+                    90deg,
+                    rgba(255, 255, 255, 0) 47.68%,
+                    #feffd3 100%
+                ),
+                linear-gradient(
+                    270.14deg,
+                    rgba(0, 0, 0, 0) 10.42%,
+                    rgba(78, 52, 46, 0.2) 99.88%
+                );
+            border-radius: 16px;
+            overflow: hidden;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+            max-width: 575px;
+            margin: 0 auto;
+        }
+        
+        .hero-content {
+            padding: 20px;
+        }
+        
+        .year {
+            color: #000000;
+            font-weight: 500;
+            font-size: 16px;
+            margin-bottom: 5px;
+        }
+        
+        .car-name {
+            color: #000000;
+            font-weight: 500;
+            font-size: 24px;
+            margin-bottom: 15px;
+        }
+        
+        .starts-at {
+            color: #757575;
+            font-weight: 400;
+            font-size: 14px;
+            margin-bottom: 5px;
+        }
+        
+        .price {
+            color: #000000;
+            font-weight: 500;
+            font-size: 18px;
+            margin-bottom: 20px;
+        }
+        
+        .btn-hero {
+            background: var(--primary-color);
+            color: var(--text-on-primary);
+            border: 0;
+            padding: 10px 15px;
+            border-radius: 12px;
+            box-shadow: 0 8px 18px -10px rgba(0, 0, 0, 0.35);
+            font-size: 13px;
+            font-weight: 500;
+            margin-right: 10px;
+            margin-bottom: 10px;
+        }
+        
+        .btn-hero-outline {
+            background: var(--neutral-light);
+            color: var(--primary-color);
+            border: 1px solid var(--primary-color);
+            padding: 10px 15px;
+            border-radius: 7px;
+            backdrop-filter: blur(4px);
+            font-size: 13px;
+            font-weight: 500;
+            margin-right: 10px;
+            margin-bottom: 10px;
+        }
+        
+        .color-options {
+            color: #757575;
+            font-size: 13px;
+            font-weight: 400;
+            margin-bottom: 10px;
+        }
+        
+        .swatch {
+            width: 15px;
+            height: 15px;
+            border-radius: 999px;
+            display: inline-block;
+            box-shadow: 1px 4px 4px 0px #00000040;
+            margin-right: 8px;
+        }
+        
+        .swatch-white {
+            background-color: #fff;
+            border: 1px solid #ddd;
+        }
+        
+        .swatch-gray {
+            background-color: #6c757d;
+        }
+        
+        .swatch-red {
+            background-color: #dc3545;
+        }
+        
+        .swatch-yellow {
+            background-color: #ffc107;
+        }
+        
+        .swatch-blue {
+            background-color: #0d6efd;
+        }
+        
+        .rating-section {
+            display: flex;
+            align-items: center;
+            margin-top: 15px;
+        }
+        
+        .stars {
+            color: #D4AF37;
+            font-size: 14px;
+            margin-right: 5px;
+        }
+        
+        .rating-text {
+            color: #757575;
+            font-size: 14px;
+            margin-right: 5px;
+        }
+        
+        .review-link {
+            color: var(--primary-color);
+            font-size: 14px;
+            text-decoration: none;
+            font-weight: 500;
+        }
+        
+        .divider {
+            color: #757575;
+            margin: 0 5px;
+        }
+        
+        @media (min-width: 576px) {
+            .car-hero {
+                max-width: 100%;
+            }
+        }
+    </style>
 </head>
 <body>
-
-<div class="container my-4">
-  <div class="toppart">
-    <nav aria-label="breadcrumb">
-      <ol class="breadcrumb small mb-1">
-        <li class="breadcrumb-item"><a href="#">Home</a></li>
-        <li class="breadcrumb-item active" aria-current="page"><a href="#">Explore Cars</a></li>
-      </ol>
-    </nav>
-    <h3 class="page-title">Explore Cars</h3>
-    <p class="page-sub">Find your perfect car with our advanced filters</p>
-  </div>
-
-  <div class="row rankings-layout">
-    <!-- Sidebar -->
-    <aside class="col-lg-3">
-      <div class="mk-card filter-card sidebar">
-        <details class="filter-item" open>
-          <summary><span class="filter-title">Sort by</span><i class="bi bi-chevron-down chev"></i></summary>
-          <div class="filter-body">
-            <label class="form-check mb-1"><input class="form-check-input me-2" type="radio" name="sort" checked>Popular</label>
-            <label class="form-check mb-1"><input class="form-check-input me-2" type="radio" name="sort">Price: Low → High</label>
-            <label class="form-check"><input class="form-check-input me-2" type="radio" name="sort">Price: High → Low</label>
-          </div>
-        </details>
-
-        <details class="filter-item" open>
-          <summary><span class="filter-title">MPG</span><i class="bi bi-chevron-down chev"></i></summary>
-          <div class="filter-body">
-            <label class="form-check"><input class="form-check-input me-2" type="checkbox">15–20</label>
-            <label class="form-check"><input class="form-check-input me-2" type="checkbox">20–30</label>
-            <label class="form-check"><input class="form-check-input me-2" type="checkbox">30+</label>
-          </div>
-        </details>
-
-        <details class="filter-item">
-          <summary><span class="filter-title">Sitting Capacity</span><i class="bi bi-chevron-down chev"></i></summary>
-          <div class="filter-body">
-            <label class="form-check"><input class="form-check-input me-2" type="checkbox">4 Seater</label>
-            <label class="form-check"><input class="form-check-input me-2" type="checkbox">5 Seater</label>
-            <label class="form-check"><input class="form-check-input me-2" type="checkbox">7+ Seater</label>
-          </div>
-        </details>
-
-        <details class="filter-item">
-          <summary><span class="filter-title">Drive Train</span><i class="bi bi-chevron-down chev"></i></summary>
-          <div class="filter-body">
-            <label class="form-check"><input class="form-check-input me-2" type="checkbox">FWD</label>
-            <label class="form-check"><input class="form-check-input me-2" type="checkbox">RWD</label>
-            <label class="form-check"><input class="form-check-input me-2" type="checkbox">AWD/4WD</label>
-          </div>
-        </details>
-
-        <details class="filter-item">
-          <summary><span class="filter-title">Transmission</span><i class="bi bi-chevron-down chev"></i></summary>
-          <div class="filter-body">
-            <label class="form-check"><input class="form-check-input me-2" type="checkbox">Manual</label>
-            <label class="form-check"><input class="form-check-input me-2" type="checkbox">Automatic</label>
-          </div>
-        </details>
-
-        <details class="filter-item">
-          <summary><span class="filter-title">Engine</span><i class="bi bi-chevron-down chev"></i></summary>
-          <div class="filter-body">
-            <label class="form-check"><input class="form-check-input me-2" type="checkbox">&lt; 1.2L</label>
-            <label class="form-check"><input class="form-check-input me-2" type="checkbox">1.2–2.0L</label>
-            <label class="form-check"><input class="form-check-input me-2" type="checkbox">&gt; 2.0L</label>
-          </div>
-        </details>
-
-        <details class="filter-item">
-          <summary><span class="filter-title">Fuel Type</span><i class="bi bi-chevron-down chev"></i></summary>
-          <div class="filter-body">
-            <label class="form-check"><input class="form-check-input me-2" type="checkbox">Petrol</label>
-            <label class="form-check"><input class="form-check-input me-2" type="checkbox">Diesel</label>
-            <label class="form-check"><input class="form-check-input me-2" type="checkbox">Electric/Hybrid</label>
-          </div>
-        </details>
-
-        <details class="filter-item">
-          <summary><span class="filter-title">Features</span><i class="bi bi-chevron-down chev"></i></summary>
-          <div class="filter-body">
-            <label class="form-check"><input class="form-check-input me-2" type="checkbox">Sunroof</label>
-            <label class="form-check"><input class="form-check-input me-2" type="checkbox">Cruise Control</label>
-            <label class="form-check"><input class="form-check-input me-2" type="checkbox">Parking Sensors</label>
-          </div>
-        </details>
-      </div>
-    </aside>
-
-    <!-- Main -->
-    <div class="col-lg-9">
-      <div class="d-flex align-items-center justify-content-between flex-wrap topbar mb-3">
-        <div class="d-flex flex-wrap gap-3">
-          <select class="mini"><option hidden selected>Brand</option><option>Maruti Suzuki</option><option>Toyota</option><option>Hyundai</option><option>Honda</option></select>
-          <select class="mini"><option hidden selected>Model</option><option>Swift</option><option>Baleno</option><option>Yaris</option></select>
-          <select class="mini"><option hidden selected>Year</option><option>2024</option><option>2023</option><option>2022</option></select>
-          <select class="mini"><option hidden selected>Price Range</option><option>Under Rs 15 Lakh</option><option>Rs 15–25 Lakh</option></select>
+    <div class="car-hero">
+        <div class="hero-content">
+            <div class="year">2024</div>
+            <h1 class="car-name">Maruti Suzuki Swift</h1>
+            
+            <div class="starts-at">Starts at:</div>
+            <div class="price">Rs 37,56,000</div>
+            
+            <div class="action-buttons">
+                <button class="btn btn-hero">Add Variant ▼</button>
+                <button class="btn btn-hero-outline">Ownership Calculator</button>
+                <button class="btn btn-hero-outline">Used Versions</button>
+            </div>
+            
+            <div class="color-options">
+                Colour Options:
+                <span class="swatch swatch-white"></span>
+                <span class="swatch swatch-gray"></span>
+                <span class="swatch swatch-red"></span>
+                <span class="swatch swatch-yellow"></span>
+                <span class="swatch swatch-blue"></span>
+            </div>
+            
+            <div class="rating-section">
+                <div class="stars">
+                    <i class="bi bi-star-fill"></i>
+                    <i class="bi bi-star-fill"></i>
+                    <i class="bi bi-star-fill"></i>
+                    <i class="bi bi-star-fill"></i>
+                    <i class="bi bi-star-fill"></i>
+                </div>
+                <span class="rating-text">4.9 Rating</span>
+                <span class="divider">|</span>
+                <a href="#" class="review-link">Write a Review 💹</a>
+            </div>
         </div>
-        <button class="btn btn-clear">Clear Filters</button>
-      </div>
-
-      <div id="resultsCount" class="fw-semibold mb-2">0 matches</div>
-
-      <div class="row cards-grid">
-        <!-- card template x 12 -->
-        <!-- use placeholder image; replace with your own -->
-        <!-- repeatable card -->
-        <template id="cardTpl">
-          <div class="col-12 col-sm-6 col-lg-3">
-            <article class="car-card h-100">
-              <div class="car-card__media">
-                <img src="https://images.unsplash.com/photo-1502877338535-766e1452684a?q=80&w=800&auto=format&fit=crop" alt="">
-              </div>
-              <div class="car-card__body">
-                <h6 class="car-card__title">Maruti Suzuki Swift</h6>
-                <div class="car-card__location">
-                  <i class="bi bi-geo-alt-fill me-1"></i>Pokhara, Nepal
-                </div>
-                <div class="car-card__divider"></div>
-                <div class="car-card__row mb-2"><i class="bi bi-speedometer2 me-2"></i>25,100 mileage</div>
-                <div class="car-card__grid mb-2">
-                  <div class="d-flex align-items-center"><i class="bi bi-fuel-pump me-2"></i>Diesel</div>
-                  <div class="d-flex align-items-center"><i class="bi bi-people me-2"></i>5 Seater</div>
-                </div>
-                <div class="car-card__price">Rs 9.70 - 10.93 Lakh*</div>
-                <div class="d-flex gap-2">
-                  <button class="btn btn-sm btn-primary btn-hero px-3">View Details</button>
-                  <button class="btn btn-sm btn-secondary px-3">Compare</button>
-                </div>
-              </div>
-            </article>
-          </div>
-        </template>
-      </div>
-
-      <div class="text-center mt-3">
-        <button id="loadMore" class="btn btn-outline-secondary px-4">Load More</button>
-      </div>
     </div>
-  </div>
-</div>
 
-<script>
-  // simple grid population + load more + count
-  const grid = document.querySelector('.cards-grid');
-  const tpl = document.getElementById('cardTpl').content;
-  const loadBtn = document.getElementById('loadMore');
-  const countEl = document.getElementById('resultsCount');
-
-  // build 36 demo cards
-  const TOTAL = 36;
-  for (let i = 0; i < TOTAL; i++) grid.appendChild(tpl.cloneNode(true));
-
-  let shown = 0;
-  const PAGE = 12;
-
-  function apply() {
-    const cards = [...grid.children];
-    cards.forEach((col, idx)=> col.style.display = idx < shown ? "" : "none");
-    loadBtn.style.display = shown >= cards.length ? "none" : "";
-    countEl.textContent = `${Math.min(shown, TOTAL)} matches`;
-  }
-
-  shown = Math.min(PAGE, TOTAL);
-  apply();
-
-  loadBtn.addEventListener('click', e => {
-    e.preventDefault();
-    shown = Math.min(shown + PAGE, TOTAL);
-    apply();
-  });
-</script>
-
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>
