@@ -96,7 +96,7 @@
   font-size: 16px;
 }
 
-/* buttons that match the mock */
+/* buttons */
 .btn-hero {
   background: var(--primary-color);
   color: var(--text-on-primary);
@@ -142,16 +142,20 @@
 
 }
 
+
 /* right side image constraints so the car sits nicely */
 .hero-right {
   background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2));
   width: 557px;
+   display: flex;
+  justify-content: flex-start;
 }
 
 .car-shot {
   object-fit: contain;
   height: 420px; /* adjust if your image aspect differs */
   border: none;
+  
 }
 
 /* round nav buttons */
@@ -169,29 +173,32 @@
   box-shadow: 3px 4px 4px 0px #00000040;
 
   opacity: 1; /* override Bootstrap’s default fade */
+
 }
+
+
+
 .carousel-control-prev.hero-nav {
-  left: 0px;
+  left: -20px;
 }
 .carousel-control-next.hero-nav {
-  right: 0px;
-}
-.hero-right {
-  display: flex;
-  justify-content: flex-start;
-  padding-left: 0;
+  right: -20px;
   
 }
 
+
 .hero-carousel-wrapper {
   width: 557px; /* fixed width for the carousel */
-  margin-left: auto; /* pushes it to the right */
+  margin:0 auto; /* pushes it to the right */
+  position: relative;
+  overflow: visible;
 }
-
 .hero-nav i {
-  font-size: 0.88rem;
+  font-size: 1.5rem;
   color: #101828;
 }
+
+
 .rating .rate{
   color: #757575 !important;
   font-size: 14px !important;
@@ -252,6 +259,8 @@
 
 /* Technical specification and right part */
 /* Cards & accordion shells */
+#tech-specs .head{font-size: 24px; font-weight: 700 !important;}
+#tech-specs .subhead{font-size: 14px; font-weight: 400;}
 .mk-item,
 .mk-sidecard {
   background: #fff;
@@ -260,43 +269,44 @@
   border: 1px solid #d4d4d4;
 }
 .mk-item + .mk-item {
-  margin-top: 12px;
+  margin-top: 6px;
 }
 
-.mk-btn {
-  border-radius: 14px;
-  padding: 16px 18px;
-  background: #fff;
- 
-  color: #212121;
-  font-size: 16px;
-  font-weight: 500;
-}
+.mk-btn{height: 89px;}
 .mk-btn:focus {
   box-shadow: none;
 }
-.mk-chevron {
+
+.mk-btn .accordion-header {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 16px;
+  justify-content: space-between;
+  width: 100%;
+}
+.accordion-button::after {
+  display: none !important;
+}
+.accordion-button .dropdown-arrow{background-color: #f4f4f4;border-radius: 17px;right: 0;}
+
+.dropdown-arrow {
+  font-size: 18px;
   transition: transform 0.2s ease;
-  font-size: 1rem;
+  margin-left: auto;
 }
 /* rotate chevron when open */
-.accordion-button:not(.collapsed) .mk-chevron {
+.accordion-button:not(.collapsed) .dropdown-arrow {
   transform: rotate(180deg);
 }
 
+
 /* remove Bootstrap default borders */
 .mk-acc .accordion-item {
- 
   box-shadow: none !important;
   border: 1px solid #e8e8e8;
-  height: 89px;
 }
-.mk-acc .accordion-button {
-  border: 0;
-}
-.mk-acc .accordion-body {
-  border-top: 1px solid #e8e8e8 ;
-}
+
 
 /* Spec grid  */
 .mk-spec-grid {
@@ -329,6 +339,14 @@
 /* Right column cards */
 .mk-sidecard {
   padding: 16px;
+width: 330px;
+margin-left: 50px;
+}
+.mk-sidecard h6 {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 18px;
 }
 .mk-bullets {
   padding-left: 1rem;
@@ -340,6 +358,21 @@
 .mk-chevron {
   display: none;
 }
+/* Background for interest text */
+.small.text-muted.mb-3 {
+ background-color: #f4f4f4;
+padding: 5px 14px;
+ border-radius: 12px;
+ 
+}
+.monthemi{font-size: 13px;}
+
+/* Button background color */
+#emiBtn {
+ background-color: var(--primary-light);
+ 
+}
+
 /* Make it breathe slightly on small screens */
 @media (max-width: 991.98px) {
   .mk-spec-grid {
@@ -593,32 +626,49 @@ font-size: 17px;
 
 /* for popup */
 /* ---- Review modal (scoped) ---- */
-.mk-review-modal { --mk-primary: var(--primary-color, #5d4037); --mk-primary-dark: var(--primary-light, #4e342e); }
+.mk-review-modal { --mk-primary: var(--primary-color); --mk-primary-dark: var(--primary-light); }
 
 .mk-review-modal .modal-content{
-  border:0; border-radius:20px;
-  box-shadow:0 24px 80px rgba(0,0,0,.35);
+  border:0; border-radius:12px;
+  height: 682px;
+  width: 524px;
+ box-shadow: 0px 20px 24px -4px #00000040;
+
 }
-.mk-review-modal .modal-body{ padding:24px 28px 28px; }
-.mk-review-modal .btn-close{ position:absolute; right:14px; top:14px; }
+.mk-review-modal .modal-body{ padding:39px; }
+.mk-review-modal .btn-close{ position:relative; right:15px; top:14px; pointer-events: auto;}
 
 /* inputs */
 .mk-review-modal .form-control{
-  border-radius:10px;
+  border-radius:7px;
   border:1px solid #e7e5e0;
-  box-shadow:0 4px 12px rgba(0,0,0,.06) inset, 0 8px 20px -16px rgba(0,0,0,.25);
+box-shadow: 0px 0px 4px 0px #00000040
+ inset, 0 8px 20px -16px rgba(0,0,0,.25);
 }
 
 /* submit button (custom class so we don't touch global .btn-primary) */
 .mk-review-modal .mk-btn-primary{
   background: var(--mk-primary);
   border-color: var(--mk-primary);
-  color: #fff;
+  width: 144px;
+  font-size: 14px;
+  font-weight: 500;
+  color: #ffffff;
 }
 .mk-review-modal .mk-btn-primary:hover{
-  background: var(--mk-primary-dark);
-  border-color: var(--mk-primary-dark);
+  background: #ffffff;
+  color: var(--primary-light);
+  border-color: var(--primary-light);
 }
+.mk-review-modal .btn-outline-secondary{
+  color: var(--primary-light);
+  background-color: #ffffff;
+  border-color: var(--primary-light);
+  font-size: 14px;
+  font-weight: 500;
+  width: 102px;
+}
+.mk-review-modal .btn-outline-secondary:hover{color: #ffffff;border-color: #ffffff;background-color: var(--primary-light);}
 
 /* stars (scoped) */
 .mk-review-modal .mk-rating{
