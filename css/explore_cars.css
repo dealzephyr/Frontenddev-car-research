@@ -69,7 +69,7 @@
  aside.col-lg-3 {
   position: sticky;
   
-  top: 90px;
+  top: 150px;
   align-self: flex-start; /* important for flexbox */
 }
 .body-parts .col-lg-3 {
@@ -295,11 +295,11 @@ border: none;
   .mobile-filterbar .chip:active{ transform:translateY(1px); } */
 
 
-    .cards-grid {
+  .cards-grid {
     display: grid !important;
     grid-template-columns: repeat(2, 168px);
     column-gap: 19px;
-    row-gap: 30px;
+    row-gap: 0px;
     justify-content: space-between;   /* spread to edges */
     margin-left: 10px !important;
     margin-right: 19px !important;
@@ -320,11 +320,23 @@ border: none;
   .body-parts .right-parts .load { 
     display: inline-block;
     font-size: 12px;
-    width: 138px;height: 36px;
-  }}
+    width: 138px;
+    height: 36px;
+  }
   @media(min-width: 575.98px){
-    .mobile-filterbar{
+     .mobile-filterbar{
       display: none !important;
     }
   }
-  
+}
+/* extra larger devices */
+@media (min-width: 1400px) {
+.cards-grid
+{
+  display: grid !important;
+  grid-template-columns: repeat(4, 1fr);
+}
+.mobile-filterbar{
+  display: none !important;
+}
+}
