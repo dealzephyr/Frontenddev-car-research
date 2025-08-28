@@ -380,29 +380,24 @@ header, .navbar, .header-container { max-width: 100%; }
 
   /* Keep the group tight */
   .header-top .header-actions{ gap:6px !important; }
-  #mobileMenu.collapse {
-    position: absolute;
-    right: 8px;
-    top: 100%;
-    width: 160px;
-    background: #f4f4f4;
-    border-radius: 7px;
-    z-index: 1000;
-    box-shadow: 0px 10px 24px -4px #00000040;
-    
-  }
-
-  /* show state */
+#mobileMenu,
+  #mobileMenu.collapse,
+  #mobileMenu.collapsing,
   #mobileMenu.collapse.show {
-    display: block;   /* force visible */
-    opacity: 1;
-    
-  }
-
-  /* Prevent Bootstrap's default height animation */
-  #mobileMenu.collapsing {
-    height: auto !important;
+    position: fixed !important;
+    top: var(--menu-top, 83px) !important;  /* under your top header */
+    right: 8px !important;
+    left: auto !important;                  /* prevents left snap */
+    width: 220px !important;
+    max-width: calc(100vw - 16px) !important;
+    margin: 0 !important;
+    background: #fff !important;
+    border-radius: 10px !important;
+    box-shadow: 0 10px 24px rgba(0,0,0,.12) !important;
+    padding: 6px 8px !important;
+    z-index: 1100 !important;
     transition: none !important;
+    transform: translate3d(0,0,0);         /* isolate to compositor */
   }
   .navbar-toggler:focus,
 .navbar-toggler:active {
@@ -410,6 +405,7 @@ header, .navbar, .header-container { max-width: 100%; }
   box-shadow: none !important;
   transition: none !important;
 }
+
 
 
 }
@@ -512,6 +508,7 @@ header, .navbar, .header-container { max-width: 100%; }
   .site-logo{ width: 120px !important; }
   .header-top .header-actions{ gap: 4px !important; }
 }
+
 
 /*
    DESKTOP (≥992px)
