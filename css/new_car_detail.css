@@ -450,11 +450,8 @@ padding: 5px 14px;
   }
   
   #tech-specs .row.g-4 > .col-lg-4 { order: 1; }
-   
-#tech-specs .row.g-4 > .col-lg-12{order: 2;}
-  #tech-specs .row.g-4 > .col-lg-8 { order: 4; }
-
-  
+  #tech-specs .row.g-4 > .col-lg-12{order: 2;}
+  #tech-specs .row.g-4 > .col-lg-8 { order: 3; }
 
   /* Make the right-column cards full width on mobile */
   #tech-specs .mk-sidecard {
@@ -470,8 +467,6 @@ padding: 5px 14px;
     grid-template-columns: 1fr;
     row-gap: 4px;
   }
-
-
 }
 
 
@@ -670,6 +665,8 @@ font-size: 17px;
 
   /* Optional: if your .bg-bleed needs tighter sides on mobile */
   #ratings-reviews.bg-bleed { padding-left: 0; padding-right: 0; }
+  
+  
 }
 
 /* Owner satisfaction */
