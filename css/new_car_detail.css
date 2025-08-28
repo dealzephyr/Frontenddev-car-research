@@ -254,32 +254,45 @@
     /* Target within the car-hero context */
 .car-hero .d-flex.gap-2{
   display: flex !important;
+ }
+
+
+
+  .car-hero .hero-carousel-wrapper {
+    width: 100% !important;
+    max-width: 100%;
+    margin: 0 auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+   .car-hero .carousel-control-prev,
+.car-hero .carousel-control-next {
+  top: 50%;                     /* keep vertically centered */
+  transform: translateY(-50%);  /* true vertical centering */
+  width: auto;                   /* shrink hitbox */
+ 
+  background: #fff;              /* optional circle bg */
+  border-radius: 50%;            /* optional rounded */
+  box-shadow: 0 2px 6px rgba(0,0,0,.2);
+   display: flex;               /* centers icon */
+  align-items: center;
+  justify-content: center;
+
+  padding: 0;             
 }
 
-
-
-  /* Carousel sizing on phones */
-  .car-hero .hero-carousel-wrapper{
-    width: 100%;
-    max-width: 420px;
-    height: 240px;
-    margin: 8px auto 0;
-  }
-  .car-hero .hero-carousel-wrapper img.car-shot{
-    width: 100%;
-    height: 210px;
-    object-fit: contain;
-  }
-
-  .hero-nav{height: 21px; width:21px;}
-  /* Tidy paddings */
-  .car-hero .hero-left,
-  .car-hero .hero-right{
-    padding-left: 12px !important;
-    padding-right: 12px !important;
-  }
+.car-hero .carousel-control-prev {
+  left: -15px;    /* push to left edge */
+  right: auto;
 }
 
+.car-hero .carousel-control-next {
+  right: 10px;   /* push to right edge */
+  left: auto;
+  z-index: 1000;
+}
+}
 
 
 /* navigation below  section  */
@@ -431,27 +444,15 @@ padding: 5px 14px;
   .specs-nav{display: none;}
  
    /* Make the container flex */
-  #tech-specs .container {
+  #tech-specs {
     display: flex;
     flex-direction: column;
   }
   
-  /* Target headings within container */
-  #tech-specs .container > h2.text-center.fw-bold.mb-1.head { order: 2; }
-  #tech-specs .container > p.text-center.text-muted.mb-4.subhead { order: 3; }
-  
-  /* Target the row */
-  #tech-specs .container > .row.g-4 {
-    display: flex;
-    flex-direction: column;
-    order: 1; /* This makes the whole row order 1, but we'll re-order its children */
-  }
-  
-  /* Right cards first within the row */
   #tech-specs .row.g-4 > .col-lg-4 { order: 1; }
-  
-  /* Accordion second within the row */  
-  #tech-specs .row.g-4 > .col-lg-8 { order: 2; }
+   
+#tech-specs .row.g-4 > .col-lg-12{order: 2;}
+  #tech-specs .row.g-4 > .col-lg-8 { order: 4; }
 
   
 
@@ -536,7 +537,14 @@ font-size: 17px;
 /* =========================
    Ratings & Reviews — Mobile
    ========================= */
+/* ============================================
+   Ratings & Reviews — MOBILE ONLY (≤575.98px)
+   Paste this at the END of your CSS to REPLACE
+   any previous mobile rules for this section.
+   Works with your existing HTML.
+   ============================================ */
 @media (max-width: 575.98px) {
+
   /* Section spacing & headings */
   #ratings-reviews {
     padding-top: 16px !important;
@@ -570,9 +578,10 @@ font-size: 17px;
   #ratings-reviews .mk-card-review {
     border-radius: 10px;
     box-shadow: 0 2px 8px rgba(0,0,0,.12);
+    background: #fffefa;
   }
 
-  /* ===== Overall rating card (left) ===== */
+  /* Overall rating (left card) */
   #ratings-reviews .overall-rating {
     width: 100% !important;
     height: auto !important;
@@ -582,9 +591,8 @@ font-size: 17px;
     font-size: 16px;
     margin-bottom: 10px;
   }
-  /* Align number + stars block nicely */
   #ratings-reviews .overall-rating > .d-flex {
-    align-items: center !important;   /* was baseline/end → causes misalign */
+    align-items: center !important;
     gap: 12px !important;
   }
   #ratings-reviews .overall-rating .display-5 {
@@ -592,62 +600,53 @@ font-size: 17px;
     line-height: 1;
     margin: 0;
   }
-  /* Star rows align perfectly */
-  #ratings-reviews .rating-stars {
-    display: flex;
-    align-items: center;
-    gap: 4px;
-    line-height: 0;                  /* kill inline svg baseline gaps */
-  }
-  #ratings-reviews .rating-stars svg {
-    width: 14px;
-    height: 14px;
-    display: block;                   /* prevents tiny vertical jiggle */
-  }
-  #ratings-reviews .text-muted.small {
-    font-size: 12px;
-    line-height: 1.2;
-    margin-top: 2px;
-  }
+  #ratings-reviews .rating-stars { display: flex; align-items: center; gap: 4px; line-height: 0; }
+  #ratings-reviews .rating-stars svg { width: 14px; height: 14px; display: block; }
+  #ratings-reviews .text-muted.small { font-size: 12px; line-height: 1.2; margin-top: 2px; }
 
-  /* ===== Rating rows: Label | (fluid Bar) | Score ===== */
-  #ratings-reviews .mk-rating-row {
+  /* ===== PROGRESS ROWS: fixed label + fixed score + fluid bar =====
+     This locks alignment so every bar starts/ends at the same place. */
+  #ratings-reviews .mk-rating-row{
     display: grid;
-    grid-template-columns: auto minmax(0, 1fr) auto; /* bar grows/shrinks */
+    grid-template-columns: 116px 1fr 40px;  /* label | bar | score */
     align-items: center;
     column-gap: 10px;
-    row-gap: 6px;
     padding: 8px 0;
   }
-  #ratings-reviews .mk-rating-label {
+  #ratings-reviews .mk-rating-label{
     font-size: 13px !important;
     color: #757575 !important;
-    min-width: 0;
     white-space: nowrap;
     overflow: hidden;
-    text-overflow: ellipsis;          /* tidy long labels */
+    text-overflow: ellipsis;              /* long labels won’t push the bar */
   }
-  #ratings-reviews .mk-rating-bar {
+  #ratings-reviews .mk-rating-bar{
     position: relative;
-    width: 100% !important;           /* override desktop 128px */
-    min-width: 0;                     /* critical inside CSS grid */
+    width: 100% !important;               /* override desktop 128px */
+    min-width: 0;                          /* critical inside grid */
     height: 6px;
     background: #d4d4d4;
     border-radius: 64px;
+    margin: 0;
+    align-self: center;
   }
-  #ratings-reviews .mk-rating-fill {
+  #ratings-reviews .mk-rating-fill{
     position: absolute;
     left: 0; top: 0; bottom: 0;
     border-radius: 64px;
     background: var(--primary-color, #5d4037);
   }
-  #ratings-reviews .mk-rating-score {
-    font-size: 14px;
+  #ratings-reviews .mk-rating-score{
+    width: 40px;                           /* equals 3rd grid track */
+    text-align: right;
     font-weight: 600;
+    font-size: 14px;
+    line-height: 1.1;
     color: #212121;
+    font-variant-numeric: tabular-nums;    /* equal-width digits = tidy */
   }
 
-  /* ===== Individual review cards (right) ===== */
+  /* Individual review cards (right column) */
   #ratings-reviews .individual-review {
     width: 100% !important;
     height: auto !important;
@@ -655,7 +654,6 @@ font-size: 17px;
     margin-left: 0 !important;
     color: #757575;
   }
-  /* Align the top meta row: stars + timestamp */
   #ratings-reviews .individual-review > .d-flex:first-child {
     align-items: center !important;
     gap: 8px !important;
@@ -666,17 +664,12 @@ font-size: 17px;
     margin: 8px 0;
   }
   #ratings-reviews .individual-review img.rounded-circle {
-    width: 28px;
-    height: 28px;
-    display: block;                   /* centers better in flex */
+    width: 28px; height: 28px; display: block;
   }
   #ratings-reviews #reviewsTrack { gap: 12px !important; }
 
-  /* Optional: if bg-bleed needs tight sides on mobile */
-  #ratings-reviews.bg-bleed {
-    padding-left: 0;
-    padding-right: 0;
-  }
+  /* Optional: if your .bg-bleed needs tighter sides on mobile */
+  #ratings-reviews.bg-bleed { padding-left: 0; padding-right: 0; }
 }
 
 /* Owner satisfaction */
@@ -806,7 +799,9 @@ font-size: 17px;
   #owner-satisfaction .kpi-dot   { width: 56px; height: 56px; margin: 0 auto 8px; }
   #owner-satisfaction .kpi-value { font-size: 22px; }
   #owner-satisfaction .kpi-label { font-size: 14px; }
+  
 }
+
 
 
 /* market insights */
