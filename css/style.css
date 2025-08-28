@@ -847,7 +847,7 @@ font-size: 13px;
 }
 
 .ad-slider::-webkit-scrollbar {
-  display: none; /* Chrome, Safari */
+  display: block; /* Chrome, Safari */
 }
 
 .ad-slider img {
