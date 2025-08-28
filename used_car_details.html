@@ -35,7 +35,9 @@
 
     <!-- Custom CSS (with Bootstrap overrides) -->
     <link rel="stylesheet" href="css/style.css" />
-    
+    <link rel="stylesheet" href="css/explore_cars.css">
+    <link rel="stylesheet" href="css/new_car_detail.css">
+    <link rel="stylesheet" href="css/used_car_detail.css">
       
   </head>
   
@@ -392,6 +394,99 @@ document.addEventListener('DOMContentLoaded', function() {
       </a>
 
     </nav>
+<!-- hero section  -->
+<script>
+document.addEventListener('DOMContentLoaded', () => {
+  const main = document.getElementById('heroMain');
+  const thumbsWrap = document.querySelector('.thumbs');
+  if (!main || !thumbsWrap) return;
+
+  // Event delegation: works for any future thumbs too.
+  thumbsWrap.addEventListener('click', (e) => {
+    const btn = e.target.closest('[data-src]');  // any element with data-src
+    if (!btn) return;
+
+    // stop <a href="#"> from navigating
+    if (btn.tagName === 'A') e.preventDefault();
+
+    const newSrc = btn.getAttribute('data-src');
+    if (!newSrc) return;
+
+    // Optional tiny fade
+    main.classList.add('is-fading');
+    main.addEventListener('transitionend', function handler() {
+      main.removeEventListener('transitionend', handler);
+      main.classList.remove('is-fading');
+    });
+
+    // swap image
+    main.src = newSrc;
+
+    // update active state
+    thumbsWrap.querySelectorAll('.thumb').forEach(t => t.classList.remove('active'));
+    btn.classList.add('active');
+  });
+});
+</script>
+
+    <section class="container my-3">
+  <!-- header -->
+  <div class="mb-2">
+    <h1 class="car-title m-0">Maruti Suzuki Swift</h1>
+
+    <div class="d-flex align-items-center gap-3 flex-wrap mt-2">
+      <div class="text-warning d-flex align-items-center gap-1">
+        <i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i>
+        <i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i>
+        <span class="text-muted ms-1">4.9 Rating</span>
+      </div>
+      <a href="#" class="link-review"><i class="bi bi-box-arrow-up-right me-1"></i>Write a Review</a>
+    </div>
+
+    <div class="d-flex flex-wrap gap-2 mt-3">
+      <span class="pill"><i class="bi bi-speedometer2 me-1"></i>28,000 km</span>
+      <span class="pill"><i class="bi bi-battery-charging me-1"></i>60.48 kWh</span>
+      <span class="pill"><i class="bi bi-fuel-pump me-1"></i>Diesel</span>
+      <span class="pill"><i class="bi bi-calendar3 me-1"></i>2024</span>
+    </div>
+  </div>
+
+  <!-- gallery -->
+  <div class="car-hero-grid mt-3">
+    <!-- main image -->
+    <div class="hero-main">
+      <img id="heroMain" src="assets/images/usedcarheroimage.png" alt="Car main view">
+      <span class="chip">New Version</span>
+    </div>
+
+    <!-- thumbs 2x2 -->
+    <div class="thumbs">
+      <button class="thumb active" data-src="assets/images/usedcarheroimage.png" aria-label="Main view 1">
+        <img src="assets/images/usedcarheroimage.png" alt="">
+      </button>
+      <button class="thumb" data-src="assets/images/redcar.png" aria-label="Main view 2">
+        <img src="assets/images/redcar.png" alt="">
+      </button>
+      <button class="thumb" data-src="assets/images/yellowcar.png" aria-label="Main view 3">
+        <img src="assets/images/yellowcar.png" alt="">
+      </button>
+      <button class="thumb" data-src="assets/images/usedcarheroimage.png" aria-label="Main view 4">
+        <img src="assets/images/usedcarheroimage.png" alt="">
+      </button>
+    </div>
+  </div>
+</section>
+
+      <!-- section navigation -->
+    <section class="container w-100">
+      <div class="specs-nav">
+        <a href="#tech-specs">Specs</a>
+        <a href="#ownership-history">Ownership History</a>
+        <a href="#ratings-reviews">Rating & Reviews</a>
+        <a href="#owner-satisfaction">Owner Satisfaction</a>
+        <a href="#market-insights">Market Insights</a>
+      </div>
+    </section>
 
  <!-- Technical Specification -->
     <section id="tech-specs" class="container my-5">
@@ -806,6 +901,79 @@ Calculate EMI
         </div>
       </div>
     </section>
+<!-- Ownership History  -->
+    <section id="ownership-history" class="container my-5">
+  <h2 class="text-center fw-bold">Ownership History</h2>
+  <p class="text-center text-muted mb-5">
+    Detailed Ownership And Maintenance Timeline
+  </p>
+
+  <div class="timeline">
+    <!-- First Owner -->
+    <div class="timeline-item">
+      <div class="timeline-marker">1</div>
+      <div class="timeline-content card shadow-sm p-4">
+        <h5 class="fw-bold">First Owner (2019–2022)</h5>
+        <div class="row">
+          <div class="col-md-6">
+            <p>⏱ Duration: 3 years</p>
+            <p>🚗 Mileage Added: 28,000 KM</p>
+            <p>🛣 Usage: City + Highway</p>
+          </div>
+          <div class="col-md-6">
+            <p>🛠 Maintenance: Regular</p>
+            <p>🚫 Accidents: None</p>
+            <p>⚒ Modifications: None</p>
+          </div>
+        </div>
+        <h6 class="fw-bold mt-3">Service History</h6>
+        <ul class="mb-0">
+          <li>Regular servicing every 6 months</li>
+          <li>Oil changes at 5,000 KM intervals</li>
+          <li>Tire replacement at 25,000 KM</li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- Second Owner -->
+    <div class="timeline-item">
+      <div class="timeline-marker">2</div>
+      <div class="timeline-content card shadow-sm p-4">
+        <h5 class="fw-bold">Current Owner (2022–ongoing)</h5>
+        <div class="row">
+          <div class="col-md-6">
+            <p>⏱ Duration: 3 years</p>
+            <p>🚗 Mileage Added: 28,000 KM</p>
+            <p>🛣 Usage: City + Highway</p>
+          </div>
+          <div class="col-md-6">
+            <p>🛠 Maintenance: Regular</p>
+            <p>🚫 Accidents: None</p>
+            <p>⚒ Modifications: None</p>
+          </div>
+        </div>
+        <h6 class="fw-bold mt-3">Service History</h6>
+        <ul class="mb-0">
+          <li>Regular servicing every 6 months</li>
+          <li>Oil changes at 5,000 KM intervals</li>
+          <li>Tire replacement at 25,000 KM</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <!-- Important Notes -->
+  <div class="important-notes card shadow-sm p-4 mt-4">
+    <h6 class="fw-bold text-warning">⚠ Important Notes</h6>
+    <ul class="mb-0">
+      <li>Vehicle has been garage-kept by both owners</li>
+      <li>Vehicle has been garage-kept by both owners</li>
+      <li>Vehicle has been garage-kept by both owners</li>
+      <li>Vehicle has been garage-kept by both owners</li>
+    </ul>
+  </div>
+</section>
+
      <!-- Reviews -->
     <section class="container my-5 bg-bleed" id="ratings-reviews">
       <div class="text-center mb-4">
@@ -1188,7 +1356,109 @@ Calculate EMI
         </div>
       </div>
     </section>
-    </main>
+    <!-- other great option foe you  -->
+    <section class="container my-5">
+  <h3 class="text-center fw-bold mb-4">Other great options for you</h3>
+
+  <div class="row g-4">
+    <!-- Card 1 -->
+    <div class="col-md-4">
+      <article class="car-card v2">
+        <div class="car-card__media">
+          <img src="assets/images/marutisuzuki.png" alt="Maruti Suzuki Swift" />
+        </div>
+        <div class="car-card__body">
+          <h6 class="car-card__title">Maruti Suzuki Swift</h6>
+          <div class="car-card__location">
+            <i class="bi bi-geo-alt-fill me-1"></i> Pokhara, Nepal
+          </div>
+          <div class="car-card__divider"></div>
+          <div class="car-card__row mb-2">
+            <i class="bi bi-speedometer2 me-2"></i><span>25,100 mileage</span>
+          </div>
+          <div class="car-card__grid mb-2">
+            <div class="d-flex align-items-center">
+              <i class="bi bi-fuel-pump me-2"></i><span>Diesel</span>
+            </div>
+            <div class="d-flex align-items-center">
+              <i class="bi bi-people me-2"></i><span>Seater</span>
+            </div>
+          </div>
+          <div class="car-card__price">Rs 9.70 - 10.93 Lakh*</div>
+          <div class="d-flex gap-2">
+            <button class="btn btn-primary btn-sm px-3">View Details</button>
+            <button class="btn btn-secondary btn-sm px-3">Compare</button>
+          </div>
+        </div>
+      </article>
+    </div>
+
+    <!-- Card 2 -->
+    <div class="col-md-4">
+      <article class="car-card v2">
+        <div class="car-card__media">
+          <img src="assets/images/marutisuzuki.png" alt="Maruti Suzuki Swift" />
+        </div>
+        <div class="car-card__body">
+          <h6 class="car-card__title">Maruti Suzuki Swift</h6>
+          <div class="car-card__location">
+            <i class="bi bi-geo-alt-fill me-1"></i> Pokhara, Nepal
+          </div>
+          <div class="car-card__divider"></div>
+          <div class="car-card__row mb-2">
+            <i class="bi bi-speedometer2 me-2"></i><span>25,100 mileage</span>
+          </div>
+          <div class="car-card__grid mb-2">
+            <div class="d-flex align-items-center">
+              <i class="bi bi-fuel-pump me-2"></i><span>Diesel</span>
+            </div>
+            <div class="d-flex align-items-center">
+              <i class="bi bi-people me-2"></i><span>Seater</span>
+            </div>
+          </div>
+          <div class="car-card__price">Rs 9.70 - 10.93 Lakh*</div>
+          <div class="d-flex gap-2">
+            <button class="btn btn-primary btn-sm px-3">View Details</button>
+            <button class="btn btn-secondary btn-sm px-3">Compare</button>
+          </div>
+        </div>
+      </article>
+    </div>
+
+    <!-- Card 3 -->
+    <div class="col-md-4">
+      <article class="car-card v2">
+        <div class="car-card__media">
+          <img src="assets/images/marutisuzuki.png" alt="Maruti Suzuki Swift" />
+        </div>
+        <div class="car-card__body">
+          <h6 class="car-card__title">Maruti Suzuki Swift</h6>
+          <div class="car-card__location">
+            <i class="bi bi-geo-alt-fill me-1"></i> Pokhara, Nepal
+          </div>
+          <div class="car-card__divider"></div>
+          <div class="car-card__row mb-2">
+            <i class="bi bi-speedometer2 me-2"></i><span>25,100 mileage</span>
+          </div>
+          <div class="car-card__grid mb-2">
+            <div class="d-flex align-items-center">
+              <i class="bi bi-fuel-pump me-2"></i><span>Diesel</span>
+            </div>
+            <div class="d-flex align-items-center">
+              <i class="bi bi-people me-2"></i><span>Seater</span>
+            </div>
+          </div>
+          <div class="car-card__price">Rs 9.70 - 10.93 Lakh*</div>
+          <div class="d-flex gap-2">
+            <button class="btn btn-primary btn-sm px-3">View Details</button>
+            <button class="btn btn-secondary btn-sm px-3">Compare</button>
+          </div>
+        </div>
+      </article>
+    </div>
+  </div>
+</section>
+
 
      <!-- FOOTER -->
     <footer class="footer-motokhabar pt-5 pb-4">

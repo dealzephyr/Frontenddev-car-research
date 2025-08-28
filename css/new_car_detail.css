@@ -532,12 +532,30 @@ font-size: 17px;
 /* =========================
    Ratings & Reviews — Mobile
    ========================= */
-/* ============================================
-   Ratings & Reviews — MOBILE ONLY (≤575.98px)
-   Paste this at the END of your CSS to REPLACE
-   any previous mobile rules for this section.
-   Works with your existing HTML.
-   ============================================ */
+/* === Desktop (≥576px): right column shows 2 cards with a slim vertical scrollbar === */
+#ratings-reviews #reviewsTrack{
+  /* 2 × card height (161px) + gap-4 (24px) */
+  max-height: calc(161px * 2 + 24px);
+  overflow-y: auto;
+  overflow-x: hidden;
+  padding-right: 6px; /* room for scrollbar without shifting content */
+}
+
+/* Thin, subtle scrollbar ONLY inside reviewsTrack */
+#ratings-reviews #reviewsTrack{
+  scrollbar-width: thin;                 /* Firefox */
+  scrollbar-color: #c8c8c8 transparent;  /* Firefox */
+}
+#ratings-reviews #reviewsTrack::-webkit-scrollbar{
+   width: 3px; 
+   margin-left: 0 !important;
+
+}
+#ratings-reviews #reviewsTrack::-webkit-scrollbar-button{display: none;}
+#ratings-reviews #reviewsTrack::-webkit-scrollbar-track{ background: transparent; margin: 6px 0;}
+#ratings-reviews #reviewsTrack::-webkit-scrollbar-thumb{
+  background: #D4D4D4; border-radius: 31px;
+}
 @media (max-width: 575.98px) {
 
   /* Section spacing & headings */
@@ -666,6 +684,52 @@ font-size: 17px;
   /* Optional: if your .bg-bleed needs tighter sides on mobile */
   #ratings-reviews.bg-bleed { padding-left: 0; padding-right: 0; }
   
+
+  #ratings-reviews #reviewsTrack{
+    display: flex !important;
+    flex-direction: row !important;
+    gap: 12px !important;
+    overflow-x: auto;
+    overflow-y: visible;
+    scroll-snap-type: x mandatory;
+    -webkit-overflow-scrolling: touch;
+    max-height: none;     /* undo desktop lock */
+    padding-right: 0;
+    -ms-overflow-style: none;  /* IE & Edge */
+    scrollbar-width: none;     /* Firefox */
+  }
+  #ratings-reviews .individual-review{
+    min-width: 100%;
+    scroll-snap-align: start;
+  }
+
+  /* Dots (you already have #reviewsDots in HTML) */
+   #ratings-reviews .reviews-dots{
+    display: flex !important;
+    justify-content: center;
+    align-items: center;
+    gap: 3px;
+    margin-top: 16px !important;
+  }
+  #ratings-reviews .reviews-dots .dot{
+    width: 9px;
+    height: 9px;
+    min-width: 9px;   /* stop flex from stretching */
+    min-height: 9px;
+    border-radius: 50%;
+    background: #D4D4D4;
+    border: none;
+    padding: 0;       /* remove default button padding */
+    line-height: 0;   /* collapse text height */
+    display: inline-block;
+  }
+  #ratings-reviews .reviews-dots .dot.is-active{
+    background: #757575;               /* active */
+  }
+
+   #ratings-reviews #reviewsTrack::-webkit-scrollbar {
+    display: none;             /* Chrome, Safari */
+  }
   
 }
 
@@ -980,7 +1044,8 @@ html { scroll-padding-top: var(--anchor-offset); }
 #tech-specs,
 #ratings-reviews,
 #owner-satisfaction,
-#market-insights {
+#market-insights,
+#ownership-history {
   scroll-margin-top: var(--anchor-offset);
 }
 

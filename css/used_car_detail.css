@@ -1,0 +1,118 @@
+/* ---- Palette (yours) ---- */
+:root {
+  --primary-color: #5d4037;
+  --primary-light: #4e342e;
+  --primary-dark: #212121;
+  --secondary-color: #e2c2bb;
+  --text-on-primary: #ffffff;
+  --neutral-light: #ffffff;
+  --neutral-mid: #d4d4d4;
+  --neutral-dark: #757575;
+
+  /* Bootstrap color hooks (quick theme) */
+  --bs-primary: #5d4037;
+  --bs-secondary: #e2c2bb;
+  --bs-body-font-family: "Poppins", sans-serif;
+}
+
+/* hero section  */
+/* Title + links */
+  .car-title{ font-weight:700; font-size:clamp(20px,3.2vw,38px); letter-spacing:0; }
+  .link-review{ color:var(--primary-light); font-size:clamp(13px,3.2vw,14px);text-decoration:none; font-weight:500; }
+  .link-review:hover{ text-decoration:underline; }
+
+  /* Pills */
+  .pill{
+    display:inline-flex; align-items:center; gap:.35rem;
+    padding:.38rem .7rem; border-radius:999px;
+    background: #E2C2BB;
+ border:1px solid #e8e8e8; color:#3a3a3a;
+    font-size:13px; font-weight:600;
+  }
+
+  /* Layout: main + thumbs */
+  .car-hero-grid{
+    display:grid; gap:18px;
+    grid-template-columns: minmax(0,1fr) 360px;
+  }
+  @media (max-width: 992px){
+    .car-hero-grid{ grid-template-columns: 1fr; }
+  }
+
+  /* Main image card */
+  .hero-main{
+    position:relative; border-radius:12px; overflow:hidden;
+    background:#fff; border:1px solid #eee;
+  }
+  .hero-main img{
+    width:100%; height:100%; display:block; object-fit:cover;
+    aspect-ratio: 16 / 9;
+  }
+  .chip{
+    position:absolute; left:16px; top:14px;
+    background:#2b2b2b; color:#fff; border-radius:10px;
+    font-size:12px; font-weight:700; padding:.35rem .6rem;
+    box-shadow:0 6px 14px rgba(0,0,0,.15);
+  }
+
+  /* Thumbs grid 2x2 */
+  .thumbs{
+    display:grid; gap:18px; align-content:start;
+    grid-template-columns: 1fr 1fr;
+  }
+  .thumb{
+    aspect-ratio: 16/9; border-radius:10px; overflow:hidden;
+    background:#fff; border:2px solid transparent; padding:0;
+    cursor:pointer; display:block;
+  }
+  .thumb img{ width:100%; height:100%; object-fit:cover; display:block; }
+  .thumb.active{ border-color:#6d4c41; box-shadow:0 0 0 2px rgba(109,76,65,.12) inset; }
+  .thumb:focus-visible{ outline:2px solid #6d4c41; outline-offset:2px; }
+
+  /* ownership history */
+  /* Timeline wrapper */
+.timeline {
+  position: relative;
+  margin-left: 40px;
+  border-left: 2px solid #ddd;
+  padding-left: 40px;
+}
+
+/* Each item */
+.timeline-item {
+  position: relative;
+  margin-bottom: 40px;
+}
+
+/* Round number markers */
+.timeline-marker {
+  position: absolute;
+  left: -60px;
+  top: 20px;
+  background: #5d4037; /* your primary */
+  color: #fff;
+  font-weight: bold;
+  font-size: 16px;
+  width: 35px;
+  height: 35px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0px 4px 8px rgba(0,0,0,0.2);
+}
+
+/* Card style */
+.timeline-content {
+  border-radius: 10px;
+  background: #fff;
+}
+
+/* Important Notes */
+.important-notes {
+  border-left: 4px solid #f4c542;
+  border-radius: 10px;
+}
+.important-notes h6 {
+  margin-bottom: 10px;
+}
