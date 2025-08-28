@@ -339,7 +339,7 @@ document.addEventListener("DOMContentLoaded", function () {
         <a href="#market-insights">Market Insights</a>
       </div>
     </section>
-
+<script></script>
     <!-- Technical Specification -->
     <section id="tech-specs" class="container my-5">
       <h2 class="text-center fw-bold mb-1 head">Technical Specification</h2>
@@ -358,7 +358,7 @@ document.addEventListener("DOMContentLoaded", function () {
                   type="button"
                   data-bs-toggle="collapse"
                   data-bs-target="#basicCollapse"
-                  aria-expanded="true"
+                  aria-expanded="false"
                   aria-controls="basicCollapse"
                 >
               <h2 class="accordion-header" id="basicHeading">
@@ -831,7 +831,7 @@ Calculate EMI
         <!-- Right: individual reviews -->
        
 <div class="col-lg-7">
-  <div class="d-flex flex-column gap-4">
+  <div id="reviewsTrack" class="d-flex flex-column gap-4">
 
     <!-- Review card 1 -->
     <article class="mk-card-review individual-review">
@@ -887,6 +887,7 @@ Calculate EMI
     </article>
 
   </div>
+    <div id="reviewsDots" class="reviews-dots d-sm-none mt-2" aria-label="Review pagination"></div>
 </div>
 
 
