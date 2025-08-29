@@ -214,6 +214,7 @@
 .text-warning i{
   font-size: 12px;
   color: #D4AF37 !important;
+  padding-bottom: 8px;
 }
 .rating .rev{
   color: var(--primary-color) !important;

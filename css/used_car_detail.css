@@ -26,14 +26,17 @@
     display:inline-flex; align-items:center; gap:.35rem;
     padding:.38rem .7rem; border-radius:999px;
     background: #E2C2BB;
- border:1px solid #e8e8e8; color:#3a3a3a;
+ border:1px solid #e8e8e8; color:var(--primary-light);
     font-size:13px; font-weight:600;
   }
 
   /* Layout: main + thumbs */
   .car-hero-grid{
-    display:grid; gap:18px;
-    grid-template-columns: minmax(0,1fr) 360px;
+    display:grid; gap:15px;
+    grid-template-columns: minmax(0,1fr) 400px;
+    height: 362px;
+    border-radius: 12px;
+    border-color: #d4d4d4;
   }
   @media (max-width: 992px){
     .car-hero-grid{ grid-template-columns: 1fr; }
@@ -43,31 +46,143 @@
   .hero-main{
     position:relative; border-radius:12px; overflow:hidden;
     background:#fff; border:1px solid #eee;
+    
   }
   .hero-main img{
     width:100%; height:100%; display:block; object-fit:cover;
-    aspect-ratio: 16 / 9;
+   
   }
   .chip{
-    position:absolute; left:16px; top:14px;
-    background:#2b2b2b; color:#fff; border-radius:10px;
-    font-size:12px; font-weight:700; padding:.35rem .6rem;
-    box-shadow:0 6px 14px rgba(0,0,0,.15);
+    position:absolute; left:22px; top:21px;
+    background:var(--primary-light); color:#ffffff; border-radius:7px;
+    font-size:13px; font-weight:500;
+    box-shadow: 0px 24px 48px -12px #10182840;
+
   }
 
   /* Thumbs grid 2x2 */
   .thumbs{
-    display:grid; gap:18px; align-content:start;
+   
+    display:grid; gap:16px; align-content:start;
     grid-template-columns: 1fr 1fr;
+    
+   
+    
   }
   .thumb{
-    aspect-ratio: 16/9; border-radius:10px; overflow:hidden;
+     border-radius:10px; overflow:hidden;
     background:#fff; border:2px solid transparent; padding:0;
     cursor:pointer; display:block;
+    height: 166px;
+    width: auto;
   }
   .thumb img{ width:100%; height:100%; object-fit:cover; display:block; }
   .thumb.active{ border-color:#6d4c41; box-shadow:0 0 0 2px rgba(109,76,65,.12) inset; }
   .thumb:focus-visible{ outline:2px solid #6d4c41; outline-offset:2px; }
+/* technical specification right side card  */
+
+  .seller-card {
+  width: 363px;
+  height: 390px;
+  border-radius: 12px;
+  border: 1px solid #e5e5e5;
+  background: #fff;
+  padding: 20px;
+  position: relative;
+  font-family: 'Poppins', sans-serif;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+}
+
+/* Car Info */
+.seller-card .car-title {
+  font-size: 20px;
+  font-weight: 700;
+  margin-bottom: 6px;
+}
+.seller-card .car-meta {
+  font-size: 14px;
+  color: #757575;
+  margin-bottom: 12px;
+}
+.seller-card .car-price {
+  font-size: 22px;
+  font-weight: 700;
+  color: #3a3a3a;
+  margin-bottom: 4px;
+}
+.seller-card .car-newprice {
+  font-size: 13px;
+  color: #757575;
+  margin-bottom: 16px;
+}
+
+/* Seller Info */
+.section-heading {
+  font-size: 14px;
+  font-weight: 600;
+  margin: 10px 0;
+  color: #212121;
+}
+.seller-info {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+.seller-logo {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+}
+.seller-name {
+  font-size: 16px;
+  font-weight: 600;
+}
+.seller-location {
+  font-size: 14px;
+  color: #757575;
+  margin: 8px 0 12px 0;
+}
+
+/* Buttons */
+.seller-actions {
+  display: flex;
+  gap: 10px;
+  margin-bottom: 12px;
+}
+.btn-enquiry {
+  flex: 1;
+  background: #5d4037;   /* primary */
+  color: #fff;
+  border: none;
+  padding: 10px;
+  border-radius: 8px;
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+}
+.btn-contact {
+  flex: 1;
+  background: transparent;
+  color: #5d4037;
+  border: 1px solid #5d4037;
+  padding: 10px;
+  border-radius: 8px;
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+}
+.btn-share {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  background: #e2c2bb;   /* secondary */
+  color: #5d4037;
+  border: none;
+  padding: 6px 10px;
+  border-radius: 8px;
+  font-size: 13px;
+  cursor: pointer;
+}
 
   /* ownership history */
   /* Timeline wrapper */
@@ -114,5 +229,4 @@
   border-radius: 10px;
 }
 .important-notes h6 {
-  margin-bottom: 10px;
-}
+  margin-bottom: 10px;}
