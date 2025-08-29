@@ -1440,6 +1440,77 @@ function onScroll() {
   </div>
 </div>
 
+<!-- EMI Modal -->
+<div id="emiModal" class="emi-modal">
+  <div class="emi-modal-content">
+    <span class="close-btn">&times;</span>
+
+    <h3 class="emi-title">
+      <i class="bi bi-calculator"></i> EMI Calculator
+    </h3>
+    <p class="emi-subtitle">Your Dream Car, Just an EMI Away!</p>
+
+    <!-- Down Payment -->
+    <label class="form-label">Down Payment</label>
+    <select class="form-control">
+      <option>Choose your down payment</option>
+      <option value="500000">Rs 5,00,000</option>
+      <option value="1000000">Rs 10,00,000</option>
+      <option value="1500000">Rs 15,00,000</option>
+    </select>
+
+    <!-- Loan Term -->
+    <label class="form-label">Loan Term (Years)</label>
+    <select class="form-control">
+      <option>Choose your years</option>
+      <option value="3">3 Years</option>
+      <option value="5">5 Years</option>
+      <option value="7">7 Years</option>
+    </select>
+
+    <!-- Interest Rate -->
+    <label class="form-label">Interest Rate (%)</label>
+    <input type="text" class="form-control" value="5%">
+
+    <!-- Button -->
+    <button class="btn-submit">Calculate EMI</button>
+
+    <!-- Result -->
+    <div class="emi-result">
+      <label class="form-label">Calculated Monthly EMI:</label>
+      <input type="text" class="form-control" readonly placeholder="Rs">
+    </div>
+  </div>
+</div>
+<script>
+document.addEventListener("DOMContentLoaded", () => {
+  const emiBtn = document.getElementById("emiBtn");
+  const emiModal = document.getElementById("emiModal");
+  const closeEmi = emiModal.querySelector(".close-btn");
+
+  // Make sure it's hidden on page load
+  emiModal.style.display = "none";
+
+  // Open modal on button click
+  emiBtn.addEventListener("click", () => {
+    emiModal.style.display = "flex";
+  });
+
+  // Close on X button
+  closeEmi.addEventListener("click", () => {
+    emiModal.style.display = "none";
+  });
+
+  // Close on backdrop click
+  window.addEventListener("click", (e) => {
+    if (e.target === emiModal) {
+      emiModal.style.display = "none";
+    }
+  });
+});
+</script>
+
+
 
 
 

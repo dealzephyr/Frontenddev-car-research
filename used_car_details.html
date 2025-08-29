@@ -1564,7 +1564,7 @@ Modifications: None</li>
         </div>
       </div>
     </section>
-    <!-- other great option foe you  -->
+    <!-- other great option for you  -->
     <section class="container my-5" id="otheroptions">
   <h3 class="text-center fw-bold mb-4">Other great options for you</h3>
 
@@ -1721,6 +1721,67 @@ Modifications: None</li>
     </div>
   </div>
 </div>
+<!-- Enquiry Modal -->
+<div id="enquiryModal" class="enquiry-modal">
+  <div class="enquiry-modal-content">
+    <span class="close-btn">&times;</span>
+
+    <h3 class="enquiry-title">
+      <i class="bi bi-send"></i> Send Message to Seller
+    </h3>
+    <p class="enquiry-subtitle">Explore. Compare. Discover Cars.</p>
+
+    <!-- Form -->
+    <form id="enquiryForm">
+      <label class="form-label">First Name</label>
+      <input type="text" class="form-control" placeholder="Enter your first name" required>
+
+      <label class="form-label">Last Name</label>
+      <input type="text" class="form-control" placeholder="Enter your last name" required>
+
+      <label class="form-label">Email</label>
+      <input type="email" class="form-control" placeholder="Enter your email" required>
+
+      <label class="form-label">Phone Number</label>
+      <div class="phone-input">
+        <select class="form-control code-select">
+          <option value="+977">🇳🇵 +977</option>
+          <option value="+91">🇮🇳 +91</option>
+          <option value="+1">🇺🇸 +1</option>
+        </select>
+        <input type="tel" class="form-control" placeholder="Enter your mobile number" required>
+      </div>
+
+      <label class="form-label">Your Message</label>
+      <textarea class="form-control" rows="3" placeholder="Enter your message"></textarea>
+
+      <button type="submit" class="btn-submit">Send Message</button>
+    </form>
+  </div>
+</div>
+
+<script>
+const enquiryBtn = document.querySelector(".btn-enquiry");
+const enquiryModal = document.getElementById("enquiryModal");
+const closeEnquiry = document.querySelector(".close-btn");
+
+// Open modal
+enquiryBtn.onclick = () => enquiryModal.style.display = "flex";
+
+// Close modal
+closeEnquiry.onclick = () => enquiryModal.style.display = "none";
+
+// Close if clicked outside
+window.onclick = e => { if(e.target === enquiryModal) enquiryModal.style.display = "none"; };
+
+// Handle form submit
+document.getElementById("enquiryForm").addEventListener("submit", e => {
+  e.preventDefault();
+  alert("Message sent to seller!");
+  enquiryModal.style.display = "none";
+});
+</script>
+
      <!-- FOOTER -->
     <footer class="footer-motokhabar pt-5 pb-4">
       <div class="container footer-container">

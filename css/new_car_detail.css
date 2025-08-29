@@ -471,6 +471,102 @@
 #emiBtn {
   background-color: var(--primary-light);
 }
+/* Modal Background */
+.emi-modal {
+  display: none;
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.6);
+  z-index: 9999;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Modal Content */
+.emi-modal-content {
+  background: #fff;
+  width: 524px;
+  max-width: 95%;
+  height: auto; /* make flexible, not forced */
+  max-height: 90vh;
+  overflow-y: auto;
+  border-radius: 12px;
+  border-top: 1px solid #D4D4D4;
+  box-shadow: 0px 20px 24px -4px #00000040;
+  padding: 24px;
+  position: relative;
+  animation: fadeIn 0.3s ease;
+}
+
+/* Close button */
+.close-btn {
+  position: absolute;
+  top: 14px;
+  right: 18px;
+  font-size: 22px;
+  cursor: pointer;
+}
+
+/* Title + subtitle */
+.emi-title {
+  font-size: 20px;
+  font-weight: 700;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+.emi-subtitle {
+  font-size: 14px;
+  color: #757575;
+  margin-bottom: 20px;
+}
+
+/* Inputs */
+.form-label {
+  font-weight: 600;
+  margin-top: 12px;
+  margin-bottom: 6px;
+  display: block;
+}
+.form-control {
+  width: 100%;
+  padding: 10px;
+  border-radius: 8px;
+  border: 1px solid #ddd;
+  margin-bottom: 10px;
+  font-size: 14px;
+}
+
+/* Buttons */
+.btn-submit {
+  background: #5d4037;
+  color: #fff;
+  border: none;
+  padding: 12px;
+  border-radius: 8px;
+  font-weight: 600;
+  width: 100%;
+  margin-top: 12px;
+  cursor: pointer;
+}
+.btn-submit:hover {
+  background: #4e342e;
+}
+
+/* Result section */
+.emi-result {
+  margin-top: 16px;
+  padding: 12px;
+  background: #e2c2bb;
+  border-radius: 8px;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(-20px);}
+  to   { opacity: 1; transform: translateY(0);}
+}
+
 /* technical */
 @media (max-width: 575.98px) {
   .specs-nav {
