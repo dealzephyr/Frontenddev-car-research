@@ -18,10 +18,14 @@
   --mi-icon: #7b61ff; /* purple calendar */
 }
 
+.herosec{
+  display: block;
+  overflow: visible;
+}
 /* wrapper with dual gradient & big radius like the mock */
-
 .car-hero .row {
   --bs-gutter-x: 0;
+  
 }
 
 @media (min-width: 992px) {
@@ -34,12 +38,15 @@
 
 .hero-right {
   padding-right: 0 !important;
+ 
 }
-#heroCarCarousel {
-  width: 557px;
-  margin-left: auto;
-} /* sticks to the right edge */
+#heroCarCarousel{
+margin-right: 36px;
 
+} /* sticks to the right edge */
+.carousel-item{
+  width: 557px;
+}
 /* (nice-to-have) keep the image clean inside the carousel */
 .hero-right .carousel-inner {
   border-radius: 16px;
@@ -63,12 +70,25 @@
       rgba(78, 52, 46, 0.2) 99.88%
     );
 }
+.car-hero .hero-right {
+  width: 100% !important;            /* let the grid control its width */
+  justify-content: center !important; /* center the carousel */
+}
+
+
+@media (min-width: 992px) {
+  .car-hero .row {
+    grid-template-columns: 1fr 557px; /* give the right column the space it needs */
+  }
+}
+
+
 
 /* left side padding on small screens */
 .hero-left {
   background: transparent;
   margin-left: 73px;
-  width: 593px;
+  width: 553px;
 }
 
 .hero-left .year {
@@ -102,16 +122,17 @@
   color: var(--text-on-primary);
   border: 0;
   padding: 0.6rem 1.25rem;
-  border-radius: 12px;
-  box-shadow: 0 8px 18px -10px rgba(0, 0, 0, 0.35);
+  border-radius: 7px;
+
   width: 119px;
   font-size: 13px;
   font-weight: 500 !important;
 }
 .btn-hero:hover {
-  background: var(--secondary-color);
+  border: 1px solid var(--primary-light);
   color: var(--primary-color);
 }
+
 .btn-hero-outline {
   background: var(--neutral-light);
   color: var(--primary-color);
@@ -174,17 +195,24 @@
 }
 
 .carousel-control-prev.hero-nav {
-  left: 0px;
+  left: -50px;
 }
 .carousel-control-next.hero-nav {
-  right: 0px;
+  right: -50px;
+  z-index: 1000;
+}
+.car-hero,
+.car-hero .hero-carousel-wrapper,
+#heroCarCarousel {
+  overflow: visible !important;
+  position: relative; /* ensure a positioning context */
 }
 
 .hero-carousel-wrapper {
-  width: 557px; /* fixed width for the carousel */
+ /* fixed width for the carousel */
   margin: 0 auto; /* pushes it to the right */
   position: relative;
-  height: 290px;
+  
 }
 .hero-carousel-wrapper img {
   width: 100%;
@@ -194,10 +222,12 @@
 }
 
 .hero-nav i {
-  font-size: 1.5rem;
+  font-size: 1.4rem;
   color: #101828;
 }
-
+.rating{
+  margin-top: 12px !important;
+}
 .rating .rate {
   color: #757575 !important;
   font-size: 14px !important;
@@ -220,6 +250,8 @@
   .car-hero .row {
     display: flex;
     flex-direction: column;
+    width: 363px;
+  
   }
 
   /* Flatten the left column so its children can be re-ordered */
@@ -253,38 +285,52 @@
 
   .car-hero .hero-carousel-wrapper {
     width: 100% !important;
+    height: 169px;
     max-width: 100%;
     margin: 0 auto;
     display: flex;
     justify-content: center;
     align-items: center;
   }
+   .car-hero .carousel-item {
+    width: 100% !important;   /* overrides 557px */
+  }
+
+  
   .car-hero .carousel-control-prev,
   .car-hero .carousel-control-next {
     top: 50%; /* keep vertically centered */
     transform: translateY(-50%); /* true vertical centering */
-    width: auto; /* shrink hitbox */
-
-    background: #fff; /* optional circle bg */
+    height: 21px;
+    width: 21px;
+    background: #ffffff; /* optional circle bg */
     border-radius: 50%; /* optional rounded */
-    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
+
     display: flex; /* centers icon */
     align-items: center;
     justify-content: center;
-
+   
     padding: 0;
+    
   }
+#heroCarCarousel .hero-nav svg {
+  width: 10px !important;   /* or use variables */
+  height: 10px !important;
+}
 
   .car-hero .carousel-control-prev {
-    left: -15px; /* push to left edge */
+    left: -20px; /* push to left edge */
     right: auto;
+    
+    
   }
 
   .car-hero .carousel-control-next {
-    right: 10px; /* push to right edge */
+    right: -20px !important; /* push to right edge */
     left: auto;
     z-index: 1000;
   }
+
 
   .hero-left .year {
     font-size: 12px;
@@ -314,10 +360,12 @@
   }
 
   .color-options {
+      flex: 0 0 100% !important;
     font-size: 12px;
     display: block; /* forces label on its own line */
     margin-bottom: 4px; /* spacing before swatches */
   }
+  
 }
 
 /* navigation below  section  */

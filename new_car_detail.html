@@ -185,11 +185,11 @@ document.addEventListener("DOMContentLoaded", function () {
 
 
     <!-- ============ CAR HERO ============ -->
-    <section class="container my-4">
+    <section class="container my-4 herosec">
       <div class="car-hero rounded-4 overflow-hidden shadow-sm">
         <div class="row g-0 align-items-center">
           <!-- LEFT: details -->
-          <div class="col-lg-6 p-4 p-lg-2 hero-left">
+          <div class="col-lg-4 p-4 p-lg-2 hero-left">
             <div class="mb-2 fw-semibold year">2024</div>
 
             <h1 class="display-5 fw-bold mb-3">Car Name</h1>
@@ -223,7 +223,7 @@ document.addEventListener("DOMContentLoaded", function () {
             </div>
 
             <!-- colours -->
-            <div class="d-flex align-items-center gap-2 flex-wrap mb-4">
+            <div class="d-flex align-items-center gap-2 flex-wrap">
   <span class="fw-semibold me-2 color-options">Colour Options:</span>
   <span class="swatch bg-white border" data-slide="0"></span>
   <span class="swatch bg-secondary" data-slide="1"></span>
@@ -260,7 +260,7 @@ document.addEventListener("DOMContentLoaded", function () {
           </div>
 
           <!-- RIGHT: image slider -->
-          <div class="col-lg-6 d-flex justify-content-end hero-right">
+          <div class="col-lg-8 d-flex justify-content-end hero-right">
             <div class="hero-carousel-wrapper">
               <div
                 id="heroCarCarousel"
@@ -313,7 +313,11 @@ document.addEventListener("DOMContentLoaded", function () {
                   data-bs-slide="prev"
                 >
                   <span class="visually-hidden">Previous</span>
-                  <i class="bi bi-chevron-left"></i>
+          <svg width="11" height="18" viewBox="0 0 11 18" fill="none" xmlns="http://www.w3.org/2000/svg">
+<path d="M10 17L1 9L10 1" stroke="#101828" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+</svg>
+
+
                 </button>
                 <button
                   class="carousel-control-next hero-nav"
@@ -322,7 +326,11 @@ document.addEventListener("DOMContentLoaded", function () {
                   data-bs-slide="next"
                 >
                   <span class="visually-hidden">Next</span>
-                  <i class="bi bi-chevron-right"></i>
+     <svg width="11" height="18" viewBox="0 0 11 18" fill="none" xmlns="http://www.w3.org/2000/svg">
+<path d="M1 17L10 9L1 1" stroke="#101828" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+</svg>
+
+
                 </button>
               </div>
             </div>
@@ -1477,7 +1485,6 @@ function onScroll() {
 
     <!-- Result -->
     <div class="emi-result">
-      <label class="form-label">Calculated Monthly EMI:</label>
       <input type="text" class="form-control" readonly placeholder="Rs">
     </div>
   </div>
