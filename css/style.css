@@ -335,7 +335,7 @@ header, .navbar, .header-container { max-width: 100%; }
 
 
   /* Logo size on phones/tablets */
-  .site-logo{ width: 136px !important; height:auto !important; margin:0 !important; object-fit:contain; }
+  .site-logo{ width: 123px !important; height:auto !important; margin:0 !important; object-fit:contain; }
   
   
 
@@ -371,7 +371,7 @@ header, .navbar, .header-container { max-width: 100%; }
 .header-top .header-actions .nav-notification { display:none !important; }
 
 /* Explicit order for mobile */
-.header-top .header-actions .hello-login   { order:1; }
+.header-top .header-actions .hello-login   { order:1;}
 .header-top .header-actions .lang-flag     { order:2; }
 .header-top .header-actions .nav-hamburger { order:3; display:flex !important; }
 
@@ -379,7 +379,7 @@ header, .navbar, .header-container { max-width: 100%; }
   .flag-nepal{ margin-right: 0 !important; }
 
   /* Keep the group tight */
-  .header-top .header-actions{ gap:6px !important; }
+  .header-top .header-actions{ gap:0px !important; }
 #mobileMenu,
   #mobileMenu.collapse,
   #mobileMenu.collapsing,
@@ -699,8 +699,7 @@ font-size: 13px;
 
 .finder-wrap {
   display: flex;
-  flex-direction: column;          /* stack search + dropdown vertically */
-                     /* space between search and dropdown */
+  flex-direction: column;          /* stack search + dropdown vertically */                  
   align-items: center;             /* keep them centered */
 }
 
@@ -744,13 +743,13 @@ font-size: 13px;
   width:127px;
   font-size: 14px;
   font-weight: 600;
-  border-radius: 12px;
+  border-radius: 7px;
   height: 37px;
   margin-top: 20px;
   border: 1px solid #ffffff;
-  color: #fff;
+  color: #ffffff;
   background: transparent;
-  backdrop-filter: blur(1px);
+  /* backdrop-filter: blur(1px); */
   padding: 8px;
 }
 .btn-quiz:hover {
@@ -760,63 +759,114 @@ font-size: 13px;
 }
 /* Main section class */
 /* Mobile-only hero simplification */
-@media (max-width: 992px)
-{
-  /* Hero section very close to navbar */
-  .hero-landing {
-    margin-top: 2px !important;   /* minimal gap from navbar */
-    margin-left: 10px !important;
-    margin-right: 10px !important;
-  }
- 
+@media (max-width: 992px) {
+   header.site-header + main.my-5{ margin-top:0 !important; }
+  .hero-content{ padding-top:0px !important;margin-top: 0px;  }
 
-  /* Keep rounded corners */
-  .hero-bg {
-    min-height: 159px !important;
-    height: 159px !important;
-    border-radius: 12px !important; /* rounded edges */
-    overflow: hidden !important;
-    position: relative;
-  }
-
-  /* Image fills area */
-  .hero-img {
-    position: absolute;
-    inset: 0;
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    border-radius: 12px !important; /* match bg */
-  }
-
-  /* Hide all except hero title */
-  .hero-overlay,
-  .finder-wrap,
-  .hero-desc,
-  .btn-quiz,
-  .hero-content h5 {
-    display: none !important;
-  }
-
-  /* Keep title near top */
+  /* Force hero-content to vertical stack */
   .hero-content {
-    position: relative;
-    z-index: 2;
-    height: 100%;
-    display: flex !important;
-    align-items: flex-start !important;
-    justify-content: center !important;
-    padding-top: 30px !important; /* lower than before */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    gap: 0px;
+  }
+  .hero-title{font-size: 21px;margin-bottom: 0px !important;margin-top: 29px;}
+
+  /* Orders */
+
+  .notsure   { order: 2 !important; font-size:13px; }
+  .hero-desc{display: none;}
+    .hero-content .text-center.mt-4{ margin-top: 0px !important;}
+  .btn-quiz  { order: 3 !important;font-size: 13px; font-weight: 600;width: 94px;height: 33px;}
+  #hero-finder-form { order: 4 !important; width: 100%; }
+
+  /* Remove horizontal flex wrapping on form wrapper */
+  .hero-content > .d-flex.justify-content-center.align-items-center {
+    display: contents !important; /* flatten wrapper, children go into hero-content directly */
   }
 
-  .hero-title {
-    margin: 0 !important;
-    font-size: 1.2rem !important;
-    line-height: 1.2;
-    text-align: center;
-    text-shadow: 0 2px 8px rgba(0, 0, 0, 0.35);
+    .hero-bg {
+    position: relative;
+    min-height: 162px;
+    width: 363px;
+   
+    overflow: visible;}
+    .hero-bg img{
+ border-radius: 7px !important;
+    }
+  .hero-landing{
+    margin-left: 0px !important;
+    padding-bottom: 128px;
+    
+    
   }
+.caret{display: none;}
+  #hero-finder-form {
+    width: 296px;
+    position: absolute;
+    left: 50%;
+    bottom: -140px; /* pushes it below hero image */
+    transform: translateX(-50%);
+    width: 90%;  /* centered card */
+    background: #ffffff;
+    border-radius: 12px;
+    padding: 16px;
+    box-shadow: 0 4px 16px rgba(0,0,0,0.15);
+    z-index: 100;
+  }
+  
+  
+
+
+  .finder-bar {
+    
+    display: grid;
+    
+    grid-template-columns: 1fr 1fr;
+    background-color: #ffffff;
+    gap: 10px;
+    border-radius: 7px;
+    box-shadow: 0px 8px 17.6px -9px #00000040;
+
+  }
+   .finder-bar .filter-pill,
+  .finder-bar .dropdown-toggle,
+  .finder-bar .form-control{
+    white-space: nowrap;
+  }
+  
+   /* Brand and Model: first row */
+  #hero-finder-form .finder-bar .dropdown:nth-child(1) {
+    
+    grid-column: 1;
+  }
+  #hero-finder-form .finder-bar .dropdown:nth-child(2) {
+    grid-column: 2;
+  }
+
+  /* Variant: second row left */
+  #hero-finder-form .finder-bar .dropdown:nth-child(3) {
+    grid-column: 1;
+  }
+   /* Search button: second row right */
+  #hero-finder-form .finder-bar .btn-search {
+    grid-column: 2;
+    width: 100%;
+  }
+#hero-finder-form .finder-bar .dropdown .btn,.btn-search{
+  width: 132px !important;   /* set to your desired size */
+  border-radius: 11px !important;
+  font-size: 12px;
+  font-weight: 400;
 }
+#hero-finder-form .finder-bar .dropdown .btn:focus{
+  border: 1px solid #757575;
+}
+.btn-search{background-color: var(--primary-light); color: #ffffff;margin-left: 0px !important;}
+  
+}
+
 
 /* Tablet & down (≤ 991.98px) */
 
@@ -826,12 +876,12 @@ font-size: 13px;
 .ad-slider-sec {
   margin-left: 75px;
 
-  margin-top: 0 !important; /* Ensure no extra space before slider */
+  margin-top: 0px !important; /* Ensure no extra space before slider */
   padding-top: 0 !important;
 }
 .ad-slider-container {
   overflow: hidden;
-  margin-top: 0;
+  margin-top: 24px;
   padding-left: 0px; /* Touch the section above */
 }
 
@@ -926,6 +976,7 @@ font-size: 13px;
   @media (max-width: 575.98px) {
     .ad-slider-sec  {
       margin-left: 17px;
+     
     }
   }
   

@@ -17,7 +17,7 @@
 
 /* breadcump */
 .toppart {
-  margin-left: 138px;
+  margin-left: 127px;
   margin-top: 16px;
 }
 .breadcrumb {
@@ -143,6 +143,7 @@
   box-shadow: 0 0 4px rgba(0, 0, 0, 0.25);
   outline: 0;
   font-size: 14px;
+  color: #757575;
 }
 .mini-filter {
   /* Remove default appearance */

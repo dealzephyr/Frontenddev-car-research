@@ -1,0 +1,103 @@
+/* ---- Palette (yours) ---- */
+:root {
+  --primary-color: #5d4037;
+  --primary-light: #4e342e;
+  --primary-dark: #212121;
+  --secondary-color: #e2c2bb;
+  --text-on-primary: #ffffff;
+  --neutral-light: #ffffff;
+  --neutral-mid: #d4d4d4;
+  --neutral-dark: #757575;
+
+  /* Bootstrap color hooks (quick theme) */
+  --bs-primary: #5d4037;
+  --bs-secondary: #e2c2bb;
+  --bs-body-font-family: "Poppins", sans-serif;
+}
+.toppart{
+    margin-left: 127px;
+     
+}
+main{
+   
+    margin-left: 50px;
+}
+.btn-outline-secondary{
+    background-color: var(--primary-light);
+    color: #ffffff;
+    font-size: 15px;
+    width: 141px;
+ 
+ 
+}
+.rankings-title{
+    font-size: 24px !important;
+}
+/* Mobile: center each card and restrict width for a tidy column */
+@media (max-width: 575.98px){
+  .expert-reviews .review-card{
+    max-width: 360px;   /* adjust to taste */
+    margin: 0 auto;     /* centers the card */
+  }
+    .toppart{
+    margin: 0;
+    padding: 12px 19px 8px;
+  }
+  .expert-reviews.container{
+    padding-left: 0 !important;
+    padding-right: 0 !important;
+    margin-left: 0 !important;
+    margin-right: 0 !important;
+    --bs-gutter-x: 0;
+  }
+  .expert-reviews .row{
+    margin-left: 0 !important;
+    margin-right: 0 !important;
+    --bs-gutter-x: 16px; /* your desired side padding per column */
+  }
+    .expert-reviews{ margin-left: 0 !important; }
+   .expert-reviews .rankings-title{
+    margin-left: 0px !important;
+  }
+
+  /* 2) Filter layout: stack as column; first row = 2 selects, button below full width */
+  .expert-reviews > .top-filter{
+    display: flex !important;
+    flex-direction: column !important;
+    gap: 10px !important;
+  }
+  /* Make the two selects sit side-by-side */
+  .expert-reviews .top-filter .mini-filter-item{
+    display: grid !important;
+    grid-template-columns: 1fr 1fr;
+    gap: 10px;
+    width: 100%;
+  }
+  .expert-reviews .top-filter .mini-filter{
+    width: 100%;             /* selects fill their grid cells */
+  }
+  /* Search button below, full width */
+  .expert-reviews .top-filter .flex-shrink-0{
+    width: 100% !important;
+  }
+  .expert-reviews .top-filter .btn{
+    width: 100%;
+  }
+
+  /* 3) Center the cards on the page */
+  .expert-reviews .row.g-3{
+    display: flex;            /* center the whole grid */
+    justify-content: center;
+  }
+  .expert-reviews .row.g-3 > [class*="col-"]{
+    display: flex;            /* center each card within its column */
+    justify-content: center;
+  }
+  .expert-reviews .review-card{
+    max-width: 360px;         /* tidy width on mobile */
+    width: 100%;
+    margin: 0 auto;
+  }
+ 
+
+}

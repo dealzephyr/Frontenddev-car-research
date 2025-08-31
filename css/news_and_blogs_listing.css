@@ -1,0 +1,52 @@
+.scroll-box {
+  max-height: 404px;   /* control the height */
+  overflow-y: auto;    /* enable vertical scrolling */
+  padding-right: 6px;  /* spacing for scrollbar */
+}
+.blog-featured{
+  height: 513px;
+padding: 19px 19px 0px 19px;
+}
+
+.blog-featured img {
+  height: 367px;
+  border-radius: 17px;
+  object-fit: cover;
+  
+}
+
+.blog-item img {
+  height: 100px;
+  object-fit: cover;
+}
+
+/* Optional helpers (paste in your CSS) */
+.featured-blogs .blog-card {
+  height: 100%;
+  border-radius: 12px;
+  background: #fff;
+  box-shadow: 0 8px 18px -10px rgba(0,0,0,.2);
+  overflow: hidden;
+}
+.featured-blogs .blog-media img {
+  width: 100%;
+  height: 200px;           /* adjust if you want taller thumbnails */
+  object-fit: cover;
+  display: block;
+}
+.featured-blogs .blog-body { padding: 14px; }
+
+
+
+/* Guard against hero styles affecting this carousel */
+.featured-blogs .carousel-item { width: 100% !important; }
+
+/* Optional styling */
+.featured-blogs .blog-card{
+  border-radius:12px; background:#fff; overflow:hidden;
+  box-shadow:0 8px 18px -10px rgba(0,0,0,.2);
+}
+.featured-blogs .blog-media img{
+  height:200px; object-fit:cover; display:block;
+}
+.featured-blogs .blog-body{ padding:14px; }
