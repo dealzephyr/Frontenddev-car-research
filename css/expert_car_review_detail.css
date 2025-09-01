@@ -75,10 +75,8 @@
     /* ---------- Overall rating box ---------- */
     .overallrating{
         box-shadow: 0px 4px 4px 0px #00000040;
-
     }
-
-    /* Header layout: number + (stars above text) */
+      /* Header layout: number + (stars above text) */
 .rating-head{
   display:flex;
   align-items:flex-start;
@@ -99,37 +97,7 @@
   font-size:12px;
 }
 
-/* Bars as 2 columns (2x2) */
-.bars-grid{
-  display:grid;
-  grid-template-columns: 1fr 1fr;  /* two columns */
-  gap:18px 28px;                    /* row / column gap */
-  margin-top:10px;
-}
 
-/* Single bar row: label | bar | value */
-.bar-row{
-  display:grid;
-  grid-template-columns: auto 1fr auto;
-  align-items:center;
-  gap:8px 12px;
-}
-.bar{
-  height:12px;
-  background:#d4d4d4;
-  border-radius:64px;
-  overflow:hidden;
-}
-.fill{
-  height:100%;
-  background:var(--primary-light);      /* fill color */
-  border-radius:inherit;
-}
-
-/* Stack to one column on small screens */
-@media (max-width: 768px){
-  .bars-grid{ grid-template-columns:1fr; }
-}
 
 
     /* ---------- 2 small blueprint cards row ---------- */
