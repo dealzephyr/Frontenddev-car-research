@@ -172,10 +172,6 @@
   background-size: 14px 14px;
 }
 
-
-
-
-
 .right-parts .text-muted{
   font-size: 17px;
   color: #212121 !important;
@@ -221,23 +217,29 @@
  
  box-shadow: 0px 20px 24px -4px #1018281A;
 
-  outline: 1px solid rgba(93, 64, 55, 0.3);
+  /* outline: 1px solid rgba(93, 64, 55, 0.3); */
 }
-
+@media(min-width: 1200px){
 .cards-grid {
   display: grid !important;
   column-gap: 0px;
   row-gap:20px;
-  grid-template-columns: 1fr 1fr 1fr ;
+  grid-template-columns: repeat(3,300px);
 }
 
 /* ========== MOBILE ONLY (≤575.98px) ========== */
-@media (max-width: 575.98px) {
+@media(max-width: 575.98px){
   /* --- Breadcrumb / header block --- */
   .toppart{
     margin: 0;
     padding: 12px 19px 8px;
+<<<<<<< HEAD
   }.toppart h3{
+=======
+  }
+ 
+  .toppart h3{
+>>>>>>> 76f84f9808efc0daaaea322517f6b18e3f12f205
     font-size: 18px !important;
   font-weight: 600;
   color: #212121;
@@ -298,8 +300,8 @@ border: none;
   .cards-grid {
     display: grid !important;
     grid-template-columns: repeat(2, 168px);
-    column-gap: 19px;
-    row-gap: 0px;
+    column-gap: 0px;
+    row-gap: 20px;
     justify-content: space-between;   /* spread to edges */
     margin-left: 10px !important;
     margin-right: 19px !important;
@@ -314,7 +316,7 @@ border: none;
   .cards-grid .car-card__title { font-size: 14px; margin-top: 10px; }
   .cards-grid .car-card__location,.cards-grid .car-card__row, .cards-grid .car-card__grid { font-size: 12px;}
   .cards-grid .car-card__price { font-size: 12px; margin: 10px 0 8px; }
-  .cards-grid .btn-primary, .cards-grid .btn-secondary { font-size: 14px !important; font-weight: 400 !important;}
+  .cards-grid .btn-primary, .cards-grid .btn-secondary { font-size: 12px !important; font-weight: 400 !important;}
   .cards-grid .car-card__grid > div,.car-card__row { gap:0px !important; }   /* was 6px */
  
   .body-parts .right-parts .load { 
@@ -334,9 +336,13 @@ border: none;
 .cards-grid
 {
   display: grid !important;
-  grid-template-columns: repeat(4, 1fr);
+  grid-template-columns: repeat(4, 1fr)!important;
 }
 .mobile-filterbar{
   display: none !important;
 }
 }
+
+
+}
+  
