@@ -489,127 +489,199 @@ document.addEventListener('DOMContentLoaded', function() {
   </div>
 </section>
 <!-- blog -->
-    <section class="container popular-cars my-5">
-        
-        <!-- slider (same classes as before) -->
-        <div class="slider-shell position-relative">
-          <button class="slider-btn prev" aria-label="Previous">
-            <i class="bi bi-chevron-left"></i>
+ <!-- Latest News / Blogs (Carousel) -->
+<section class="container my-5">
+  <div class="cards-carousel" id="newsBlogsCarousel">
+    <!-- arrows -->
+    <button class="cc-btn prev" aria-label="Previous">
+      <i class="bi bi-chevron-left"></i>
+    </button>
+    <button class="cc-btn next" aria-label="Next">
+      <i class="bi bi-chevron-right"></i>
+    </button>
+
+    <!-- track -->
+    <div class="cc-track">
+      <!-- Reuse your existing blog-card exactly as-is -->
+      <article class="blog-card">
+        <div class="blog-media">
+          <img src="assets/images/blog-image.jpg" alt="Blog cover" />
+        </div>
+        <div class="blog-body">
+          <div class="d-flex justify-content-between align-items-center mb-2">
+            <span class="badge-soft">Policy</span>
+            <small class="text-muted">3 min read</small>
+          </div>
+          <h5 class="blog-title">New Electric Vehicle Policy Announced in Nepal</h5>
+          <p class="blog-excerpt">
+            Government introduces new incentives for EV adoption including tax
+            benefits and charging the
+          </p>
+          <a href="#" class="btn btn-outline-choco">Read More</a>
+        </div>
+      </article>
+
+      <!-- Duplicate blog-card items as needed -->
+      <article class="blog-card">
+        <div class="blog-media">
+          <img src="assets/images/blog-image.jpg" alt="Blog cover" />
+        </div>
+        <div class="blog-body">
+          <div class="d-flex justify-content-between align-items-center mb-2">
+            <span class="badge-soft">Policy</span>
+            <small class="text-muted">3 min read</small>
+          </div>
+          <h5 class="blog-title">New Electric Vehicle Policy Announced in Nepal</h5>
+          <p class="blog-excerpt">Government introduces new incentives for EV adoption including tax
+            benefits and charging the</p>
+          <a href="#" class="btn btn-outline-choco">Read More</a>
+        </div>
+      </article>
+
+      <article class="blog-card">
+        <div class="blog-media">
+          <img src="assets/images/blog-image.jpg" alt="Blog cover" />
+        </div>
+        <div class="blog-body">
+          <div class="d-flex justify-content-between align-items-center mb-2">
+            <span class="badge-soft">Policy</span>
+            <small class="text-muted">3 min read</small>
+          </div>
+          <h5 class="blog-title">New Electric Vehicle Policy Announced in Nepal</h5>
+          <p class="blog-excerpt">Government introduces new incentives for EV adoption including tax
+            benefits and charging the</p>
+          <a href="#" class="btn btn-outline-choco">Read More</a>
+        </div>
+      </article>
+
+      <article class="blog-card">
+        <div class="blog-media">
+          <img src="assets/images/blog-image.jpg" alt="Blog cover" />
+        </div>
+        <div class="blog-body">
+          <div class="d-flex justify-content-between align-items-center mb-2">
+            <span class="badge-soft">Policy</span>
+            <small class="text-muted">3 min read</small>
+          </div>
+          <h5 class="blog-title">New Electric Vehicle Policy Announced in Nepal</h5>
+          <p class="blog-excerpt">Government introduces new incentives for EV adoption including tax
+            benefits and charging the</p>
+          <a href="#" class="btn btn-outline-choco">Read More</a>
+        </div>
+      </article>
+    </div>
+  </div>
+</section>
+<script>
+  // Initialize every carousel with class .cards-carousel
+  document.querySelectorAll('.cards-carousel').forEach(carousel => {
+    const track = carousel.querySelector('.cc-track');
+    const prev  = carousel.querySelector('.cc-btn.prev');
+    const next  = carousel.querySelector('.cc-btn.next');
+
+    const gap = parseInt(getComputedStyle(track).columnGap) || 0;
+    function itemWidth() {
+      const first = track.children[0];
+      return first ? first.getBoundingClientRect().width : 320;
+    }
+
+    prev.addEventListener('click', () => {
+      track.scrollBy({ left: -(itemWidth()+gap), behavior: 'smooth' });
+    });
+    next.addEventListener('click', () => {
+      track.scrollBy({ left:  (itemWidth()+gap), behavior: 'smooth' });
+    });
+  });
+</script>
+
+ <!-- video -->
+<section class="container my-5 latest-videos">
+  <div class="text-center mb-4">
+    <h3 class="fw-bold">Latest Videos</h3>
+    <p class="text-muted mb-0">Our Latest Videos For You</p>
+  </div>
+
+  <div class="row g-4">
+    <!-- Card 1 -->
+    <div class="col-12 col-md-6 col-lg-3">
+      <article class="blog-card">
+        <div class="blog-media position-relative">
+          <img src="assets/images/blog-image.jpg" alt="Blog cover">
+          <!-- Play Button Overlay -->
+          <button class="play-btn">
+            <i class="bi bi-play-fill"></i>
           </button>
-          <button class="slider-btn next" aria-label="Next">
-            <i class="bi bi-chevron-right"></i>
-          </button>
-
-          <div class="cards-track" id="popularTrack">
-            <!-- cards -->
-            <article class="blog-card">
-        <div class="blog-media">
-          <img src="assets/images/blog-image.jpg" alt="Blog cover">
         </div>
         <div class="blog-body">
           <div class="d-flex justify-content-between align-items-center mb-2">
             <span class="badge-soft">Policy</span>
             <small class="text-muted">3 min read</small>
           </div>
-
-          <h5 class="blog-title">
-            New Electric Vehicle Policy Announced in Nepal
-          </h5>
-
+          <h5 class="blog-title">New Electric Vehicle Policy Announced in Nepal</h5>
           <p class="blog-excerpt">
             Government introduces new incentives for EV adoption including tax benefits and charging the
           </p>
-
-          <a href="#" class="btn btn-outline-choco">Read More</a>
-        </div>
-      </article> 
-                 <article class="blog-card">
-        <div class="blog-media">
-          <img src="assets/images/blog-image.jpg" alt="Blog cover">
-        </div>
-        <div class="blog-body">
-          <div class="d-flex justify-content-between align-items-center mb-2">
-            <span class="badge-soft">Policy</span>
-            <small class="text-muted">3 min read</small>
-          </div>
-
-          <h5 class="blog-title">
-            New Electric Vehicle Policy Announced in Nepal
-          </h5>
-
-          <p class="blog-excerpt">
-            Government introduces new incentives for EV adoption including tax benefits and charging the
-          </p>
-
-          <a href="#" class="btn btn-outline-choco">Read More</a>
+          <a href="#" class="btn btn-outline-choco">Watch Video</a>
         </div>
       </article>
-                  <article class="blog-card">
-        <div class="blog-media">
+    </div>
+
+    <!-- Repeat cards -->
+    <div class="col-12 col-md-6 col-lg-3">
+      <article class="blog-card">
+        <div class="blog-media position-relative">
           <img src="assets/images/blog-image.jpg" alt="Blog cover">
+          <button class="play-btn"><i class="bi bi-play-fill"></i></button>
         </div>
         <div class="blog-body">
           <div class="d-flex justify-content-between align-items-center mb-2">
             <span class="badge-soft">Policy</span>
             <small class="text-muted">3 min read</small>
           </div>
-
-          <h5 class="blog-title">
-            New Electric Vehicle Policy Announced in Nepal
-          </h5>
-
-          <p class="blog-excerpt">
-            Government introduces new incentives for EV adoption including tax benefits and charging the
-          </p>
-
-          <a href="#" class="btn btn-outline-choco">Read More</a>
+          <h5 class="blog-title">New Electric Vehicle Policy Announced in Nepal</h5>
+          <p class="blog-excerpt">Government introduces new incentives for EV adoption including tax benefits and charging the</p>
+          <a href="#" class="btn btn-outline-choco">Watch Video</a>
         </div>
       </article>
-                 <article class="blog-card">
-        <div class="blog-media">
+    </div>
+
+    <div class="col-12 col-md-6 col-lg-3">
+      <article class="blog-card">
+        <div class="blog-media position-relative">
           <img src="assets/images/blog-image.jpg" alt="Blog cover">
+          <button class="play-btn"><i class="bi bi-play-fill"></i></button>
         </div>
         <div class="blog-body">
           <div class="d-flex justify-content-between align-items-center mb-2">
             <span class="badge-soft">Policy</span>
             <small class="text-muted">3 min read</small>
           </div>
-
-          <h5 class="blog-title">
-            New Electric Vehicle Policy Announced in Nepal
-          </h5>
-
-          <p class="blog-excerpt">
-            Government introduces new incentives for EV adoption including tax benefits and charging the
-          </p>
-
-          <a href="#" class="btn btn-outline-choco">Read More</a>
+          <h5 class="blog-title">New Electric Vehicle Policy Announced in Nepal</h5>
+          <p class="blog-excerpt">Government introduces new incentives for EV adoption including tax benefits and charging the</p>
+          <a href="#" class="btn btn-outline-choco">Watch Video</a>
         </div>
       </article>
-       <article class="blog-card">
-        <div class="blog-media">
+    </div>
+
+    <div class="col-12 col-md-6 col-lg-3">
+      <article class="blog-card">
+        <div class="blog-media position-relative">
           <img src="assets/images/blog-image.jpg" alt="Blog cover">
+          <button class="play-btn"><i class="bi bi-play-fill"></i></button>
         </div>
         <div class="blog-body">
           <div class="d-flex justify-content-between align-items-center mb-2">
             <span class="badge-soft">Policy</span>
-            <small class="text-muted">3 min read</small>
+           
           </div>
-
-          <h5 class="blog-title">
-            New Electric Vehicle Policy Announced in Nepal
-          </h5>
-
-          <p class="blog-excerpt">
-            Government introduces new incentives for EV adoption including tax benefits and charging the
-          </p>
-
-          <a href="#" class="btn btn-outline-choco">Read More</a>
+          <h5 class="blog-title">New Electric Vehicle Policy Announced in Nepal</h5>
+          <a href="#" class="btn btn-outline-choco">Watch Video</a>
         </div>
       </article>
-          </div>
-        </div>
-      </section>
+    </div>
+  </div>
+</section>
+
 
 
 </main>

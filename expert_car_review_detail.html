@@ -35,16 +35,14 @@
 
     <!-- Custom CSS (with Bootstrap overrides) -->
     <link rel="stylesheet" href="css/style.css" />
-    <link rel="stylesheet" href="css/explore_cars.css">
-    <link rel="stylesheet" href="css/news_and_blogs_listing.css">
-    <link rel="stylesheet" href="css/expert_car_reviews_listing.css">
-      
+    <link rel="stylesheet" href="css/expert_car_review_detail.css">
+      <link rel="stylesheet" href="css/explore_cars.css">
   </head>
   
   <body>
    
       
-
+    
     <header class="site-header sticky-top">
       <!-- TOP NAV -->
       <nav class="navbar navbar-expand-lg navbar-light header-top shadow-sm">
@@ -191,16 +189,16 @@
           >
             <ul class="navbar-nav header-subnav">
               <li class="nav-item">
-                <a class="nav-link" href="#">New Cars</a>
+                <a class="nav-link" href="new_car_detail.html">New Cars</a>
               </li>
               <li class="nav-item">
                 <a class="nav-link" href="used_car_details.html">Used Cars</a>
               </li>
               <li class="nav-item">
-                <a class="nav-link" href="#">Expert Review</a>
+                <a class="nav-link" href="expert_car_reviews_listing.html">Expert Review</a>
               </li>
               <li class="nav-item">
-                <a class="nav-link" href="#">News &amp; Blogs</a>
+                <a class="nav-link" href="news_and_blogs_listing.html">News &amp; Blogs</a>
               </li>
               <li class="nav-item"><a class="nav-link" href="#">Contact</a></li>
             </ul>
@@ -208,9 +206,7 @@
         </div>
       </nav>
     </header>
-
-    
-<script>
+    <script>
 document.addEventListener('DOMContentLoaded', function() {
     const languageButton = document.getElementById('languageButton');
     const languageDropdown = document.getElementById('languageDropdown');
@@ -394,662 +390,259 @@ document.addEventListener('DOMContentLoaded', function() {
       </a>
 
     </nav>
-    
-     <section class="toppart">
+       <section class="toppart">
       <nav aria-label="breadcrumb">
         <ol class="breadcrumb">
           <li class="breadcrumb-item">
             <a href="home.html">Home</a>
           </li>
-          <li class="breadcrumb-item active" aria-current="page">
+          <li class="breadcrumb-item" >
             <a href="expert_car_reviews_listing.html">Expert Car Reviews</a>
+          </li>
+          <li class="breadcrumb-item active" aria-current="page">
+            <a href="expert_car_review_detail.html">Reviews</a>
           </li>
         </ol>
       </nav>
     </section>
+<main>
+   <div class="container main-part">
 
-    <main class="my-5">
-    <!-- Expert Car reviews -->
- 
-<section class="container  expert-reviews ">
-  <div class="d-flex justify-content-between align-items-start">
-    <div>
-      <h3 class="rankings-title">Expert Car Reviews</h3>
-      <p class="rankings-sub">In-depth reviews from automotive experts</p>
+    <!-- Title -->
+    <div class="mb-3">
+      <div class="page-title">2025 Hyundai Tucson</div>
+      <div class="page-sub">A comprehensive look at Hyundai’s updated compact SUV</div>
+    </div>
+
+    <section class="detail-layout">
+      <!-- =============== LEFT COLUMN =============== -->
+      <div>
+        <!-- Hero image -->
+        <div class="card mb-4 herosec">
+          <img class="rounded" src="assets/images/news and blogs.png" alt="Hero">
+        </div>
+
+        <!-- Overall rating -->
+        <div class="card pad mb-4 overallrating">
+  <h3 class="mb-3">Overall Rating</h3>
+
+  <!-- header -->
+  <div class="rating-head">
+    <div class="big-score">4.9</div>
+
+    <!-- stars ABOVE the line of text -->
+    <div class="star-block">
+      <div class="stars">★★★★★</div>
+      <div class="muted tagline">
+        Very Good – Strong performance with minor areas for improvement
+      </div>
     </div>
   </div>
-  <div class="d-flex top-filter gap-4">
-  <div class="d-flex mini-filter-item custom-gap">
-            <select id="brandSelect" class="mini-filter">
-              <option value="" hidden selected>Brand</option>
-              <option value="maruti">Maruti Suzuki</option>
-              <option value="toyota">Toyota</option>
-              <option value="hyundai">Hyundai</option>
-              <option value="honda">Honda</option>
-            </select>
 
-            <select id="modelSelect" class="mini-filter">
-              <option value="" hidden selected>Model</option>
-            </select>
-          </div>
-          <div class="flex-shrink-0">
-            <button  class="btn btn-outline-secondary btn-sm px-3 search-btn">Search</button>
-          </div>
-          
-</div>
- <div class="d-flex justify-content-between top-filter gap-2 mb-3">
-  <div class="row g-3">
-    <!-- Card 1 -->
-    <div class="col-12 col-lg-4">
-      <article class="review-card">
-        <div class="review-media">
-          <img src="assets/images/blog-image.jpg" alt="Hyundai Creta 2024 review">
-        </div>
-        <div class="review-body">
-          <div class="d-flex justify-content-between align-items-center mb-1">
-            <h5 class="review-title mb-0">Hyundai Creta 2024</h5>
-            <div class="rating">
-              <i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i>
-              <i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i>
-              <i class="bi bi-star-half"></i>
-              <small class="text-muted ms-1">4.8</small>
-            </div>
-          </div>
-
-          <div class="text-muted small mb-2">By Automotive Nepal</div>
-
-          <p class="review-excerpt">
-            The new Creta impresses with its bold design and feature-rich interior.
-            Perfect for Nepali roads.
-          </p>
-
-          <div class="text-muted small mb-2">3 min read</div>
-
-          <div class="fw-semibold mb-2 key">Key Highlights:</div>
-          <div class="d-flex flex-wrap gap-2 mb-3">
-            <span class="chip">Spacious Interior</span>
-            <span class="chip">Feature-rich</span>
-            <span class="chip">Refined Ride</span>
-            
-          </div>
-
-          <a href="#" class="btn btn-outline-choco">Read More</a>
-        </div>
-      </article>
+  <!-- bars in 2x2 grid -->
+  <div class="bars-grid">
+    <div class="bar-row">
+      <div>Performance</div>
+      <div class="bar"><div class="fill" style="width:86%"></div></div>
+      <div class="muted">4.8</div>
     </div>
 
-    <!-- Duplicate for Card 2 -->
-    <div class="col-12 col-lg-4">
-      <article class="review-card">
-        <div class="review-media">
-          <img src="assets/images/blog-image.jpg" alt="Hyundai Creta 2024 review">
-        </div>
-        <div class="review-body">
-          <div class="d-flex justify-content-between align-items-center mb-1">
-            <h5 class="review-title mb-0">Hyundai Creta 2024</h5>
-            <div class="rating">
-              <i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i>
-              <i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i>
-              <i class="bi bi-star-half"></i>
-              <small class="text-muted ms-1">4.8</small>
-            </div>
-          </div>
-          <div class="text-muted small mb-2">By Automotive Nepal</div>
-          <p class="review-excerpt">The new Creta impresses with its bold design and feature-rich interior. Perfect for Nepali roads.</p>
-          <div class="text-muted small mb-2">3 min read</div>
-          <div class="fw-semibold mb-2">Key Highlights:</div>
-          <div class="d-flex flex-wrap gap-2 mb-3">
-            <span class="chip">Spacious Interior</span>
-            <span class="chip">Feature-rich</span>
-            <span class="chip">Refined Ride</span>
-          </div>
-          <a href="#" class="btn btn-outline-choco">Read More</a>
-        </div>
-      </article>
+    <div class="bar-row">
+      <div>Comfort</div>
+      <div class="bar"><div class="fill" style="width:86%"></div></div>
+      <div class="muted">4.8</div>
     </div>
 
-    <!-- Card 3 -->
-    <div class="col-12 col-lg-4">
-      <article class="review-card">
-        <div class="review-media">
-          <img src="assets/images/blog-image.jpg" alt="Hyundai Creta 2024 review">
-        </div>
-        <div class="review-body">
-          <div class="d-flex justify-content-between align-items-center mb-1">
-            <h5 class="review-title mb-0">Hyundai Creta 2024</h5>
-            <div class="rating">
-              <i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i>
-              <i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i>
-              <i class="bi bi-star-half"></i>
-              <small class="text-muted ms-1">4.8</small>
-            </div>
-          </div>
-          <div class="text-muted small mb-2">By Automotive Nepal</div>
-          <p class="review-excerpt">The new Creta impresses with its bold design and feature-rich interior. Perfect for Nepali roads.</p>
-          <div class="text-muted small mb-2">3 min read</div>
-          <div class="fw-semibold mb-2">Key Highlights:</div>
-          <div class="d-flex flex-wrap gap-2 mb-3 key">
-            <span class="chip">Spacious Interior</span>
-            <span class="chip">Feature-rich</span>
-            <span class="chip">Refined Ride</span>
-          </div>
-          <a href="#" class="btn btn-outline-choco">Read More</a>
-        </div>
-      </article>
+    <div class="bar-row">
+      <div>Technology</div>
+      <div class="bar"><div class="fill" style="width:83%"></div></div>
+      <div class="muted">4.8</div>
     </div>
-    <div class="col-12 col-lg-4">
-      <article class="review-card">
-        <div class="review-media">
-          <img src="assets/images/blog-image.jpg" alt="Hyundai Creta 2024 review">
-        </div>
-        <div class="review-body">
-          <div class="d-flex justify-content-between align-items-center mb-1">
-            <h5 class="review-title mb-0">Hyundai Creta 2024</h5>
-            <div class="rating">
-              <i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i>
-              <i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i>
-              <i class="bi bi-star-half"></i>
-              <small class="text-muted ms-1">4.8</small>
-            </div>
-          </div>
 
-          <div class="text-muted small mb-2">By Automotive Nepal</div>
-
-          <p class="review-excerpt">
-            The new Creta impresses with its bold design and feature-rich interior.
-            Perfect for Nepali roads.
-          </p>
-
-          <div class="text-muted small mb-2">3 min read</div>
-
-          <div class="fw-semibold mb-2 key">Key Highlights:</div>
-          <div class="d-flex flex-wrap gap-2 mb-3">
-            <span class="chip">Spacious Interior</span>
-            <span class="chip">Feature-rich</span>
-            <span class="chip">Refined Ride</span>
-            
-          </div>
-
-          <a href="#" class="btn btn-outline-choco">Read More</a>
-        </div>
-      </article>
+    <div class="bar-row">
+      <div>Value</div>
+      <div class="bar"><div class="fill" style="width:85%"></div></div>
+      <div class="muted">4.8</div>
     </div>
-    <div class="col-12 col-lg-4">
-      <article class="review-card">
-        <div class="review-media">
-          <img src="assets/images/blog-image.jpg" alt="Hyundai Creta 2024 review">
-        </div>
-        <div class="review-body">
-          <div class="d-flex justify-content-between align-items-center mb-1">
-            <h5 class="review-title mb-0">Hyundai Creta 2024</h5>
-            <div class="rating">
-              <i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i>
-              <i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i>
-              <i class="bi bi-star-half"></i>
-              <small class="text-muted ms-1">4.8</small>
-            </div>
-          </div>
-
-          <div class="text-muted small mb-2">By Automotive Nepal</div>
-
-          <p class="review-excerpt">
-            The new Creta impresses with its bold design and feature-rich interior.
-            Perfect for Nepali roads.
-          </p>
-
-          <div class="text-muted small mb-2">3 min read</div>
-
-          <div class="fw-semibold mb-2 key">Key Highlights:</div>
-          <div class="d-flex flex-wrap gap-2 mb-3">
-            <span class="chip">Spacious Interior</span>
-            <span class="chip">Feature-rich</span>
-            <span class="chip">Refined Ride</span>
-            
-          </div>
-
-          <a href="#" class="btn btn-outline-choco">Read More</a>
-        </div>
-      </article>
-    </div>
-    <div class="col-12 col-lg-4">
-      <article class="review-card">
-        <div class="review-media">
-          <img src="assets/images/blog-image.jpg" alt="Hyundai Creta 2024 review">
-        </div>
-        <div class="review-body">
-          <div class="d-flex justify-content-between align-items-center mb-1">
-            <h5 class="review-title mb-0">Hyundai Creta 2024</h5>
-            <div class="rating">
-              <i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i>
-              <i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i>
-              <i class="bi bi-star-half"></i>
-              <small class="text-muted ms-1">4.8</small>
-            </div>
-          </div>
-
-          <div class="text-muted small mb-2">By Automotive Nepal</div>
-
-          <p class="review-excerpt">
-            The new Creta impresses with its bold design and feature-rich interior.
-            Perfect for Nepali roads.
-          </p>
-
-          <div class="text-muted small mb-2">3 min read</div>
-
-          <div class="fw-semibold mb-2 key">Key Highlights:</div>
-          <div class="d-flex flex-wrap gap-2 mb-3">
-            <span class="chip">Spacious Interior</span>
-            <span class="chip">Feature-rich</span>
-            <span class="chip">Refined Ride</span>
-            
-          </div>
-
-          <a href="#" class="btn btn-outline-choco">Read More</a>
-        </div>
-      </article>
-    </div>
-    <div class="col-12 col-lg-4">
-      <article class="review-card">
-        <div class="review-media">
-          <img src="assets/images/blog-image.jpg" alt="Hyundai Creta 2024 review">
-        </div>
-        <div class="review-body">
-          <div class="d-flex justify-content-between align-items-center mb-1">
-            <h5 class="review-title mb-0">Hyundai Creta 2024</h5>
-            <div class="rating">
-              <i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i>
-              <i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i>
-              <i class="bi bi-star-half"></i>
-              <small class="text-muted ms-1">4.8</small>
-            </div>
-          </div>
-
-          <div class="text-muted small mb-2">By Automotive Nepal</div>
-
-          <p class="review-excerpt">
-            The new Creta impresses with its bold design and feature-rich interior.
-            Perfect for Nepali roads.
-          </p>
-
-          <div class="text-muted small mb-2">3 min read</div>
-
-          <div class="fw-semibold mb-2 key">Key Highlights:</div>
-          <div class="d-flex flex-wrap gap-2 mb-3">
-            <span class="chip">Spacious Interior</span>
-            <span class="chip">Feature-rich</span>
-            <span class="chip">Refined Ride</span>
-            
-          </div>
-
-          <a href="#" class="btn btn-outline-choco">Read More</a>
-        </div>
-      </article>
-    </div>
-    <div class="col-12 col-lg-4">
-      <article class="review-card">
-        <div class="review-media">
-          <img src="assets/images/blog-image.jpg" alt="Hyundai Creta 2024 review">
-        </div>
-        <div class="review-body">
-          <div class="d-flex justify-content-between align-items-center mb-1">
-            <h5 class="review-title mb-0">Hyundai Creta 2024</h5>
-            <div class="rating">
-              <i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i>
-              <i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i>
-              <i class="bi bi-star-half"></i>
-              <small class="text-muted ms-1">4.8</small>
-            </div>
-          </div>
-
-          <div class="text-muted small mb-2">By Automotive Nepal</div>
-
-          <p class="review-excerpt">
-            The new Creta impresses with its bold design and feature-rich interior.
-            Perfect for Nepali roads.
-          </p>
-
-          <div class="text-muted small mb-2">3 min read</div>
-
-          <div class="fw-semibold mb-2 key">Key Highlights:</div>
-          <div class="d-flex flex-wrap gap-2 mb-3">
-            <span class="chip">Spacious Interior</span>
-            <span class="chip">Feature-rich</span>
-            <span class="chip">Refined Ride</span>
-            
-          </div>
-
-          <a href="#" class="btn btn-outline-choco">Read More</a>
-        </div>
-      </article>
-    </div>
-    <div class="col-12 col-lg-4">
-      <article class="review-card">
-        <div class="review-media">
-          <img src="assets/images/blog-image.jpg" alt="Hyundai Creta 2024 review">
-        </div>
-        <div class="review-body">
-          <div class="d-flex justify-content-between align-items-center mb-1">
-            <h5 class="review-title mb-0">Hyundai Creta 2024</h5>
-            <div class="rating">
-              <i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i>
-              <i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i>
-              <i class="bi bi-star-half"></i>
-              <small class="text-muted ms-1">4.8</small>
-            </div>
-          </div>
-
-          <div class="text-muted small mb-2">By Automotive Nepal</div>
-
-          <p class="review-excerpt">
-            The new Creta impresses with its bold design and feature-rich interior.
-            Perfect for Nepali roads.
-          </p>
-
-          <div class="text-muted small mb-2">3 min read</div>
-
-          <div class="fw-semibold mb-2 key">Key Highlights:</div>
-          <div class="d-flex flex-wrap gap-2 mb-3">
-            <span class="chip">Spacious Interior</span>
-            <span class="chip">Feature-rich</span>
-            <span class="chip">Refined Ride</span>
-            
-          </div>
-
-          <a href="#" class="btn btn-outline-choco">Read More</a>
-        </div>
-      </article>
-    </div>
- <div class="text-center mt-4">
-          <button id="reviewsLoadMore" class="btn btn-secondary load px-4">Load More</button>
-        </div>
   </div>
-  
-</section>
-
-<script>
-document.addEventListener("DOMContentLoaded", () => {
-  const section = document.querySelector(".expert-reviews");
-  if (!section) return;
-
-  const grid = section.querySelector(".row.g-3");
-  if (!grid) return;
-
-  // Direct children of the grid (your Bootstrap columns)
-  const cards = Array.from(
-    grid.querySelectorAll(':scope > [class^="col-"], :scope > [class*=" col-"]')
-  );
-
-  // Get / compute page size by breakpoint
-  const isMobile = () => window.matchMedia("(max-width: 575.98px)").matches;
-  const pageSizeFor = () => (isMobile() ? 3 : 6);
-
-  let pageSize = pageSizeFor();
-  let visibleCount = pageSize;
-
-  // Find or create "Load More" button
-  let loadBtn = section.querySelector("#reviewsLoadMore");
-  if (!loadBtn) {
-    const wrap = document.createElement("div");
-    wrap.className = "text-center mt-3";
-    loadBtn = document.createElement("button");
-    loadBtn.id = "reviewsLoadMore";
-    loadBtn.type = "button";
-    loadBtn.className = "btn btn-outline-choco";
-    loadBtn.textContent = "Load More";
-    wrap.appendChild(loadBtn);
-    section.appendChild(wrap);
-  }
-
-  function applyVisibility() {
-    cards.forEach((card, idx) => {
-      card.classList.toggle("d-none", idx >= visibleCount);
-    });
-    loadBtn.style.display = visibleCount >= cards.length ? "none" : "";
-  }
-
-  // Initial render
-  applyVisibility();
-
-  // Click: reveal next page
-  loadBtn.addEventListener("click", () => {
-    visibleCount = Math.min(visibleCount + pageSize, cards.length);
-    applyVisibility();
-  });
-
-  // Handle resize: keep the same number of "pages" shown when crossing breakpoints
-  let lastIsMobile = isMobile();
-  window.addEventListener("resize", () => {
-    const nowIsMobile = isMobile();
-    if (nowIsMobile === lastIsMobile) return; // no breakpoint change
-
-    const oldSize = pageSize;
-    const pagesShown = Math.max(1, Math.ceil(visibleCount / oldSize));
-
-    pageSize = pageSizeFor();
-    visibleCount = Math.min(pagesShown * pageSize, cards.length);
-
-    lastIsMobile = nowIsMobile;
-    applyVisibility();
-  });
-});
-</script>
-
-
-<!-- Popular Brands -->
-
-<section class="container my-5 brands-section bg-bleed">
-  <div class="d-flex justify-content-between align-items-start "> 
-  <div>
-  <h3 class="section-title ">Popular Brands</h3>
-  <p class="section-subtitle mb-0">Browse by car manufacturer</p>
-    </div>
-<a href="#" class="btn btn-secondary btn-sm view-btn">View All</a>
-</div>
- 
-<div class="row g-2 g-md-3">
-  <!-- Brand Cards - 4 on mobile, 5 on tablet, 7 on desktop -->
-    <div class="col-4 col-sm-5th col-lg-7th">
-      <div class="brand-card">
-        <img src="assets/images/brandimagehundai.jpg" alt="Hyundai Logo" class="brand-logo">
-        <h3 class="brand-name">Hyundai</h3>
-        <div class="brand-meta">
-          <span class="brand-count">25 Cars</span>
-          <button class="brand-arrow">
-            <ion-icon name="arrow-forward-outline"></ion-icon>
-
-          </button>
-        </div>
-      </div>
-    </div>
-    <div class="col-4 col-sm-5th col-lg-7th">
-      <div class="brand-card">
-        <img src="assets/images/brandimagehundai.jpg" alt="Hyundai Logo" class="brand-logo">
-        <h3 class="brand-name">Hyundai</h3>
-        <div class="brand-meta">
-          <span class="brand-count">25 Cars</span>
-          <button class="brand-arrow">
-            <ion-icon name="arrow-forward-outline"></ion-icon>
-
-          </button>
-        </div>
-      </div>
-    </div>
-        <div class="col-4 col-sm-5th col-lg-7th">
-      <div class="brand-card">
-        <img src="assets/images/brandimagehundai.jpg" alt="Hyundai Logo" class="brand-logo">
-        <h3 class="brand-name">Hyundai</h3>
-        <div class="brand-meta">
-          <span class="brand-count">25 Cars</span>
-          <button class="brand-arrow">
-            <ion-icon name="arrow-forward-outline"></ion-icon>
-
-          </button>
-        </div>
-      </div>
-    </div>
-
-        <div class="col-4 col-sm-5th col-lg-7th">
-      <div class="brand-card">
-        <img src="assets/images/brandimagehundai.jpg" alt="Hyundai Logo" class="brand-logo">
-        <h3 class="brand-name">Hyundai</h3>
-        <div class="brand-meta">
-          <span class="brand-count">25 Cars</span>
-          <button class="brand-arrow">
-          <ion-icon name="arrow-forward-outline"></ion-icon>
-
-          </button>
-        </div>
-      </div>
-    </div>
-        <div class="col-4 col-sm-5th col-lg-7th">
-      <div class="brand-card">
-        <img src="assets/images/brandimagehundai.jpg" alt="Hyundai Logo" class="brand-logo">
-        <h3 class="brand-name">Hyundai</h3>
-        <div class="brand-meta">
-          <span class="brand-count">25 Cars</span>
-          <button class="brand-arrow">
-           <ion-icon name="arrow-forward-outline"></ion-icon>
-
-          </button>
-        </div>
-      </div>
-    </div>
-        <div class="col-4 col-sm-5th col-lg-7th">
-      <div class="brand-card">
-        <img src="assets/images/brandimagehundai.jpg" alt="Hyundai Logo" class="brand-logo">
-        <h3 class="brand-name">Hyundai</h3>
-        <div class="brand-meta">
-          <span class="brand-count">25 Cars</span>
-          <button class="brand-arrow">
-           <ion-icon name="arrow-forward-outline"></ion-icon>
-
-          </button>
-        </div>
-      </div>
-    </div>
-        <div class="col-4 col-sm-5th col-lg-7th">
-      <div class="brand-card">
-        <img src="assets/images/brandimagehundai.jpg" alt="Hyundai Logo" class="brand-logo">
-        <h3 class="brand-name">Hyundai</h3>
-        <div class="brand-meta">
-          <span class="brand-count">25 Cars</span>
-          <button class="brand-arrow">
-            <ion-icon name="arrow-forward-outline"></ion-icon>
-
-          </button>
-        </div>
-      </div>
-    </div>
-        <div class="col-4 col-sm-5th col-lg-7th">
-      <div class="brand-card">
-        <img src="assets/images/brandimagehundai.jpg" alt="Hyundai Logo" class="brand-logo">
-        <h3 class="brand-name">Hyundai</h3>
-        <div class="brand-meta">
-          <span class="brand-count">25 Cars</span>
-          <button class="brand-arrow">
-            <ion-icon name="arrow-forward-outline"></ion-icon>
-
-          </button>
-        </div>
-      </div>
-    </div>
-        <div class="col-4 col-sm-5th col-lg-7th">
-      <div class="brand-card">
-        <img src="assets/images/brandimagehundai.jpg" alt="Hyundai Logo" class="brand-logo">
-        <h3 class="brand-name">Hyundai</h3>
-        <div class="brand-meta">
-          <span class="brand-count">25 Cars</span>
-          <button class="brand-arrow">
-            <ion-icon name="arrow-forward-outline"></ion-icon>
-
-          </button>
-        </div>
-      </div>
-    </div>
-        <div class="col-4 col-sm-5th col-lg-7th">
-      <div class="brand-card">
-        <img src="assets/images/brandimagehundai.jpg" alt="Hyundai Logo" class="brand-logo">
-        <h3 class="brand-name">Hyundai</h3>
-        <div class="brand-meta">
-          <span class="brand-count">25 Cars</span>
-          <button class="brand-arrow">
-           <ion-icon name="arrow-forward-outline"></ion-icon>
-
-          </button>
-        </div>
-      </div>
-    </div>
-        <div class="col-4 col-sm-5th col-lg-7th">
-      <div class="brand-card">
-        <img src="assets/images/brandimagehundai.jpg" alt="Hyundai Logo" class="brand-logo">
-        <h3 class="brand-name">Hyundai</h3>
-        <div class="brand-meta">
-          <span class="brand-count">25 Cars</span>
-          <button class="brand-arrow">
-           <ion-icon name="arrow-forward-outline"></ion-icon>
-
-          </button>
-        </div>
-      </div>
-    </div>
-        <div class="col-4 col-sm-5th col-lg-7th">
-      <div class="brand-card">
-        <img src="assets/images/brandimagehundai.jpg" alt="Hyundai Logo" class="brand-logo">
-        <h3 class="brand-name">Hyundai</h3>
-        <div class="brand-meta">
-          <span class="brand-count">25 Cars</span>
-          <button class="brand-arrow">
-            <ion-icon name="arrow-forward-outline"></ion-icon>
-
-          </button>
-        </div>
-      </div>
-    </div>
-        <div class="col-4 col-sm-5th col-lg-7th">
-      <div class="brand-card">
-        <img src="assets/images/brandimagehundai.jpg" alt="Hyundai Logo" class="brand-logo">
-        <h3 class="brand-name">Hyundai</h3>
-        <div class="brand-meta">
-          <span class="brand-count">25 Cars</span>
-          <button class="brand-arrow">
-           <ion-icon name="arrow-forward-outline"></ion-icon>
-
-          </button>
-        </div>
-      </div>
-    </div>
-        <div class="col-4 col-sm-5th col-lg-7th">
-      <div class="brand-card">
-        <img src="assets/images/brandimagehundai.jpg" alt="Hyundai Logo" class="brand-logo">
-        <h3 class="brand-name">Hyundai</h3>
-        <div class="brand-meta">
-          <span class="brand-count">25 Cars</span>
-          <button class="brand-arrow">
-           <ion-icon name="arrow-forward-outline"></ion-icon>
-
-          </button>
-        </div>
-      </div>
-    </div>
-        <div class="col-4 col-sm-5th col-lg-7th">
-      <div class="brand-card">
-        <img src="assets/images/brandimagehundai.jpg" alt="Hyundai Logo" class="brand-logo">
-        <h3 class="brand-name">Hyundai</h3>
-        <div class="brand-meta">
-          <span class="brand-count">25 Cars</span>
-          <button class="brand-arrow">
-           <ion-icon name="arrow-forward-outline"></ion-icon>
-
-          </button>
-        </div>
-      </div>
-    </div>
 </div>
 
 
-</section>
+        <!-- Two image cards (blueprints) -->
+        <div class="two mb-4">
+          <div class="fstimg"><img src="assets/images/blueprint1.png" alt="" ></div>
+          <div class="secndimg"><img src="assets/images/blueprint2.png" alt="" ></div>
+        </div>
+
+        <!-- Narrative sections -->
+        <div class="section card pad mb-4">
+          <h3>Expert Analysis</h3>
+          <p>
+            The 2025 Hyundai Tucson continues to impress with its bold styling, comprehensive feature set,
+            and competitive pricing. This latest revision builds upon the successful redesign introduced in 2022,
+            offering refinements that address previous concerns while maintaining the SUV’s distinctive character.
+          </p>
+        </div>
+
+        <div class="section card pad mb-4">
+          <h3>Design and Exterior</h3>
+          <p>
+            Hyundai’s parametric design language remains a standout feature, with the Tucson’s angular LED daytime
+            running lights and bold grille creating a distinctive road presence. This 2025 model year brings subtle
+            refinements that enhance the overall aesthetic appeal.
+          </p>
+        </div>
+
+        <div class="section card pad mb-4">
+          <h3>Interior and Comfort</h3>
+          <p>
+            The cabin showcases Hyundai’s commitment to quality materials and thoughtful design. The dual-screen setup
+            integrates the instrument cluster and infotainment system, creating a modern, tech-forward environment.
+            Seating comfort is excellent for both front and rear passengers.
+          </p>
+        </div>
+
+        <div class="section card pad mb-4">
+          <h3>Performance and Efficiency</h3>
+          <p>
+            The standard 2.5-liter four-cylinder engine provides adequate power for daily driving, while the available
+            turbocharged 1.6-liter hybrid powertrain offers an excellent balance of performance and fuel economy.
+            The hybrid’s smooth response and impressive EPA ratings make it a recommended choice.
+          </p>
+        </div>
+
+        <!-- Pros & Cons -->
+        <div class="cols-2 mb-4">
+          <div class="card pad whatwelike">
+            <h3>What We Like</h3>
+            <ul class="leftt-list">
+              <li> Autopilot Technology</li>
+              <li>Performance & Acceleration</li>
+              <li>Interior Design</li>
+              <li> Over-the-air Updates</li>
+            </ul>
+          </div>
+          <div class="card pad areaforimp">
+            <h3>Areas for Improvement</h3>
+            <ul class="right-list">
+              <li>Charging infrastructure in some regions</li>
+              <li> Initial purchase price on some trims</li>
+              <li> Build quality issues on early batches</li>
+              <li> Service center availability</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="section card pad">
+          <h3>Bottom Line</h3>
+          <p>
+            The 2025 Hyundai Tucson remains a compelling choice in the compact-SUV segment. Its distinctive style,
+            well-rounded interior, and strong value proposition make it worthy of consideration. While the base
+            engine is adequate, the hybrid powertrain shines. Overall, Tucson delivers a blend of quality and value.
+          </p>
+        </div>
+      </div>
+
+      <!-- =============== RIGHT COLUMN (sticky) =============== -->
+      <aside class="right-sticky">
+
+        <!-- Key specs box -->
+        <div class="card pad specs">
+          <h3>Key Specifications</h3>
+          <div class="kv">
+            <div class="k"><i class="bi bi-gear-wide-connected me-1"></i>Engine</div>
+            <div class="v">2.5L I4 / 1.6L Turbo Hybrid</div>
+
+            <div class="k"><i class="bi bi-speedometer2 me-1"></i>Horsepower</div>
+            <div class="v">187 hp / 226 hp</div>
+
+            <div class="k"><i class="bi bi-fuel-pump me-1"></i>MPG (City/Hwy)</div>
+            <div class="v">26 / 33 (gas) · 38/38 (hybrid)</div>
+
+            <div class="k"><i class="bi bi-people me-1"></i>Seating</div>
+            <div class="v">5 passengers</div>
+          </div>
+        </div>
+
+        <!-- Expert review cards (reuse your existing component here) -->
+    <div class="container mb-2">  
+ <article class="review-card mb-4">
+        <div class="review-media">
+          <img src="assets/images/blog-image.jpg" alt="Hyundai Creta 2024 review">
+        </div>
+        <div class="review-body">
+          <div class="d-flex justify-content-between align-items-center mb-1">
+            <h5 class="review-title mb-0">Hyundai Creta 2024</h5>
+            <div class="rating">
+              <i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i>
+              <i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i>
+              <i class="bi bi-star-half"></i>
+              <small class="text-muted ms-1">4.8</small>
+            </div>
+          </div>
+
+          <div class="text-muted small mb-2">By Automotive Nepal</div>
+
+          <p class="review-excerpt">
+            The new Creta impresses with its bold design and feature-rich interior.
+            Perfect for Nepali roads.
+          </p>
+
+          <div class="text-muted small mb-2">3 min read</div>
+
+          <div class="fw-semibold mb-2 key">Key Highlights:</div>
+          <div class="d-flex flex-wrap gap-2 mb-3">
+            <span class="chip">Spacious Interior</span>
+            <span class="chip">Feature-rich</span>
+            <span class="chip">Refined Ride</span>
+            
+          </div>
+
+          <a href="#" class="btn btn-outline-choco">Read More</a>
+        </div>
+      </article>
+         <article class="review-card">
+        <div class="review-media">
+          <img src="assets/images/blog-image.jpg" alt="Hyundai Creta 2024 review">
+        </div>
+        <div class="review-body">
+          <div class="d-flex justify-content-between align-items-center mb-1">
+            <h5 class="review-title mb-0">Hyundai Creta 2024</h5>
+            <div class="rating">
+              <i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i>
+              <i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i>
+              <i class="bi bi-star-half"></i>
+              <small class="text-muted ms-1">4.8</small>
+            </div>
+          </div>
+
+          <div class="text-muted small mb-2">By Automotive Nepal</div>
+
+          <p class="review-excerpt">
+            The new Creta impresses with its bold design and feature-rich interior.
+            Perfect for Nepali roads.
+          </p>
+
+          <div class="text-muted small mb-2">3 min read</div>
+
+          <div class="fw-semibold mb-2 key">Key Highlights:</div>
+          <div class="d-flex flex-wrap gap-2 mb-3">
+            <span class="chip">Spacious Interior</span>
+            <span class="chip">Feature-rich</span>
+            <span class="chip">Refined Ride</span>
+            
+          </div>
+
+          <a href="#" class="btn btn-outline-choco">Read More</a>
+        </div>
+      </article>
+      </div> 
+      </aside>
+    </section>
+  </div>
 </main>
- <!-- FOOTER -->
+    
+    <!-- FOOTER -->
     <footer class="footer-motokhabar pt-5 pb-4">
 
       <div class="row gx-4 footer-margin ">

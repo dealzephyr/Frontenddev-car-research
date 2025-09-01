@@ -15,23 +15,20 @@
   --bs-body-font-family: "Poppins", sans-serif;
 }
 .toppart{
-    margin-left: 127px;
-     
-}
-main{
-   
-    margin-left: 50px;
+    margin-left: 100px;
+    
 }
 .btn-outline-secondary{
     background-color: var(--primary-light);
     color: #ffffff;
     font-size: 15px;
-    width: 141px;
- 
- 
-}
+    width: 141px;}
+
 .rankings-title{
     font-size: 24px !important;
+}
+.top-filter{
+  margin-bottom: 19px;
 }
 /* Mobile: center each card and restrict width for a tidy column */
 @media (max-width: 575.98px){
@@ -43,12 +40,12 @@ main{
     margin: 0;
     padding: 12px 19px 8px;
   }
-  .expert-reviews.container{
+   section.expert-reviews.container {
+    --bs-gutter-x: 0;
     padding-left: 0 !important;
     padding-right: 0 !important;
     margin-left: 0 !important;
     margin-right: 0 !important;
-    --bs-gutter-x: 0;
   }
   .expert-reviews .row{
     margin-left: 0 !important;
@@ -56,32 +53,44 @@ main{
     --bs-gutter-x: 16px; /* your desired side padding per column */
   }
     .expert-reviews{ margin-left: 0 !important; }
-   .expert-reviews .rankings-title{
-    margin-left: 0px !important;
+   .expert-reviews .rankings-title, .rankings-sub{
+    margin-left: 20px !important;
+   
+  }
+  .rankings-sub{
+    margin-bottom: 30px;
   }
 
   /* 2) Filter layout: stack as column; first row = 2 selects, button below full width */
   .expert-reviews > .top-filter{
     display: flex !important;
     flex-direction: column !important;
-    gap: 10px !important;
+    gap: 21px !important;
+    
+   
   }
   /* Make the two selects sit side-by-side */
   .expert-reviews .top-filter .mini-filter-item{
-    display: grid !important;
+    display: flex;
     grid-template-columns: 1fr 1fr;
-    gap: 10px;
-    width: 100%;
+    gap: 18px !important;
+   
+     margin-left: 39px;
   }
   .expert-reviews .top-filter .mini-filter{
-    width: 100%;             /* selects fill their grid cells */
+    width: 149px;
+    font-size: 14px;
+    font-weight: 500; 
+               /* selects fill their grid cells */
   }
   /* Search button below, full width */
   .expert-reviews .top-filter .flex-shrink-0{
     width: 100% !important;
   }
-  .expert-reviews .top-filter .btn{
-    width: 100%;
+  .expert-reviews .top-filter .search-btn{
+    width: 316px;
+     margin-left: 39px;
+     
   }
 
   /* 3) Center the cards on the page */
@@ -93,10 +102,19 @@ main{
     display: flex;            /* center each card within its column */
     justify-content: center;
   }
-  .expert-reviews .review-card{
-    max-width: 360px;         /* tidy width on mobile */
-    width: 100%;
-    margin: 0 auto;
+ .expert-reviews .review-card{ width: 322px !important; }
+
+  .expert-reviews h3{ font-size:19px !important; }
+  .expert-reviews p.rankings-sub{ font-size:14px; margin-top: 10px;}
+  .expert-reviews .review-media img{ height:161px; }
+  .expert-reviews .review-body{ padding:16px; }
+  .expert-reviews .review-title{ font-size:14px; }
+  .expert-reviews .review-excerpt{ font-size:12px; margin-bottom: 11px;}
+  .expert-reviews .btn.btn-outline-choco{ padding:3px 12px; font-size:12px; height: 25px; }
+  .expert-reviews .chip{ font-size:10px; padding:6px 10px; }
+  .expert-reviews .key{ font-size:12px; }
+  .expert-reviews .d-flex.gap-2{
+    display: block !important; /* override Bootstrap flex */
   }
  
 

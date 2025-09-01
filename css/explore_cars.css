@@ -237,11 +237,7 @@
   .toppart{
     margin: 0;
     padding: 12px 19px 8px;
-  }
- 
-  
-
-  .toppart h3{
+  }.toppart h3{
     font-size: 18px !important;
   font-weight: 600;
   color: #212121;

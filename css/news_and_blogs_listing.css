@@ -50,3 +50,41 @@ padding: 19px 19px 0px 19px;
   height:200px; object-fit:cover; display:block;
 }
 .featured-blogs .blog-body{ padding:14px; }
+
+
+.cards-carousel {
+  position: relative;
+}
+
+.cc-track {
+  display: grid;
+  grid-auto-flow: column;
+  /* card width per column; adjust if your blog-card is wider/narrower */
+  grid-auto-columns: min(100%, 340px);
+  gap: 24px;
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  padding: 4px 56px 12px; /* space for arrows */
+}
+.cc-track > * { scroll-snap-align: start; }
+
+.cc-track::-webkit-scrollbar { height: 8px; }
+.cc-track::-webkit-scrollbar-thumb {
+  background: #d4d4d4; border-radius: 99px;
+}
+
+.cc-btn {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 44px; height: 44px;
+  border-radius: 50%;
+  border: 1px solid #efefef;
+  background: #fff;
+  display: grid; place-items: center;
+  box-shadow: 0 6px 14px rgba(0,0,0,.08);
+  z-index: 2;
+}
+.cc-btn i { color: #212121; font-size: 20px; }
+.cc-btn.prev { left: 8px; }
+.cc-btn.next { right: 8px; }
