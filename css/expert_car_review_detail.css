@@ -30,7 +30,7 @@
         height: clamp(232px,60vw,441px);
         width: clamp(363px,60vw,804px) ;
         box-sizing: border-box;
-        margin-left: 10px;
+       
      }
     /* ---------- Two-column layout ---------- */
     .detail-layout{
@@ -76,26 +76,6 @@
     .overallrating{
         box-shadow: 0px 4px 4px 0px #00000040;
     }
-      /* Header layout: number + (stars above text) */
-.rating-head{
-  display:flex;
-  align-items:flex-start;
-  gap:16px;
-}
-.big-score{
-  font-size:28px;
-  font-weight:800;
-  line-height:1;
-}
-.star-block .stars{
-  color:#ffb000;           /* star color */
-  font-size:18px;
-  line-height:1;
-}
-.star-block .tagline{
-  margin-top:6px;
-  font-size:12px;
-}
 
 
 
@@ -141,7 +121,7 @@
 .overall-card{
   background:#fff;
   border-radius:20px;
-  padding:28px 28px 26px;
+  padding:28px 8px 26px;
   box-shadow:0 6px 24px rgba(0,0,0,.06);
 }
 
@@ -174,13 +154,13 @@
 .or-tagline{
   color:#777;
   font-size:13px;
-  font-size:
+  font-weight:400;
 }
 
 /* 2×2 grid of metrics */
 .or-grid{
   display:grid;
-  grid-template-columns:1fr 1fr;
+  grid-template-columns: repeat(2, minmax(0,1fr));
   gap:26px 64px;             /* row gap / column gap */
   margin-top:6px;
 }
@@ -191,7 +171,7 @@
   justify-content:space-between;
   align-items:center;
   color:#606060;
-  font-size:20px;
+  font-size:14px;
   margin-bottom:8px;
 }
 .metric-val{
@@ -201,7 +181,8 @@
 /* Bars */
 .meter{
   position:relative;
-  height:16px;
+  height:12px;
+  width: 100%;
   background:#d7d7da;        /* track */
   border-radius:999px;
   overflow:hidden;
@@ -214,9 +195,96 @@
   border-radius:inherit;
 }
 
+.metric{ min-width:0; }
+.metric-row{ gap:8px; }
+.metric-row span{ white-space:nowrap; }
+
+@media (max-width: 360px){
+  .or-grid{ grid-template-columns: 1fr; }
+}
+
 /* Responsive: stack the 2 columns on small screens */
-@media (max-width: 768px){
-  .or-grid{ grid-template-columns:1fr; }
-  .or-tagline{ font-size:16px; }
-  .or-score{ font-size:38px; }
+
+@media (max-width: 575.98px){
+  .page-title{font-size: 20px;}
+  .page-sub{font-size: 12px;}
+  .overall-card{}
+  .overall-title{}
+  .or-score{font-size: 24px;}
+  .or-stars{}
+  .or-tagline{}
+  .metric-row{}
+  .meter{height: 7px; width: 100%;}
+}
+
+
+/* Give the page some side padding on phones */
+@media (max-width: 991.98px) {
+  .main-part {
+    padding-inline: 16px;      /* left & right */
+  }
+  .specs{margin-bottom: 0;}
+}
+
+/* Kill the fixed/min widths that cause overflow on phones */
+@media (max-width: 575.98px) {
+  /* Hero image: take full width, no forced min width, no left nudge */
+  .herosec img {
+    width: 100% !important;
+    height: auto !important;
+    margin-left: 0 !important;
+  }
+
+  /* Right-column cards should fit the viewport */
+  .specs,
+  .review-card {
+    width: 100% !important;
+    max-width: 100% !important;
+    height: auto;              /* make the specs box grow naturally */
+  }
+
+  /* A little tighter spacing on very small screens (optional) */
+  .detail-layout { gap: 18px; }
+  .overall-card,
+  .section.card,
+  .cols-2 .card {
+    width: 100%;
+  }
+}
+
+/* Keep sticky behavior only for desktop so it doesn't interfere on small screens */
+@media (max-width: 991.98px) {
+  .right-sticky { position: static !important; }
+}
+@media (min-width: 992px) {
+  .right-sticky { position: sticky; top: 12px; }
+}
+
+
+/* MOBILE: interleave items from left column and aside */
+@media (max-width: 575.98px){
+  /* Make the grid act like a single flex column */
+  .detail-layout{
+    display: flex;
+    flex-direction: column;
+    gap: 18px; /* keep your spacing tidy */
+  }
+
+  /* Flatten the wrappers so their children become direct flex items */
+  .detail-layout > div:first-child,
+  .detail-layout > aside{
+    display: contents;  /* lets us reorder inner pieces across columns */
+  }
+
+  /* --- Desired order --- */
+  .herosec{ order: 10; }          /* 1) Hero image */
+  .specs{ order: 20; }            /* 2) Key Specifications (from aside) */
+  .overall-card{ order: 30; }     /* 3) Overall Rating */
+  .two{ order: 40; }              /* 4) Blueprints */
+  .cols-2{ order: 60; }           /* 6) Pros & Cons */
+  .section.card{ order: 60; }     /* 5) Narrative sections (all of them) */
+  .container.mb-2{ order: 70; }   /* 7) Expert review cards (right column) */
+
+  /* Ensure right-column cards fit width on phones */
+  .specs, .review-card{ width:100%; max-width:100%; height:auto; }
 }
