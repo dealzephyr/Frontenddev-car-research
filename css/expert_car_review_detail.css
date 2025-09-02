@@ -135,3 +135,88 @@
     /* ---------- Right column (sticky) ---------- */
     .right-sticky{position:sticky; gap:18px}
     
+
+
+    /* Container */
+.overall-card{
+  background:#fff;
+  border-radius:20px;
+  padding:28px 28px 26px;
+  box-shadow:0 6px 24px rgba(0,0,0,.06);
+}
+
+/* Title */
+.overall-title{
+  margin:0 0 14px 0;
+  font-size:17px !important;
+  font-weight:600;
+}
+
+/* Header line (score + stars + tagline) */
+.or-head{
+  display:flex;
+  align-items:center;
+  gap:14px;
+  flex-wrap:wrap;            /* wrap on small screens */
+  margin-bottom:18px;
+}
+.or-score{
+  font-size:24px;
+  line-height:1;
+  font-weight:600;
+}
+.or-stars{
+  color:#FFB000;             /* star color */
+  font-size:17px;
+  line-height:1;
+  letter-spacing:1px;
+}
+.or-tagline{
+  color:#777;
+  font-size:13px;
+  font-size:
+}
+
+/* 2×2 grid of metrics */
+.or-grid{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:26px 64px;             /* row gap / column gap */
+  margin-top:6px;
+}
+
+/* Each metric */
+.metric-row{
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  color:#606060;
+  font-size:20px;
+  margin-bottom:8px;
+}
+.metric-val{
+  color:#6b6b6b;
+}
+
+/* Bars */
+.meter{
+  position:relative;
+  height:16px;
+  background:#d7d7da;        /* track */
+  border-radius:999px;
+  overflow:hidden;
+}
+.meter-fill{
+  position:absolute;
+  inset:0 auto 0 0;
+  width:70%;                 /* overridden inline */
+  background:#4b332d;        /* filled part */
+  border-radius:inherit;
+}
+
+/* Responsive: stack the 2 columns on small screens */
+@media (max-width: 768px){
+  .or-grid{ grid-template-columns:1fr; }
+  .or-tagline{ font-size:16px; }
+  .or-score{ font-size:38px; }
+}
