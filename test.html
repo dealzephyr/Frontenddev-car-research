@@ -1,501 +1,332 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, shrink-to-fit=no">
-    <!-- Bootstrap CSS -->
-    <link
-      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
-      rel="stylesheet"
-    />
-    <!-- Google Font -->
-    <link
-      href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap"
-      rel="stylesheet"
-    />
-    <!--  Ionicons CDN for exact compare Icons -->
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>Car Ownership Cost Calculator</title>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
 
-    <script
-      type="module"
-      src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"
-    ></script>
-    <script
-      nomodule
-      src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"
-    ></script>
-    <!-- Bootstrap icon link -->
-    <link
-      rel="stylesheet"
-      href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css"
-    />
-    <link rel="stylesheet" href="css/style.css" />
-    <link rel="stylesheet" href="css/test.css" />
+<style>
+/* ---- Palette (yours) ---- */
+:root{
+  --primary-color:#5d4037;
+  --primary-light:#4e342e;
+  --primary-dark:#212121;
+  --secondary-color:#e2c2bb;
+  --text-on-primary:#ffffff;
+  --neutral-light:#ffffff;
+  --neutral-mid:#d4d4d4;
+  --neutral-dark:#757575;
+}
 
-    <title>Explore Cars</title>
-  </head>
-  <body>
-    <header class="site-header sticky-top">
-      <!-- TOP NAV -->
-      <nav class="navbar navbar-expand-lg navbar-light header-top shadow-sm">
-        <div class="container header-container">
-          <!-- Logo -->
-          <a class="navbar-brand d-flex align-items-center" href="#">
-            <img
-              src="assets/images/logo.png"
-              alt="Motokhabar"
-              class="site-logo"
-            />
-          </a>
+/* ---- Base ---- */
+*{box-sizing:border-box}
+html,body{height:100%}
+body{
+  font-family:"Poppins",sans-serif;
+  background:#fffbf7; /* very soft warm white so cards pop */
+  color:var(--primary-dark);
+  font-size:14px;
+  margin:0;
+}
+.container{
+  max-width:1100px;
+  margin:40px auto 60px;
+  padding:0 16px;
+}
 
-          <!-- Mobile toggler -->
-          <button
-            class="navbar-toggler"
-            type="button"
-            data-bs-toggle="collapse"
-            data-bs-target="#topNav"
-            aria-controls="topNav"
-            aria-expanded="false"
-            aria-label="Toggle navigation"
-          >
-            <span class="navbar-toggler-icon"></span>
-          </button>
+/* ---- Section header ---- */
+.calc-head{
+  text-align:center;
+  margin-bottom:22px;
+}
+.calc-head .title{
+  font-size:22px;
+  font-weight:600;
+  display:inline-flex;
+  gap:10px;
+  align-items:center;
+}
+.calc-head .title i{
+  width:22px;height:22px;
+  display:inline-block;
+  border:2px solid var(--primary-color);
+  border-radius:4px;
+  position:relative;
+}
+.calc-head .title i:before{
+  content:"₹";
+  position:absolute; inset:0;
+  display:grid; place-items:center;
+  font-size:12px; color:var(--primary-color);
+  font-weight:600;
+}
+.calc-head .sub{
+  color:var(--neutral-dark);
+  margin-top:6px;
+  font-size:12.5px;
+}
 
-          <!-- Search + right items -->
-          <div class="collapse navbar-collapse" id="topNav">
-            <!-- Search -->
-            <form
-              class="ms-lg-3 me-lg-4 my-3 my-lg-0 w-100 w-lg-auto header-search"
-              role="search"
-            >
-              <div class="input-group">
-                <span class="input-group-text bg-transparent border-0 ps-3">
-                  <i class="bi bi-search"></i>
-                </span>
-                <input
-                  type="search"
-                  class="form-control search-input"
-                  placeholder="Search Cars"
-                  aria-label="Search Cars"
-                />
-              </div>
-            </form>
+/* ---- Grid ---- */
+.calc-grid{
+  display:grid;
+  grid-template-columns:1fr;
+  gap:18px;
+}
+@media(min-width: 900px){
+  .calc-grid{ grid-template-columns: 1fr 1fr; }
+}
 
-            <!-- Right items -->
-            <ul class="navbar-nav ms-auto align-items-center header-actions">
-              <li class="nav-item d-flex align-items-center me-3">
-                <!-- <i class="bi bi-shuffle me-2"></i> -->
-                <ion-icon
-                  name="git-compare-outline"
-                  style="width: 20px; height: 20px; padding-right: 3px"
-                ></ion-icon>
+/* ---- Card ---- */
+.panel{
+  background:#fff;
+  border-radius:14px;
+  box-shadow:0 12px 30px -14px rgba(0,0,0,.25);
+  padding:18px 18px 20px;
+}
+.panel h3{
+  margin:0 0 8px;
+  font-size:16px;
+  font-weight:600;
+}
+.panel p.hint{
+  margin:0 0 14px;
+  color:var(--neutral-dark);
+  font-size:12.5px;
+}
 
-                <a class="nav-link p-0" href="#">Compare</a>
-              </li>
-              <li class="nav-item d-flex align-items-center me-3">
-                <i class="bi bi-bell me-2"></i>
-                <a class="nav-link p-0" href="#">Notification</a>
-              </li>
-              <li class="nav-item">
-                <a
-                  class="nav-link p-0 d-flex align-items-center"
-                  href="#"
-                  style="white-space: nowrap"
-                >
-                  <i class="bi bi-person me-2"></i>
-                  Hello, Login
-                  <span class="badge-dot ms-2"></span>
-                </a>
-              </li>
-              <li>
-                <a href="#" class="flag-nepal" aria-label="Nepal Flag">
-                  <img src="assets/images/nepal-flag.png" alt="Nepal Flag" />
-                </a>
-              </li>
-            </ul>
-          </div>
+/* ---- Form controls ---- */
+.form-row{ margin-bottom:14px; }
+.label{
+  display:block;
+  font-weight:600;
+  font-size:12.5px;
+  margin-bottom:6px;
+  color:var(--primary-dark);
+}
+.input, .select{
+  width:100%;
+  border:1px solid #eee;
+  background:#fff;
+  border-radius:10px;
+  padding:12px 12px;
+  outline:none;
+  transition:border-color .15s;
+}
+.input:focus, .select:focus{ border-color:var(--secondary-color); }
+
+/* ---- Range (years) ---- */
+.range-wrap{ padding-right:10px; }
+.range-top{
+  display:flex; justify-content:space-between; align-items:center;
+  margin-bottom:6px;
+}
+.years-pill{
+  background:#f4f2f1;
+  color:#4b4543;
+  border-radius:999px;
+  padding:6px 12px;
+  font-size:12px;
+  font-weight:600;
+}
+input[type=range]{
+  -webkit-appearance:none; appearance:none;
+  width:100%; height:6px; border-radius:999px;
+  background:#e8e6e6; outline:none;
+}
+input[type=range]::-webkit-slider-thumb{
+  -webkit-appearance:none; appearance:none;
+  width:18px; height:18px; border-radius:50%;
+  background:var(--primary-color);
+  border:2px solid #fff; box-shadow:0 2px 8px rgba(0,0,0,.25);
+  cursor:pointer;
+}
+input[type=range]::-moz-range-thumb{
+  width:18px;height:18px;border-radius:50%;
+  background:var(--primary-color); border:2px solid #fff;
+  box-shadow:0 2px 8px rgba(0,0,0,.25);
+  cursor:pointer;
+}
+
+/* ---- Button ---- */
+.btn{
+  width:100%;
+  background:var(--primary-color);
+  color:var(--text-on-primary);
+  padding:12px 14px;
+  border:none; border-radius:10px;
+  font-weight:600;
+  cursor:pointer;
+  transition:filter .15s, transform .05s;
+}
+.btn:hover{ filter:brightness(1.05); }
+.btn:active{ transform:translateY(1px); }
+
+/* ---- Right panel (results) ---- */
+.results-blank{
+  min-height:420px;
+  border:2px dashed #eee;
+  border-radius:12px;
+  display:grid; place-items:center;
+  color:#a7a7a7;
+  text-align:center;
+  padding:36px 20px;
+}
+.icon-car{
+  width:46px;height:30px;border-radius:4px;
+  border:2px solid #bbb; margin:0 auto 8px;
+  position:relative;
+}
+.icon-car:before,.icon-car:after{
+  content:""; position:absolute; bottom:-8px;
+  width:12px;height:12px;border-radius:50%; background:#bbb;
+}
+.icon-car:before{ left:6px } .icon-car:after{ right:6px }
+
+.breakdown{
+  display:none;
+}
+.breakdown.show{ display:block; }
+.row{
+  display:flex; justify-content:space-between; align-items:center;
+  padding:10px 0; border-bottom:1px dashed #eee;
+}
+.row:last-child{ border-bottom:0; }
+.k{ color:#4a4a4a; }
+.v{ font-weight:600; }
+.total{
+  margin-top:10px; padding-top:10px; border-top:1px solid #ececec;
+  display:flex; justify-content:space-between; align-items:center;
+  font-weight:700;
+}
+.small-note{ color:var(--neutral-dark); font-size:12px; margin-top:8px; }
+.badge-soft{
+  display:inline-block; background:#f6ebe8; color:#7b564f;
+  padding:4px 8px; border-radius:999px; font-size:11px; font-weight:600;
+}
+</style>
+</head>
+<body>
+
+<div class="container">
+  <!-- Header -->
+  <div class="calc-head">
+    <div class="title"><i></i> Car Ownership Cost Calculator</div>
+    <div class="sub">Understand the true cost of owning your dream car. Get a detailed breakdown of expenses over your desired ownership period.</div>
+  </div>
+
+  <!-- Grid -->
+  <section class="calc-grid">
+    <!-- LEFT: form -->
+    <div class="panel">
+      <h3>Calculate Your Costs</h3>
+      <p class="hint">Enter details to get an estimated ownership cost.</p>
+
+      <div class="form-row">
+        <label class="label" for="model">Car Model</label>
+        <select id="model" class="select">
+          <option>Maruti Suzuki Swift</option>
+          <option>Hyundai Creta</option>
+          <option>Toyota Hyryder</option>
+          <option>Honda City</option>
+        </select>
+      </div>
+
+      <div class="form-row range-wrap">
+        <div class="range-top">
+          <label class="label" for="years">Ownership Duration</label>
+          <span class="years-pill"><span id="yearsOut">5</span> years</span>
         </div>
-      </nav>
+        <input id="years" type="range" min="1" max="10" step="1" value="5">
+      </div>
 
-      <!-- BOTTOM NAV -->
-      <nav
-        class="navbar navbar-expand-lg navbar-light header-bottom border-top"
-      >
-        <div class="container header-container">
-          <button
-            class="navbar-toggler"
-            type="button"
-            data-bs-toggle="collapse"
-            data-bs-target="#bottomNav"
-            aria-controls="bottomNav"
-            aria-expanded="false"
-            aria-label="Toggle navigation"
-          >
-            <span class="navbar-toggler-icon"></span>
-          </button>
+      <div class="form-row">
+        <label class="label" for="kms">Kilometers per Year <span class="badge-soft">required</span></label>
+        <input id="kms" class="input" type="number" placeholder="e.g., 15000" value="15000" min="0">
+      </div>
 
-          <div
-            class="collapse navbar-collapse justify-content-center"
-            id="bottomNav"
-          >
-            <ul class="navbar-nav header-subnav">
-              <li class="nav-item">
-                <a class="nav-link" href="#">New Cars</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" href="#">Used Cars</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" href="#">Expert Review</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" href="#">News &amp; Blogs</a>
-              </li>
-              <li class="nav-item"><a class="nav-link" href="#">Contact</a></li>
-            </ul>
-          </div>
-        </div>
-      </nav>
-    </header>
-    <!-- Top breadcrump -->
-<!-- Top: breadcrumb + title -->
-<section class="container py-3">
-  <nav aria-label="breadcrumb">
-    <ol class="breadcrumb mb-2">
-      <li class="breadcrumb-item"><a href="home.html">Home</a></li>
-      <li class="breadcrumb-item active" aria-current="page">Explore Cars</li>
-    </ol>
-  </nav>
+      <div class="form-row">
+        <label class="label" for="fuel">Fuel Type</label>
+        <select id="fuel" class="select">
+          <option value="petrol">Petrol</option>
+          <option value="diesel">Diesel</option>
+          <option value="ev">Electric (EV)</option>
+          <option value="hybrid">Hybrid</option>
+        </select>
+      </div>
 
-  <h3 class="fw-bold mb-1">Explore New Cars</h3>
-  <p class="text-muted mb-0">Find your perfect car with our advanced filters</p>
-</section>
+      <div class="form-row">
+        <label class="label" for="emi">Monthly EMI (Optional)</label>
+        <input id="emi" class="input" type="number" placeholder="e.g., 12,000" min="0">
+      </div>
 
-<main>
-  <section class="container my-4">
-    <div class="row g-4">
-      <!-- =============== FILTERS =============== -->
-      <!-- Desktop/LG+: visible sticky sidebar -->
-      <aside class="col-lg-3 d-none d-lg-block">
-        <div class="card shadow-sm sticky-top" style="top: 90px;">
-          <div class="card-body p-2">
-            <div class="accordion accordion-flush" id="filtersDesktop">
-              <!-- Sort -->
-              <div class="accordion-item">
-                <h2 class="accordion-header" id="flt-sort-h">
-                  <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flt-sort" aria-expanded="false">
-                    Sort by
-                  </button>
-                </h2>
-                <div id="flt-sort" class="accordion-collapse collapse" data-bs-parent="#filtersDesktop">
-                  <div class="accordion-body">
-                    <div class="form-check mb-1">
-                      <input class="form-check-input" type="radio" name="sort" id="s1">
-                      <label class="form-check-label" for="s1">Popular</label>
-                    </div>
-                    <div class="form-check mb-1">
-                      <input class="form-check-input" type="radio" name="sort" id="s2">
-                      <label class="form-check-label" for="s2">Price: Low → High</label>
-                    </div>
-                    <div class="form-check">
-                      <input class="form-check-input" type="radio" name="sort" id="s3">
-                      <label class="form-check-label" for="s3">Price: High → Low</label>
-                    </div>
-                  </div>
-                </div>
-              </div>
+      <button id="calcBtn" class="btn">Calculate Ownership Cost</button>
+    </div>
 
-              <!-- MPG -->
-              <div class="accordion-item">
-                <h2 class="accordion-header" id="flt-mpg-h">
-                  <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flt-mpg">MPG</button>
-                </h2>
-                <div id="flt-mpg" class="accordion-collapse collapse" data-bs-parent="#filtersDesktop">
-                  <div class="accordion-body">
-                    <div class="form-check mb-1"><input class="form-check-input" type="checkbox" id="mpg1"><label class="form-check-label" for="mpg1">15–20</label></div>
-                    <div class="form-check mb-1"><input class="form-check-input" type="checkbox" id="mpg2"><label class="form-check-label" for="mpg2">20–30</label></div>
-                    <div class="form-check"><input class="form-check-input" type="checkbox" id="mpg3"><label class="form-check-label" for="mpg3">30+</label></div>
-                  </div>
-                </div>
-              </div>
+    <!-- RIGHT: results -->
+    <div class="panel">
+      <h3>Cost Breakdown</h3>
+      <p class="hint">Enter details and click ‘Calculate’ to see the breakdown.</p>
 
-              <!-- Seating -->
-              <div class="accordion-item">
-                <h2 class="accordion-header" id="flt-seat-h">
-                  <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flt-seat">Sitting Capacity</button>
-                </h2>
-                <div id="flt-seat" class="accordion-collapse collapse" data-bs-parent="#filtersDesktop">
-                  <div class="accordion-body">
-                    <div class="form-check mb-1"><input class="form-check-input" type="checkbox" id="st4"><label class="form-check-label" for="st4">4 Seater</label></div>
-                    <div class="form-check mb-1"><input class="form-check-input" type="checkbox" id="st5"><label class="form-check-label" for="st5">5 Seater</label></div>
-                    <div class="form-check"><input class="form-check-input" type="checkbox" id="st7"><label class="form-check-label" for="st7">7+ Seater</label></div>
-                  </div>
-                </div>
-              </div>
-
-              <!-- Drivetrain -->
-              <div class="accordion-item">
-                <h2 class="accordion-header" id="flt-drive-h">
-                  <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flt-drive">Drive Train</button>
-                </h2>
-                <div id="flt-drive" class="accordion-collapse collapse" data-bs-parent="#filtersDesktop">
-                  <div class="accordion-body">
-                    <div class="form-check mb-1"><input class="form-check-input" type="checkbox" id="dr1"><label class="form-check-label" for="dr1">FWD</label></div>
-                    <div class="form-check mb-1"><input class="form-check-input" type="checkbox" id="dr2"><label class="form-check-label" for="dr2">RWD</label></div>
-                    <div class="form-check"><input class="form-check-input" type="checkbox" id="dr3"><label class="form-check-label" for="dr3">AWD/4WD</label></div>
-                  </div>
-                </div>
-              </div>
-
-              <!-- Transmission -->
-              <div class="accordion-item">
-                <h2 class="accordion-header" id="flt-tr-h">
-                  <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flt-tr">Transmission</button>
-                </h2>
-                <div id="flt-tr" class="accordion-collapse collapse" data-bs-parent="#filtersDesktop">
-                  <div class="accordion-body">
-                    <div class="form-check mb-1"><input class="form-check-input" type="checkbox" id="mt"><label class="form-check-label" for="mt">Manual</label></div>
-                    <div class="form-check"><input class="form-check-input" type="checkbox" id="at"><label class="form-check-label" for="at">Automatic</label></div>
-                  </div>
-                </div>
-              </div>
-
-              <!-- Engine -->
-              <div class="accordion-item">
-                <h2 class="accordion-header" id="flt-eng-h">
-                  <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flt-eng">Engine</button>
-                </h2>
-                <div id="flt-eng" class="accordion-collapse collapse" data-bs-parent="#filtersDesktop">
-                  <div class="accordion-body">
-                    <div class="form-check mb-1"><input class="form-check-input" type="checkbox" id="e1"><label class="form-check-label" for="e1">&lt; 1.2L</label></div>
-                    <div class="form-check mb-1"><input class="form-check-input" type="checkbox" id="e2"><label class="form-check-label" for="e2">1.2–2.0L</label></div>
-                    <div class="form-check"><input class="form-check-input" type="checkbox" id="e3"><label class="form-check-label" for="e3">&gt; 2.0L</label></div>
-                  </div>
-                </div>
-              </div>
-
-              <!-- Fuel -->
-              <div class="accordion-item">
-                <h2 class="accordion-header" id="flt-fuel-h">
-                  <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flt-fuel">Fuel Type</button>
-                </h2>
-                <div id="flt-fuel" class="accordion-collapse collapse" data-bs-parent="#filtersDesktop">
-                  <div class="accordion-body">
-                    <div class="form-check mb-1"><input class="form-check-input" type="checkbox" id="f1"><label class="form-check-label" for="f1">Petrol</label></div>
-                    <div class="form-check mb-1"><input class="form-check-input" type="checkbox" id="f2"><label class="form-check-label" for="f2">Diesel</label></div>
-                    <div class="form-check"><input class="form-check-input" type="checkbox" id="f3"><label class="form-check-label" for="f3">Electric/Hybrid</label></div>
-                  </div>
-                </div>
-              </div>
-
-              <!-- Features -->
-              <div class="accordion-item">
-                <h2 class="accordion-header" id="flt-feat-h">
-                  <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flt-feat">Features</button>
-                </h2>
-                <div id="flt-feat" class="accordion-collapse collapse" data-bs-parent="#filtersDesktop">
-                  <div class="accordion-body">
-                    <div class="form-check mb-1"><input class="form-check-input" type="checkbox" id="ft1"><label class="form-check-label" for="ft1">Sunroof</label></div>
-                    <div class="form-check mb-1"><input class="form-check-input" type="checkbox" id="ft2"><label class="form-check-label" for="ft2">Cruise Control</label></div>
-                    <div class="form-check"><input class="form-check-input" type="checkbox" id="ft3"><label class="form-check-label" for="ft3">Parking Sensors</label></div>
-                  </div>
-                </div>
-              </div>
-            </div> <!-- /accordion -->
-          </div>
-        </div>
-      </aside>
-
-      <!-- Mobile/Tablet: Filter button + Offcanvas -->
-      <div class="col-12 d-lg-none">
-        <div class="d-flex justify-content-between align-items-center">
-          <button class="btn btn-outline-primary btn-sm" data-bs-toggle="offcanvas" data-bs-target="#filtersOffcanvas">
-            <i class="bi bi-sliders me-1"></i> Filters
-          </button>
-          <button class="btn btn-outline-secondary btn-sm">Clear Filters</button>
+      <div id="blank" class="results-blank">
+        <div>
+          <div class="icon-car"></div>
+          <div>Your cost breakdown will appear here.</div>
         </div>
       </div>
 
-      <div class="offcanvas offcanvas-bottom d-lg-none" tabindex="-1" id="filtersOffcanvas" aria-labelledby="filtersOffcanvasLabel">
-        <div class="offcanvas-header">
-          <h5 class="offcanvas-title" id="filtersOffcanvasLabel">Filters</h5>
-          <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
-        </div>
-        <div class="offcanvas-body">
-          <!-- reuse same filter structure as desktop -->
-          <div class="accordion" id="filtersMobile">
-            <!-- (copy of the accordion items from desktop; omitted here to keep this short) -->
-            <!-- You can paste the same items with different IDs (e.g., fltM-*) -->
-          </div>
-        </div>
+      <div id="breakdown" class="breakdown">
+        <div class="row"><div class="k">Fuel / Energy</div><div id="fuelCost" class="v">—</div></div>
+        <div class="row"><div class="k">Maintenance</div><div id="maintCost" class="v">—</div></div>
+        <div class="row"><div class="k">Insurance</div><div id="insCost" class="v">—</div></div>
+        <div class="row"><div class="k">Registration & Misc.</div><div id="miscCost" class="v">—</div></div>
+        <div class="row"><div class="k">EMI (if any)</div><div id="emiCost" class="v">—</div></div>
+        <div class="total"><div>Total Ownership Cost</div><div id="totalCost">—</div></div>
+        <div class="small-note">*Illustrative numbers for demo UI. Replace with your real calculation model.</div>
       </div>
-      <!-- =============== /FILTERS =============== -->
-
-      <!-- =============== RESULTS =============== -->
-      <div class="col-lg-9">
-        <!-- Quick selects + Clear (desktop) -->
-        <div class="d-none d-lg-flex justify-content-between align-items-center mb-3 flex-wrap gap-2">
-          <div class="d-flex flex-wrap gap-2">
-            <select class="form-select form-select-sm minw-160">
-              <option>Brand</option>
-            </select>
-            <select class="form-select form-select-sm minw-160">
-              <option>Model</option>
-            </select>
-            <select class="form-select form-select-sm minw-160">
-              <option>Year</option>
-            </select>
-            <select class="form-select form-select-sm minw-160">
-              <option>Price Range</option>
-            </select>
-          </div>
-          <button class="btn btn-outline-secondary btn-sm">Clear Filters</button>
-        </div>
-
-        <div class="small text-muted mb-2">275 matches</div>
-
-        <!-- Cards grid -->
-        <div class="row row-cols-1 row-cols-md-2 row-cols-lg-3 g-3 g-md-4">
-          <!-- Card -->
-          <div class="col">
-            <article class="card h-100 shadow-sm car-card">
-              <img src="assets/images/marutisuzuki.png" class="card-img-top car-img" alt="Maruti Suzuki Swift">
-              <div class="card-body">
-                <h6 class="card-title mb-1 fw-semibold">Maruti Suzuki Swift</h6>
-                <div class="text-muted small d-flex align-items-center mb-2">
-                  <i class="bi bi-geo-alt-fill me-1"></i> Pokhara, Nepal
-                </div>
-                <hr class="my-2">
-                <div class="small d-flex align-items-center mb-1">
-                  <i class="bi bi-speedometer2 me-2"></i> 25,100 mileage
-                </div>
-                <div class="row row-cols-2 g-2 small text-muted mb-2">
-                  <div class="col d-flex align-items-center"><i class="bi bi-fuel-pump me-2"></i> Diesel</div>
-                  <div class="col d-flex align-items-center"><i class="bi bi-people me-2"></i> Seater</div>
-                </div>
-                <div class="fw-semibold mb-2">Rs 9.70 - 10.93 Lakh*</div>
-                <div class="d-flex gap-2">
-                  <button class="btn btn-primary btn-sm">View Details</button>
-                  <button class="btn btn-outline-primary btn-sm">Compare</button>
-                </div>
-              </div>
-            </article>
-          </div>
-
-          <!-- Duplicate more .col cards as needed ... -->
-          <div class="col">
-            <article class="card h-100 shadow-sm car-card">
-              <img src="assets/images/marutisuzuki.png" class="card-img-top car-img" alt="">
-              <div class="card-body">…</div>
-            </article>
-          </div>
-
-          <div class="col">
-            <article class="card h-100 shadow-sm car-card">
-              <img src="assets/images/marutisuzuki.png" class="card-img-top car-img" alt="">
-              <div class="card-body">…</div>
-            </article>
-          </div>
-
-          <div class="col">
-            <article class="card h-100 shadow-sm car-card">
-              <img src="assets/images/marutisuzuki.png" class="card-img-top car-img" alt="">
-              <div class="card-body">…</div>
-            </article>
-          </div>
-
-          <!-- add as many as you need -->
-        </div>
-
-        <div class="text-center mt-4">
-          <button class="btn btn-outline-primary px-4">Load More</button>
-        </div>
-      </div>
-      <!-- =============== /RESULTS =============== -->
     </div>
   </section>
-</main>
+</div>
 
+<script>
+/* Small helper: INR formatter */
+const asINR = n => new Intl.NumberFormat('en-IN',{style:'currency',currency:'INR',maximumFractionDigits:0}).format(n||0);
 
-    <!-- FOOTER -->
-    <footer class="footer-motokhabar pt-5 pb-4">
-      <div class="container footer-container">
-        <div class="row gx-0 footer-row">
-          <!-- Brand & Contact -->
-          <div class="col-lg-5">
-            <img
-              src="assets/images/logo-white.png"
-              alt="Motokhabar"
-              class="footer-logo mb-3"
-            />
-            <p class="footer-text mb-4 footer-contact">
-              Your trusted companion for making informed<br />
-              car buying decisions in Nepal.
-            </p>
+/* Update years pill */
+const years = document.getElementById('years');
+const yearsOut = document.getElementById('yearsOut');
+years.addEventListener('input', () => yearsOut.textContent = years.value);
 
-            <div class="d-flex align-items-start mb-2 footer-contact">
-              <i class="bi bi-telephone me-2 mt-1"></i>
-              <span>+977 9800000000, +977 9800000000</span>
-            </div>
-            <div class="d-flex align-items-start mb-4 footer-contact">
-              <i class="bi bi-envelope me-2 mt-1"></i>
-              <span>motokhabar@gmail.com</span>
-            </div>
-          </div>
+/* Fake calculator to paint the UI */
+document.getElementById('calcBtn').addEventListener('click', () => {
+  const yrs = +years.value || 1;
+  const km  = +document.getElementById('kms').value || 0;
+  const fuel= document.getElementById('fuel').value;
+  const emi = +document.getElementById('emi').value || 0;
 
-          <!-- Explore -->
-          <div class="col-6 col-lg-3">
-            <h5 class="footer-heading">Explore</h5>
-            <ul class="list-unstyled footer-links">
-              <li><a href="#">Explore cars</a></li>
-              <li><a href="#">Reviews</a></li>
-              <li><a href="#">Latest Deals</a></li>
-              <li><a href="#">News & Blogs</a></li>
-              <li><a href="#">Contact</a></li>
-            </ul>
-          </div>
+  // Very rough demo assumptions
+  const fuelPrice = { petrol:110, diesel:98, ev:10, hybrid:95 }[fuel];    // per litre/unit
+  const mileage    = { petrol:15, diesel:20, ev:6, hybrid:22 }[fuel];     // km/litre (EV: km/unit)
+  const fuelCost   = km / mileage * fuelPrice * yrs;
 
-          <!-- Resources -->
-          <div class="col-6 col-lg-2">
-            <h5 class="footer-heading">Resources</h5>
-            <ul class="list-unstyled footer-links">
-              <li><a href="#">Buying Guide</a></li>
-              <li><a href="#">Car Comparison</a></li>
-              <li><a href="#">Notifications</a></li>
-              <li><a href="#">Ask Questions</a></li>
-            </ul>
-          </div>
+  const maintenance = 12000 * yrs;
+  const insurance   = 18000 * yrs;
+  const misc        = 8000 * yrs;
+  const emiCost     = emi * 12 * yrs;
 
-          <!-- Support -->
-          <div class="col-6 col-lg-2">
-            <h5 class="footer-heading">Support</h5>
-            <ul class="list-unstyled footer-links">
-              <li><a href="#">Help Center</a></li>
-              <li><a href="#">Privacy Policy</a></li>
-              <li><a href="#">Terms of Service</a></li>
-              <li><a href="#">Cookie Policy</a></li>
-            </ul>
-          </div>
-        </div>
+  const total = fuelCost + maintenance + insurance + misc + emiCost;
 
-        <!-- Horizintal lina -->
-        <hr class="footer-hr my-4" />
-
-        <!-- Bottom bar -->
-        <div
-          class="d-flex flex-column flex-lg-row align-items-center justify-content-between"
-        >
-          <p class="copyright mb-2 mb-lg-0 small">
-            &copy; 2024 Motokhabar. All rights reserved.
-          </p>
-          <ul class="list-inline mb-0 footer-bottom-links">
-            <li class="list-inline-item"><a href="#">Privacy</a></li>
-            <li class="list-inline-item"><a href="#">Terms</a></li>
-            <li class="list-inline-item"><a href="#">Contact</a></li>
-          </ul>
-        </div>
-      </div>
-    </footer>
-    <!-- Bootstrap Bundle JS (includes Popper) -->
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
-  </body>
+  // Paint
+  document.getElementById('blank').style.display = 'none';
+  const b = document.getElementById('breakdown');
+  b.classList.add('show');
+  document.getElementById('fuelCost').textContent = asINR(fuelCost);
+  document.getElementById('maintCost').textContent = asINR(maintenance);
+  document.getElementById('insCost').textContent   = asINR(insurance);
+  document.getElementById('miscCost').textContent  = asINR(misc);
+  document.getElementById('emiCost').textContent   = emi ? asINR(emiCost) : '—';
+  document.getElementById('totalCost').textContent = asINR(total);
+});
+</script>
+</body>
 </html>

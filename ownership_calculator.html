@@ -35,13 +35,18 @@
 
     <!-- Custom CSS (with Bootstrap overrides) -->
     <link rel="stylesheet" href="css/style.css" />
-    <link rel="stylesheet" href="css/news_and_blogs_listing.css">
+    <link rel="stylesheet" href="css/comapre.css">
+    <link rel="stylesheet" href="css/explore_cars.css">
+    <link rel="stylesheet" href="css/new_car_detail.css">
+    <link rel="stylesheet" href="css/ownership_calculator.css">
+    
       
   </head>
   
   <body>
    
       
+    
     <header class="site-header sticky-top">
       <!-- TOP NAV -->
       <nav class="navbar navbar-expand-lg navbar-light header-top shadow-sm">
@@ -389,300 +394,211 @@ document.addEventListener('DOMContentLoaded', function() {
       </a>
 
     </nav>
-<main>
-    <section class="container my-5">
-  <h4 class="fw-bold">Latest News and Blogs</h4>
-  <p class="text-muted">
-    Get the newest car news, videos, and expert reviews from the independent automotive journalists at Motokhabar.
-  </p>
 
-  <div class="row g-4">
-    <!-- LEFT: Featured Blog -->
-    <div class="col-lg-7 ">
-      <div class="card blog-featured shadow-sm border-0">
-        <img src="assets/images/news and blogs.png" class="card-img-top" alt="Featured Blog">
-        <div class="card-body">
-          <span class="badge bg-danger-subtle">Policy</span>
-          <h5 class="fw-bold">New Electric Vehicle Policy Announced in Nepal</h5>
-          <div class="d-flex align-items-center">
-            <i class="bi bi-person-circle me-1"></i> Author
-            <span class="ms-3"><i class="bi bi-calendar-event me-1"></i> 5 July, 2025</span>
-          </div>
+
+  <div class="container my-5">
+ 
+  <div class="calc-head">
+    <div class="title"><svg width="30" height="30" viewBox="0 0 30 30" fill="none" xmlns="http://www.w3.org/2000/svg">
+<path fill-rule="evenodd" clip-rule="evenodd" d="M3.75 5C3.75 3.61929 4.86929 2.5 6.25 2.5H23.75C25.1308 2.5 26.25 3.61929 26.25 5V23.75C26.25 25.8211 24.5711 27.5 22.5 27.5H7.5C5.42894 27.5 3.75 25.8211 3.75 23.75V5ZM23.75 5H6.25V23.75C6.25 24.4404 6.80965 25 7.5 25H22.5C23.1904 25 23.75 24.4404 23.75 23.75V5ZM16.25 13.75C16.25 14.4404 15.6904 15 15 15C14.3096 15 13.75 14.4404 13.75 13.75C13.75 13.0596 14.3096 12.5 15 12.5C15.6904 12.5 16.25 13.0596 16.25 13.75ZM10 15C10.6904 15 11.25 14.4404 11.25 13.75C11.25 13.0596 10.6904 12.5 10 12.5C9.30965 12.5 8.75 13.0596 8.75 13.75C8.75 14.4404 9.30965 15 10 15ZM21.25 13.75C21.25 14.4404 20.6904 15 20 15C19.3096 15 18.75 14.4404 18.75 13.75C18.75 13.0596 19.3096 12.5 20 12.5C20.6904 12.5 21.25 13.0596 21.25 13.75ZM10 18.75C10.6904 18.75 11.25 18.1904 11.25 17.5C11.25 16.8096 10.6904 16.25 10 16.25C9.30965 16.25 8.75 16.8096 8.75 17.5C8.75 18.1904 9.30965 18.75 10 18.75ZM16.25 17.5C16.25 18.1904 15.6904 18.75 15 18.75C14.3096 18.75 13.75 18.1904 13.75 17.5C13.75 16.8096 14.3096 16.25 15 16.25C15.6904 16.25 16.25 16.8096 16.25 17.5ZM20 18.75C20.6904 18.75 21.25 18.1904 21.25 17.5C21.25 16.8096 20.6904 16.25 20 16.25C19.3096 16.25 18.75 16.8096 18.75 17.5C18.75 18.1904 19.3096 18.75 20 18.75ZM11.25 21.25C11.25 21.9404 10.6904 22.5 10 22.5C9.30965 22.5 8.75 21.9404 8.75 21.25C8.75 20.5596 9.30965 20 10 20C10.6904 20 11.25 20.5596 11.25 21.25ZM15 22.5C15.6904 22.5 16.25 21.9404 16.25 21.25C16.25 20.5596 15.6904 20 15 20C14.3096 20 13.75 20.5596 13.75 21.25C13.75 21.9404 14.3096 22.5 15 22.5ZM21.25 21.25C21.25 21.9404 20.6904 22.5 20 22.5C19.3096 22.5 18.75 21.9404 18.75 21.25C18.75 20.5596 19.3096 20 20 20C20.6904 20 21.25 20.5596 21.25 21.25ZM10 7.5C9.30965 7.5 8.75 8.05965 8.75 8.75C8.75 9.44035 9.30965 10 10 10H20C20.6904 10 21.25 9.44035 21.25 8.75C21.25 8.05965 20.6904 7.5 20 7.5H10Z" fill="black"/>
+</svg>
+ Car Ownership Cost Calculator</div>
+    <div class="sub">Understand the true cost of owning your dream car. Get a detailed breakdown of expenses over your desired ownership period.</div>
+  </div>
+
+  <!-- Grid -->
+  <section class="calc-grid">
+    <!-- LEFT: form -->
+    <div class="panel panel-form">
+      <h3>Calculate Your Costs</h3>
+      <p class="hint">Enter details to get an estimated ownership cost.</p>
+
+      <div class="form-row">
+        <label class="label" for="model">Car Model</label>
+        <select id="model" class="select">
+          <option>Maruti Suzuki Swift</option>
+          <option>Hyundai Creta</option>
+          <option>Toyota Hyryder</option>
+          <option>Honda City</option>
+        </select>
+      </div>
+
+      <div class="form-row range-wrap">
+        <div class="range-top">
+          <label class="label" for="years">Ownership Duration</label>
+          <span class="years-pill"><span id="yearsOut">5</span> years</span>
+        </div>
+        <input id="years" type="range" min="1" max="10" step="1" value="5">
+      </div>
+
+      <div class="form-row">
+        <label class="label" for="kms">Kilometers per Year <span class="badge-soft">required</span></label>
+        <input id="kms" class="input" type="number" placeholder="e.g., 15000" value="15000" min="0">
+      </div>
+
+      <div class="form-row">
+        <label class="label" for="fuel">Fuel Type</label>
+        <select id="fuel" class="select">
+          <option value="petrol">Petrol</option>
+          <option value="diesel">Diesel</option>
+          <option value="ev">Electric (EV)</option>
+          <option value="hybrid">Hybrid</option>
+        </select>
+      </div>
+
+      <div class="form-row">
+        <label class="label" for="emi">Monthly EMI (Optional)</label>
+        <input id="emi" class="input" type="number" placeholder="e.g., 12,000" min="0">
+      </div>
+
+      <button id="calcBtn" class="btn">Calculate Ownership Cost</button>
+      
+    </div>
+
+    <!-- RIGHT: results -->
+    <div class="panel panel-results">
+      <h3>Cost Breakdown</h3>
+      <p class="hint">Enter details and click ‘Calculate’ to see the breakdown.</p>
+
+      <div id="blank" class="results-blank">
+        <div>
+          <div ><svg width="73" height="72" viewBox="0 0 73 72" fill="none" xmlns="http://www.w3.org/2000/svg">
+<path d="M42.1625 47.7838L27.4854 47.4919M56.8395 48.0756L65.6457 48.2507L65.8296 39.0042C65.8455 38.3057 65.6118 37.6244 65.1704 37.0827C64.7291 36.5411 64.109 36.1746 63.4216 36.0491L48.3251 33.2235L40.6097 22.4984C40.3435 22.1284 39.9948 21.8255 39.5913 21.6136C39.1877 21.4017 38.7404 21.2866 38.2847 21.2776L16.9736 20.8538C15.8796 20.8244 14.7992 21.1014 13.8543 21.6533C12.9093 22.2053 12.1374 23.0104 11.6257 23.9777L9.1822 28.7157C7.90104 31.1411 7.20398 33.8322 7.14653 36.5746L6.93758 47.0834L12.8084 47.2001" stroke="#D4D4D4" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M19.9705 56.1521C24.0235 56.2327 27.3744 53.0124 27.455 48.9595C27.5355 44.9065 24.3153 41.5556 20.2623 41.475C16.2094 41.3944 12.8585 44.6147 12.7779 48.6676C12.6973 52.7206 15.9176 56.0715 19.9705 56.1521Z" stroke="#D4D4D4" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M49.326 56.7358C53.3789 56.8164 56.7298 53.5962 56.8104 49.5432C56.891 45.4903 53.6708 42.1394 49.6178 42.0588C45.5649 41.9782 42.214 45.1984 42.1334 49.2514C42.0528 53.3043 45.273 56.6552 49.326 56.7358Z" stroke="#D4D4D4" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+</svg>
+</div>
+          <div>Your cost breakdown will appear here.</div>
         </div>
       </div>
+
+      <div id="breakdown" class="breakdown">
+       
+  <p class="br-sub">Estimated total costs over the selected period.</p>
+          <ul class="br-list">
+    <li class="br-row">
+      <span class="k">Purchase Price</span>
+      <span class="v" id="br-purchase">$35,000</span>
+    </li>
+    <li class="br-row">
+      <span class="k">Estimated Resale Value</span>
+      <span class="v neg" id="br-resale">–$12,000</span>
+    </li>
+    <li class="br-row">
+      <span class="k">Net Purchase Cost</span>
+      <span class="v" id="br-net">$23,000</span>
+    </li>
+    <li class="br-row">
+      <span class="k">Fuel Cost</span>
+      <span class="v" id="br-fuel">$7,800</span>
+    </li>
+    <li class="br-row">
+      <span class="k">Service &amp; Maintenance</span>
+      <span class="v" id="br-maint">$3,200</span>
+    </li>
+    <li class="br-row">
+      <span class="k">Insurance Cost</span>
+      <span class="v" id="br-ins">$4,100</span>
+    </li>
+    <li class="br-row">
+      <span class="k">Total EMI Paid</span>
+      <span class="v" id="br-emi">$9,600</span>
+    </li>
+
+    <li class="br-total">
+      <span class="k t">Total Ownership Cost</span>
+      <span class="v t" id="br-total">$47,700</span>
+    </li>
+  </ul>
+    <button class="br-action" type="button" onclick="resetBreakdown()">
+    Calculate More Car Ownership
+  </button>
+ </div>
     </div>
+  </section>
+</div>
 
-    <!-- RIGHT: Scrollable Blogs -->
-    <div class="col-lg-5">
-      <div class="blog-list scroll-box">
-        <!-- Blog Item -->
-        <div class="card blog-item border-0 mb-3 shadow-sm">
-          <div class="row g-0 align-items-center">
-            <div class="col-4">
-              <img src="assets/images/news and blogs.png" class="img-fluid rounded-start" alt="Blog Thumb">
-            </div>
-            <div class="col-8">
-              <div class="card-body py-2">
-                <span class="badge bg-danger-subtle">Blog</span>
-                <span class="badge bg-light text-muted mb-1">1 day ago</span>
-                <h6 class="fw-bold mb-1">
-                  Hyundai Creta 2024 Hyundai Creta 2024 Hyundai Creta 2024
-                </h6>
-                <p class="text-muted small mb-1">
-                  The new Creta impresses with its bold design and feature-rich interior.
-                </p>
-                <span class="small text-muted"><i class="bi bi-clock me-1"></i> 3 min read</span>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <!-- Duplicate Blog Items -->
-        <div class="card blog-item border-0 mb-3 shadow-sm">
-          <div class="row g-0 align-items-center">
-            <div class="col-4">
-              <img src="assets/images/news and blogs.png" class="img-fluid rounded-start" alt="Blog Thumb">
-            </div>
-            <div class="col-8">
-              <div class="card-body py-2">
-                <span class="badge bg-danger-subtle">Blog</span>
-                <span class="badge bg-light text-muted mb-1">1 day ago</span>
-                <h6 class="fw-bold mb-1">
-                  Hyundai Creta 2024 Hyundai Creta 2024 Hyundai Creta 2024
-                </h6>
-                <p class="text-muted small mb-1">
-                  Perfect for Nepal roads, this SUV balances power and comfort.
-                </p>
-                <span class="small text-muted"><i class="bi bi-clock me-1"></i> 3 min read</span>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div class="card blog-item border-0 mb-3 shadow-sm">
-          <div class="row g-0 align-items-center">
-            <div class="col-4">
-              <img src="assets/images/news and blogs.png" class="img-fluid rounded-start" alt="Blog Thumb">
-            </div>
-            <div class="col-8">
-              <div class="card-body py-2">
-                <span class="badge bg-danger-subtle">Blog</span>
-                <span class="badge bg-light text-muted mb-1">1 day ago</span>
-                <h6 class="fw-bold mb-1">
-                  Hyundai Creta 2024 Hyundai Creta 2024 Hyundai Creta 2024
-                </h6>
-                <p class="text-muted small mb-1">
-                  Perfect for Nepal roads, this SUV balances power and comfort.
-                </p>
-                <span class="small text-muted"><i class="bi bi-clock me-1"></i> 3 min read</span>
-              </div>
-            </div>
-          </div>
-        </div>
-
-
-        <!-- add more cards as needed -->
-      </div>
-    </div>
-  </div>
-</section>
-<!-- blog -->
- <!-- Latest News / Blogs (Carousel) -->
-<section class="container my-5">
-  <div class="cards-carousel" id="newsBlogsCarousel">
-    <!-- arrows -->
-    <button class="cc-btn prev" aria-label="Previous">
-      <i class="bi bi-chevron-left"></i>
-    </button>
-    <button class="cc-btn next" aria-label="Next">
-      <i class="bi bi-chevron-right"></i>
-    </button>
-
-    <!-- track -->
-    <div class="cc-track">
-      <!-- Reuse your existing blog-card exactly as-is -->
-      <article class="blog-card">
-        <div class="blog-media">
-          <img src="assets/images/blog-image.jpg" alt="Blog cover" />
-        </div>
-        <div class="blog-body">
-          <div class="d-flex justify-content-between align-items-center mb-2">
-            <span class="badge-soft">Policy</span>
-            <small class="text-muted">3 min read</small>
-          </div>
-          <h5 class="blog-title">New Electric Vehicle Policy Announced in Nepal</h5>
-          <p class="blog-excerpt">
-            Government introduces new incentives for EV adoption including tax
-            benefits and charging the
-          </p>
-          <a href="#" class="btn btn-outline-choco">Read More</a>
-        </div>
-      </article>
-
-      <!-- Duplicate blog-card items as needed -->
-      <article class="blog-card">
-        <div class="blog-media">
-          <img src="assets/images/blog-image.jpg" alt="Blog cover" />
-        </div>
-        <div class="blog-body">
-          <div class="d-flex justify-content-between align-items-center mb-2">
-            <span class="badge-soft">Policy</span>
-            <small class="text-muted">3 min read</small>
-          </div>
-          <h5 class="blog-title">New Electric Vehicle Policy Announced in Nepal</h5>
-          <p class="blog-excerpt">Government introduces new incentives for EV adoption including tax
-            benefits and charging the</p>
-          <a href="#" class="btn btn-outline-choco">Read More</a>
-        </div>
-      </article>
-
-      <article class="blog-card">
-        <div class="blog-media">
-          <img src="assets/images/blog-image.jpg" alt="Blog cover" />
-        </div>
-        <div class="blog-body">
-          <div class="d-flex justify-content-between align-items-center mb-2">
-            <span class="badge-soft">Policy</span>
-            <small class="text-muted">3 min read</small>
-          </div>
-          <h5 class="blog-title">New Electric Vehicle Policy Announced in Nepal</h5>
-          <p class="blog-excerpt">Government introduces new incentives for EV adoption including tax
-            benefits and charging the</p>
-          <a href="#" class="btn btn-outline-choco">Read More</a>
-        </div>
-      </article>
-
-      <article class="blog-card">
-        <div class="blog-media">
-          <img src="assets/images/blog-image.jpg" alt="Blog cover" />
-        </div>
-        <div class="blog-body">
-          <div class="d-flex justify-content-between align-items-center mb-2">
-            <span class="badge-soft">Policy</span>
-            <small class="text-muted">3 min read</small>
-          </div>
-          <h5 class="blog-title">New Electric Vehicle Policy Announced in Nepal</h5>
-          <p class="blog-excerpt">Government introduces new incentives for EV adoption including tax
-            benefits and charging the</p>
-          <a href="#" class="btn btn-outline-choco">Read More</a>
-        </div>
-      </article>
-    </div>
-  </div>
-</section>
 <script>
-  // Initialize every carousel with class .cards-carousel
-  document.querySelectorAll('.cards-carousel').forEach(carousel => {
-    const track = carousel.querySelector('.cc-track');
-    const prev  = carousel.querySelector('.cc-btn.prev');
-    const next  = carousel.querySelector('.cc-btn.next');
+  (function () {
+    const grid      = document.querySelector('.calc-grid');
+    const calcBtn   = document.getElementById('calcBtn');
+    const blank     = document.getElementById('blank');
+    const breakdown = document.getElementById('breakdown');
+    const backBtn   = document.querySelector('.br-action'); // "Calculate More Car Ownership"
 
-    const gap = parseInt(getComputedStyle(track).columnGap) || 0;
-    function itemWidth() {
-      const first = track.children[0];
-      return first ? first.getBoundingClientRect().width : 320;
+    // Go to results (mobile)
+    calcBtn.addEventListener('click', function () {
+      // (Run your calculation here…)
+
+      if (blank) blank.style.display = 'none';
+      if (breakdown) breakdown.classList.add('show');
+
+      // Only swap on mobile widths
+      if (window.matchMedia('(max-width: 900px)').matches) {
+        grid.classList.add('show-results');
+        window.scrollTo({ top: grid.offsetTop, behavior: 'smooth' });
+      }
+    });
+
+    // Back to form (mobile)
+    if (backBtn) {
+      backBtn.addEventListener('click', function () {
+        if (window.matchMedia('(max-width: 900px)').matches) {
+          grid.classList.remove('show-results');
+          // Optional: reset blank state
+          if (blank) blank.style.display = '';
+          if (breakdown) breakdown.classList.remove('show');
+          window.scrollTo({ top: grid.offsetTop, behavior: 'smooth' });
+        }
+      });
     }
-
-    prev.addEventListener('click', () => {
-      track.scrollBy({ left: -(itemWidth()+gap), behavior: 'smooth' });
-    });
-    next.addEventListener('click', () => {
-      track.scrollBy({ left:  (itemWidth()+gap), behavior: 'smooth' });
-    });
-  });
+  })();
 </script>
 
- <!-- video -->
-<section class="container my-5 latest-videos">
-  <div class="text-center mb-4">
-    <h3 class="fw-bold">Latest Videos</h3>
-    <p class="text-muted mb-0">Our Latest Videos For You</p>
-  </div>
 
-  <div class="row g-4">
-    <!-- Card 1 -->
-    <div class="col-12 col-md-6 col-lg-3">
-      <article class="blog-card">
-        <div class="blog-media position-relative">
-          <img src="assets/images/blog-image.jpg" alt="Blog cover">
-          <!-- Play Button Overlay -->
-          <button class="play-btn">
-            <i class="bi bi-play-fill"></i>
-          </button>
-        </div>
-        <div class="blog-body">
-          <div class="d-flex justify-content-between align-items-center mb-2">
-            <span class="badge-soft">Policy</span>
-            <small class="text-muted">3 min read</small>
-          </div>
-          <h5 class="blog-title">New Electric Vehicle Policy Announced in Nepal</h5>
-          <p class="blog-excerpt">
-            Government introduces new incentives for EV adoption including tax benefits and charging the
-          </p>
-          <a href="#" class="btn btn-outline-choco">Watch Video</a>
-        </div>
-      </article>
-    </div>
+<script>
+/* Small helper: INR formatter */
+const asINR = n => new Intl.NumberFormat('en-IN',{style:'currency',currency:'INR',maximumFractionDigits:0}).format(n||0);
 
-    <!-- Repeat cards -->
-    <div class="col-12 col-md-6 col-lg-3">
-      <article class="blog-card">
-        <div class="blog-media position-relative">
-          <img src="assets/images/blog-image.jpg" alt="Blog cover">
-          <button class="play-btn"><i class="bi bi-play-fill"></i></button>
-        </div>
-        <div class="blog-body">
-          <div class="d-flex justify-content-between align-items-center mb-2">
-            <span class="badge-soft">Policy</span>
-            <small class="text-muted">3 min read</small>
-          </div>
-          <h5 class="blog-title">New Electric Vehicle Policy Announced in Nepal</h5>
-          <p class="blog-excerpt">Government introduces new incentives for EV adoption including tax benefits and charging the</p>
-          <a href="#" class="btn btn-outline-choco">Watch Video</a>
-        </div>
-      </article>
-    </div>
+/* Update years pill */
+const years = document.getElementById('years');
+const yearsOut = document.getElementById('yearsOut');
+years.addEventListener('input', () => yearsOut.textContent = years.value);
 
-    <div class="col-12 col-md-6 col-lg-3">
-      <article class="blog-card">
-        <div class="blog-media position-relative">
-          <img src="assets/images/blog-image.jpg" alt="Blog cover">
-          <button class="play-btn"><i class="bi bi-play-fill"></i></button>
-        </div>
-        <div class="blog-body">
-          <div class="d-flex justify-content-between align-items-center mb-2">
-            <span class="badge-soft">Policy</span>
-            <small class="text-muted">3 min read</small>
-          </div>
-          <h5 class="blog-title">New Electric Vehicle Policy Announced in Nepal</h5>
-          <p class="blog-excerpt">Government introduces new incentives for EV adoption including tax benefits and charging the</p>
-          <a href="#" class="btn btn-outline-choco">Watch Video</a>
-        </div>
-      </article>
-    </div>
+/* Fake calculator to paint the UI */
+document.getElementById('calcBtn').addEventListener('click', () => {
+  const yrs = +years.value || 1;
+  const km  = +document.getElementById('kms').value || 0;
+  const fuel= document.getElementById('fuel').value;
+  const emi = +document.getElementById('emi').value || 0;
 
-    <div class="col-12 col-md-6 col-lg-3">
-      <article class="blog-card">
-        <div class="blog-media position-relative">
-          <img src="assets/images/blog-image.jpg" alt="Blog cover">
-          <button class="play-btn"><i class="bi bi-play-fill"></i></button>
-        </div>
-        <div class="blog-body">
-          <div class="d-flex justify-content-between align-items-center mb-2">
-            <span class="badge-soft">Policy</span>
-           
-          </div>
-          <h5 class="blog-title">New Electric Vehicle Policy Announced in Nepal</h5>
-          <a href="#" class="btn btn-outline-choco">Watch Video</a>
-        </div>
-      </article>
-    </div>
-  </div>
-</section>
+  // Very rough demo assumptions
+  const fuelPrice = { petrol:110, diesel:98, ev:10, hybrid:95 }[fuel];    // per litre/unit
+  const mileage    = { petrol:15, diesel:20, ev:6, hybrid:22 }[fuel];     // km/litre (EV: km/unit)
+  const fuelCost   = km / mileage * fuelPrice * yrs;
+
+  const maintenance = 12000 * yrs;
+  const insurance   = 18000 * yrs;
+  const misc        = 8000 * yrs;
+  const emiCost     = emi * 12 * yrs;
+
+  const total = fuelCost + maintenance + insurance + misc + emiCost;
+
+  // Paint
+  document.getElementById('blank').style.display = 'none';
+  const b = document.getElementById('breakdown');
+  b.classList.add('show');
+  document.getElementById('fuelCost').textContent = asINR(fuelCost);
+  document.getElementById('maintCost').textContent = asINR(maintenance);
+  document.getElementById('insCost').textContent   = asINR(insurance);
+  document.getElementById('miscCost').textContent  = asINR(misc);
+  document.getElementById('emiCost').textContent   = emi ? asINR(emiCost) : '—';
+  document.getElementById('totalCost').textContent = asINR(total);
+});
+</script>
 
 
-
-</main>
-  <!-- FOOTER -->
+ <!-- FOOTER -->
     <footer class="footer-motokhabar pt-5 pb-4">
 
       <div class="row gx-4 footer-margin ">
@@ -767,6 +683,5 @@ document.addEventListener('DOMContentLoaded', function() {
 
     <!-- Bootstrap Bundle JS (includes Popper) -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
-    
   </body>
 </html>
