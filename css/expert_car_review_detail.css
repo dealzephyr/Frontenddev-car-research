@@ -26,7 +26,7 @@
     .page-title{font-size:27px;font-weight:600;color: #212121;}
     .page-sub{font-size:14px;font-weight:400;color: #757575;}
      .herosec img{
-        border-radius: 27px;
+        border-radius: 27px !important;
         height: clamp(232px,60vw,441px);
         width: clamp(363px,60vw,804px) ;
         box-sizing: border-box;
@@ -37,6 +37,7 @@
       display:grid;
       grid-template-columns: 1fr;
       gap: 30px;
+      margin-bottom: 20px;
     }
     @media (min-width: 992px){
       .detail-layout{grid-template-columns: 1.6fr .9fr;}
@@ -121,8 +122,9 @@
 .overall-card{
   background:#fff;
   border-radius:20px;
-  padding:28px 8px 26px;
-  box-shadow:0 6px 24px rgba(0,0,0,.06);
+  padding:28px;
+  box-shadow: 0px 4px 4px 0px #00000040;
+  margin-bottom: 20px;
 }
 
 /* Title */
@@ -208,12 +210,7 @@
 @media (max-width: 575.98px){
   .page-title{font-size: 20px;}
   .page-sub{font-size: 12px;}
-  .overall-card{}
-  .overall-title{}
   .or-score{font-size: 24px;}
-  .or-stars{}
-  .or-tagline{}
-  .metric-row{}
   .meter{height: 7px; width: 100%;}
 }
 

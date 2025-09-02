@@ -26,32 +26,87 @@ h1{font-size:22px;margin:0 0 4px}
 .pill span{margin-right:6px}
 
 /* Sticky tabs */
+/* Sticky tabs — same styling, only layout fixes */
 .section-tabs{
-  position:sticky; top:0;
-  z-index:10;
-  background:linear-gradient(var(--bg),var(--bg));
-  border:1px solid var(--line);
-  border-radius:12px;
-  padding:6px;
-  display:flex; gap:10px; flex-wrap:wrap;
-  margin:10px 0 22px;
+  position: sticky; 
+  top: 0;
+  z-index: 10;
+  background: linear-gradient(var(--bg), var(--bg)); /* unchanged */
+  border: 1px solid var(--line);                     /* unchanged */
+  border-radius: 12px;                               /* unchanged */
+  padding: 6px;                                      /* unchanged */
+  display: flex;
+  align-items: center;        /* NEW: tidy vertical alignment */
+  gap: 10px;                  /* unchanged */
+  flex-wrap: nowrap !important; /* NEW: keep in one line */
+  overflow-x: auto;             /* NEW: scroll if overflow */
+  white-space: nowrap;          /* NEW: prevent wrap */
+  margin: 10px 0 22px;        /* unchanged */
+  -webkit-overflow-scrolling: touch;
 }
-.section-tabs a{
-  text-decoration:none;color:var(--ink);
-  font-size:13px;padding:8px 12px;border-radius:10px;
+.section-tabs::-webkit-scrollbar{ display:none; }
+
+/* Tabs — keep your color, just lock icon+text on one line */
+.section-tabs a,
+.section-tabs a:link,
+.section-tabs a:visited{
+  text-decoration: none;
+  color: var(--ink);              /* keep your text color */
+  font-size: 13px;
+  padding: 8px 12px;
+  border-radius: 10px;
+  display: inline-flex;           /* NEW: icon + label same line */
+  align-items: center;            /* NEW */
+  gap: 8px;                       /* NEW */
+  line-height: 1;                 /* NEW */
+  white-space: nowrap;            /* NEW */
 }
-.section-tabs a:hover{background:var(--chip)}
+
+/* Hover keeps your background + color */
+.section-tabs a:hover{
+  background: var(--chip);        /* unchanged */
+  color: var(--ink);              /* ensure hover doesn’t change text color */
+}
+
+/* Override global svg reset only here */
+.section-tabs a svg{
+  display: inline-block;          /* override any svg {display:block} reset */
+  width: 18px;
+  height: 18px;
+  flex: 0 0 18px;
+}
+
+/* If you use <ion-icon> inside tabs too */
+.section-tabs a ion-icon{
+  display: inline-block;
+  font-size: 18px;
+}
 
 /* Blocks */
 .block{margin-bottom:26px}
-.block-head{margin-bottom:10px}
+
 .block-title{font-size:16px;margin:0 0 10px}
+.block-head{
+    display: flex;
+  align-items: center;        /* NEW: tidy vertical alignment */
+  gap: 10px;                  /* unchanged */
+} 
+.block-head svg{
+  padding-bottom: 12px;
+}
+
+
 
 /* Basic info cards */
 .car-grid{
   display:grid;
   grid-template-columns: repeat(4, 1fr);
   gap:16px;
+}
+@media(max-width:557px){
+   .page .section-tabs{
+    display: none !important;
+  }
 }
 @media (max-width: 1100px){
   .car-grid{grid-template-columns: repeat(3, 1fr);}
@@ -247,4 +302,38 @@ h1{font-size:22px;margin:0 0 4px}
   .popular-comparisons .pc-title{ font-size: 20px; }
   .popular-comparisons .pc-name{ font-size: 13.5px; }
   .popular-comparisons .pc-price{ font-size: 12.5px; }
+}
+
+@media (max-width: 560px){
+  /* grid -> 2 columns */
+  #top-spec .car-grid{
+    grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+    gap: 10px;
+  }
+
+  /* allow cards to shrink within their column */
+  #top-spec .car-card,
+  #top-spec .car-card__body{ width: 168px;; }
+
+
+
+  /* prevent long inline rows from forcing overflow */
+  #top-spec .car-card__location span,
+  #top-spec .car-card__row span,
+  #top-spec .car-card__grid span{
+    white-space: normal;
+  }
+
+  
+  /* Card fills cell; compact internals */
+  #top-spec .cards-track.is-active .car-card.v2{ width:168px !important; }
+  #top-spec .car-card__media img{ height:92px; object-fit:cover; }
+   #top-spec .car-card__body{ padding:9px; }
+ #top-speck .car-card__title{ font-size:14px;margin-top: 10px; }
+ #top-spec .car-card__location,
+  #top-spec .car-card__row,
+  #top-spec .car-card__grid{ font-size:12px; }
+  #top-spec .car-card__price{ font-size:12px; margin:10px 0 8px;}
+  
+  
 }

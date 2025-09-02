@@ -52,6 +52,9 @@
   font-weight: 500;
   color: #212121;
 }
+main{
+  margin-left: 127px !important;
+}
 
 /* Sidebar look per your spec */
 .mk-filter-card {
