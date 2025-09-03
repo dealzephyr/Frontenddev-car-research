@@ -389,9 +389,9 @@ document.addEventListener('DOMContentLoaded', function() {
       </a>
 
     </nav>
-<main>
-    <section class="container my-5">
-  <h4 class="fw-bold">Latest News and Blogs</h4>
+<main class="page">
+    <section class="container my-5 news-blogs-section">
+  <h2 class="fw-bold">Latest News and Blogs</h2>
   <p class="text-muted">
     Get the newest car news, videos, and expert reviews from the independent automotive journalists at Motokhabar.
   </p>
@@ -402,19 +402,38 @@ document.addEventListener('DOMContentLoaded', function() {
       <div class="card blog-featured shadow-sm border-0">
         <img src="assets/images/news and blogs.png" class="card-img-top" alt="Featured Blog">
         <div class="card-body">
-          <span class="badge bg-danger-subtle">Policy</span>
+          <span class="badge-soft">Policy</span>
           <h5 class="fw-bold">New Electric Vehicle Policy Announced in Nepal</h5>
-          <div class="d-flex align-items-center">
-            <i class="bi bi-person-circle me-1"></i> Author
-            <span class="ms-3"><i class="bi bi-calendar-event me-1"></i> 5 July, 2025</span>
-          </div>
+<div class="author-meta mt-2">
+  <div class="avatar">
+    <!-- colored avatar icon -->
+<svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+<rect width="24" height="24" rx="12" fill="#D4D4D4"/>
+<g clip-path="url(#clip0_3310_6325)">
+<path d="M14.8 12.5C15.85 11.7 16.5 10.4 16.5 9C16.5 6.5 14.5 4.5 12 4.5C9.5 4.5 7.5 6.5 7.5 9C7.5 10.4 8.15 11.7 9.2 12.5C6.6 12.65 4.5 14.85 4.5 17.5V19C4.5 19.25 4.75 19.5 5 19.5H12H19C19.25 19.5 19.5 19.25 19.5 19V17.5C19.5 14.85 17.4 12.65 14.8 12.5Z" fill="#FFC10A"/>
+<path d="M14.8 12.5C14.05 13.1 13.05 13.5 12 13.5C10.95 13.5 9.95 13.15 9.2 12.5C6.6 12.65 4.5 14.85 4.5 17.5V19C4.5 19.25 4.75 19.5 5 19.5H12H19C19.25 19.5 19.5 19.25 19.5 19V17.5C19.5 14.85 17.4 12.65 14.8 12.5Z" fill="#2197F3"/>
+</g>
+<defs>
+<clipPath id="clip0_3310_6325">
+<rect width="16" height="16" fill="white" transform="translate(4 4)"/>
+</clipPath>
+</defs>
+</svg>
+
+  </div>
+  <div class="meta">
+    <div class="name">Author</div>
+    <time class="date" datetime="2025-07-05">5 July, 2025</time>
+  </div>
+</div>
         </div>
       </div>
     </div>
 
     <!-- RIGHT: Scrollable Blogs -->
     <div class="col-lg-5">
-      <div class="blog-list scroll-box">
+      <div class="right-panel">
+        <div class="blog-list scroll-box">
         <!-- Blog Item -->
         <div class="card blog-item border-0 mb-3 shadow-sm">
           <div class="row g-0 align-items-center">
@@ -423,7 +442,7 @@ document.addEventListener('DOMContentLoaded', function() {
             </div>
             <div class="col-8">
               <div class="card-body py-2">
-                <span class="badge bg-danger-subtle">Blog</span>
+                <span class="badge-soft">Blog</span>
                 <span class="badge bg-light text-muted mb-1">1 day ago</span>
                 <h6 class="fw-bold mb-1">
                   Hyundai Creta 2024 Hyundai Creta 2024 Hyundai Creta 2024
@@ -431,7 +450,17 @@ document.addEventListener('DOMContentLoaded', function() {
                 <p class="text-muted small mb-1">
                   The new Creta impresses with its bold design and feature-rich interior.
                 </p>
-                <span class="small text-muted"><i class="bi bi-clock me-1"></i> 3 min read</span>
+                <span class="small text-muted">3 min read</span>
+
+                <button class="brand-arrow" aria-label="Open">
+              <svg width="21" height="21" viewBox="0 0 21 21" fill="none" xmlns="http://www.w3.org/2000/svg">
+<path opacity="0.1" d="M18.375 10.5C18.375 14.8493 14.8493 18.375 10.5 18.375C6.15076 18.375 2.625 14.8493 2.625 10.5C2.625 6.15076 6.15076 2.625 10.5 2.625C14.8493 2.625 18.375 6.15076 18.375 10.5Z" fill="#4E342E"/>
+<path d="M14 10.5H7" stroke="#4E342E" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M11.375 13.125L13.9239 10.5761C13.9659 10.5341 13.9659 10.4659 13.9239 10.4239L11.375 7.875" stroke="#4E342E" stroke-linecap="round" stroke-linejoin="round"/>
+</svg>
+
+                </button>
+                
               </div>
             </div>
           </div>
@@ -445,7 +474,7 @@ document.addEventListener('DOMContentLoaded', function() {
             </div>
             <div class="col-8">
               <div class="card-body py-2">
-                <span class="badge bg-danger-subtle">Blog</span>
+                <span class="badge-soft">Blog</span>
                 <span class="badge bg-light text-muted mb-1">1 day ago</span>
                 <h6 class="fw-bold mb-1">
                   Hyundai Creta 2024 Hyundai Creta 2024 Hyundai Creta 2024
@@ -453,7 +482,15 @@ document.addEventListener('DOMContentLoaded', function() {
                 <p class="text-muted small mb-1">
                   Perfect for Nepal roads, this SUV balances power and comfort.
                 </p>
-                <span class="small text-muted"><i class="bi bi-clock me-1"></i> 3 min read</span>
+                <span class="small text-muted">3 min read</span>
+                <button class="brand-arrow" aria-label="Open">
+              <svg width="21" height="21" viewBox="0 0 21 21" fill="none" xmlns="http://www.w3.org/2000/svg">
+<path opacity="0.1" d="M18.375 10.5C18.375 14.8493 14.8493 18.375 10.5 18.375C6.15076 18.375 2.625 14.8493 2.625 10.5C2.625 6.15076 6.15076 2.625 10.5 2.625C14.8493 2.625 18.375 6.15076 18.375 10.5Z" fill="#4E342E"/>
+<path d="M14 10.5H7" stroke="#4E342E" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M11.375 13.125L13.9239 10.5761C13.9659 10.5341 13.9659 10.4659 13.9239 10.4239L11.375 7.875" stroke="#4E342E" stroke-linecap="round" stroke-linejoin="round"/>
+</svg>
+
+                </button>
               </div>
             </div>
           </div>
@@ -465,7 +502,7 @@ document.addEventListener('DOMContentLoaded', function() {
             </div>
             <div class="col-8">
               <div class="card-body py-2">
-                <span class="badge bg-danger-subtle">Blog</span>
+                <span class="badge-soft">Blog</span>
                 <span class="badge bg-light text-muted mb-1">1 day ago</span>
                 <h6 class="fw-bold mb-1">
                   Hyundai Creta 2024 Hyundai Creta 2024 Hyundai Creta 2024
@@ -473,7 +510,15 @@ document.addEventListener('DOMContentLoaded', function() {
                 <p class="text-muted small mb-1">
                   Perfect for Nepal roads, this SUV balances power and comfort.
                 </p>
-                <span class="small text-muted"><i class="bi bi-clock me-1"></i> 3 min read</span>
+                <span class="small text-muted">3 min read</span>
+                <button class="brand-arrow" aria-label="Open">
+              <svg width="21" height="21" viewBox="0 0 21 21" fill="none" xmlns="http://www.w3.org/2000/svg">
+<path opacity="0.1" d="M18.375 10.5C18.375 14.8493 14.8493 18.375 10.5 18.375C6.15076 18.375 2.625 14.8493 2.625 10.5C2.625 6.15076 6.15076 2.625 10.5 2.625C14.8493 2.625 18.375 6.15076 18.375 10.5Z" fill="#4E342E"/>
+<path d="M14 10.5H7" stroke="#4E342E" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M11.375 13.125L13.9239 10.5761C13.9659 10.5341 13.9659 10.4659 13.9239 10.4239L11.375 7.875" stroke="#4E342E" stroke-linecap="round" stroke-linejoin="round"/>
+</svg>
+
+                </button>
               </div>
             </div>
           </div>
@@ -482,9 +527,52 @@ document.addEventListener('DOMContentLoaded', function() {
 
         <!-- add more cards as needed -->
       </div>
+      </div>
+
     </div>
   </div>
 </section>
+<script>
+document.addEventListener('DOMContentLoaded', () => {
+  const panel = document.querySelector('.right-panel');
+  const track = panel?.querySelector('.blog-list');
+  if (!track) return;
+
+  // Make / ensure dots container exists
+  let dots = panel.querySelector('.rp-dots');
+  if (!dots) {
+    dots = document.createElement('div');
+    dots.className = 'rp-dots';
+    panel.appendChild(dots);
+  }
+
+  // Build dots (one per card)
+  const items = Array.from(track.children).filter(el => el.classList.contains('blog-item'));
+  dots.innerHTML = '';
+  items.forEach((_, i) => {
+    const b = document.createElement('button');
+    b.className = 'dot' + (i === 0 ? ' is-active' : '');
+    b.type = 'button';
+    b.addEventListener('click', () => {
+      track.scrollTo({ left: i * track.clientWidth, behavior: 'smooth' });
+    });
+    dots.appendChild(b);
+  });
+
+  // Update active dot on scroll
+  const setActive = () => {
+    const idx = Math.round(track.scrollLeft / track.clientWidth);
+    dots.querySelectorAll('.dot').forEach((d, i) =>
+      d.classList.toggle('is-active', i === idx)
+    );
+  };
+  track.addEventListener('scroll', () => requestAnimationFrame(setActive));
+  window.addEventListener('resize', setActive);
+});
+</script>
+
+
+
 <!-- blog -->
  <!-- Latest News / Blogs (Carousel) -->
 <section class="container my-5">
@@ -566,8 +654,100 @@ document.addEventListener('DOMContentLoaded', function() {
           <a href="#" class="btn btn-outline-choco">Read More</a>
         </div>
       </article>
+
+            <article class="blog-card">
+        <div class="blog-media">
+          <img src="assets/images/blog-image.jpg" alt="Blog cover" />
+        </div>
+        <div class="blog-body">
+          <div class="d-flex justify-content-between align-items-center mb-2">
+            <span class="badge-soft">Policy</span>
+            <small class="text-muted">3 min read</small>
+          </div>
+          <h5 class="blog-title">New Electric Vehicle Policy Announced in Nepal</h5>
+          <p class="blog-excerpt">Government introduces new incentives for EV adoption including tax
+            benefits and charging the</p>
+          <a href="#" class="btn btn-outline-choco">Read More</a>
+        </div>
+      </article>
+            <article class="blog-card">
+        <div class="blog-media">
+          <img src="assets/images/blog-image.jpg" alt="Blog cover" />
+        </div>
+        <div class="blog-body">
+          <div class="d-flex justify-content-between align-items-center mb-2">
+            <span class="badge-soft">Policy</span>
+            <small class="text-muted">3 min read</small>
+          </div>
+          <h5 class="blog-title">New Electric Vehicle Policy Announced in Nepal</h5>
+          <p class="blog-excerpt">Government introduces new incentives for EV adoption including tax
+            benefits and charging the</p>
+          <a href="#" class="btn btn-outline-choco">Read More</a>
+        </div>
+      </article>
     </div>
-  </div>
+  
+  <button class="cc-load-more" type="button" aria-label="Load more">Load more</button>
+</div>
+<script>
+(() => {
+  const MOBILE = '(max-width: 575.98px)';
+  const mql = window.matchMedia(MOBILE);
+  const PER_CLICK = 2;   // reveal 2 at a time
+
+  function setupCarousel(carousel){
+    const track = carousel.querySelector('.cc-track');
+    if (!track) return;
+
+    const items = Array.from(track.children);
+    const loadBtn = carousel.querySelector('.cc-load-more');
+
+    function setHiddenFrom(startIdx){
+      items.forEach((el, idx) => {
+        el.classList.toggle('is-hidden-mobile', idx >= startIdx);
+      });
+    }
+
+    function initMobile(){
+      if (!loadBtn) return;
+      const initial = Math.min(PER_CLICK, items.length); // show 2 cells (one row)
+      setHiddenFrom(initial);
+      loadBtn.hidden = items.length <= initial;
+      loadBtn.dataset.shown = String(initial);
+    }
+
+    function teardownMobile(){
+      // reveal everything & hide the button
+      items.forEach(el => el.classList.remove('is-hidden-mobile'));
+      if (loadBtn) loadBtn.hidden = true;
+    }
+
+    // respond to breakpoint
+    function apply(){
+      if (mql.matches) initMobile(); else teardownMobile();
+    }
+    apply();
+    mql.addEventListener('change', apply);
+
+    // click handler
+    if (loadBtn){
+      loadBtn.addEventListener('click', () => {
+        let shown = parseInt(loadBtn.dataset.shown || '0', 10);
+        const next = Math.min(shown + PER_CLICK, items.length);
+        items.slice(shown, next).forEach(el => el.classList.remove('is-hidden-mobile'));
+        loadBtn.dataset.shown = String(next);
+        if (next >= items.length) loadBtn.hidden = true;
+      });
+    }
+  }
+
+  // init all carousels
+  document.addEventListener('DOMContentLoaded', () => {
+    document.querySelectorAll('.cards-carousel').forEach(setupCarousel);
+  });
+})();
+</script>
+
 </section>
 <script>
   // Initialize every carousel with class .cards-carousel
@@ -594,7 +774,7 @@ document.addEventListener('DOMContentLoaded', function() {
  <!-- video -->
 <section class="container my-5 latest-videos">
   <div class="text-center mb-4">
-    <h3 class="fw-bold">Latest Videos</h3>
+    <h4 class="fw-bold">Latest Videos</h4>
     <p class="text-muted mb-0">Our Latest Videos For You</p>
   </div>
 
@@ -604,10 +784,14 @@ document.addEventListener('DOMContentLoaded', function() {
       <article class="blog-card">
         <div class="blog-media position-relative">
           <img src="assets/images/blog-image.jpg" alt="Blog cover">
-          <!-- Play Button Overlay -->
-          <button class="play-btn">
-            <i class="bi bi-play-fill"></i>
-          </button>
+          <button class="play-btn" aria-label="Play video">
+  <svg viewBox="0 0 41 41" width="41" height="41" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+    <path fill-rule="evenodd" clip-rule="evenodd"
+      d="M20.5 35.875C28.9914 35.875 35.875 28.9914 35.875 20.5C35.875 12.0086 28.9914 5.125 20.5 5.125C12.0086 5.125 5.125 12.0086 5.125 20.5C5.125 28.9914 12.0086 35.875 20.5 35.875ZM18.4206 13.6503L28.0619 19.0066C29.2335 19.6575 29.2335 21.3426 28.0619 21.9934L18.4206 27.3497C17.0542 28.1087 15.375 27.1208 15.375 25.5577V15.4423C15.375 13.8793 17.0542 12.8912 18.4206 13.6503Z"
+      fill="white"/>
+  </svg>
+</button>
+
         </div>
         <div class="blog-body">
           <div class="d-flex justify-content-between align-items-center mb-2">
@@ -615,73 +799,334 @@ document.addEventListener('DOMContentLoaded', function() {
             <small class="text-muted">3 min read</small>
           </div>
           <h5 class="blog-title">New Electric Vehicle Policy Announced in Nepal</h5>
-          <p class="blog-excerpt">
-            Government introduces new incentives for EV adoption including tax benefits and charging the
-          </p>
-          <a href="#" class="btn btn-outline-choco">Watch Video</a>
-        </div>
-      </article>
-    </div>
+          <!-- META: Author + Date -->
+<div class="author-meta mt-2">
+  <div class="avatar">
+    <!-- colored avatar icon -->
+<svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+<rect width="24" height="24" rx="12" fill="#D4D4D4"/>
+<g clip-path="url(#clip0_3310_6325)">
+<path d="M14.8 12.5C15.85 11.7 16.5 10.4 16.5 9C16.5 6.5 14.5 4.5 12 4.5C9.5 4.5 7.5 6.5 7.5 9C7.5 10.4 8.15 11.7 9.2 12.5C6.6 12.65 4.5 14.85 4.5 17.5V19C4.5 19.25 4.75 19.5 5 19.5H12H19C19.25 19.5 19.5 19.25 19.5 19V17.5C19.5 14.85 17.4 12.65 14.8 12.5Z" fill="#FFC10A"/>
+<path d="M14.8 12.5C14.05 13.1 13.05 13.5 12 13.5C10.95 13.5 9.95 13.15 9.2 12.5C6.6 12.65 4.5 14.85 4.5 17.5V19C4.5 19.25 4.75 19.5 5 19.5H12H19C19.25 19.5 19.5 19.25 19.5 19V17.5C19.5 14.85 17.4 12.65 14.8 12.5Z" fill="#2197F3"/>
+</g>
+<defs>
+<clipPath id="clip0_3310_6325">
+<rect width="16" height="16" fill="white" transform="translate(4 4)"/>
+</clipPath>
+</defs>
+</svg>
 
-    <!-- Repeat cards -->
-    <div class="col-12 col-md-6 col-lg-3">
-      <article class="blog-card">
-        <div class="blog-media position-relative">
-          <img src="assets/images/blog-image.jpg" alt="Blog cover">
-          <button class="play-btn"><i class="bi bi-play-fill"></i></button>
-        </div>
-        <div class="blog-body">
-          <div class="d-flex justify-content-between align-items-center mb-2">
-            <span class="badge-soft">Policy</span>
-            <small class="text-muted">3 min read</small>
-          </div>
-          <h5 class="blog-title">New Electric Vehicle Policy Announced in Nepal</h5>
-          <p class="blog-excerpt">Government introduces new incentives for EV adoption including tax benefits and charging the</p>
-          <a href="#" class="btn btn-outline-choco">Watch Video</a>
-        </div>
-      </article>
-    </div>
-
-    <div class="col-12 col-md-6 col-lg-3">
-      <article class="blog-card">
-        <div class="blog-media position-relative">
-          <img src="assets/images/blog-image.jpg" alt="Blog cover">
-          <button class="play-btn"><i class="bi bi-play-fill"></i></button>
-        </div>
-        <div class="blog-body">
-          <div class="d-flex justify-content-between align-items-center mb-2">
-            <span class="badge-soft">Policy</span>
-            <small class="text-muted">3 min read</small>
-          </div>
-          <h5 class="blog-title">New Electric Vehicle Policy Announced in Nepal</h5>
-          <p class="blog-excerpt">Government introduces new incentives for EV adoption including tax benefits and charging the</p>
-          <a href="#" class="btn btn-outline-choco">Watch Video</a>
-        </div>
-      </article>
-    </div>
-
-    <div class="col-12 col-md-6 col-lg-3">
-      <article class="blog-card">
-        <div class="blog-media position-relative">
-          <img src="assets/images/blog-image.jpg" alt="Blog cover">
-          <button class="play-btn"><i class="bi bi-play-fill"></i></button>
-        </div>
-        <div class="blog-body">
-          <div class="d-flex justify-content-between align-items-center mb-2">
-            <span class="badge-soft">Policy</span>
-           
-          </div>
-          <h5 class="blog-title">New Electric Vehicle Policy Announced in Nepal</h5>
-          <a href="#" class="btn btn-outline-choco">Watch Video</a>
-        </div>
-      </article>
-    </div>
   </div>
+  <div class="meta">
+    <div class="name">Author</div>
+    <time class="date" datetime="2025-07-05">5 July, 2025</time>
+  </div>
+</div>
+
+        </div>
+      </article>
+    </div>
+
+    <!-- Card 2 -->
+    <div class="col-12 col-md-6 col-lg-3">
+      <article class="blog-card">
+        <div class="blog-media position-relative">
+          <img src="assets/images/blog-image.jpg" alt="Blog cover">
+          <button class="play-btn" aria-label="Play video">
+  <svg viewBox="0 0 41 41" width="41" height="41" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+    <path fill-rule="evenodd" clip-rule="evenodd"
+      d="M20.5 35.875C28.9914 35.875 35.875 28.9914 35.875 20.5C35.875 12.0086 28.9914 5.125 20.5 5.125C12.0086 5.125 5.125 12.0086 5.125 20.5C5.125 28.9914 12.0086 35.875 20.5 35.875ZM18.4206 13.6503L28.0619 19.0066C29.2335 19.6575 29.2335 21.3426 28.0619 21.9934L18.4206 27.3497C17.0542 28.1087 15.375 27.1208 15.375 25.5577V15.4423C15.375 13.8793 17.0542 12.8912 18.4206 13.6503Z"
+      fill="white"/>
+  </svg>
+</button>
+
+        </div>
+        <div class="blog-body">
+          <div class="d-flex justify-content-between align-items-center mb-2">
+            <span class="badge-soft">Policy</span>
+            <small class="text-muted">3 min read</small>
+          </div>
+          <h5 class="blog-title">New Electric Vehicle Policy Announced in Nepal</h5>
+<div class="author-meta mt-2">
+  <div class="avatar">
+    <!-- colored avatar icon -->
+<svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+<rect width="24" height="24" rx="12" fill="#D4D4D4"/>
+<g clip-path="url(#clip0_3310_6325)">
+<path d="M14.8 12.5C15.85 11.7 16.5 10.4 16.5 9C16.5 6.5 14.5 4.5 12 4.5C9.5 4.5 7.5 6.5 7.5 9C7.5 10.4 8.15 11.7 9.2 12.5C6.6 12.65 4.5 14.85 4.5 17.5V19C4.5 19.25 4.75 19.5 5 19.5H12H19C19.25 19.5 19.5 19.25 19.5 19V17.5C19.5 14.85 17.4 12.65 14.8 12.5Z" fill="#FFC10A"/>
+<path d="M14.8 12.5C14.05 13.1 13.05 13.5 12 13.5C10.95 13.5 9.95 13.15 9.2 12.5C6.6 12.65 4.5 14.85 4.5 17.5V19C4.5 19.25 4.75 19.5 5 19.5H12H19C19.25 19.5 19.5 19.25 19.5 19V17.5C19.5 14.85 17.4 12.65 14.8 12.5Z" fill="#2197F3"/>
+</g>
+<defs>
+<clipPath id="clip0_3310_6325">
+<rect width="16" height="16" fill="white" transform="translate(4 4)"/>
+</clipPath>
+</defs>
+</svg>
+
+  </div>
+  <div class="meta">
+    <div class="name">Author</div>
+    <time class="date" datetime="2025-07-05">5 July, 2025</time>
+  </div>
+</div>
+
+        </div>
+      </article>
+    </div>
+
+    <!-- Card 3 -->
+    <div class="col-12 col-md-6 col-lg-3">
+      <article class="blog-card">
+        <div class="blog-media position-relative">
+          <img src="assets/images/blog-image.jpg" alt="Blog cover">
+          <button class="play-btn" aria-label="Play video">
+  <svg viewBox="0 0 41 41" width="41" height="41" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+    <path fill-rule="evenodd" clip-rule="evenodd"
+      d="M20.5 35.875C28.9914 35.875 35.875 28.9914 35.875 20.5C35.875 12.0086 28.9914 5.125 20.5 5.125C12.0086 5.125 5.125 12.0086 5.125 20.5C5.125 28.9914 12.0086 35.875 20.5 35.875ZM18.4206 13.6503L28.0619 19.0066C29.2335 19.6575 29.2335 21.3426 28.0619 21.9934L18.4206 27.3497C17.0542 28.1087 15.375 27.1208 15.375 25.5577V15.4423C15.375 13.8793 17.0542 12.8912 18.4206 13.6503Z"
+      fill="white"/>
+  </svg>
+</button>
+
+        </div>
+        <div class="blog-body">
+          <div class="d-flex justify-content-between align-items-center mb-2">
+            <span class="badge-soft">Policy</span>
+            <small class="text-muted">3 min read</small>
+          </div>
+          <h5 class="blog-title">New Electric Vehicle Policy Announced in Nepal</h5>
+<div class="author-meta mt-2">
+  <div class="avatar">
+    <!-- colored avatar icon -->
+<svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+<rect width="24" height="24" rx="12" fill="#D4D4D4"/>
+<g clip-path="url(#clip0_3310_6325)">
+<path d="M14.8 12.5C15.85 11.7 16.5 10.4 16.5 9C16.5 6.5 14.5 4.5 12 4.5C9.5 4.5 7.5 6.5 7.5 9C7.5 10.4 8.15 11.7 9.2 12.5C6.6 12.65 4.5 14.85 4.5 17.5V19C4.5 19.25 4.75 19.5 5 19.5H12H19C19.25 19.5 19.5 19.25 19.5 19V17.5C19.5 14.85 17.4 12.65 14.8 12.5Z" fill="#FFC10A"/>
+<path d="M14.8 12.5C14.05 13.1 13.05 13.5 12 13.5C10.95 13.5 9.95 13.15 9.2 12.5C6.6 12.65 4.5 14.85 4.5 17.5V19C4.5 19.25 4.75 19.5 5 19.5H12H19C19.25 19.5 19.5 19.25 19.5 19V17.5C19.5 14.85 17.4 12.65 14.8 12.5Z" fill="#2197F3"/>
+</g>
+<defs>
+<clipPath id="clip0_3310_6325">
+<rect width="16" height="16" fill="white" transform="translate(4 4)"/>
+</clipPath>
+</defs>
+</svg>
+
+  </div>
+  <div class="meta">
+    <div class="name">Author</div>
+    <time class="date" datetime="2025-07-05">5 July, 2025</time>
+  </div>
+</div>
+
+        </div>
+      </article>
+    </div>
+
+    <!-- Card 4 -->
+    <div class="col-12 col-md-6 col-lg-3">
+      <article class="blog-card">
+        <div class="blog-media position-relative">
+          <img src="assets/images/blog-image.jpg" alt="Blog cover">
+          <button class="play-btn" aria-label="Play video">
+  <svg viewBox="0 0 41 41" width="41" height="41" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+    <path fill-rule="evenodd" clip-rule="evenodd"
+      d="M20.5 35.875C28.9914 35.875 35.875 28.9914 35.875 20.5C35.875 12.0086 28.9914 5.125 20.5 5.125C12.0086 5.125 5.125 12.0086 5.125 20.5C5.125 28.9914 12.0086 35.875 20.5 35.875ZM18.4206 13.6503L28.0619 19.0066C29.2335 19.6575 29.2335 21.3426 28.0619 21.9934L18.4206 27.3497C17.0542 28.1087 15.375 27.1208 15.375 25.5577V15.4423C15.375 13.8793 17.0542 12.8912 18.4206 13.6503Z"
+      fill="white"/>
+  </svg>
+</button>
+
+        </div>
+        <div class="blog-body">
+          <div class="d-flex justify-content-between align-items-center mb-2">
+            <span class="badge-soft">Policy</span>
+            <small class="text-muted">3 min read</small>
+          </div>
+          <h5 class="blog-title">New Electric Vehicle Policy Announced in Nepal</h5>
+<div class="author-meta mt-2">
+  <div class="avatar">
+    <!-- colored avatar icon -->
+<svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+<rect width="24" height="24" rx="12" fill="#D4D4D4"/>
+<g clip-path="url(#clip0_3310_6325)">
+<path d="M14.8 12.5C15.85 11.7 16.5 10.4 16.5 9C16.5 6.5 14.5 4.5 12 4.5C9.5 4.5 7.5 6.5 7.5 9C7.5 10.4 8.15 11.7 9.2 12.5C6.6 12.65 4.5 14.85 4.5 17.5V19C4.5 19.25 4.75 19.5 5 19.5H12H19C19.25 19.5 19.5 19.25 19.5 19V17.5C19.5 14.85 17.4 12.65 14.8 12.5Z" fill="#FFC10A"/>
+<path d="M14.8 12.5C14.05 13.1 13.05 13.5 12 13.5C10.95 13.5 9.95 13.15 9.2 12.5C6.6 12.65 4.5 14.85 4.5 17.5V19C4.5 19.25 4.75 19.5 5 19.5H12H19C19.25 19.5 19.5 19.25 19.5 19V17.5C19.5 14.85 17.4 12.65 14.8 12.5Z" fill="#2197F3"/>
+</g>
+<defs>
+<clipPath id="clip0_3310_6325">
+<rect width="16" height="16" fill="white" transform="translate(4 4)"/>
+</clipPath>
+</defs>
+</svg>
+
+  </div>
+  <div class="meta">
+    <div class="name">Author</div>
+    <time class="date" datetime="2025-07-05">5 July, 2025</time>
+  </div>
+</div>
+
+        </div>
+      </article>
+    </div>
+     <!-- Card 1 -->
+    <div class="col-12 col-md-6 col-lg-3">
+      <article class="blog-card">
+        <div class="blog-media position-relative">
+          <img src="assets/images/blog-image.jpg" alt="Blog cover">
+          <button class="play-btn" aria-label="Play video">
+  <svg viewBox="0 0 41 41" width="41" height="41" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+    <path fill-rule="evenodd" clip-rule="evenodd"
+      d="M20.5 35.875C28.9914 35.875 35.875 28.9914 35.875 20.5C35.875 12.0086 28.9914 5.125 20.5 5.125C12.0086 5.125 5.125 12.0086 5.125 20.5C5.125 28.9914 12.0086 35.875 20.5 35.875ZM18.4206 13.6503L28.0619 19.0066C29.2335 19.6575 29.2335 21.3426 28.0619 21.9934L18.4206 27.3497C17.0542 28.1087 15.375 27.1208 15.375 25.5577V15.4423C15.375 13.8793 17.0542 12.8912 18.4206 13.6503Z"
+      fill="white"/>
+  </svg>
+</button>
+
+        </div>
+        <div class="blog-body">
+          <div class="d-flex justify-content-between align-items-center mb-2">
+            <span class="badge-soft">Policy</span>
+            <small class="text-muted">3 min read</small>
+          </div>
+          <h5 class="blog-title">New Electric Vehicle Policy Announced in Nepal</h5>
+          <!-- META: Author + Date -->
+<div class="author-meta mt-2">
+  <div class="avatar">
+    <!-- colored avatar icon -->
+<svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+<rect width="24" height="24" rx="12" fill="#D4D4D4"/>
+<g clip-path="url(#clip0_3310_6325)">
+<path d="M14.8 12.5C15.85 11.7 16.5 10.4 16.5 9C16.5 6.5 14.5 4.5 12 4.5C9.5 4.5 7.5 6.5 7.5 9C7.5 10.4 8.15 11.7 9.2 12.5C6.6 12.65 4.5 14.85 4.5 17.5V19C4.5 19.25 4.75 19.5 5 19.5H12H19C19.25 19.5 19.5 19.25 19.5 19V17.5C19.5 14.85 17.4 12.65 14.8 12.5Z" fill="#FFC10A"/>
+<path d="M14.8 12.5C14.05 13.1 13.05 13.5 12 13.5C10.95 13.5 9.95 13.15 9.2 12.5C6.6 12.65 4.5 14.85 4.5 17.5V19C4.5 19.25 4.75 19.5 5 19.5H12H19C19.25 19.5 19.5 19.25 19.5 19V17.5C19.5 14.85 17.4 12.65 14.8 12.5Z" fill="#2197F3"/>
+</g>
+<defs>
+<clipPath id="clip0_3310_6325">
+<rect width="16" height="16" fill="white" transform="translate(4 4)"/>
+</clipPath>
+</defs>
+</svg>
+
+  </div>
+  <div class="meta">
+    <div class="name">Author</div>
+    <time class="date" datetime="2025-07-05">5 July, 2025</time>
+  </div>
+</div>
+
+        </div>
+      </article>
+    </div>
+
+    <!-- Card 2 -->
+    <div class="col-12 col-md-6 col-lg-3">
+      <article class="blog-card">
+        <div class="blog-media position-relative">
+          <img src="assets/images/blog-image.jpg" alt="Blog cover">
+          <button class="play-btn" aria-label="Play video">
+  <svg viewBox="0 0 41 41" width="41" height="41" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+    <path fill-rule="evenodd" clip-rule="evenodd"
+      d="M20.5 35.875C28.9914 35.875 35.875 28.9914 35.875 20.5C35.875 12.0086 28.9914 5.125 20.5 5.125C12.0086 5.125 5.125 12.0086 5.125 20.5C5.125 28.9914 12.0086 35.875 20.5 35.875ZM18.4206 13.6503L28.0619 19.0066C29.2335 19.6575 29.2335 21.3426 28.0619 21.9934L18.4206 27.3497C17.0542 28.1087 15.375 27.1208 15.375 25.5577V15.4423C15.375 13.8793 17.0542 12.8912 18.4206 13.6503Z"
+      fill="white"/>
+  </svg>
+</button>
+
+        </div>
+        <div class="blog-body">
+          <div class="d-flex justify-content-between align-items-center mb-2">
+            <span class="badge-soft">Policy</span>
+            <small class="text-muted">3 min read</small>
+          </div>
+          <h5 class="blog-title">New Electric Vehicle Policy Announced in Nepal</h5>
+<div class="author-meta mt-2">
+  <div class="avatar">
+    <!-- colored avatar icon -->
+<svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+<rect width="24" height="24" rx="12" fill="#D4D4D4"/>
+<g clip-path="url(#clip0_3310_6325)">
+<path d="M14.8 12.5C15.85 11.7 16.5 10.4 16.5 9C16.5 6.5 14.5 4.5 12 4.5C9.5 4.5 7.5 6.5 7.5 9C7.5 10.4 8.15 11.7 9.2 12.5C6.6 12.65 4.5 14.85 4.5 17.5V19C4.5 19.25 4.75 19.5 5 19.5H12H19C19.25 19.5 19.5 19.25 19.5 19V17.5C19.5 14.85 17.4 12.65 14.8 12.5Z" fill="#FFC10A"/>
+<path d="M14.8 12.5C14.05 13.1 13.05 13.5 12 13.5C10.95 13.5 9.95 13.15 9.2 12.5C6.6 12.65 4.5 14.85 4.5 17.5V19C4.5 19.25 4.75 19.5 5 19.5H12H19C19.25 19.5 19.5 19.25 19.5 19V17.5C19.5 14.85 17.4 12.65 14.8 12.5Z" fill="#2197F3"/>
+</g>
+<defs>
+<clipPath id="clip0_3310_6325">
+<rect width="16" height="16" fill="white" transform="translate(4 4)"/>
+</clipPath>
+</defs>
+</svg>
+
+  </div>
+  <div class="meta">
+    <div class="name">Author</div>
+    <time class="date" datetime="2025-07-05">5 July, 2025</time>
+  </div>
+</div>
+
+        </div>
+      </article>
+    </div>
+
+  </div>
+  <button class="grid-load-more" type="button" aria-label="Load more">Load more</button>
+
 </section>
+
+<script>
+(() => {
+  const MOBILE_MQ = '(max-width: 575.98px)';
+  const mql = window.matchMedia(MOBILE_MQ);
+
+  function setupLatestVideos(section){
+    const grid = section.querySelector('.row.g-4');
+    const btn  = section.querySelector('.grid-load-more');
+    if (!grid || !btn) return;
+
+    const cards = Array.from(grid.children);
+    // Button-level overrides (optional)
+    const initial = parseInt(btn.dataset.initial || '4', 10);
+    const step    = parseInt(btn.dataset.step    || '4', 10);
+
+    function hideFrom(index){
+      cards.forEach((el, i) => {
+        el.classList.toggle('is-hidden-mobile', i >= index);
+      });
+    }
+
+    function initMobile(){
+      const shown = Math.min(initial, cards.length);
+      hideFrom(shown);
+      btn.hidden = cards.length <= shown;
+      btn.dataset.shown = String(shown);
+    }
+
+    function teardownMobile(){
+      // Reveal all & hide button
+      cards.forEach(el => el.classList.remove('is-hidden-mobile'));
+      btn.hidden = true;
+      btn.removeAttribute('data-shown');
+    }
+
+    function apply(){
+      if (mql.matches) initMobile(); else teardownMobile();
+    }
+    apply();
+    mql.addEventListener('change', apply);
+
+    btn.addEventListener('click', () => {
+      let shown = parseInt(btn.dataset.shown || '0', 10);
+      const next = Math.min(shown + step, cards.length);
+      cards.slice(shown, next).forEach(el => el.classList.remove('is-hidden-mobile'));
+      btn.dataset.shown = String(next);
+      if (next >= cards.length) btn.hidden = true;
+    });
+  }
+
+  document.addEventListener('DOMContentLoaded', () => {
+    document.querySelectorAll('.latest-videos').forEach(setupLatestVideos);
+  });
+})();
+</script>
 
 
 
 </main>
+
   <!-- FOOTER -->
     <footer class="footer-motokhabar pt-5 pb-4">
 
