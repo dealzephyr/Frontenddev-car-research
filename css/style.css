@@ -1,3 +1,17 @@
+
+2 of 2,829
+changes
+Inbox
+
+Bipsan Bista
+Attachments
+10:17 (1 hour ago)
+to me
+
+yo sabai paste gara hai
+
+ 4 attachments
+  • Scanned by Gmail
 /* Let widths calculate predictably */
 *,*::before,*::after{ box-sizing:border-box; }
 
@@ -38,6 +52,35 @@ body {
 
 h3{
   font-size: 24px !important;
+}
+
+/* ---------- Global container rhythm ---------- */
+:root{
+  --page-max: 1200px;     /* tweak as you like */
+  --page-gutter: 16px;    /* mobile gutter */
+}
+
+@media (min-width: 576px){ :root{ --page-gutter: 20px; } }
+@media (min-width: 768px){ :root{ --page-gutter: 24px; } }
+@media (min-width: 1200px){ :root{ --page-gutter: 32px; } }
+
+/* The breadcrumb bar and the main area share the same frame */
+.toppart,
+main.page{
+  box-sizing: border-box;
+  max-width: var(--page-max);
+  margin-inline: auto;             /* centers both */
+  padding-inline: var(--page-gutter);
+}
+
+/* If you nest a .container inside, neutralize it so margins match exactly */
+.toppart > .container,
+main.page > .container{
+  max-width: 100%;
+  padding-left: 0;
+  padding-right: 0;
+  margin-left: 0;
+  margin-right: 0;
 }
 
 /* Keep container at 1440 design width */
@@ -2535,7 +2578,7 @@ padding: 2.63px;
   line-clamp: 2;
   -webkit-box-orient: vertical;
   overflow: hidden;
-  text-overflow: ellipsis;
+  text-overflow: ellipsis;
   }
   .featured-blogs .btn.btn-outline-choco{ padding:8px 10px; font-size:10px; }
 }
@@ -2573,7 +2616,7 @@ padding: 2.63px;
   line-clamp: 2;
   -webkit-box-orient: vertical;
   overflow: hidden;
-  text-overflow: ellipsis;
+  text-overflow: ellipsis;
  }
 
    .featured-blogs .btn.btn-outline-choco{ height: 25px;padding: 4px; font-size:12px; }
@@ -3520,5 +3563,3 @@ color: #757575;
   /* remove custom left margin that would break alignment */
   .footer-motokhabar .footer-col{ margin-left:0 !important; }
 }
-
-

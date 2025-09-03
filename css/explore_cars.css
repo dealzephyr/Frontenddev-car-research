@@ -52,7 +52,45 @@
   font-weight: 500;
   color: #212121;
 }
-main{
+
+/* Base stays as you have it … */
+
+/* Breakpoint overrides */
+@media (max-width: 767.98px) {
+  .toppart{
+    margin-left: 0 !important;     /* kill the fixed offset on mobile */
+    padding-left: 16px;             /* small gutter so it isn't hard to the edge */
+    padding-right: 16px;
+    width: 100%;
+  }
+
+  .breadcrumb{
+    font-size: 13px;                /* optional: slightly smaller on mobile */
+    display: flex;
+    flex-wrap: wrap;                /* wrap long trails */
+    gap: 0;                         /* keep your original spacing */
+    justify-content: flex-start;    /* ensure left alignment */
+  }
+
+  .breadcrumb-item + .breadcrumb-item::before{
+    width: 12px;
+    height: 12px;
+    margin-top: 2px;                /* visually centered with smaller font */
+  }
+}
+
+/* Optional: smooth down the offset sooner on tablets too */
+@media (min-width: 768px) and (max-width: 991.98px){
+  .toppart { margin-left: 0 !important;     /* kill the fixed offset on mobile */ }
+}
+
+@media (min-width: 992px) and (max-width: 1199.98px){
+  .toppart { margin-left: 0 !important;     /* kill the fixed offset on mobile */ }
+}
+
+/* Keep your original 127px on large screens */
+
+.main-section{
   margin-left: 127px !important;
 }
 
@@ -236,14 +274,10 @@ main{
   .toppart{
     margin: 0;
     padding: 12px 19px 8px;
-<<<<<<< HEAD
-  }.toppart h3{
-=======
   }
  
   .toppart h3{
->>>>>>> 76f84f9808efc0daaaea322517f6b18e3f12f205
-    font-size: 18px !important;
+  font-size: 18px !important;
   font-weight: 600;
   color: #212121;
   margin-top: 17px;
@@ -348,4 +382,3 @@ border: none;
 
 
 }
-  

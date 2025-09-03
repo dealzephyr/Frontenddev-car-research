@@ -395,7 +395,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
     </nav>
 
-
+<main class="page">
   <div class="container my-5">
  
   <div class="calc-head">
@@ -432,7 +432,7 @@ document.addEventListener('DOMContentLoaded', function() {
       </div>
 
       <div class="form-row">
-        <label class="label" for="kms">Kilometers per Year <span class="badge-soft">required</span></label>
+        <label class="label" for="kms">Kilometers per Year</label>
         <input id="kms" class="input" type="number" placeholder="e.g., 15000" value="15000" min="0">
       </div>
 
@@ -458,8 +458,6 @@ document.addEventListener('DOMContentLoaded', function() {
     <!-- RIGHT: results -->
     <div class="panel panel-results">
       <h3>Cost Breakdown</h3>
-      <p class="hint">Enter details and click ‘Calculate’ to see the breakdown.</p>
-
       <div id="blank" class="results-blank">
         <div>
           <div ><svg width="73" height="72" viewBox="0 0 73 72" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -518,43 +516,7 @@ document.addEventListener('DOMContentLoaded', function() {
   </section>
 </div>
 
-<script>
-  (function () {
-    const grid      = document.querySelector('.calc-grid');
-    const calcBtn   = document.getElementById('calcBtn');
-    const blank     = document.getElementById('blank');
-    const breakdown = document.getElementById('breakdown');
-    const backBtn   = document.querySelector('.br-action'); // "Calculate More Car Ownership"
-
-    // Go to results (mobile)
-    calcBtn.addEventListener('click', function () {
-      // (Run your calculation here…)
-
-      if (blank) blank.style.display = 'none';
-      if (breakdown) breakdown.classList.add('show');
-
-      // Only swap on mobile widths
-      if (window.matchMedia('(max-width: 900px)').matches) {
-        grid.classList.add('show-results');
-        window.scrollTo({ top: grid.offsetTop, behavior: 'smooth' });
-      }
-    });
-
-    // Back to form (mobile)
-    if (backBtn) {
-      backBtn.addEventListener('click', function () {
-        if (window.matchMedia('(max-width: 900px)').matches) {
-          grid.classList.remove('show-results');
-          // Optional: reset blank state
-          if (blank) blank.style.display = '';
-          if (breakdown) breakdown.classList.remove('show');
-          window.scrollTo({ top: grid.offsetTop, behavior: 'smooth' });
-        }
-      });
-    }
-  })();
-</script>
-
+</main>
 
 <script>
 /* Small helper: INR formatter */
@@ -585,16 +547,33 @@ document.getElementById('calcBtn').addEventListener('click', () => {
   const total = fuelCost + maintenance + insurance + misc + emiCost;
 
   // Paint
-  document.getElementById('blank').style.display = 'none';
-  const b = document.getElementById('breakdown');
-  b.classList.add('show');
-  document.getElementById('fuelCost').textContent = asINR(fuelCost);
-  document.getElementById('maintCost').textContent = asINR(maintenance);
-  document.getElementById('insCost').textContent   = asINR(insurance);
-  document.getElementById('miscCost').textContent  = asINR(misc);
-  document.getElementById('emiCost').textContent   = emi ? asINR(emiCost) : '—';
-  document.getElementById('totalCost').textContent = asINR(total);
+  // Paint (use your existing calc logic above this)
+document.getElementById('blank').style.display = 'none';
+const b = document.getElementById('breakdown');
+b.classList.add('show');
+
+// Write to the ids that exist in your HTML:
+document.getElementById('br-fuel').textContent  = asINR(fuelCost);
+document.getElementById('br-maint').textContent = asINR(maintenance);
+document.getElementById('br-ins').textContent   = asINR(insurance);
+document.getElementById('br-emi').textContent   = emi ? asINR(emiCost) : '—';
+document.getElementById('br-total').textContent = asINR(total);
+
+// Keep this to stack results under the form on mobile
+document.querySelector('.calc-grid').classList.add('show-results');
 });
+
+function resetBreakdown() {
+  const grid = document.querySelector('.calc-grid');
+  const blank = document.getElementById('blank');
+  const breakdown = document.getElementById('breakdown');
+
+  breakdown.classList.remove('show');
+  blank.style.display = '';
+  grid.classList.remove('show-results');
+  window.scrollTo({ top: grid.offsetTop, behavior: 'smooth' });
+}
+
 </script>
 
 
