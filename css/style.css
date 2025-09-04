@@ -37,6 +37,19 @@ body {
   overflow-x: hidden;
 }
 
+h2{
+  font-size: 27px !important;
+}
+
+
+@media (max-width: 575.98px){
+  h2{
+    font-size: 20px !important;
+  }
+}
+
+
+
 h3{
   font-size: 24px !important;
 }

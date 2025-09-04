@@ -1,0 +1,85 @@
+/* Personal Details – EDIT MODE */
+.pc-form .pc-label{
+  font-size:14px;               /* requested label size */
+  font-weight:500;
+  color:#757575;
+}
+.pc-form .pc-input{
+  height:48px;
+  border-radius:10px;
+  border:1px solid #e6e6e6;
+  background:#fff;
+  box-shadow:0 6px 16px -12px rgba(0,0,0,.45);
+  font-size: 14px;
+  font-weight: 500;
+}
+.pc-actions{
+  display:flex;
+  gap:12px;
+  margin-top:24px;
+}
+.pc-save{
+ font-size:14px; padding:10px 12px; border-radius:7px;
+}
+.pc-cancel{
+  border:2px solid var(--primary-color);
+  color:var(--primary-color);
+  background:#fff;
+   font-size:14px; padding:10px 12px; border-radius:7px;
+}
+/* Grid under the label, aligned with icon offset */
+.brand-grid{
+  display:grid;
+  grid-template-columns: 1fr 1fr;  /* two columns like the mock */
+  column-gap: 0px;
+  row-gap: 10px;
+  margin-top: 10px;
+  margin-left: 5px;              /* lines up under label text + icon */
+}
+
+/* Each checkbox row */
+.brand-check{
+  display:flex; align-items:center; gap:10px;
+  font-size:13px; color:#212121; font-weight:400;
+  line-height:1.3;
+}
+
+/* Native checkbox, styled to resemble the mock */
+.brand-check input[type="checkbox"]{
+  width:13px; height:13px;
+  accent-color: var(--primary-color);   /* tick color */
+  border:1.5px solid #d9d9d9;           /* light outline look */
+  border-radius:4px;
+  background:#fff;
+}
+
+/* Responsive: keep two columns on most phones; collapse on very narrow */
+@media (max-width: 400px){
+  .brand-grid{ grid-template-columns: 1fr; row-gap: 12px; }
+}
+
+/* Mobile tweaks (matches your responsive scale) */
+@media (max-width:575.98px){
+  .pc-body{ padding:16px; }                              /* you already use this pattern */
+  .pc-form .pc-input{ height:44px; }                     /* slightly shorter on mobile */
+  .pc-actions{ flex-direction:column; gap:10px; }
+  .pc-save, .pc-cancel{ width:100%; }                    /* full-width buttons on mobile */
+}
+
+/* Force 2 columns for Preferred Brands on mobile */
+@media (max-width: 575.98px){
+  .personal-card .brand-grid{
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+    column-gap: 16px;
+    row-gap: 12px;
+    margin-left: 28px; /* keep aligned under label+icon */
+  }
+  .personal-card .brand-check{
+    font-size: 13px;
+    gap: 8px;
+  }
+  .personal-card .brand-check input[type="checkbox"]{
+    width: 18px; height: 18px;
+  }
+}

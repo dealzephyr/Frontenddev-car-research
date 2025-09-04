@@ -1,0 +1,899 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <!-- <meta name="viewport" content="width=device-width, initial-scale=1" /> -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, shrink-to-fit=no">
+    <title>Motokhabar - Car Research Platform</title>
+
+    <!-- Bootstrap CSS -->
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+    <!-- Google Font -->
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;300;400;700&display=swap" rel="stylesheet">
+    <!--  Ionicons CDN for exact compare Icons -->
+
+    <script
+      type="module"
+      src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"
+    ></script>
+    <script
+      nomodule
+      src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"
+    ></script>
+    <!-- Bootstrap icon link -->
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css"
+    />
+
+    <!-- Custom CSS (with Bootstrap overrides) -->
+    <link rel="stylesheet" href="css/style.css" />
+    <link rel="stylesheet" href="css/personal_info.css" />
+  </head>
+  
+  <body>
+   
+      
+    
+    <header class="site-header sticky-top">
+      <!-- TOP NAV -->
+      <nav class="navbar navbar-expand-lg navbar-light header-top shadow-sm">
+        <div class="container header-container">
+          <!-- Logo -->
+          <a class="navbar-brand d-flex align-items-center" href="home.html">
+            <img
+              src="assets/images/logo.png"
+              alt="Motokhabar"
+              class="site-logo"
+            />
+          </a>
+          <!-- Search + right items -->
+          <div class="collapse navbar-collapse" id="topNav">
+            <!-- Search -->
+            <form
+              class="ms-lg-3 me-lg-4 my-3 my-lg-0 w-100 w-lg-auto header-search"
+              role="search"
+            >
+              <div class="input-group">
+                <span class="input-group-text bg-transparent border-0 ps-3">
+                  <i class="bi bi-search"></i>
+                </span>
+                <input
+                  type="search"
+                  class="form-control search-input"
+                  placeholder="Search Cars"
+                  aria-label="Search Cars"
+                />
+              </div>
+            </form>
+
+            <!-- Right items -->
+            <ul class="navbar-nav ms-auto align-items-center header-actions">
+               <li class="nav-item nav-compare">
+                <a
+                  class="nav-link p-0 d-flex align-items-center"
+                  href="compare.html"
+                  style="white-space: nowrap"
+                >
+                  <ion-icon
+                  name="git-compare-outline"
+                  style="width: 20px; height: 20px; margin-right:8px"
+                ></ion-icon>
+                  Compare
+                </a>
+              </li>
+              <li class="nav-item nav-notification">
+                <a
+                  class="nav-link p-0 d-flex align-items-center"
+                  href="#"
+                  style="white-space: nowrap"
+                >
+                   <ion-icon
+                  name="notifications-outline"
+                  style="width: 18px; height: 18px; margin-right:8px"
+                ></ion-icon>
+                  Notification
+                </a>
+              </li>
+              <li class="nav-item hello-login">
+                <a
+                  class="nav-link p-0 d-flex align-items-center"
+                  href="login.html"
+                  style="white-space: nowrap"
+                >
+                   <ion-icon
+                  name="person-outline"
+                  style="width: 18px; height: 18px; margin-right:8px"
+                ></ion-icon>
+                  Hello, Login
+                  <span class="badge-dot ms-2"></span>
+                </a>
+              </li>
+ <li class="nav-item lang-flag">
+  <div class="language-switcher">
+    <a href="#" class="flag-nepal" id="languageButton" aria-label="Nepal Flag">
+      <img src="assets/images/nepal-flag.png" alt="Nepal Flag" id="currentFlag" />
+    </a>
+    
+    <div class="language-dropdown" id="languageDropdown">
+      <button class="language-option active" 
+              data-lang="np" 
+              data-flag="nepal" 
+              data-image="assets/images/nepal-flag.png"
+              data-alt="Nepal Flag">
+        <img src="assets/images/nepal-flag.png" alt="Nepal Flag" />
+        <span>Nepali</span>
+      </button>
+      
+      <button class="language-option" 
+              data-lang="en" 
+              data-flag="us" 
+              data-image="assets/images/usflagforheader.png"
+              data-alt="US Flag">
+        <img src="assets/images/usflagforheader.png" alt="US Flag" />
+        <span>English (US)</span>
+      </button>
+    </div>
+  </div>
+</li>
+<li class="nav-item d-lg-none nav-hamburger ms-2">
+  <button class="navbar-toggler p-1" type="button"
+          data-bs-toggle="collapse" data-bs-target="#mobileMenu"
+          aria-controls="mobileMenu" aria-expanded="false" aria-label="Toggle navigation">
+     <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
+        <path d="M3.333 5H16.667M3.333 10H16.667M3.333 15H16.667"
+              stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+      </svg>
+  </button>
+</li>
+            </ul>
+                   <!-- MOBILE-ONLY MENU (Compare + Contact) -->
+<div class="collapse navbar-collapse d-lg-none" id="mobileMenu">
+  <ul class="navbar-nav ms-auto py-2 mobile-menu-list">
+    <li class="nav-item">
+      <a class="nav-link d-flex align-items-center" href="compare.html">
+       
+        Compare
+      </a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link d-flex align-items-center" href="contact.html">
+       
+        Contact
+      </a>
+    </li>
+  </ul>
+</div>
+          </div>
+        </div>
+      </nav>
+
+      <!-- BOTTOM NAV -->
+      <nav
+        class="navbar navbar-expand-lg navbar-light header-bottom border-top"
+      >
+        <div class="container header-container">
+          <div
+            class="collapse navbar-collapse justify-content-center"
+            id="bottomNav"
+          >
+            <ul class="navbar-nav header-subnav">
+              <li class="nav-item">
+                <a class="nav-link" href="new_car_detail.html">New Cars</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="used_car_details.html">Used Cars</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="expert_car_reviews_listing.html">Expert Review</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="news_and_blogs_listing.html">News &amp; Blogs</a>
+              </li>
+              <li class="nav-item"><a class="nav-link" href="contact.html">Contact</a></li>
+            </ul>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+    const languageButton = document.getElementById('languageButton');
+    const languageDropdown = document.getElementById('languageDropdown');
+    const currentFlag = document.getElementById('currentFlag');
+    const languageOptions = document.querySelectorAll('.language-option');
+    
+    // Check if elements exist
+    if (!languageButton || !languageDropdown || !currentFlag) {
+        console.log('Language switcher elements not found');
+        return;
+    }
+    
+    // Get saved language from localStorage or default to Nepal
+    let currentLanguage = localStorage.getItem('selectedLanguage') || 'np';
+    
+    // Function to update flag display
+    function updateFlagDisplay(langCode, flagName, imagePath, altText) {
+        // Update image source
+        currentFlag.src = imagePath;
+        currentFlag.alt = altText;
+        
+        // Keep the same CSS class
+        languageButton.className = 'flag-nepal';
+        
+        // Update active state in dropdown
+        languageOptions.forEach(opt => {
+            opt.classList.remove('active');
+            if (opt.dataset.lang === langCode) {
+                opt.classList.add('active');
+            }
+        });
+        
+        // Save to localStorage
+        localStorage.setItem('selectedLanguage', langCode);
+        localStorage.setItem('selectedFlag', flagName);
+        localStorage.setItem('selectedImage', imagePath);
+        localStorage.setItem('selectedAlt', altText);
+        
+        console.log('Language updated to:', langCode, 'with image:', imagePath);
+    }
+    
+    // Restore saved language on page load
+    function restoreSavedLanguage() {
+        const savedLang = localStorage.getItem('selectedLanguage');
+        const savedImage = localStorage.getItem('selectedImage');
+        const savedAlt = localStorage.getItem('selectedAlt');
+        const savedFlag = localStorage.getItem('selectedFlag');
+        
+        if (savedLang && savedImage && savedLang !== 'np') {
+            // Only restore if it's not the default Nepal
+            updateFlagDisplay(savedLang, savedFlag, savedImage, savedAlt);
+            console.log('Restored saved language:', savedLang);
+        }
+    }
+    
+    // Restore saved language on page load
+    restoreSavedLanguage();
+    
+    // Toggle dropdown
+    languageButton.addEventListener('click', function(e) {
+        e.preventDefault();
+        e.stopPropagation();
+        languageDropdown.classList.toggle('show');
+    });
+    
+    // Close dropdown when clicking outside
+    document.addEventListener('click', function(e) {
+        if (!languageButton.contains(e.target) && !languageDropdown.contains(e.target)) {
+            languageDropdown.classList.remove('show');
+        }
+    });
+    
+    // Handle language selection - FLEXIBLE IMAGE NAMING
+    languageOptions.forEach(option => {
+        option.addEventListener('click', function(e) {
+            e.preventDefault();
+            e.stopPropagation();
+            
+            const selectedLang = this.dataset.lang;
+            const selectedFlag = this.dataset.flag;
+            const selectedImage = this.dataset.image; // Use exact image path provided
+            const selectedAlt = this.dataset.alt;
+            const selectedFormat = this.dataset.format || 'png'; // Default format
+            const selectedName = this.dataset.name; // Custom file name
+            
+            console.log('Language option clicked:', {
+                lang: selectedLang,
+                flag: selectedFlag,
+                image: selectedImage,
+                alt: selectedAlt,
+                format: selectedFormat,
+                name: selectedName
+            });
+            
+            // Determine image path with flexible naming
+            let imagePath;
+            if (selectedImage) {
+                // Use exact path provided in data-image
+                imagePath = selectedImage;
+            } else if (selectedName) {
+                // Use custom name with format
+                imagePath = `assets/images/${selectedName}.${selectedFormat}`;
+            } else {
+                // Fallback to standard naming
+                imagePath = `assets/images/${selectedFlag}.${selectedFormat}`;
+            }
+            
+            // Determine alt text
+            let altText;
+            if (selectedAlt) {
+                altText = selectedAlt;
+            } else {
+                altText = `${selectedFlag.charAt(0).toUpperCase() + selectedFlag.slice(1)} Flag`;
+            }
+            
+            console.log('Final image path:', imagePath);
+            
+            // Update display
+            updateFlagDisplay(selectedLang, selectedFlag, imagePath, altText);
+            
+            // Close dropdown
+            languageDropdown.classList.remove('show');
+            
+            // Check if image loads successfully
+            currentFlag.onload = function() {
+                console.log('Flag image loaded successfully:', imagePath);
+            };
+            
+            currentFlag.onerror = function() {
+                console.error('Failed to load flag image:', imagePath);
+                console.error('Please check if the image file exists at this path');
+            };
+        });
+    });
+});
+</script>
+<!-- For mobile view  -->
+    <nav class="mobile-tabbar" role="tablist" aria-label="Primary">
+      <a href="/" class="tab-item" role="tab" aria-selected="false">
+       <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+<path d="M10 2.5L2.5 8.74875V17.5H7.49875V12.5H12.5V17.5H17.4988V8.74875L10 2.5Z" fill="#757575"/>
+</svg>
+
+<span>Home</span>
+        
+      </a>
+      <a href="/search" class="tab-item" role="tab" aria-selected="false">
+       <svg width="21" height="20" viewBox="0 0 21 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+<path d="M18.3395 16.4605L14.6641 12.7852C15.5489 11.6072 16.0266 10.1733 16.025 8.7C16.025 4.93672 12.9633 1.875 9.2 1.875C5.43672 1.875 2.375 4.93672 2.375 8.7C2.375 12.4633 5.43672 15.525 9.2 15.525C10.6733 15.5266 12.1072 15.0489 13.2852 14.1641L16.9605 17.8395C17.1466 18.0058 17.3893 18.0945 17.6387 18.0876C17.8881 18.0806 18.1255 17.9784 18.3019 17.8019C18.4784 17.6255 18.5806 17.3881 18.5876 17.1387C18.5945 16.8893 18.5058 16.6466 18.3395 16.4605ZM4.325 8.7C4.325 7.73582 4.61091 6.79329 5.14659 5.9916C5.68226 5.18991 6.44363 4.56506 7.33442 4.19609C8.22521 3.82711 9.20541 3.73057 10.1511 3.91867C11.0967 4.10678 11.9654 4.57107 12.6471 5.25285C13.3289 5.93464 13.7932 6.80328 13.9813 7.74894C14.1694 8.69459 14.0729 9.67479 13.7039 10.5656C13.3349 11.4564 12.7101 12.2177 11.9084 12.7534C11.1067 13.2891 10.1642 13.575 9.2 13.575C7.90755 13.5735 6.66847 13.0593 5.75457 12.1454C4.84066 11.2315 4.32655 9.99246 4.325 8.7Z" fill="#757575"/>
+</svg>
+
+      <Span>Search</Span> 
+      </a>
+      <a href="/cars" class="tab-item" role="tab" aria-selected="false">
+        <svg width="21" height="20" viewBox="0 0 21 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+<path d="M19.807 10.7898C19.6664 9.21133 19.4348 8.90391 19.3473 8.78828C19.1461 8.52109 18.8242 8.34648 18.4836 8.16328C18.4643 8.1531 18.4477 8.13857 18.435 8.12086C18.4223 8.10315 18.4139 8.08273 18.4105 8.06121C18.407 8.0397 18.4086 8.01767 18.4152 7.99688C18.4217 7.97609 18.4329 7.9571 18.4481 7.94141C18.5111 7.87743 18.5596 7.80056 18.5902 7.71607C18.6207 7.63158 18.6326 7.54148 18.625 7.45195C18.6103 7.29321 18.5365 7.14578 18.4182 7.03891C18.2999 6.93204 18.1458 6.87354 17.9863 6.875H17.377C17.3508 6.87515 17.3248 6.87685 17.2988 6.88008C17.2811 6.87236 17.2626 6.86622 17.2438 6.86172C16.8828 6.09883 16.3887 5.0543 15.3645 4.54453C13.8453 3.78906 11.0469 3.75 10.5 3.75C9.95314 3.75 7.1547 3.78906 5.63751 4.54336C4.61329 5.05312 4.11915 6.09766 3.75821 6.86055L3.75509 6.8668C3.73709 6.86933 3.71941 6.87378 3.70236 6.88008C3.67644 6.87685 3.65035 6.87515 3.62423 6.875H3.01368C2.85427 6.87354 2.70012 6.93204 2.58182 7.03891C2.46352 7.14578 2.3897 7.29321 2.37501 7.45195C2.36807 7.54127 2.3805 7.63103 2.41145 7.7151C2.44239 7.79916 2.49112 7.87556 2.55431 7.93906C2.56943 7.95476 2.58069 7.97375 2.58721 7.99454C2.59373 8.01533 2.59533 8.03735 2.59188 8.05887C2.58844 8.08038 2.58004 8.1008 2.56735 8.11852C2.55466 8.13623 2.53802 8.15075 2.51876 8.16094C2.17814 8.34531 1.8547 8.51992 1.65509 8.78594C1.56759 8.90312 1.33634 9.20898 1.19532 10.7875C1.1172 11.6758 1.10548 12.5953 1.16681 13.1875C1.29532 14.418 1.53634 15.1617 1.5465 15.1926C1.58348 15.3049 1.65156 15.4044 1.74283 15.4795C1.8341 15.5547 1.94481 15.6024 2.06212 15.6172V15.625C2.06212 15.7908 2.12797 15.9497 2.24518 16.0669C2.36239 16.1842 2.52136 16.25 2.68712 16.25H4.87462C5.04038 16.25 5.19935 16.1842 5.31656 16.0669C5.43377 15.9497 5.49962 15.7908 5.49962 15.625C5.83595 15.625 6.06993 15.5648 6.31798 15.5008C6.6761 15.4043 7.04215 15.3401 7.41173 15.309C8.60353 15.1953 9.78868 15.1562 10.5 15.1562C11.1969 15.1562 12.4344 15.1953 13.6281 15.309C13.9992 15.3402 14.3667 15.4046 14.7262 15.5016C14.9637 15.5625 15.1891 15.6187 15.5012 15.6246C15.5012 15.7904 15.567 15.9493 15.6842 16.0666C15.8015 16.1838 15.9604 16.2496 16.1262 16.2496H18.3137C18.4794 16.2496 18.6384 16.1838 18.7556 16.0666C18.8728 15.9493 18.9387 15.7904 18.9387 15.6246V15.6199C19.0563 15.6054 19.1673 15.5578 19.2589 15.4827C19.3505 15.4075 19.4188 15.3078 19.4559 15.1953C19.466 15.1645 19.707 14.4207 19.8356 13.1902C19.8969 12.5977 19.886 11.6797 19.807 10.7898ZM4.8879 7.39492C5.2004 6.73086 5.55782 5.9793 6.19415 5.6625C7.11368 5.20469 9.01954 4.99844 10.5 4.99844C11.9805 4.99844 13.8863 5.20313 14.8059 5.6625C15.4422 5.9793 15.7981 6.73125 16.1121 7.39492L16.1512 7.47969C16.174 7.52794 16.1841 7.58125 16.1805 7.63452C16.1769 7.68778 16.1597 7.73924 16.1306 7.78397C16.1014 7.8287 16.0613 7.86523 16.014 7.89005C15.9668 7.91488 15.9139 7.92718 15.8606 7.92578C14.5625 7.89062 11.8281 7.77812 10.5 7.77812C9.17189 7.77812 6.43751 7.89336 5.13751 7.92852C5.08414 7.92991 5.0313 7.91761 4.98403 7.89279C4.93677 7.86796 4.89665 7.83144 4.86751 7.78671C4.83836 7.74197 4.82117 7.69052 4.81756 7.63725C4.81395 7.58398 4.82404 7.53068 4.84689 7.48242C4.86056 7.45352 4.87501 7.42422 4.8879 7.39492ZM5.35392 10.5055C4.68197 10.5863 4.00572 10.6263 3.32892 10.625C2.91486 10.625 2.4879 10.5078 2.40861 10.1391C2.35431 9.89102 2.36017 9.75156 2.38946 9.61133C2.41407 9.49219 2.45314 9.40547 2.64845 9.375C3.15626 9.29688 3.44025 9.39492 4.2715 9.63984C4.82267 9.80195 5.22032 10.018 5.44689 10.1891C5.56056 10.2734 5.50001 10.4938 5.35392 10.5055ZM14.0016 13.7086C13.4875 13.7672 12.4594 13.7457 10.5117 13.7457C8.56407 13.7457 7.53634 13.7672 7.02228 13.7086C6.49181 13.6496 5.81564 13.148 6.27736 12.7012C6.58478 12.4066 7.30196 12.1863 8.25704 12.0625C9.21212 11.9387 9.61642 11.875 10.5078 11.875C11.3992 11.875 11.7625 11.9141 12.7586 12.0629C13.7547 12.2117 14.5074 12.4348 14.7383 12.7016C15.1594 13.1797 14.5317 13.6465 14.0016 13.7109V13.7086ZM18.5914 10.1387C18.5133 10.509 18.0836 10.6246 17.6711 10.6246C16.9813 10.6248 16.2922 10.5849 15.607 10.5051C15.4875 10.4937 15.432 10.284 15.5531 10.1887C15.7762 10.0133 16.1781 9.80156 16.7285 9.63945C17.5598 9.39453 18.0391 9.29648 18.4508 9.37813C18.5512 9.39805 18.6043 9.50586 18.6106 9.57344C18.6381 9.7616 18.6316 9.95319 18.5914 10.1391V10.1387Z" fill="#757575"/>
+</svg>
+<span>Explore</span>   
+      </a>
+
+      <a href="/bookmarks" class="tab-item" role="tab" aria-selected="false">
+        <svg width="21" height="20" viewBox="0 0 21 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+<g clip-path="url(#clip0_2783_11616)">
+<path d="M18.0001 1.66699H3.00008C2.77907 1.66699 2.56711 1.75479 2.41083 1.91107C2.25455 2.06735 2.16675 2.27931 2.16675 2.50033V17.5003C2.16675 17.7213 2.25455 17.9333 2.41083 18.0896C2.56711 18.2459 2.77907 18.3337 3.00008 18.3337H18.0001C18.2211 18.3337 18.4331 18.2459 18.5893 18.0896C18.7456 17.9333 18.8334 17.7213 18.8334 17.5003V2.50033C18.8334 2.27931 18.7456 2.06735 18.5893 1.91107C18.4331 1.75479 18.2211 1.66699 18.0001 1.66699ZM5.50008 6.66699C5.50008 6.44598 5.58788 6.23402 5.74416 6.07774C5.90044 5.92146 6.1124 5.83366 6.33342 5.83366H8.83342C9.05443 5.83366 9.26639 5.92146 9.42267 6.07774C9.57895 6.23402 9.66675 6.44598 9.66675 6.66699V10.0003C9.66675 10.2213 9.57895 10.4333 9.42267 10.5896C9.26639 10.7459 9.05443 10.8337 8.83342 10.8337H6.33342C6.1124 10.8337 5.90044 10.7459 5.74416 10.5896C5.58788 10.4333 5.50008 10.2213 5.50008 10.0003V6.66699ZM14.6667 14.167H6.33342C6.1124 14.167 5.90044 14.0792 5.74416 13.9229C5.58788 13.7666 5.50008 13.5547 5.50008 13.3337C5.50008 13.1126 5.58788 12.9007 5.74416 12.7444C5.90044 12.5881 6.1124 12.5003 6.33342 12.5003H14.6667C14.8878 12.5003 15.0997 12.5881 15.256 12.7444C15.4123 12.9007 15.5001 13.1126 15.5001 13.3337C15.5001 13.5547 15.4123 13.7666 15.256 13.9229C15.0997 14.0792 14.8878 14.167 14.6667 14.167ZM14.6667 10.8337H12.1667C11.9457 10.8337 11.7338 10.7459 11.5775 10.5896C11.4212 10.4333 11.3334 10.2213 11.3334 10.0003C11.3334 9.77931 11.4212 9.56735 11.5775 9.41107C11.7338 9.25479 11.9457 9.16699 12.1667 9.16699H14.6667C14.8878 9.16699 15.0997 9.25479 15.256 9.41107C15.4123 9.56735 15.5001 9.77931 15.5001 10.0003C15.5001 10.2213 15.4123 10.4333 15.256 10.5896C15.0997 10.7459 14.8878 10.8337 14.6667 10.8337ZM14.6667 7.50033H12.1667C11.9457 7.50033 11.7338 7.41253 11.5775 7.25625C11.4212 7.09997 11.3334 6.88801 11.3334 6.66699C11.3334 6.44598 11.4212 6.23402 11.5775 6.07774C11.7338 5.92146 11.9457 5.83366 12.1667 5.83366H14.6667C14.8878 5.83366 15.0997 5.92146 15.256 6.07774C15.4123 6.23402 15.5001 6.44598 15.5001 6.66699C15.5001 6.88801 15.4123 7.09997 15.256 7.25625C15.0997 7.41253 14.8878 7.50033 14.6667 7.50033Z" fill="#757575"/>
+</g>
+<defs>
+<clipPath id="clip0_2783_11616">
+<rect width="20" height="20" fill="white" transform="translate(0.5)"/>
+</clipPath>
+</defs>
+</svg>
+<span>News</span>
+        
+      </a>
+
+      <a href="/profile" class="tab-item" role="tab" aria-selected="false">
+        <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+<path fill-rule="evenodd" clip-rule="evenodd" d="M15.7014 7.21864H14.4448V5.96197L16.7926 3.61309L18.0503 4.86975L15.7014 7.21864ZM6.3 4.99642C6.888 4.99642 7.18787 5.26319 7.4833 5.5353L7.51948 5.56864C7.81501 5.84075 8.11767 6.10752 8.71111 6.10752C9.27951 6.10752 9.57879 5.85607 9.8643 5.59314L9.88398 5.57499L9.90363 5.55683L9.92326 5.53865L9.94292 5.5205C9.9593 5.50538 9.97573 5.49031 9.99222 5.4753C9.99333 5.50197 10 5.52642 10 5.55197V6.66309C10 8.19419 8.75333 9.44086 7.22222 9.44086C5.69111 9.44086 4.44445 8.19419 4.44445 6.66309V5.99642C4.69522 5.89487 4.87968 5.73156 5.06243 5.56611L5.09205 5.53927C5.39335 5.2664 5.69949 4.99642 6.3 4.99642ZM16.9259 1.90864C17.2226 1.61309 17.7048 1.61197 18.0003 1.90864L19.7537 3.66197C20.0503 3.95864 20.0503 4.44086 19.7537 4.73752L16.3837 8.10752C16.237 8.25197 16.0481 8.32975 15.847 8.32975H13.3337V5.81642C13.3337 5.6153 13.4114 5.4253 13.5526 5.28197L16.9259 1.90864ZM11.5422 9.8853C10.9478 9.76086 10.3478 9.66975 9.74555 9.59752C10.5744 8.88309 11.1111 7.83975 11.1111 6.66309V5.55197C11.1111 3.40752 9.36667 1.66309 7.22222 1.66309C5.07778 1.66309 3.33333 3.40752 3.33333 5.55197V6.66309C3.33333 7.83752 3.86667 8.87864 4.69333 9.59197C4.09333 9.6653 3.49555 9.76086 2.90445 9.88419C1.22222 10.2386 0 11.842 0 13.6975V15.832L0.225552 15.9986C1.56555 16.9875 3.77333 18.1931 6.68333 18.3298C6.86222 18.3375 7.03889 18.342 7.21445 18.342C10.5167 18.342 13 16.8942 14.2178 15.9998L14.4444 15.8331V13.6986C14.4444 11.8431 13.2233 10.2398 11.5422 9.8853Z" fill="#757575"/>
+</svg>
+<span>Profile</span>   
+      </a>
+
+    </nav>
+
+    <!-- MAIN CONTENT -->
+<main class="page">
+
+    
+
+<section class="container my-4" id="personal-info">
+    <h2 class="fw-bold">Personal Information</h2>
+    <p class="text-muted section-subtitle">
+    Select up to cars to compare side by side
+  </p>
+  <!-- Profile banner -->
+  <div class="mk-card profile-banner mb-4">
+    <div class="d-flex align-items-center justify-content-between flex-wrap gap-3">
+      <div class="d-flex align-items-center gap-5">
+<div class="avatar-wrap">
+  <div class="avatar-xl">
+    <img src="assets/images/profile-img.png" alt="User photo">
+  </div>
+
+  <!-- file input trigger (hidden) -->
+  <input id="avatarUpload" type="file" accept="image/*" class="visually-hidden">
+
+  <!-- the small edit button; put your EDIT SVG inside -->
+  <label for="avatarUpload" class="avatar-edit" aria-label="Change profile photo">
+    <!-- Replace this with your own edit.svg if you want -->
+<svg width="20" height="20" style = "right:-10px; top:50%; transform:translateY(-50%);"
+viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+<path fill-rule="evenodd" clip-rule="evenodd" d="M16.186 1.08996C16.707 1.33996 17.322 1.70196 17.811 2.19096C18.301 2.68096 18.663 3.29496 18.911 3.81596C19.224 4.46996 19.021 5.22396 18.51 5.73596L11.296 12.949C10.986 13.259 10.608 13.49 10.191 13.624L5.969 14.977C5.83768 15.0191 5.6973 15.0242 5.56327 14.9917C5.42924 14.9592 5.30677 14.8904 5.2093 14.7928C5.11184 14.6953 5.04316 14.5727 5.01083 14.4387C4.97849 14.3046 4.98374 14.1642 5.026 14.033L6.379 9.81196C6.51255 9.39524 6.74362 9.01642 7.053 8.70696L14.267 1.49296C14.779 0.980957 15.533 0.778957 16.187 1.09096L16.186 1.08996ZM16.397 3.60596C16.15 3.37261 15.8712 3.17532 15.569 3.01996L8.575 10.014C8.50392 10.0849 8.44392 10.1662 8.397 10.255L6.9 13.102L9.746 11.606C9.836 11.559 9.917 11.499 9.988 11.428L16.982 4.43396C16.8266 4.13175 16.6303 3.853 16.397 3.60596ZM1.999 4.49996C1.99879 4.37222 2.04746 4.24925 2.13505 4.15627C2.22263 4.0633 2.34248 4.00736 2.47 3.99996L8 4.00496C8.26522 4.00496 8.51957 3.8996 8.70711 3.71206C8.89464 3.52453 9 3.27017 9 3.00496C9 2.73974 8.89464 2.48539 8.70711 2.29785C8.51957 2.11031 8.26522 2.00496 8 2.00496L2.5 1.99996C1.83696 1.99996 1.20107 2.26335 0.732233 2.73219C0.263392 3.20103 0 3.83692 0 4.49996V17.077C0 17.837 0.082 18.262 0.319 18.704C0.543 19.123 0.877 19.458 1.296 19.682C1.738 19.918 2.162 20 2.923 20H15.077C15.837 20 16.262 19.918 16.704 19.682C17.124 19.458 17.458 19.123 17.682 18.704C17.918 18.262 18 17.838 18 17.077V12C18 11.7347 17.8946 11.4804 17.7071 11.2928C17.5196 11.1053 17.2652 11 17 11C16.7348 11 16.4804 11.1053 16.2929 11.2928C16.1054 11.4804 16 11.7347 16 12V17.077C16 17.536 15.979 17.648 15.918 17.761C15.8833 17.8284 15.8284 17.8832 15.761 17.918C15.648 17.978 15.536 18 15.077 18H2.923C2.464 18 2.353 17.978 2.239 17.918C2.17155 17.8833 2.11665 17.8284 2.082 17.761C2.022 17.648 2 17.536 2 17.077L1.999 4.49996Z" fill="#4E342E"/>
+</svg>
+  </label>
+</div>
+        <div>
+          <div class="profile-name">
+            <h3>John Doe</h3></div>
+          <div class="profile-meta d-flex flex-column gap-2">
+            <span>Car Research Enthusiast</span>
+            <span class="d-inline-flex align-items-center gap-1">
+              <i class="bi bi-geo-alt"></i> Pokhara, Nepal
+            </span>
+          </div>
+        </div>
+      </div>
+
+      <!-- right stats -->
+      <div class="profile-stats">
+        <div class="profile-stat text-center">
+          <div class="num">100</div>
+          <div class="lbl">Car Researched</div>
+        </div>
+        <div class="profile-stat text-center">
+          <div class="num">8</div>
+          <div class="lbl">Comparisons</div>
+        </div>
+        <div class="profile-stat text-center">
+          <div class="num">4</div>
+          <div class="lbl">Favourites</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Main grid -->
+  <div class="row g-4">
+    <!-- LEFT COLUMN -->
+    <div class="col-lg-4">
+      <!-- Personal Details -->
+<div class="mk-card personal-card mb-4">
+  <!-- head -->
+  <div class="pc-head d-flex align-items-center justify-content-between">
+    <h5 class="pc-title mb-0">Personal Details</h5>
+
+    <a href="personal_info-edit.html"><button type="button" class="pc-edit btn">
+      <!-- icon is optional; keep either inline SVG or a BI icon -->
+      <span class="pc-edit-ic" aria-hidden="true">
+        <!-- Inline SVG (outline) -->
+<svg width="20" height="20"
+viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+<path fill-rule="evenodd" clip-rule="evenodd" d="M16.186 1.08996C16.707 1.33996 17.322 1.70196 17.811 2.19096C18.301 2.68096 18.663 3.29496 18.911 3.81596C19.224 4.46996 19.021 5.22396 18.51 5.73596L11.296 12.949C10.986 13.259 10.608 13.49 10.191 13.624L5.969 14.977C5.83768 15.0191 5.6973 15.0242 5.56327 14.9917C5.42924 14.9592 5.30677 14.8904 5.2093 14.7928C5.11184 14.6953 5.04316 14.5727 5.01083 14.4387C4.97849 14.3046 4.98374 14.1642 5.026 14.033L6.379 9.81196C6.51255 9.39524 6.74362 9.01642 7.053 8.70696L14.267 1.49296C14.779 0.980957 15.533 0.778957 16.187 1.09096L16.186 1.08996ZM16.397 3.60596C16.15 3.37261 15.8712 3.17532 15.569 3.01996L8.575 10.014C8.50392 10.0849 8.44392 10.1662 8.397 10.255L6.9 13.102L9.746 11.606C9.836 11.559 9.917 11.499 9.988 11.428L16.982 4.43396C16.8266 4.13175 16.6303 3.853 16.397 3.60596ZM1.999 4.49996C1.99879 4.37222 2.04746 4.24925 2.13505 4.15627C2.22263 4.0633 2.34248 4.00736 2.47 3.99996L8 4.00496C8.26522 4.00496 8.51957 3.8996 8.70711 3.71206C8.89464 3.52453 9 3.27017 9 3.00496C9 2.73974 8.89464 2.48539 8.70711 2.29785C8.51957 2.11031 8.26522 2.00496 8 2.00496L2.5 1.99996C1.83696 1.99996 1.20107 2.26335 0.732233 2.73219C0.263392 3.20103 0 3.83692 0 4.49996V17.077C0 17.837 0.082 18.262 0.319 18.704C0.543 19.123 0.877 19.458 1.296 19.682C1.738 19.918 2.162 20 2.923 20H15.077C15.837 20 16.262 19.918 16.704 19.682C17.124 19.458 17.458 19.123 17.682 18.704C17.918 18.262 18 17.838 18 17.077V12C18 11.7347 17.8946 11.4804 17.7071 11.2928C17.5196 11.1053 17.2652 11 17 11C16.7348 11 16.4804 11.1053 16.2929 11.2928C16.1054 11.4804 16 11.7347 16 12V17.077C16 17.536 15.979 17.648 15.918 17.761C15.8833 17.8284 15.8284 17.8832 15.761 17.918C15.648 17.978 15.536 18 15.077 18H2.923C2.464 18 2.353 17.978 2.239 17.918C2.17155 17.8833 2.11665 17.8284 2.082 17.761C2.022 17.648 2 17.536 2 17.077L1.999 4.49996Z" fill="#4E342E"/>
+</svg>
+      </span>
+      Edit
+    </button>
+    </a>
+  </div>
+
+  <!-- body -->
+  <div class="pc-body">
+    <!-- Full name -->
+    <div class="pc-field">
+      <div class="pc-label">
+        <span class="pc-ic">
+          <!-- slot for SVG -->
+          <svg viewBox="0 0 24 24"><path d="M12 12a5 5 0 1 0-5-5 5 5 0 0 0 5 5Zm-9 9a9 9 0 0 1 18 0"
+            fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round"/></svg>
+        </span>
+        Full Name
+      </div>
+      <div class="pc-value">John Doe</div>
+    </div>
+
+    <!-- Email -->
+    <div class="pc-field">
+      <div class="pc-label">
+        <span class="pc-ic">
+          <svg width="13" height="11" viewBox="0 0 13 11" fill="none" xmlns="http://www.w3.org/2000/svg">
+<path fill-rule="evenodd" clip-rule="evenodd" d="M0.65625 0.71875L0.125 1.25V9.75L0.65625 10.2812H12.3438L12.875 9.75V1.25L12.3438 0.71875H0.65625ZM1.1875 2.45098V9.21875H11.8125V2.4508L6.49993 7.28047L1.1875 2.45098ZM10.9695 1.78125H2.03032L6.49993 5.84453L10.9695 1.78125Z" fill="#757575"/>
+</svg>
+
+        </span>
+        Email Address
+      </div>
+      <div class="pc-value">doe.john.77@gmail.com</div>
+    </div>
+
+    <!-- Phone -->
+    <div class="pc-field">
+      <div class="pc-label">
+        <span class="pc-ic">
+          <svg width="12" height="12" viewBox="0 0 12 12" fill="none" xmlns="http://www.w3.org/2000/svg">
+<path d="M0.75 2.20833C0.75 7.2019 4.7981 11.25 9.79167 11.25C10.017 11.25 10.2403 11.2418 10.4615 11.2256C10.7153 11.2069 10.8422 11.1977 10.9577 11.1312C11.0534 11.0761 11.1441 10.9785 11.1921 10.879C11.25 10.7589 11.25 10.6189 11.25 10.3388V8.69541C11.25 8.45986 11.25 8.34208 11.2112 8.24117C11.177 8.15197 11.1214 8.07258 11.0493 8.00993C10.9676 7.939 10.857 7.89875 10.6356 7.81825L8.76497 7.13802C8.50744 7.0444 8.37868 6.99756 8.25651 7.00549C8.14878 7.01249 8.04512 7.0493 7.95705 7.11172C7.85717 7.18247 7.78667 7.29996 7.64569 7.53498L7.16667 8.33333C5.62089 7.63327 4.36778 6.37852 3.66667 4.83333L4.46502 4.35431C4.70004 4.21333 4.81753 4.14283 4.88828 4.04295C4.9507 3.95488 4.98751 3.85122 4.99451 3.74349C5.00244 3.62132 4.9556 3.49256 4.86198 3.23503L4.18175 1.36437C4.10125 1.14303 4.061 1.03235 3.99007 0.950725C3.92742 0.878619 3.84803 0.823004 3.75883 0.788763C3.65792 0.75 3.54014 0.75 3.30459 0.75H1.66117C1.38111 0.75 1.24105 0.75 1.121 0.807896C1.02154 0.855852 0.923892 0.946589 0.868825 1.04227C0.802325 1.15779 0.793051 1.28469 0.774442 1.53851C0.758226 1.75967 0.75 1.98304 0.75 2.20833Z" stroke="#757575" stroke-linecap="round" stroke-linejoin="round"/>
+</svg>
+
+        </span>
+        Phone Number
+      </div>
+      <div class="pc-value">+977 9800000000</div>
+    </div>
+
+    <!-- Location -->
+    <div class="pc-field">
+      <div class="pc-label">
+        <span class="pc-ic">
+         <svg width="14" height="14" viewBox="0 0 14 14" fill="none" xmlns="http://www.w3.org/2000/svg">
+<path d="M7 1.3125C4.82617 1.3125 3.0625 2.99113 3.0625 5.05859C3.0625 7.4375 5.6875 11.2074 6.65137 12.5095C6.69138 12.5645 6.74382 12.6092 6.8044 12.64C6.86499 12.6709 6.93201 12.6869 7 12.6869C7.06799 12.6869 7.13501 12.6709 7.1956 12.64C7.25618 12.6092 7.30862 12.5645 7.34863 12.5095C8.3125 11.2079 10.9375 7.43941 10.9375 5.05859C10.9375 2.99113 9.17383 1.3125 7 1.3125Z" stroke="#757575" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M7 6.5625C7.72487 6.5625 8.3125 5.97487 8.3125 5.25C8.3125 4.52513 7.72487 3.9375 7 3.9375C6.27513 3.9375 5.6875 4.52513 5.6875 5.25C5.6875 5.97487 6.27513 6.5625 7 6.5625Z" stroke="#757575" stroke-linecap="round" stroke-linejoin="round"/>
+</svg>
+
+
+
+        </span>
+        Location
+      </div>
+      <div class="pc-value">Pokhara, Nepal</div>
+    </div>
+
+    <!-- Preferred brands -->
+    <div class="pc-field">
+      <div class="pc-label">
+        <span class="pc-ic">
+          <svg width="18" height="18" viewBox="0 0 18 18" fill="none" xmlns="http://www.w3.org/2000/svg">
+<path d="M10.0278 11.5284L6.48687 11.4579M13.5688 11.5988L15.6934 11.641L15.7377 9.4102C15.7416 9.24167 15.6852 9.0773 15.5787 8.94663C15.4722 8.81595 15.3226 8.72753 15.1568 8.69726L11.5146 8.01555L9.6532 5.42803C9.58898 5.33877 9.50487 5.26568 9.40751 5.21455C9.31015 5.16343 9.20222 5.13568 9.09228 5.13349L3.9508 5.03126C3.68687 5.02417 3.42621 5.09098 3.19823 5.22415C2.97025 5.35732 2.78403 5.55155 2.66056 5.78492L2.07105 6.92801C1.76196 7.51316 1.59378 8.16241 1.57993 8.82404L1.52951 11.3594L2.9459 11.3875" stroke="#757575" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M4.67273 13.5471C5.65054 13.5666 6.45898 12.7897 6.47842 11.8118C6.49786 10.834 5.72095 10.0256 4.74314 10.0062C3.76533 9.98671 2.95689 10.7636 2.93745 11.7414C2.91801 12.7192 3.69492 13.5277 4.67273 13.5471Z" stroke="#757575" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M11.7548 13.688C12.7326 13.7074 13.541 12.9305 13.5604 11.9527C13.5799 10.9749 12.803 10.1665 11.8252 10.147C10.8474 10.1276 10.0389 10.9045 10.0195 11.8823C10 12.8601 10.777 13.6685 11.7548 13.688Z" stroke="#757575" stroke-linecap="round" stroke-linejoin="round"/>
+</svg>
+
+        </span>
+        Preferred Brands
+      </div>
+      <div class="d-flex flex-wrap gap-2 mt-2">
+        <span class="pc-chip">Hyundai</span>
+        <span class="pc-chip">Hyundai</span>
+        <span class="pc-chip">Hyundai</span>
+        <span class="pc-chip">Hyundai</span>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<!-- Change Password -->
+<div class="mk-card pw-card">
+  <div class="pw-head d-flex align-items-center">
+    <span class="pw-ic" aria-hidden="true">
+      <!-- outline lock; transparent, adopts text color -->
+<svg width="18" height="18" viewBox="0 0 18 18" fill="none" xmlns="http://www.w3.org/2000/svg">
+<path d="M11.8125 7.3125V3.97266C11.8125 3.22673 11.5162 2.51136 10.9887 1.98392C10.4613 1.45647 9.74592 1.16016 9 1.16016C8.25408 1.16016 7.53871 1.45647 7.01126 1.98392C6.48382 2.51136 6.1875 3.22673 6.1875 3.97266V7.3125" stroke="#242424" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M12.9375 7.3125H5.0625C4.13052 7.3125 3.375 8.06802 3.375 9V15.1875C3.375 16.1195 4.13052 16.875 5.0625 16.875H12.9375C13.8695 16.875 14.625 16.1195 14.625 15.1875V9C14.625 8.06802 13.8695 7.3125 12.9375 7.3125Z" stroke="#242424" stroke-linecap="round" stroke-linejoin="round"/>
+</svg>
+
+    </span>
+    <h5 class="pw-title mb-0">Change Password</h5>
+  </div>
+
+  <div class="pw-body">
+    <div class="pw-group">
+      <label class="pw-label">Current Password</label>
+      <input type="password" class="form-control pw-input">
+    </div>
+
+    <div class="pw-group">
+      <label class="pw-label">New Password</label>
+      <input type="password" class="form-control pw-input">
+    </div>
+
+    <div class="pw-group">
+      <label class="pw-label">Confirm New Password</label>
+      <input type="password" class="form-control pw-input">
+    </div>
+
+    <button class="pw-btn w-100" type="button">Change Password</button>
+  </div>
+</div>
+
+    </div>
+
+    <!-- RIGHT COLUMN -->
+    <div class="col-lg-8">
+      <!-- Favourite Cars -->
+<!-- Favourite Cars (section shell only) -->
+<div class="mk-card fav-card">
+  <div class="fav-head">
+    <h6 class="fav-title">Favourite Cars</h6>
+    <p class="fav-sub">Your saved cars for quick access</p>
+  </div>
+
+  <div class="fav-body">
+    <div class="fav-grid">
+      <!-- CARD 1 -->
+      <article class="car-card v2">
+        <div class="car-card__media">
+          <img src="assets/images/marutisuzuki.png" alt="Maruti Suzuki Swift" />
+        </div>
+        <div class="car-card__body">
+          <h6 class="car-card__title">Maruti Suzuki Swift</h6>
+          <div class="car-card__location"><span><i class="bi bi-geo-alt-fill me-1"></i> Pokhara, Nepal</span></div>
+          <div class="car-card__divider"></div>
+          <div class="car-card__row mb-2"><span><i class="bi bi-speedometer2 me-2"></i>25,100 mileage</span></div>
+          <div class="car-card__grid mb-2">
+            <div class="d-flex align-items-center"><span><i class="bi bi-fuel-pump me-2"></i>Diesel</span></div>
+            <div class="d-flex align-items-center"><span><i class="bi bi-people me-2"></i>Seater</span></div>
+          </div>
+          <div class="car-card__price">Rs 9.70 - 10.93 Lakh*</div>
+          <div class="d-flex gap-2">
+            <button class="btn btn-primary btn-sm px-3"><a href="new_car_detail.html">View Details</a></button>
+            <button class="btn btn-secondary btn-sm px-3"><a href="">Compare</a></button>
+          </div>
+        </div>
+      </article>
+
+      <!-- CARD 2 (same markup) -->
+            <article class="car-card v2">
+        <div class="car-card__media">
+          <img src="assets/images/marutisuzuki.png" alt="Maruti Suzuki Swift" />
+        </div>
+        <div class="car-card__body">
+          <h6 class="car-card__title">Maruti Suzuki Swift</h6>
+          <div class="car-card__location"><span><i class="bi bi-geo-alt-fill me-1"></i> Pokhara, Nepal</span></div>
+          <div class="car-card__divider"></div>
+          <div class="car-card__row mb-2"><span><i class="bi bi-speedometer2 me-2"></i>25,100 mileage</span></div>
+          <div class="car-card__grid mb-2">
+            <div class="d-flex align-items-center"><span><i class="bi bi-fuel-pump me-2"></i>Diesel</span></div>
+            <div class="d-flex align-items-center"><span><i class="bi bi-people me-2"></i>Seater</span></div>
+          </div>
+          <div class="car-card__price">Rs 9.70 - 10.93 Lakh*</div>
+          <div class="d-flex gap-2">
+            <button class="btn btn-primary btn-sm px-3"><a href="new_car_detail.html">View Details</a></button>
+            <button class="btn btn-secondary btn-sm px-3"><a href="">Compare</a></button>
+          </div>
+        </div>
+      </article>
+
+      <!-- CARD 3 (same markup) -->
+            <article class="car-card v2">
+        <div class="car-card__media">
+          <img src="assets/images/marutisuzuki.png" alt="Maruti Suzuki Swift" />
+        </div>
+        <div class="car-card__body">
+          <h6 class="car-card__title">Maruti Suzuki Swift</h6>
+          <div class="car-card__location"><span><i class="bi bi-geo-alt-fill me-1"></i> Pokhara, Nepal</span></div>
+          <div class="car-card__divider"></div>
+          <div class="car-card__row mb-2"><span><i class="bi bi-speedometer2 me-2"></i>25,100 mileage</span></div>
+          <div class="car-card__grid mb-2">
+            <div class="d-flex align-items-center"><span><i class="bi bi-fuel-pump me-2"></i>Diesel</span></div>
+            <div class="d-flex align-items-center"><span><i class="bi bi-people me-2"></i>Seater</span></div>
+          </div>
+          <div class="car-card__price">Rs 9.70 - 10.93 Lakh*</div>
+          <div class="d-flex gap-2">
+            <button class="btn btn-primary btn-sm px-3"><a href="new_car_detail.html">View Details</a></button>
+            <button class="btn btn-secondary btn-sm px-3"><a href="">Compare</a></button>
+          </div>
+        </div>
+      </article>
+    </div>
+  </div>
+</div>
+      <!-- Past Comparisons -->
+<!-- Past Comparisons -->
+<!-- Past Comparisons -->
+<div class="mk-card comps-sec">
+  <div class="comps-head">
+    <h6 class="comps-title">Past Comparisons</h6>
+    <p class="comps-sub">Your comparison history and results</p>
+  </div>
+
+  <div class="comps-body">
+    <div class="slider-shell comps-slider">
+      <!-- arrows -->
+      <button class="slider-btn prev" aria-label="Previous">
+        <i class="bi bi-chevron-left"></i>
+      </button>
+      <button class="slider-btn next" aria-label="Next">
+        <i class="bi bi-chevron-right"></i>
+      </button>
+
+      <!-- track (repeat cards) -->
+      <div class="cards-track is-active" id="compsTrack">
+        <!-- CARD 1 -->
+        <article class="pc-card">
+          <div class="pc-media">
+            <div class="pc-half"><img src="assets/images/marutisuzuki.png" alt="Maruti Suzuki Swift"></div>
+            <div class="pc-half"><img src="assets/images/marutisuzuki.png" alt="Maruti Baleno"></div>
+            <span class="pc-vs">VS</span>
+          </div>
+          <div class="pc-body">
+            <div class="pc-cols">
+              <div>
+                <div class="pc-name">Maruti Suzuki Swift</div>
+                <div class="pc-price">Rs 9.70 - 10.93 Lakh*</div>
+              </div>
+              <div>
+                <div class="pc-name">Maruti Baleno</div>
+                <div class="pc-price">Rs 9.70 - 10.93 Lakh*</div>
+              </div>
+            </div>
+            <a href="#" class="pc-btn">Swift vs Baleno</a>
+          </div>
+        </article>
+
+        <!-- CARD 2 (duplicate & change content as needed) -->
+                <article class="pc-card">
+          <div class="pc-media">
+            <div class="pc-half"><img src="assets/images/marutisuzuki.png" alt="Maruti Suzuki Swift"></div>
+            <div class="pc-half"><img src="assets/images/marutisuzuki.png" alt="Maruti Baleno"></div>
+            <span class="pc-vs">VS</span>
+          </div>
+          <div class="pc-body">
+            <div class="pc-cols">
+              <div>
+                <div class="pc-name">Maruti Suzuki Swift</div>
+                <div class="pc-price">Rs 9.70 - 10.93 Lakh*</div>
+              </div>
+              <div>
+                <div class="pc-name">Maruti Baleno</div>
+                <div class="pc-price">Rs 9.70 - 10.93 Lakh*</div>
+              </div>
+            </div>
+            <a href="#" class="pc-btn">Swift vs Baleno</a>
+          </div>
+        </article>
+
+        <!-- CARD 3 -->
+                <article class="pc-card">
+          <div class="pc-media">
+            <div class="pc-half"><img src="assets/images/marutisuzuki.png" alt="Maruti Suzuki Swift"></div>
+            <div class="pc-half"><img src="assets/images/marutisuzuki.png" alt="Maruti Baleno"></div>
+            <span class="pc-vs">VS</span>
+          </div>
+          <div class="pc-body">
+            <div class="pc-cols">
+              <div>
+                <div class="pc-name">Maruti Suzuki Swift</div>
+                <div class="pc-price">Rs 9.70 - 10.93 Lakh*</div>
+              </div>
+              <div>
+                <div class="pc-name">Maruti Baleno</div>
+                <div class="pc-price">Rs 9.70 - 10.93 Lakh*</div>
+              </div>
+            </div>
+            <a href="#" class="pc-btn">Swift vs Baleno</a>
+          </div>
+        </article>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+    </div>
+  </div>
+</section>
+<script>
+(() => {
+  const wrap  = document.querySelector('.comps-slider .cards-track');
+  const prev  = document.querySelector('.comps-slider .prev');
+  const next  = document.querySelector('.comps-slider .next');
+  if (!wrap || !prev || !next) return;
+
+  const gap  = parseInt(getComputedStyle(wrap).gap || 24, 10);
+  const step = () => (wrap.firstElementChild?.offsetWidth || 560) + gap;
+
+  const update = () => {
+    const max = wrap.scrollWidth - wrap.clientWidth - 1;
+    prev.classList.toggle('is-disabled', wrap.scrollLeft <= 1);
+    next.classList.toggle('is-disabled', wrap.scrollLeft >= max);
+  };
+
+  prev.addEventListener('click', () => wrap.scrollBy({ left: -step(), behavior: 'smooth' }));
+  next.addEventListener('click', () => wrap.scrollBy({ left:  step(), behavior: 'smooth' }));
+  wrap.addEventListener('scroll', update, { passive: true });
+  update();
+})();
+</script>
+
+
+</main>
+
+<script>
+  // Optional: arrow helpers for the comparisons strip (no dependency)
+  (function(){
+    const track = document.querySelector('#compare-track');
+    const prev = document.querySelector('.compare-prev');
+    const next = document.querySelector('.compare-next');
+    if(track && prev && next){
+      const step = 360; // px per click
+      prev.addEventListener('click',()=> track.scrollBy({left:-step,behavior:'smooth'}));
+      next.addEventListener('click',()=> track.scrollBy({left: step,behavior:'smooth'}));
+    }
+  })();
+</script>
+    <!-- FOOTER -->
+    <footer class="footer-motokhabar pt-5 pb-4">
+
+      <div class="row gx-4 footer-margin ">
+      <div class="container footer-container" >
+        <div class="row gx-0 footer-row" >
+          <!-- Brand & Contact -->
+          <div class="col-lg-4" >
+            <img
+              src="assets/images/logo-white.png"
+              alt="Motokhabar"
+              class="footer-logo mb-3"
+            />
+            <p class="footer-text mb-4 footer-contact">
+              Your trusted companion for making informed<br />
+              car buying decisions in Nepal.
+            </p>
+
+            <div class="d-flex align-items-start mb-2 footer-contact">
+              <i class="bi bi-telephone me-2 "></i>
+              <span>+977 9800000000, +977 9800000000</span>
+            </div>
+            <div class="d-flex align-items-start mb-4 footer-contact">
+              <i class="bi bi-envelope me-2 "></i>
+              <span>motokhabar@gmail.com</span>
+            </div>
+          </div>
+
+          <!-- Explore -->
+          <div class="col-6 col-lg-2 footer-col" >
+            <h5 class="footer-heading">Explore</h5>
+            <ul class="list-unstyled footer-links  ">
+              <li><a href="#">Explore cars</a></li>
+              <li><a href="#">Reviews</a></li>
+              <li><a href="#">Latest Deals</a></li>
+              <li><a href="#">News & Blogs</a></li>
+              <li><a href="#">Contact</a></li>
+            </ul>
+          </div>
+
+          <!-- Resources -->
+          <div class="col-6 col-lg-2 footer-col">
+            <h5 class="footer-heading">Resources</h5>
+            <ul class="list-unstyled footer-links">
+              <li><a href="#">Buying Guide</a></li>
+              <li><a href="#">Car Comparison</a></li>
+              <li><a href="#">Notifications</a></li>
+              <li><a href="#">Ask Questions</a></li>
+            </ul>
+          </div>
+
+          <!-- Support -->
+          <div class="col-6 col-lg-2 footer-col" >
+            <h5 class="footer-heading">Support</h5>
+            <ul class="list-unstyled footer-links">
+              <li><a href="#">Help Center</a></li>
+              <li><a href="#">Privacy Policy</a></li>
+              <li><a href="#">Terms of Service</a></li>
+              <li><a href="#">Cookie Policy</a></li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- Horizintal lina -->
+        <hr class="footer-hr my-4" />
+
+        <!-- Bottom bar -->
+        <div
+          class="d-flex flex-column flex-lg-row align-items-center justify-content-between "
+        >
+          <p class="copyright mb-2 mb-lg-0 small">
+            &copy; 2024 Motokhabar. All rights reserved.
+          </p>
+          <ul class="list-inline mb-0 footer-bottom-links">
+            <li class="list-inline-item"><a href="#">Privacy</a></li>
+            <li class="list-inline-item"><a href="#">Terms</a></li>
+            <li class="list-inline-item"><a href="#">Contact</a></li>
+          </ul>
+        </div>
+      </div>
+      </div>
+    </footer>
+
+    <!-- Bootstrap Bundle JS (includes Popper) -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+  </body>
+</html>
