@@ -36,6 +36,7 @@
     <!-- Custom CSS (with Bootstrap overrides) -->
     <link rel="stylesheet" href="css/style.css" />
     <link rel="stylesheet" href="css/news_page.css" />
+    <link rel="stylesheet" href="css/explore_cars.css">
       
   </head>
   
@@ -390,10 +391,25 @@ document.addEventListener('DOMContentLoaded', function() {
       </a>
 
     </nav>
+ <!-- Top breadcrump -->
+    <section class="toppart">
+      <nav aria-label="breadcrumb">
+        <ol class="breadcrumb">
+          <li class="breadcrumb-item">
+            <a href="home.html">Home</a>
+          </li>
+           <li class="breadcrumb-item">
+            <a href="news_and_blogs_listing.html">News and BLogs</a>
+          </li>
+          <li class="breadcrumb-item active" aria-current="page">
+            <a href="news_page.html">News Page</a>
+          </li>
+        </ol>
+      </nav>
 
+     
+    </section>
     <!-- MAIN CONTENT -->
-<!-- Requires Bootstrap Icons (optional): -->
-<!-- <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css" rel="stylesheet"> -->
 
 <main class="page">
   <div class="container main-part">
@@ -424,65 +440,56 @@ document.addEventListener('DOMContentLoaded', function() {
           <h3>Competes with:</h3>
           <p class="muted">Audi A5 Coupe, BMW 2 Series, Mercedes-Benz C-Class Coupe</p>
         </section>
-
+                  <figure class="inline-figure">
+            <img src="assets/images/marutisuzuki.png" alt="Side photo">
+          </figure>
         <!-- Looks like + side image -->
         <section class="card pad section mb-2">
           <h3>Looks like:</h3>
           <p>
-            A sleeker, two-door version with a bold “shark-nose” fascia, slender LED DRLs,
-            and a T-shaped lighting signature. Clean character lines and a tight rear stance
-            add presence.
+            A sleeker, two-door version of the Elantra sedan with a bold “shark-nose” front fascia, slender LED DRLs, chiseled fenders, and a rear diffuser featuring a “T”-shaped lighting signature.
           </p>
-          <figure class="inline-figure">
-            <img src="assets/images/marutisuzuki.png" alt="Side photo">
-          </figure>
-        </section>
-
-        <!-- Spec blueprints row -->
+          <p><strong>Powertrains:</strong></p>
+  <ul class="bullets">
+    <li>Base (SE, SEL, Limited): naturally aspirated 2.0-liter inline-4 making 147 hp and 132 lb-ft.</li>
+    <li>N Line: 1.6-liter turbocharged I4 with 201 hp and 195 lb-ft, mated to a 7-speed dual-clutch automatic.</li>
+    <li>Hybrid: 1.6-liter I4 plus electric drive, combined 139 hp and 195 lb-ft, using a CVT.</li>
+  </ul>
+  <p>All models are front-wheel drive.</p>
+           <!-- Spec blueprints row -->
         <div class="two mb-2">
           <figure class="bp card"><img src="assets/images/blueprint1.png" alt=""></figure>
           <figure class="bp card"><img src="assets/images/blueprint2.png" alt=""></figure>
         </div>
-
+        </section>
         <!-- Dimensions & styling -->
         <section class="card pad section mb-2">
           <h3>Dimensions & Styling</h3>
-          <p>
-            Proportions mirror the sedan’s dynamic bumpers, diffuser, and wider stance.
-            New colors include <strong>Exotic Green</strong> (exclusive to N Line) plus a
-            sportier visual identity.
-          </p>
-          <ul class="bullets">
-            <li>Length/Width/Height: 184.7 in / 72.8 in / 55.1 in</li>
-            <li>Wheelbase: 107.1 in</li>
-            <li>Trunk: 14.2 cu-ft</li>
-          </ul>
+          <p>Though Hyundai hasn’t shared specific dimensions, the coupe retains the Elantra sedan’s dynamic proportions with updated bumpers, new rear diffuser, and wider stance. Four new colors, including Exotic Green (exclusive to N Line), signal a sportier visual identity.</p>
         </section>
 
         <!-- Performance & handling -->
         <section class="card pad section mb-2">
           <h3>Performance & Handling</h3>
-          <ul class="bullets">
-            <li>2.0L inline-4 (147 hp, 132 lb-ft)</li>
-            <li>1.6L turbo (201 hp, 195 lb-ft) with 7-speed DCT</li>
-            <li>Hybrid 1.6L (139 hp combined) with CVT</li>
-            <li>Driver assists: surround view, blind-spot view, parking sensors</li>
-          </ul>
+ <ul class="bullets">
+    <li>The N Line’s turbocharged motor and dual-clutch gearbox promise brisk acceleration — likely sub-7-second 0–60 mph.</li>
+    <li>Standard driver assists include a surround-view camera, blind-spot view monitor, and parking sensors on Limited and higher trims.</li>
+  </ul>
+                             <figure class="inline-figure">
+            <img src="assets/images/news and blogs detail img.png" alt="Side photo">
+          </figure>
         </section>
 
         <!-- Interior tech grid (small thumbnails like screenshot) -->
         <section class="card pad section mb-2">
           <h3>Interior & Tech</h3>
-          <p>Modern cabin with soft-touch panels, H-Tex upholstery, and dual displays.</p>
-                    <figure class="inline-figure">
-            <img src="assets/images/news and blogs detail img.png" alt="Side photo">
-          </figure>
+          <p>Inside, expect a modern cabin with soft-touch panels, available H-Tex leather upholstery, a 10.25-inch touchscreen on SEL+, multiple USB-C ports, wireless charging, and Digital Key 2.0 and Bluelink+ connectivity. Forward collision warning Every version except the base manual model gets forward collision warning, lane‑keep assist and automatic high‑beams. SEL+ and Limited bring in blind‑spot monitoring, rear cross‑traffic alert, safe‑exit warning, and adaptive cruise control with optional steering‑assist en.wikipedia.org+11newhyundaimodels.com+11newhyundaimodels.com+11</p>
         </section>
 
         <!-- Release & pricing -->
         <section class="card pad section mb-2">
           <h3>Release & Pricing</h3>
-          <p>Expected launch in the next model year. Pricing to be announced.</p>
+          <p>Hyundai has confirmed a 2027 model year launch, though pricing is yet to be announced. Expect a starting price around the low‑to-mid $30,000s, with the N Line approaching the high‑$30,000s or low‑$40,000s, and the Hybrid model slightly less efficient than rivals in its standard safety equipment .</p>
         </section>
 
         <!-- Bottom share -->
