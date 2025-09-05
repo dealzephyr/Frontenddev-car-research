@@ -456,12 +456,12 @@ viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
     <!-- LEFT COLUMN -->
     <div class="col-lg-4">
       <!-- Personal Details -->
-<div class="mk-card personal-card mb-4">
+<div class="mk-card personal-card mb-4" id="personal-details">
   <!-- head -->
   <div class="pc-head d-flex align-items-center justify-content-between">
     <h5 class="pc-title mb-0">Personal Details</h5>
 
-    <a href="personal_info-edit.html"><button type="button" class="pc-edit btn">
+<button type="button" class="pc-edit btn js-edit">
       <!-- icon is optional; keep either inline SVG or a BI icon -->
       <span class="pc-edit-ic" aria-hidden="true">
         <!-- Inline SVG (outline) -->
@@ -472,11 +472,10 @@ viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
       </span>
       Edit
     </button>
-    </a>
   </div>
 
   <!-- body -->
-  <div class="pc-body">
+  <div class="pc-body pc-view">
     <!-- Full name -->
     <div class="pc-field">
       <div class="pc-label">
@@ -556,7 +555,107 @@ viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
       </div>
     </div>
   </div>
+  <!-- EDIT MODE -->
+  <form class="pc-body pc-form mb-4" hidden action="#" method="post" novalidate>
+    <div class="pc-field">
+      <label class="pc-label" for="pd-name">
+        <span class="pc-ic"><i class="bi bi-person"></i></span> Full Name
+      </label>
+      <input id="pd-name" name="pd-name" type="text" class="form-control pc-input" value="John Doe"/>
+    </div>
+
+    <div class="pc-field">
+      <label class="pc-label" for="pd-email">
+        <span class="pc-ic"><i class="bi bi-envelope"></i></span> Email Address
+      </label>
+      <input id="pd-email" name="pd-email" type="email" class="form-control pc-input" value="doe.john.77@gmail.com"/>
+    </div>
+
+    <div class="pc-field">
+      <label class="pc-label" for="pd-phone">
+        <span class="pc-ic"><i class="bi bi-telephone"></i></span> Phone Number
+      </label>
+      <input id="pd-phone" name="pd-phone" type="tel" class="form-control pc-input" value="+977 9800000000"/>
+    </div>
+
+    <div class="pc-field">
+      <label class="pc-label" for="pd-loc">
+        <span class="pc-ic"><i class="bi bi-geo-alt"></i></span> Location
+      </label>
+      <input id="pd-loc" name="pd-loc" type="text" class="form-control pc-input" value="Pokhara, Nepal"/>
+    </div>
+
+    <!-- Preferred Brands (checkbox grid) -->
+    <div class="pc-field">
+      <div class="pc-label"><span class="pc-ic"><i class="bi bi-truck"></i></span>Preferred Brands</div>
+      <div class="brand-grid">
+        <!-- repeat options as needed -->
+        <label class="brand-check"><input type="checkbox" name="brands" value="Hyundai"><span>Hyundai</span></label>
+        <label class="brand-check"><input type="checkbox" name="brands" value="Kia"><span>Kia</span></label>
+        <label class="brand-check"><input type="checkbox" name="brands" value="Suzuki"><span>Suzuki</span></label>
+        <label class="brand-check"><input type="checkbox" name="brands" value="Toyota"><span>Toyota</span></label>
+        <label class="brand-check"><input type="checkbox" name="brands" value="Tata"><span>Tata</span></label>
+        <label class="brand-check"><input type="checkbox" name="brands" value="Honda"><span>Honda</span></label>
+        <label class="brand-check"><input type="checkbox" name="brands" value="Nissan"><span>Nissan</span></label>
+        <label class="brand-check"><input type="checkbox" name="brands" value="Mahindra"><span>Mahindra</span></label>
+      </div>
+    </div>
+
+    <div class="pc-actions">
+      <button type="submit" class="btn btn-hero pc-save">Save Changes</button>
+      <button type="button" class="btn pc-cancel">Cancel</button>
+    </div>
+  </form>
 </div>
+<script>
+(() => {
+  const card   = document.getElementById('personal-details');
+  if(!card) return;
+
+  const btnEdit = card.querySelector('.js-edit');
+  const view    = card.querySelector('.pc-view');
+  const form    = card.querySelector('.pc-form');
+  const cancel  = card.querySelector('.pc-cancel');
+  const saveBtn = card.querySelector('.pc-save');
+
+  function setMode(editing){
+    card.classList.toggle('is-editing', editing);
+    view.hidden = editing;
+    form.hidden = !editing;
+
+    if(editing){
+      // seed form with current view values
+      form.querySelector('#pd-name').value  = view.querySelector('[data-field="name"]').textContent.trim();
+      form.querySelector('#pd-email').value = view.querySelector('[data-field="email"]').textContent.trim();
+      form.querySelector('#pd-phone').value = view.querySelector('[data-field="phone"]').textContent.trim();
+      form.querySelector('#pd-loc').value   = view.querySelector('[data-field="loc"]').textContent.trim();
+
+      const current = new Set([...view.querySelectorAll('.pc-chips .pc-chip')].map(c=>c.textContent.trim()));
+      form.querySelectorAll('input[name="brands"]').forEach(cb => cb.checked = current.has(cb.value));
+    }
+  }
+
+  btnEdit.addEventListener('click', () => setMode(true));
+  cancel.addEventListener('click', () => setMode(false));
+
+  form.addEventListener('submit', (e) => {
+    e.preventDefault();
+
+    // write values back to view
+    view.querySelector('[data-field="name"]').textContent  = form.querySelector('#pd-name').value.trim();
+    view.querySelector('[data-field="email"]').textContent = form.querySelector('#pd-email').value.trim();
+    view.querySelector('[data-field="phone"]').textContent = form.querySelector('#pd-phone').value.trim();
+    view.querySelector('[data-field="loc"]').textContent   = form.querySelector('#pd-loc').value.trim();
+
+    const chosen = [...form.querySelectorAll('input[name="brands"]:checked')].map(cb => cb.value);
+    const chipsWrap = view.querySelector('.pc-chips');
+    chipsWrap.innerHTML = chosen.map(v => `<span class="pc-chip">${v}</span>`).join('');
+
+    setMode(false);
+    // TODO: send to server via fetch() if you want persistence
+  });
+})();
+</script>
 
 
 <!-- Change Password -->
