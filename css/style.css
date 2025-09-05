@@ -2508,7 +2508,7 @@ padding: 2.63px;
   display: inline-block;
   padding:2px 8px;
   letter-spacing: 0%;
-  width: 46px;
+  width: fit-content;
   font-size: 10px;
   font-weight: 500;
   color: var(--primary-color);
