@@ -54,7 +54,11 @@
 
 
 /* ====== Section blocks ====== */
-.block{ margin-bottom:28px;}
+.block{ 
+     max-width: 768px;
+      margin: 0 auto;        /* centers the block horizontally */
+
+  margin-bottom:28px;}
 
 .block h3{
   font-size:18px; font-weight:600; margin:0 0 12px; color:var(--ink);
@@ -101,7 +105,7 @@
 }
 .radio-box input{ position:absolute; inset:0; opacity:0; pointer-events:none; }
 .radio-box label{
-   max-width: 708px;
+
   display:flex; align-items:center; gap:15px;
   padding:14px 14px;
   border:1px solid var(--stroke);
@@ -145,7 +149,7 @@
 }
 
 /* Actions */
-.actions{ margin-top:18px; display:flex; justify-content:center; }
+.actions{max-width: 768px; margin:0 auto; margin-top:18px; display:flex; justify-content:center; }
 .actions a{
   color: inherit;           /* Inherit text color from parent */
   text-decoration: none;    /* Remove underline */
@@ -238,12 +242,12 @@
 /* for second quiz page  */
 
 /* ====== NEW: small heading helper for note under title ====== */
-.block-top{ display:flex; align-items:flex-end; gap:10px; }
-.block-top .hint{ color:var(--muted); }
+.block-top{margin-bottom: 15px;}
+.block-top .hint{ color:var(--muted);font-size: 14px;font-weight: 400; }
 
 /* ====== NEW: Budget chips ====== */
-.chip-row{ display:flex; flex-wrap:wrap; gap:12px; }
-.chip-btn{ display:inline-flex; align-items:center; position:relative; width: 166px;}
+.chip-row{ display:flex; flex-wrap:wrap; gap:14px; }
+.chip-btn{ display:inline-flex; align-items:center; position:relative; }
 .chip-btn input{ position:absolute; inset:0; opacity:0; pointer-events:none; }
 .chip-btn span{
   padding:12px 35px 12px;
@@ -255,7 +259,7 @@
   color:var(--ink);
   cursor:pointer;
 }
-.chip-btn input:checked + span{ border-color:var(--primary-dark); }
+.chip-btn input:checked + span{border: 1px solid var(--primary-dark); background-color: #f4f4f4; }
 
 /* ====== NEW: Priority cards grid ====== */
 .prio-grid{ display:grid; grid-template-columns:repeat(2,1fr); gap:14px; }
@@ -270,21 +274,14 @@
   cursor:pointer; user-select:none;
 }
 .prio-card input{ position:absolute; inset:0; opacity:0; pointer-events:none; }
-.prio-card .icon{ font-size:18px; line-height:1; }
 .prio-card .txt .t{ font:600 14.5px/1.25 Poppins,system-ui; color:var(--ink); }
 .prio-card .txt .s{ font:400 12.5px/1.2 Poppins,system-ui; color:var(--muted); }
-.prio-card input:checked ~ .txt .t{ color:var(--ink); }
-.prio-card input:checked ~ .txt .s{ color:#5f5f5f; }
-.prio-card input:checked ~ *{ outline:0; }
-.prio-card input:checked + .icon,
-.prio-card input:checked ~ .txt{ filter:none; }
-.prio-card input:checked ~ .txt,
-.prio-card input:checked ~ .icon{ }
-.prio-card{ border-color: color-mix(in oklab, var(--stroke), var(--primary-dark) calc(var(--sel,0)*100%)); }
 
-/* highlight border when selected */
-.prio-card input:checked ~ * { --sel:1; }
 
+.prio-card:has(input[type="checkbox"]:checked) {
+    border-color: var(--primary-dark);
+    background-color: #f4f4f4;
+}
 /* ====== NEW: Fuel preference pills ====== */
 .fuel-group{ display:flex; flex-wrap:wrap; gap:12px; }
 .fuel-pill{ position:relative; display:inline-flex; align-items:center; gap:8px; }
@@ -302,7 +299,7 @@
   cursor:pointer;
 }
 .fuel-pill input:checked + .ico + span,
-.fuel-pill input:checked + span{ border-color:var(--primary-dark); }
+.fuel-pill input:checked + span{ border-color:var(--primary-dark);background-color: #f4f4f4; }
 
 /* ====== NEW: Actions layout + subtle secondary button ====== */
 .actions.between{ justify-content:space-between; }
