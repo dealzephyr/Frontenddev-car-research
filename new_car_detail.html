@@ -451,13 +451,16 @@ document.addEventListener("DOMContentLoaded", function () {
                   <li><a class="dropdown-item" href="#">Variant C</a></li>
                 </ul>
               </div>
-
+              <a href="ownership_calculator.html">
               <button class="btn btn-hero-outline btn-lg">
                 Ownership Calculator
               </button>
+              </a> 
+              <a href="">
               <button class="btn btn-hero-outline btn-lg">
                 View Used Versions
               </button>
+              </a>
             </div>
 
             <!-- colours -->
@@ -585,7 +588,7 @@ document.addEventListener("DOMContentLoaded", function () {
         <a href="#market-insights">Market Insights</a>
       </div>
     </section>
-<script></script>
+
     <!-- Technical Specification -->
     <section id="tech-specs" class="container my-5">
       <div class="row g-4">
@@ -1646,9 +1649,11 @@ function onScroll() {
       </div>
     </section>
     </main>
+
+    
     <!-- for review popup -->
 
-<div class="modal fade mk-review-modal" id="mkReviewModal" tabindex="-1" aria-hidden="true" aria-labelledby="mkReviewTitle">
+<div class="modal fade mk-review-modal" id="mkReviewModal" tabindex="-1"  aria-labelledby="mkReviewTitle">
   <div class="modal-dialog modal-dialog-centered modal-lg">
     <div class="modal-content">
       <button type="button" class="btn-close ms-auto p-3" data-bs-dismiss="modal" aria-label="Close"></button>
@@ -1739,31 +1744,104 @@ function onScroll() {
     </div>
   </div>
 </div>
+
 <script>
+  // UNIFIED MODAL SOLUTION - Works for both your EMI and Review modals
 document.addEventListener("DOMContentLoaded", () => {
-  const emiBtn = document.getElementById("emiBtn");
-  const emiModal = document.getElementById("emiModal");
-  const closeEmi = emiModal.querySelector(".close-btn");
+    
+    // Configuration for your specific modals
+    const modalConfigs = [
+        {
+            openBtn: "emiBtn",           // Your EMI button ID
+            modal: "emiModal",           // Your EMI modal ID  
+            type: "custom"
+        },
+        {
+            openBtn: "reviewBtn",        // Whatever button opens your review modal
+            modal: "mkReviewModal",      // Your review modal ID
+            type: "bootstrap"
+        }
+    ];
 
-  // Make sure it's hidden on page load
-  emiModal.style.display = "none";
+    // Initialize all modals with the SAME logic as your working EMI modal
+    modalConfigs.forEach(config => {
+        const openBtn = document.getElementById(config.openBtn);
+        const modal = document.getElementById(config.modal);
+        const closeButtons = modal.querySelectorAll(".close-btn, .btn-close, [data-bs-dismiss='modal']");
 
-  // Open modal on button click
-  emiBtn.addEventListener("click", () => {
-    emiModal.style.display = "flex";
-  });
+        // Make sure modal is hidden on page load
+        modal.style.display = "none";
+        modal.removeAttribute("aria-hidden"); // Remove Bootstrap's problematic aria-hidden
+        
+        // Disable Bootstrap modal behavior for the review modal
+        if (config.type === "bootstrap") {
+            modal.classList.remove("fade"); // Remove Bootstrap fade animation
+            // Remove Bootstrap data attributes
+            modal.removeAttribute("data-bs-backdrop");
+            modal.removeAttribute("data-bs-keyboard");
+        }
 
-  // Close on X button
-  closeEmi.addEventListener("click", () => {
-    emiModal.style.display = "none";
-  });
+        // Open modal function (exactly like your EMI modal)
+        const openModal = () => {
+            modal.style.display = "flex";
+            modal.classList.add("show");
+            document.body.style.overflow = "hidden"; // Prevent background scroll
+        };
 
-  // Close on backdrop click
-  window.addEventListener("click", (e) => {
-    if (e.target === emiModal) {
-      emiModal.style.display = "none";
+        // Close modal function (exactly like your EMI modal)
+        const closeModal = () => {
+            modal.style.display = "none";
+            modal.classList.remove("show");
+            document.body.style.overflow = ""; // Restore background scroll
+        };
+
+        // Open modal on button click (same as EMI)
+        if (openBtn) {
+            openBtn.addEventListener("click", (e) => {
+                e.preventDefault();
+                openModal();
+            });
+        }
+
+        // Close on X button and Cancel button (same as EMI)
+        closeButtons.forEach(closeBtn => {
+            closeBtn.addEventListener("click", (e) => {
+                e.preventDefault();
+                e.stopPropagation();
+                closeModal();
+            });
+        });
+
+        // Close on backdrop click (same as EMI)
+        modal.addEventListener("click", (e) => {
+            if (e.target === modal) {
+                closeModal();
+            }
+        });
+
+        // Close on Escape key
+        document.addEventListener("keydown", (e) => {
+            if (e.key === "Escape" && modal.style.display === "flex") {
+                closeModal();
+            }
+        });
+    });
+
+    // Handle form submission for review modal
+    const reviewForm = document.getElementById('mkReviewForm');
+    if (reviewForm) {
+        reviewForm.addEventListener('submit', function(e) {
+            e.preventDefault();
+            // Add your form submission logic here
+            console.log('Review submitted!');
+            
+            // Close modal after submission
+            const modal = document.getElementById('mkReviewModal');
+            modal.style.display = "none";
+            modal.classList.remove("show");
+            document.body.style.overflow = "";
+        });
     }
-  });
 });
 </script>
 

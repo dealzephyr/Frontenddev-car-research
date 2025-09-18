@@ -316,7 +316,7 @@ header, .navbar, .header-container { max-width: 100%; }
 /*
    TOP NAV — MOBILE & TABLET (≤991.98)
    */
-@media (max-width:575px){
+@media (max-width:480px){
   /* Tight side padding; keep one row */
   .header-top.navbar{ padding: 0 8px; flex-wrap: nowrap !important; }
 
@@ -447,116 +447,16 @@ header, .navbar, .header-container { max-width: 100%; }
   outline: none !important;
   box-shadow: none !important;
   transition: none !important;
-}
+}}
 
 
-
-}
-
-
-@media (min-width:576px) and (max-width:991px){
-  /* Tight side padding; keep one row */
-  .header-top.navbar{ padding: 0 10px; flex-wrap: nowrap !important; }
-
-  .header-top .header-container{
-    display:flex !important; align-items:center !important;
-    flex-wrap: nowrap !important; width:100%;
-  }
-
-  /* Brand left, everything else next to it (reduced gap) */
-  .header-top .navbar-brand{
-    margin-right: 8px !important;
-    flex: 0 0 auto !important;
-  }
-
-  /* Force collapse content inline (no dropdown menu UI), and keep near logo */
-  .header-top #topNav.collapse,
-  .header-top #topNav.collapse:not(.show){
-    display:flex !important; flex-direction:row !important;
-    align-items:center !important; justify-content:flex-start !important;
-    flex: 0 0 auto !important; width:auto !important; height:auto !important;
-    visibility:visible !important;
-  }
-
-  /* Hide the search on ≤991.98 to avoid wrapping */
-  .header-top #topNav > .header-search{ display:none !important; }
-
-  /* Right actions: tighter spacing and smaller text */
-  .header-top .header-actions{
-    display:flex !important; flex-direction:row !important; align-items:center !important;
-    flex-wrap: nowrap !important; 
-    gap: 4px !important; /* Reduced gap */
-    margin-left: 4px !important;
-  }
-
-  /* Hide Notification (2nd item) on mobile/tablet */
-  .header-top .header-actions > li:nth-child(2){ display:none !important; }
-  .header-top .header-actions > li:nth-child(1){ display:none !important; }
-
-  /* Reorder: Hello/Login (3rd) first, Compare (1st) second, Flag (4th) third */
-  .header-top .header-actions > li:nth-child(3){ order:1; } /* Hello, Login */
-  
-  .header-top .header-actions > li:nth-child(4){ order:3; } /* Flag */
-
-  /* Hello/Login - much smaller text */
-  .header-top .header-actions > li:nth-child(3) .nav-link{
-    display:inline-flex !important; align-items:center !important;
-    gap:2px !important; /* Reduced gap */
-    font-size: 0.75rem !important; /* Much smaller font */
-    line-height:1.1 !important;
-    padding:0 !important; 
-    white-space:nowrap !important;
-  }
-  .header-top .header-actions > li:nth-child(3) .bi-person{ 
-    margin-right:0 !important; 
-    font-size:0.85rem !important; /* Smaller icon */
-    line-height:1; 
-  }
-  
-
-  .header-top .header-actions > li:nth-child(1) ion-icon{ 
-    width:16px !important; /* Smaller icon */
-    height:16px !important; 
-    padding:0; 
-  }
-
-  /* Flag - smaller */
-  .header-top .flag-nepal{
-    width:27px !important; /* Smaller flag */
-    height:27px !important; 
-    display:inline-flex !important; 
-    align-items:center; 
-    justify-content:center;
-    margin:0 !important;
-  }
-  .header-top .flag-nepal img{ max-width:80%; max-height:80%; }
-
-  /* Logo - smaller for this screen size */
-  .site-logo{ 
-    width: 136px !important; /* Reduced logo size */
-    height:auto !important; 
-    margin:0 !important; 
-    object-fit:contain; 
-  }
-
-  /* Navigation links - smaller if any are visible */
-  .header-top #topNav .nav-link {
-    font-size: 0.8rem !important;
-    padding: 2px 4px !important;
-  }
-}
-/* Small phones micro-tweaks (optional) */
-@media (max-width: 360px){
-  .header-top.navbar{ padding: 0 6px; }
-  .site-logo{ width: 120px !important; }
-  .header-top .header-actions{ gap: 4px !important; }
-}
 
 
 /*
    DESKTOP (≥992px)
  */
-@media (min-width: 992px){
+@media (min-width: 992px)
+{
   /* Hide mobile tabbar; show desktop bottom nav */
   .mobile-tabbar{ display:none !important; }
   .header-bottom{ display:block !important; }
@@ -564,47 +464,9 @@ header, .navbar, .header-container { max-width: 100%; }
     display: none !important;
   }
 
-  /* Comfortable side padding */
-  .header-top.navbar{ padding: 0 24px; }
-
-  /* Restore Bootstrap's inline collapse */
-  .header-top #topNav.collapse{
-    display:flex !important; flex-direction:row !important; align-items:center !important;
-    justify-content:flex-end !important; width:auto !important; height:auto !important;
-    visibility: visible !important;
-  }
-
-  /* Show search inline on desktop */
-  .header-top .header-search{
-    display:block !important; width: min(520px, 42vw);
-    margin: 0 16px !important;
-  }
-
-  /* Actions spacing back to normal; all items visible */
-  .header-top .header-actions{
-    gap: 22px !important; flex-wrap: nowrap !important; margin-left: 0 !important;
-  }
-  .header-top .header-actions > li:nth-child(2){ display:list-item !important; } /* Notification back */
-  .header-top .header-actions > li:nth-child(1) .nav-link{ font-size: inherit !important; } /* show "Compare" text */
-
-  /* Desktop logo size */
-  .site-logo{ width: 140px !important; height:auto !important; }
 }
 
-/* Wider desktops: mild polish */
-@media (min-width: 1280px){
-  .header-top.navbar{ padding: 0 28px; }
-  .header-top .header-search{ width: 560px; }
-  .header-top .header-actions{ gap: 24px !important; }
-}
-@media (min-width: 1440px){
-  .header-top.navbar{ padding: 0 36px; }
-  .header-top .header-actions{ gap: 28px !important; }
-}
-@media (min-width: 1920px){
-  .header-top.navbar{ padding: 0 48px; }
-  .header-top .header-actions{ gap: 32px !important; }
-}
+
 
 
 /* Hero section  */
@@ -802,7 +664,7 @@ font-size: 13px;
 }
 /* Main section class */
 /* Mobile-only hero simplification */
-@media (max-width: 992px) {
+@media (max-width: 400px) {
    header.site-header + main.my-5{ margin-top:0 !important; }
   .hero-content{ padding-top:0px !important;margin-top: 0px;  }
 
@@ -911,7 +773,7 @@ font-size: 13px;
 }
 
 
-/* Tablet & down (≤ 991.98px) */
+
 
 
 

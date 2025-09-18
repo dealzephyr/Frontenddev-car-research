@@ -460,7 +460,7 @@ font-weight: 600;
     -webkit-overflow-scrolling: touch;
     scroll-snap-type: x mandatory;
     scroll-padding-inline: 16px;
-    gap: 12px;
+    
     margin: 0 !important;               /* remove Bootstrap row negative margins */
     padding: 0 16px 28px;  
                  /* bottom space for dots */
