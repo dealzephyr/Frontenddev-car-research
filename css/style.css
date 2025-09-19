@@ -353,6 +353,7 @@ header, .navbar, .header-container { max-width: 100%; }
   .header-top .header-actions > li:nth-child(2){ display:none !important; }
   .header-top .header-actions > li:nth-child(1){ display:none !important; }
   .header-top .header-actions .badge-dot{ display:none !important; }
+  .header-top .header-actions .person-outline{height: 5px !important;}
 
   /* Reorder: Hello/Login (3rd) first, Compare (1st) second, Flag (4th) third */
   .header-top .header-actions > li:nth-child(3){ order:1; } /* Hello, Login */
@@ -463,7 +464,7 @@ header, .navbar, .header-container { max-width: 100%; }
     #mobileMenu {
     display: none !important;
   }
-
+ 
 }
 /* =========================
    HEADER: FULLY RESPONSIVE
@@ -475,6 +476,10 @@ header, .navbar, .header-container { max-width: 100%; }
 
 /* Make #topNav visible on <992 (you don't have a toggler for it) */
 @media (max-width: 991.98px){
+   .badge-dot{
+    display: none;
+  }
+
   #topNav.collapse,
   #topNav.collapse:not(.show){
     display:flex !important;
@@ -3575,3 +3580,83 @@ color: #757575;
   /* remove custom left margin that would break alignment */
   .footer-motokhabar .footer-col{ margin-left:0 !important; }
 }
+/* =========================================
+   FOOTER (576–991.98px): old view, ALL centered
+   ========================================= */
+@media (min-width:576px) and (max-width:991.98px){
+
+  /* neutralize big offsets + keep symmetric padding */
+  .footer-container .row{
+    margin-left:22px !important;
+    margin-right:22px !important;
+  }
+  .footer-hr{
+    margin-left:22px !important;
+    margin-right:22px !important;
+  }
+
+  /* keep original row behavior */
+  .footer-row{
+    display:flex !important;
+    flex-wrap:wrap;
+    row-gap:16px;
+  }
+
+  /* BRAND / LOGO block: full width + centered */
+  .footer-row > .col-lg-4{
+    flex:0 0 100%;
+    max-width:100%;
+    text-align:center !important;
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+  }
+  .footer-row > .col-lg-4 .footer-logo{
+    display:block;
+    margin-inline:auto;
+  }
+  .footer-row > .col-lg-4 .footer-text{ text-align:center; }
+  .footer-row > .col-lg-4 .list-inline{
+    display:flex; justify-content:center; gap:12px;
+  }
+  .footer-row > .col-lg-4 .list-inline .list-inline-item{ margin-right:0; }
+
+  /* LINK COLUMNS: same widths as before, but centered content */
+  .footer-row > .footer-col{
+    flex:0 0 33.3333%;
+    max-width:33.3333%;
+    text-align:center;
+    margin-left:0 !important;        /* override the 50px bump */
+  }
+  .footer-heading{ text-align:center; }
+
+  /* center link lists */
+  .footer-links{
+    display:flex;
+    flex-direction:column;
+    align-items:center;              /* center each link */
+    row-gap:.5rem;
+  }
+  .footer-links li{ display:block; } /* keep clean stacking */
+
+  /* bottom strip centered */
+  .copyright{
+    margin-left:0 !important;
+    text-align:center;
+  }
+  .footer-bottom-links{
+    margin-right:0 !important;
+    display:flex;
+    justify-content:center;
+  }
+  .footer-bottom-links .list-inline-item:not(:last-child){
+    margin-right:1rem;
+  }
+
+  /* comfortable type for tablets */
+  .footer-heading{ font-size:1.05rem; }
+  .footer-text,
+  .footer-links a,
+  .footer-bottom-links a{ font-size:.9375rem; } /* ~15px */
+}
+
