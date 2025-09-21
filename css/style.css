@@ -70,7 +70,6 @@ main.page{
   box-sizing: border-box;
   max-width: var(--page-max);
   margin-inline: auto;             /* centers both */
-  padding-inline: var(--page-gutter);
 }
 
 /* If you nest a .container inside, neutralize it so margins match exactly */
@@ -156,12 +155,14 @@ margin: 0 auto;
 
 /* Small yellow dot next to "Hello, Login" */
 .badge-dot {
+   position: relative;
+            top: -0.3em;
   width: 7px;
   height: 7px;
   border-radius: 50%;
-  background: #ffd54f;
+  background: #D4AF37;
   display: inline-block;
-  
+   
   
 }
 
@@ -1304,7 +1305,6 @@ z-index: 10; /* Ensure above cards */
 .car-card.v2 {
   width: 275px;
   background: #ffffff;
-  border: 1px solid #efefef;
   border-top-left-radius: 12px;
   border-top-right-radius: 12px;
   overflow: hidden;
@@ -1325,6 +1325,8 @@ z-index: 10; /* Ensure above cards */
   
 }
 .car-card__body {
+  margin-top: -20px;
+  background-color: #ffffff;
   padding: 14px 16px 16px;
   border-top-left-radius: 10px;
   border-top-right-radius: 10px;
@@ -1701,7 +1703,7 @@ position: absolute;
 
 }
 /* ========= MOBILE ≤991.98px — keep tab filtering; 2x2; 4 items ========= */
-@media (max-width: 991.98px){
+@media (max-width: 400px){
   /* Put Launches ABOVE and Rankings BELOW */
   .rankings-block .row.g-3{ display:flex; flex-direction:column; gap:8px; }
   .rankings-block .col-lg-3{ order:1; }
@@ -1785,6 +1787,8 @@ position: absolute;
     .rankings-block .d-flex.gap-2 > .btn{ width:100%; justify-content:center; }
   }
 }
+
+
 /* show on mobile/tablet */
 @media (max-width: 991.98px){
   .rankings-load-btn{
@@ -1801,6 +1805,7 @@ position: absolute;
 /* hide on desktop */
 @media (min-width: 992px){
   .rankings-load-btn{ display:none !important; }
+  .launches-toggle-btn {display: none;}
  
 }
 
@@ -1998,6 +2003,8 @@ position: absolute;
 .bg-bleed{
   position: relative;
   isolation: isolate;          /* ensures the pseudo stays behind */
+  padding-top: 1.5rem;
+  padding-bottom: 1.5rem;
 }
 
 /* paints a full-viewport-wide background behind the container */
@@ -2198,9 +2205,7 @@ margin-left: 7px;
 
 /* Browse by type  */
 /* Card base (reuse hover effect from previous car cards) */
-.browsebytype{
-  margin-left: 37px;
-}
+
 .browsebytype head{
 font-weight: 700;
 font-size: 27px;
@@ -2341,8 +2346,8 @@ padding: 2.63px;
   .browsebytype .type-card img{
     height: clamp(130px, 20vw, 190px);
   }
-   .browsebytype h3{font-size: 19px !important;}
-  .browsebytype p{font-size: 13px !important; margin-top: 10px !important;}
+   /* .browsebytype h3{font-size: 19px !important;}
+  .browsebytype p{font-size: 13px !important; margin-top: 10px !important;} */
 
 }
 @media(max-width:575.98px){
@@ -3044,15 +3049,9 @@ padding: 2.63px;
 
 /* popular brands */
 /* Section Styling */
-.brands-section {
-  padding: 20px;
-}
-
 .section-title {
   font-weight: 700;
   color: var(--primary-dark);
-  margin-top: 10px;
-  margin-bottom: 0px !important;
 }
 
 .section-subtitle {

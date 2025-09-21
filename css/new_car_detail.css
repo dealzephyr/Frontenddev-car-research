@@ -1009,7 +1009,7 @@ margin-right: 36px;
 }
 
 .mk-card-satisfaction {
-  width: 482px;
+  /* width: 482px; */
   background: #f4f4f4;
   border: none;
   border-radius: 12px;
@@ -1072,9 +1072,10 @@ margin-right: 36px;
 .text-primary-choco {
   color: var(--primary-color);
 }
-.custom-gap {
- margin-top: 30px;
+.custom-gap1{
+  margin-top: 30px;
 }
+
 
 /* ===== Owner Satisfaction — mobile layout (≤575px) ===== */
 @media (max-width: 575.98px) {
@@ -1090,7 +1091,7 @@ margin-right: 36px;
   }
 
   /* Stack the two articles/cards: Loved Features first, Concerns second */
-  #owner-satisfaction .custom-gap {
+  #owner-satisfaction .custom-gap1 {
     display: flex; /* stack vertically on mobile */
     flex-direction: column;
     gap: 12px;
@@ -1099,18 +1100,18 @@ margin-right: 36px;
   }
 
   /* Ensure columns/cards are full-width when stacked */
-  #owner-satisfaction .custom-gap > [class^="col-"],
-  #owner-satisfaction .custom-gap > [class*=" col-"] {
+  #owner-satisfaction .custom-gap1 > [class^="col-"],
+  #owner-satisfaction .custom-gap1 > [class*=" col-"] {
     flex: 0 0 100%;
     max-width: 100%;
     order: initial;
   }
 
   /* Reorder explicitly: first child = Most Loved (top), last child = Concerns (below) */
-  #owner-satisfaction .custom-gap > [class^="col-"]:first-child {
+  #owner-satisfaction .custom-gap1 > [class^="col-"]:first-child {
     order: 1;
   }
-  #owner-satisfaction .custom-gap > [class^="col-"]:last-child {
+  #owner-satisfaction .custom-gap1 > [class^="col-"]:last-child {
     order: 2;
   }
 
