@@ -1237,7 +1237,7 @@ font-size: 13px;
   display: none;}
 
 .rankings-tabs .nav-link.active {
- color: #212121;
+ color: var(--primary-light);
 }
 /* only show the active track inside a slider */
 /* Only the tabbed slider inside rankings-block should toggle visibility */
