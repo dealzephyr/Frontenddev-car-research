@@ -691,8 +691,61 @@ font-size: 13px;
   border-color: #ffffff;
 }
 /* Main section class */
+/* =========================================
+   HERO — ultra-small phones (< 390px)
+   Shrink only: image, fonts, controls. Keep layout same.
+   ========================================= */
+@media (max-width:389.98px){
+
+  /* smaller image panel, same crop/rounding */
+  .hero-bg{
+    width: 92vw !important;          /* was 363px; prevents overflow */
+    min-height: 150px;                /* was 162px */
+    overflow: hidden;                 /* keep crop clean */
+  }
+  .hero-bg img{ border-radius: 7px !important; }
+
+  /* tighter heading + meta */
+  .hero-title{
+    height: auto !important;          /* avoid clipping */
+    font-size: 18px;                  /* was 21px */
+    margin-top: 20px;                 /* was 29px */
+  }
+  .notsure{ font-size: 12px; }        /* was 13px */
+
+  /* quiz button: smaller but same styling */
+  .btn-quiz{
+    width: 88px; height: 30px; font-size: 12px;
+    margin-top: 12px;
+  }
+
+  /* finder card sits a bit higher and tighter */
+  #hero-finder-form{
+    top: 155px;                       /* was 180px */
+    width: 96% !important;            /* was 90%/296px */
+    padding: 12px;                    /* was 16px */
+    top: 150px !important;
+  }
+
+  /* keep 2×2 grid; just tighten spacing */
+  .finder-bar{ gap: 8px; padding: 8px; }
+
+  /* pills + search: slightly narrower/shorter */
+  #hero-finder-form .finder-bar .dropdown .btn,
+  #hero-finder-form .btn-search{
+   max-width: 120px !important;          /* was 132px */
+    height: 38px;                     /* was 46px */
+    font-size: 11px;                  /* was 12px */
+    border-radius: 10px !important;   /* was 11px */
+    margin-left: 0 !important;        /* keep grid tidy */
+  }
+
+  /* section bottom spacing so overhang doesn't collide */
+  .hero-landing{ padding-bottom: 112px; } /* was 128px */
+}
+
 /* Mobile-only hero simplification */
-@media (max-width: 400px) {
+@media (max-width:400px){
    header.site-header + main.my-5{ margin-top:0 !important; }
   .hero-content{ padding-top:0px !important;margin-top: 0px;  }
 
@@ -704,7 +757,7 @@ font-size: 13px;
     text-align: center;
     gap: 0px;
   }
-  .hero-title{font-size: 21px;margin-bottom: 0px !important;margin-top: 29px;}
+  .hero-title{font-size: 21px;margin-bottom: 0px !important;margin-top: 29px;height: auto !important;}
 
   /* Orders */
 
@@ -723,7 +776,7 @@ font-size: 13px;
     position: relative;
     min-height: 162px;
     width: 363px;
-   
+  
     overflow: visible;}
     .hero-bg img{
  border-radius: 7px !important;
@@ -739,7 +792,8 @@ font-size: 13px;
     width: 296px;
     position: absolute;
     left: 50%;
-    bottom: -140px; /* pushes it below hero image */
+  
+    top: 150px;
     transform: translateX(-50%);
     width: 90%;  /* centered card */
     background: #ffffff;
@@ -788,7 +842,7 @@ font-size: 13px;
     width: 100%;
   }
 #hero-finder-form .finder-bar .dropdown .btn,.btn-search{
-  width: 132px !important;   /* set to your desired size */
+  max-width: 132px !important;   /* set to your desired size */
   border-radius: 11px !important;
   font-size: 12px;
   font-weight: 400;
@@ -800,8 +854,207 @@ font-size: 13px;
   
 }
 
+@media (min-width:401px) and (max-width:575.98px){
+
+  /* container spacing + room for overlaid finder card */
+  section.hero-landing.container{
+    margin-left: 20px !important;
+    margin-right: 20px !important;
+    width:auto; max-width:100%;
+  }
+  .hero-landing{
+    margin-left: 0 !important;
+    padding-bottom: clamp(120px, 24vw, 160px);
+  }
+
+  /* hero background + image + overlay */
+  .hero-bg{
+    position: relative;
+    min-height: clamp(220px, 45vw, 360px);
+    width: 100%;
+    border-radius: 16px;
+    overflow: visible;                  /* keep image clipped */
+  }
+  .hero-img{ object-fit: cover; object-position: bottom center; }
+  .hero-overlay{
+    position:absolute; inset:0;
+    background: linear-gradient(180deg, rgba(0,0,0,.10), rgba(0,0,0,.35));
+    pointer-events:none;
+  }
+
+  /* centered content, same stack as ≤400px */
+  .hero-content{
+    padding-top: 0 !important;
+    margin-top: 0;
+    display:flex; flex-direction:column; align-items:center; text-align:center; gap:0;
+  }
+
+  .hero-title{
+    height:auto !important;            /* override fixed 57px */
+    font-size: clamp(24px, 6vw, 30px);
+    line-height: 1.2;
+    margin-top: clamp(20px, 4vw, 28px);
+    margin-bottom: 0 !important;
+    text-align:center;
+  }
+
+  .notsure{ order:2 !important; font-size: clamp(13px, 3.6vw, 15px); }
+  .hero-desc{ display:none; }          /* match your mobile behavior */
+  .hero-content .text-center.mt-4{ margin-top:0 !important; }
+
+  .btn-quiz{
+    order:3 !important;
+    display:inline-block;
+    width: clamp(100px, 24vw, 140px);
+    height: clamp(33px, 7vw, 40px);
+    font-size: clamp(13px, 3.4vw, 15px);
+    font-weight:600;
+    margin-top: clamp(8px, 2.2vw, 12px);
+  }
+
+  /* finder card: centered & overlaid (scaled) */
+  #hero-finder-form{
+    order:4 !important;
+    position:absolute;
+    left:50%; transform:translateX(-50%);
+    top: clamp(200px, 40vw, 230px);    /* scales with hero height */
+    width: min(84%, 620px);
+    background:#ffffff;
+    border-radius:12px;
+    padding:16px;
+    box-shadow:0 4px 16px rgba(0,0,0,.15);
+    z-index:100;
+  }
+
+  .caret{ display:none; }
+
+  /* two-by-two grid like your ≤400px block */
+  .finder-bar{
+    display:grid !important;
+    grid-template-columns: 1fr 1fr;
+    gap:10px; padding:10px;
+    background:#fff; border-radius:7px;
+   
+  }
+
+  /* map children to cells */
+  #hero-finder-form .finder-bar .dropdown:nth-child(1){ grid-column:1; } /* Brand */
+  #hero-finder-form .finder-bar .dropdown:nth-child(2){ grid-column:2; } /* Model */
+  #hero-finder-form .finder-bar .dropdown:nth-child(3){ grid-column:1; } /* Variant */
+  #hero-finder-form .finder-bar .btn-search{
+    grid-column:2; width:100%;
+  }
+
+  /* controls: let grid own width; scale type/height */
+  .filter-pill{ width:100% !important; } /* override fixed 232px */
+  #hero-finder-form .finder-bar .dropdown .btn,
+  #hero-finder-form .btn-search{
+    width: 100% !important;             /* fill grid cell */
+    border-radius: 11px !important;
+    font-size: clamp(12px, 3.2vw, 14px);
+    font-weight: 400;
+    height: clamp(40px, 8vw, 48px);
+  }
+  #hero-finder-form .finder-bar .dropdown .btn:focus{
+    border:1px solid #757575;
+  }
+  .btn-search{
+    background-color: var(--primary-light);
+    color:#ffffff;
+    margin-left:0 !important;
+  }
+}
 
 
+@media (min-width:576px) and (max-width:991.98px){
+
+  /* Tighten the container like we did for footer */
+  section.hero-landing.container{
+    margin-left:22px !important;
+    margin-right:22px !important;
+    width:auto;
+    max-width:100%;
+    padding-bottom:110px;           /* room for overlaid form card */
+  }
+
+  /* Background block */
+  .hero-bg{
+    min-height:380px;               /* a bit shorter than desktop 420 */
+    border-radius:7px !important;
+    overflow:visible;
+    position:relative;
+  }
+
+  /* Content frame */
+  .hero-content{
+    max-width:800px;                /* narrower for tablets */
+    margin:0 auto;
+    padding:28px 16px 64px;         /* extra bottom padding above the card */
+    text-align:center;              /* center hero texts */
+  }
+
+  /* Title & sub */
+  .hero-title{
+    font-size:32px;                 /* ~tablet-pleasant */
+    line-height:1.2;
+    margin-top:12px;
+    text-align:center;
+  }
+  .notsure, .hero-desc{ text-align:center; }
+
+  /* Finder card stays over the image and is centered */
+  #hero-finder-form{
+    position:absolute;
+    left:50%;
+    transform:translateX(-50%);
+   top: 350px;                  /* hangs slightly below the image */
+    width:min(680px, 92%);
+    background:#fff;
+    border-radius:12px;
+    padding:16px;
+    box-shadow:0 4px 16px rgba(0,0,0,.15);
+   
+  }
+
+  .finder-wrap{ max-width:680px; margin:0 auto; }
+
+  /* Finder: switch to 2-column grid on this band */
+  .finder-bar{
+    display:grid !important;
+    grid-template-columns: 1fr 1fr;
+    gap:10px;
+    padding:10px;
+    background:#ffffff;
+    border-radius:7px;
+  
+  }
+
+  /* Row 1 */
+  #hero-finder-form .finder-bar .dropdown:nth-child(1){ grid-column:1; } /* Brand */
+  #hero-finder-form .finder-bar .dropdown:nth-child(2){ grid-column:2; } /* Model */
+
+  /* Row 2 */
+  #hero-finder-form .finder-bar .dropdown:nth-child(3){ grid-column:1; } /* Variant */
+  #hero-finder-form .finder-bar .btn-search{ grid-column:2; width:100%; }
+
+  /* Make sure grid can own widths (undo any fixed/flex widths) */
+  #hero-finder-form .finder-bar .dropdown,
+  #hero-finder-form .finder-bar .btn-search{
+    width:auto !important;
+    
+   
+  }
+ #hero-finder-form .btn-search{
+    background: var(--primary-light) !important;
+    color: #ffffff !important;
+  }
+  /* Center the CTA button under the copy */
+  .btn-quiz{ margin-left:auto; margin-right:auto; display:inline-block; }
+}
+/* =========================================================
+   HERO — Tablet consistency (576–991.98px)
+   Match 400px look: same colors, border-radius, clipping
+   ========================================================= */
 
 
 
@@ -1438,18 +1691,7 @@ position: absolute;
 
 }
 
-/* --- Desktop: restore original behavior (scrollable list, no toggle) --- */
-@media (min-width: 992px){
-  .launches-card{
-    width:277px;
-    height:473px;
-  }
-  .launches-card__list{
-    overflow-y:auto;
-    padding-right:8px;
-  }
-  .launches-toggle-btn{ display:none !important; } /* button only for mobile */
-}
+
 
 /* Small type polish for headings on mobile */
 @media (max-width:575.98px){
@@ -1563,6 +1805,7 @@ position: absolute;
 }
 
 
+
   
 /* Popular cars  */
 .view-btn {
@@ -1580,7 +1823,7 @@ position: absolute;
 /* =========================================================
    POPULAR CARS — MOBILE VIEW (≤ 998px) : 2 columns × 2 rows
    ========================================================= */
-@media (max-width: 998px){
+@media (max-width: 575.98px){
   /* Heading row */
   .popular-cars .mb-3.d-flex{
     flex-wrap: wrap;
@@ -1638,7 +1881,7 @@ position: absolute;
 /* =========================================================
    VERY SMALL PHONES (≤ 320px)
    ========================================================= */
-@media (max-width: 320px){
+@media (max-width: 300px){
   .popular-cars .rankings-title{ font-size: 16px; }
   .popular-cars .rankings-sub{ font-size: 12px; }
   .popular-cars .view-btn{ font-size: 11px; padding: 4px 8px; }
@@ -1662,40 +1905,10 @@ position: absolute;
     width: 100%;                     /* full width buttons */
     justify-content: center;         /* optional: center label */
   }
-}
-
-/* =========================================================
-   SMALL PHONES (321–359.98px)
-   ========================================================= */
-@media (min-width:321px) and (max-width:359.98px){
-  .popular-cars .rankings-title{ font-size: 17px; }
-  .popular-cars .rankings-sub{ font-size: 12px; }
-  .popular-cars .view-btn{ font-size: 11.5px; padding: 4px 9px; }
-
-  /* still 1 column if tight; switch to 2 if your cards are narrow enough */
-  .popular-cars #popularTrack{ grid-template-columns: 1fr; }
-
-  .popular-cars #popularTrack .car-card__media img{ height: 125px; }
-  .popular-cars #popularTrack .car-card__title{ font-size: 13.5px; }
-  .d-flex.gap-2 {
-    display: grid !important;        /* override Bootstrap flex */
-    grid-template-columns: 1fr;      /* one per row */
-    gap: 8px;                        /* keep spacing */
-    width: 100%;
-  }
-  .d-flex.gap-2 > .btn {
-    width: 100%;                     /* full width buttons */
-    justify-content: center;         /* optional: center label */
-  }
-  
-}
-
-
-
-/* =========================================================
+}/* =========================================================
    PHONES (390–429.98px)
    ========================================================= */
-@media (min-width:390px) and (max-width:429.98px){
+@media (min-width:360px) and (max-width:429.98px){
   .popular-cars .rankings-title{ font-size: 19px !important; }
   .popular-cars .rankings-sub{ font-size: 13px !important; margin-top: 10px !important; }
   .popular-cars .view-btn{ font-size: 11px; }
@@ -1747,57 +1960,36 @@ position: absolute;
   }
 }
 
-/* =========================================================
-   SMALL TABLETS (576–767.98px)
-   ========================================================= */
-@media (min-width:576px) and (max-width:767.98px){
-  .popular-cars .rankings-title{ font-size: 20px; }
-  .popular-cars .rankings-sub{ font-size: 13.5px; }
-  .popular-cars .view-btn{ font-size: 12.5px; padding: 5px 12px; }
+@media (min-width:301px) and (max-width:359.98px){
+  .popular-cars .rankings-title{ font-size:19px !important; }
+  .popular-cars .rankings-sub{ font-size:13px !important; margin-top:10px !important; }
+  .popular-cars .view-btn{ font-size:11px; }
 
-  .popular-cars #popularTrack{ gap: 14px; }
-  .popular-cars #popularTrack .car-card__media img{ height: 150px; }
-  .popular-cars #popularTrack .car-card__title{ font-size: 15px; }
-  .popular-cars #popularTrack .car-card__price{ font-size: 15px; }
-  .d-flex.gap-2 {
-    display: grid !important;        /* override Bootstrap flex */
-    grid-template-columns: 1fr;      /* one per row */
-    gap: 8px;                        /* keep spacing */
-    width: 100%;
+  /* stay 2 columns (override any 1-col rules from smaller band) */
+  .popular-cars #popularTrack{
+    grid-template-columns: repeat(2, minmax(0,1fr)) !important;
   }
-  .d-flex.gap-2 > .btn {
-    width: 100%;                     /* full width buttons */
-    justify-content: center;         /* optional: center label */
+
+  /* mirror compact sizing from your 360–429 band */
+  .popular-cars #popularTrack .car-card__media img{ height:92px; object-fit:cover; }
+  .popular-cars #popularTrack .car-card__body{ padding:9px; }
+  .popular-cars #popularTrack .car-card__title{ font-size:14px; margin-top:10px; }
+  .popular-cars #popularTrack .car-card__location,
+  .popular-cars #popularTrack .car-card__row,
+  .popular-cars #popularTrack .car-card__grid{ font-size:12px; }
+  .popular-cars #popularTrack .car-card__price{ font-size:12px; margin:10px 0 8px; }
+
+  /* buttons full width like phones */
+  .popular-cars .d-flex.gap-2{
+    display:grid !important;
+    grid-template-columns:1fr;
+    gap:2px; width:100%;
+  }
+  .popular-cars .d-flex.gap-2 > .btn{
+    width:100%; justify-content:center; font-size:12px;
   }
 }
 
-/* =========================================================
-   TABLETS (768–898.98px)
-   ========================================================= */
-@media (min-width:768px) and (max-width:898.98px){
-  .popular-cars .rankings-title{ font-size: 22px; }
-  .popular-cars .rankings-sub{ font-size: 14px; }
-  .popular-cars .view-btn{ font-size: 13px; padding: 6px 14px; }
-
-  .popular-cars #popularTrack{ gap: 16px; }
-  .popular-cars #popularTrack .car-card__media img{ height: 160px; }
-  .popular-cars #popularTrack .car-card__title{ font-size: 15.5px; }
-  .popular-cars #popularTrack .car-card__price{ font-size: 15.5px; }
-}
-
-/* =========================================================
-   LARGE TABLETS (899–998px)
-   ========================================================= */
-@media (min-width:899px) and (max-width:998px){
-  .popular-cars .rankings-title{ font-size: 23px; }
-  .popular-cars .rankings-sub{ font-size: 14px; }
-  .popular-cars .view-btn{ font-size: 13px; padding: 6px 16px; }
-
-  .popular-cars #popularTrack{ gap: 18px; }
-  .popular-cars #popularTrack .car-card__media img{ height: 170px; }
-  .popular-cars #popularTrack .car-card__title{ font-size: 16px; }
-  .popular-cars #popularTrack .car-card__price{ font-size: 16px; }
-}
 
 
 /* Research section Ad video*/
@@ -2000,9 +2192,9 @@ margin-left: 7px;
 @media (max-width:991px){
   .advideo-right,.advideo-right-top {
   text-align: center;
-}
+}}
 
-}
+
 
 /* Browse by type  */
 /* Card base (reuse hover effect from previous car cards) */
