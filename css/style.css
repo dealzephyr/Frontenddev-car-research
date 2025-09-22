@@ -972,7 +972,7 @@ font-size: 13px;
 
 @media (min-width:576px) and (max-width:991.98px){
     .hero-bg img{ border-radius: 7px !important; }
-.filter-pill{ width:100% !important; }
+.filter-pill{ max-width:100%}
   /* Tighten the container like we did for footer */
   section.hero-landing.container{
     margin-left:22px !important;
@@ -1004,8 +1004,10 @@ font-size: 13px;
     line-height:1.2;
     margin-top:12px;
     text-align:center;
+    height: auto;
   }
-  .notsure, .hero-desc{ text-align:center; }
+  .notsure, .hero-desc{ text-align:center;}
+  .hero-desc{display: none;}
 
   /* Finder card stays over the image and is centered */
   #hero-finder-form{
@@ -1056,10 +1058,7 @@ font-size: 13px;
   /* Center the CTA button under the copy */
   .btn-quiz{ margin-left:auto; margin-right:auto; display:inline-block; }
 }
-/* =========================================================
-   HERO — Tablet consistency (576–991.98px)
-   Match 400px look: same colors, border-radius, clipping
-   ========================================================= */
+
 
 
 
@@ -1998,6 +1997,86 @@ position: absolute;
     width:100%; justify-content:center; font-size:12px;
   }
 }
+/* =========================================================
+   POPULAR CARS — 576–767.98px
+   Bigger 2×2 cards toward 700px (same look as 430–576)
+   ========================================================= */
+@media (min-width:576px) and (max-width:767.98px){
+
+  /* Let THIS section use full viewport width */
+  .popular-cars.container{
+    max-width:100% !important;
+    padding-left:20px !important;
+    padding-right:20px !important;
+  }
+
+  /* Hide slider chrome on grid view */
+  .popular-cars .slider-btn{ display:none !important; }
+  .popular-cars .slider-shell{ padding-inline:0 !important; }
+
+  /* Force the track into a TRUE 2×2 grid (override any slider inline styles) */
+  .popular-cars .slider-shell > .cards-track,
+  .popular-cars #popularTrack{
+    display:grid !important;
+    grid-auto-flow:row !important;
+    grid-template-columns:repeat(2, minmax(0, 1fr)) !important;
+    gap:clamp(12px, 3vw, 18px) !important;
+
+    width:100% !important;
+    white-space:normal !important;
+    overflow-x:visible !important;
+    transform:none !important;
+    scroll-snap-type:none !important;
+  }
+
+  /* Cards fill the grid cells and scale with viewport */
+  .popular-cars #popularTrack .car-card.v2{
+    width:auto !important;
+    min-width:0 !important;
+    flex:initial !important;
+    height:100%;
+  }
+
+  /* Make media area fluid via aspect-ratio (bigger near 700px) */
+  .popular-cars #popularTrack .car-card__media{
+    aspect-ratio:3 / 2;          /* taller than 16:9 so card looks bigger */
+    overflow:hidden;
+  }
+  .popular-cars #popularTrack .car-card__media img{
+    width:100%; height:100% !important; object-fit:cover;
+  }
+
+  /* Body spacing & type scale up smoothly */
+  .popular-cars #popularTrack .car-card__body{
+    padding:clamp(12px, 2.4vw, 18px);
+  }
+  .popular-cars #popularTrack .car-card__title{
+    font-size:clamp(15px, 2.3vw, 18px);
+  }
+  .popular-cars #popularTrack .car-card__price{
+    font-size:clamp(14px, 2.1vw, 17px);
+  }
+
+  /* Headings + View All scale */
+  .popular-cars .rankings-title{ font-size:clamp(20px, 2.8vw, 24px); line-height:1.2; }
+  .popular-cars .rankings-sub{  font-size:clamp(12.5px, 2vw, 14px); }
+  .popular-cars .view-btn{      font-size:clamp(12px, 1.9vw, 13px); padding-inline:12px; }
+
+  /* Buttons stacked full width (like 430–576), but larger near 700px */
+  .popular-cars .d-flex.gap-2{
+    display:grid !important;
+    grid-template-columns:1fr;
+    gap:clamp(6px, 1.6vw, 10px) !important;
+    width:100%;
+  }
+  .popular-cars .d-flex.gap-2 > .btn{
+    width:100%;
+    height:clamp(40px, 5.4vw, 48px);
+    font-size:clamp(12px, 2vw, 14px);
+    justify-content:center;
+  }
+}
+
 
 
 
