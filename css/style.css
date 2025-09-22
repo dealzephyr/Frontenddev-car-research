@@ -824,6 +824,7 @@ font-size: 13px;
     white-space: nowrap;
   }
   
+  
    /* Brand and Model: first row */
   #hero-finder-form .finder-bar .dropdown:nth-child(1) {
     
@@ -856,7 +857,7 @@ font-size: 13px;
 }
 
 @media (min-width:401px) and (max-width:575.98px){
-
+  .hero-bg img{ border-radius: 7px !important; }
   /* container spacing + room for overlaid finder card */
   section.hero-landing.container{
     margin-left: 20px !important;
@@ -885,6 +886,7 @@ font-size: 13px;
 
   /* centered content, same stack as ≤400px */
   .hero-content{
+   
     padding-top: 0 !important;
     margin-top: 0;
     display:flex; flex-direction:column; align-items:center; text-align:center; gap:0;
@@ -899,7 +901,7 @@ font-size: 13px;
     text-align:center;
   }
 
-  .notsure{ order:2 !important; font-size: clamp(13px, 3.6vw, 15px); }
+  .notsure{ order:2 !important; font-size: clamp(13px, 3.6vw, 15px);margin-top: 15px; }
   .hero-desc{ display:none; }          /* match your mobile behavior */
   .hero-content .text-center.mt-4{ margin-top:0 !important; }
 
@@ -910,7 +912,8 @@ font-size: 13px;
     height: clamp(33px, 7vw, 40px);
     font-size: clamp(13px, 3.4vw, 15px);
     font-weight:600;
-    margin-top: clamp(8px, 2.2vw, 12px);
+    margin-top: clamp(10px, 2.2vw, 12px);
+
   }
 
   /* finder card: centered & overlaid (scaled) */
@@ -919,7 +922,7 @@ font-size: 13px;
     position:absolute;
     left:50%; transform:translateX(-50%);
     top: clamp(200px, 40vw, 230px);    /* scales with hero height */
-    width: min(84%, 620px);
+    width: min(92%, 620px);
     background:#ffffff;
     border-radius:12px;
     padding:16px;
@@ -935,7 +938,7 @@ font-size: 13px;
     grid-template-columns: 1fr 1fr;
     gap:10px; padding:10px;
     background:#fff; border-radius:7px;
-   
+  white-space: nowrap;  
   }
 
   /* map children to cells */
@@ -968,7 +971,8 @@ font-size: 13px;
 
 
 @media (min-width:576px) and (max-width:991.98px){
-
+    .hero-bg img{ border-radius: 7px !important; }
+.filter-pill{ width:100% !important; }
   /* Tighten the container like we did for footer */
   section.hero-landing.container{
     margin-left:22px !important;
