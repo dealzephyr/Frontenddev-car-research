@@ -1686,18 +1686,14 @@ position: absolute;
 
 
 /* Small type polish for headings on mobile */
-@media (max-width:575.98px){
-  .rankings-title{ font-size:18px;line-height: 1; }
-  .rankings-block .left-col{margin-left: 19px; margin-right: 19px !important;}
-  .rankings-sub{ font-size:10px; margin-top:8px;line-height: 1; }
-
-}
-/* ========= MOBILE ≤991.98px — keep tab filtering; 2x2; 4 items ========= */
-@media (max-width: 400px){
-  /* Put Launches ABOVE and Rankings BELOW */
+@media (max-width:991.98px){
   .rankings-block .row.g-3{ display:flex; flex-direction:column; gap:8px; }
   .rankings-block .col-lg-3{ order:1; }
   .rankings-block .col-lg-9{ order:2; }
+}
+/* ========= MOBILE ≤991.98px — keep tab filtering; 2x2; 4 items ========= */
+@media (max-width: 400px){
+ 
 
   /* Remove slider chrome */
   .rankings-block .slider-shell{
@@ -1764,18 +1760,11 @@ position: absolute;
     border:1px solid var(--primary-color, #5d4037);
     background:#fff; color:var(--primary-color, #5d4037);
     font-weight:600; line-height:1; text-decoration:none;
+   
   }
   .rankings-load-btn:hover{ background:var(--primary-color, #5d4037); color:#fff; }
   .rankings-block.is-expanded .rankings-load-btn{ background:var(--primary-color, #5d4037); color:#fff; }
    .launches-card .rankings-load-btn{align-items: center;}
-  /* Very narrow phones: stack action buttons inside card */
-  @media (max-width: 360px){
-    .rankings-block .car-card__media img{ height:120px; }
-    .rankings-block .d-flex.gap-2{
-      display:grid !important; grid-template-columns:1fr; gap:8px;
-    }
-    .rankings-block .d-flex.gap-2 > .btn{ width:100%; justify-content:center; }
-  }
 }
 
 
@@ -1793,11 +1782,12 @@ position: absolute;
 }
 
 /* hide on desktop */
-@media (min-width: 992px){
+@media (min-width: 991.98px){
   .rankings-load-btn{ display:none !important; }
   .launches-toggle-btn {display: none;}
  
 }
+
 
 
 
