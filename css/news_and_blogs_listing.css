@@ -87,12 +87,7 @@ button.brand-arrow svg{ display:block; width:17px; height:17px; }
   .card.blog-featured h5{ font-size:15px; font-weight: 600 !important; }  
 }
 
-/* =========================================================
-   RIGHT PANEL (RIGHT SIDEBAR LIST)
-   - Desktop: vertical list with 2 visible rows & scrollbar
-   - Mobile: horizontal 1-up scroller with dots
-   - Image left, text right at all sizes
-========================================================= */
+/* right panel */
 .right-panel{
   background:#f4f4f4; border-radius:16px; padding:12px; overflow:hidden;
 }
@@ -131,7 +126,7 @@ button.brand-arrow svg{ display:block; width:17px; height:17px; }
 .right-panel .blog-item .badge-soft{ margin-right:8px; }
 .right-panel .blog-item .badge.bg-light.text-muted{
   position:absolute; right:0; top:0; background:transparent !important;
-  border:0 !important; color:#9aa0a6 !important; font-weight:600; padding:0;
+  border:0 !important; color:#9aa0a6 !important; font-weight:600; padding:10px;
 }
 /* Title + excerpt span full width */
 .right-panel .blog-item .card-body > h6,
@@ -246,6 +241,9 @@ button.brand-arrow svg{ display:block; width:17px; height:17px; }
 .cards-carousel .cc-track > *{
   flex:0 0 calc((100% - (var(--cols) - 1) * var(--g)) / var(--cols));
   box-sizing:border-box; min-width:0; margin:0 !important; scroll-snap-align:start;
+}
+.cc-track::-webkit-scrollbar {
+  display: none;
 }
 /* arrows */
 .cards-carousel .cc-btn{
