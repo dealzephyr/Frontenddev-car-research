@@ -370,13 +370,12 @@ input[type=range]::-moz-range-thumb{
 
 /* ===================== MOBILE OVERRIDES ===================== */
 @media (max-width: 900px) {
-  /* make cards fluid and prevent right edge clipping */
   .calc-grid { 
     display: block;
     gap: 16px;
   }
 
-  /* Kill any fixed widths from earlier rules */
+  /* Make both panels fluid */
   .calc-grid .panel {
     width: 100% !important;
     max-width: 100% !important;
@@ -391,14 +390,17 @@ input[type=range]::-moz-range-thumb{
     display: none !important; 
   }
 
-  /* When results are ready, flip visibility */
-  .calc-grid.show-results .panel-form { 
-    display: none !important; 
-  }
+  /* After calculate: show results BELOW the form */
   .calc-grid.show-results .panel-results { 
+    margin-top: 20px !important;
     display: block !important; 
     animation: slide-in .25s ease-out;
   }
+
+  /* IMPORTANT: remove the rule that hides the form on .show-results */
+  /* (Delete if present)
+     .calc-grid.show-results .panel-form { display:none !important; } 
+  */
 
   @keyframes slide-in {
     from { opacity: 0; transform: translateY(10px); }

@@ -1,0 +1,390 @@
+
+/* ====== Palette (yours) ====== */
+:root{
+  --primary:#5d4037;
+  --primary-dark:#4e342e;
+  --ink:#212121;
+  --muted:#757575;
+  --soft:#f6f3f2;
+  --chip:#ffffff;
+  --stroke:#ededed;
+  --shadow: 0 10px 24px -14px rgba(0,0,0,.25);
+}
+
+
+/* ====== Top step bar ====== */
+.stepbar{
+  position:sticky; top:0; z-index:1;
+  background: #f4f4f4;; border-bottom:1px solid #f1f1f1;
+}
+.stepbar-inner{
+  max-width: 768px; margin: 0 auto; padding:3px 0px 12px;
+  
+}
+.stepbar-text {
+  display: flex;
+  justify-content: space-between;
+  font-size: 14px;
+  font-weight: 500;
+  color: #757575;
+  padding: 13px 0px 3px;
+}
+.progress{
+  height:10px; background: #d4d4d4;; border-radius:17px; overflow:hidden;;
+}
+.progress > span{
+  display:block; height:100%; width:33%;
+  background:var(--primary); border-radius:inherit;
+}
+
+
+
+.head{
+  text-align:center; margin-bottom:30px;
+}
+.head h1{
+  font-size:27px;
+  font-weight: 600;
+  margin:41px 0px 5px; font-weight:700;
+  color: var(--ink);
+}
+.head p{
+  font-size:15px; color:var(--muted); margin:0;font-weight: 400;
+}
+
+
+/* ====== Section blocks ====== */
+.block{ 
+     max-width: 768px;
+      margin: 0 auto;        /* centers the block horizontally */
+
+  margin-bottom:28px;}
+
+.block h3{
+  font-size:18px; font-weight:600; margin:0 0 12px; color:var(--ink);
+}
+
+/* Vehicle type chips */
+.veh-list{
+  display:flex; gap:32px; flex-wrap:wrap;
+}
+.veh-card{
+    margin-top: 38px;
+  position:relative;
+  box-shadow: 0px 2px 4px 0px #00000040;
+    width: 92px;
+      background:var(--chip);
+  border:1px solid var(--stroke);
+  border-radius:12px;
+  cursor:pointer; user-select:none;
+ 
+}
+.veh-card input{ position:absolute; inset:0; opacity:0; pointer-events:none; }
+.veh-card label{
+  display:flex; flex-direction:column; align-items:center; gap:6px;
+
+
+}
+.veh-card img{
+  width:100%; aspect-ratio: 4/3; object-fit:cover; border-top-right-radius: 12px;border-top-left-radius: 12px;
+}
+.veh-card .txt{
+  font-size:14px;font-weight: 400; color:var(--ink);padding: 5px 0px 7px;
+}
+.veh-card input:checked + label{
+   
+ border: 1px solid var(--primary-dark); /* Include width and style */
+ border-radius: inherit;
+
+}
+.veh-card label:active{ transform: translateY(1px); }
+
+/* Radio boxes (purpose) */
+.radio-box{
+  position:relative; margin-bottom:18px;
+}
+.radio-box input{ position:absolute; inset:0; opacity:0; pointer-events:none; }
+.radio-box label{
+
+  display:flex; align-items:center; gap:15px;
+  padding:14px 14px;
+  border:1px solid var(--stroke);
+  border-radius:7px; background:#ffffff;
+  box-shadow: 0px 0px 4px 0px #8F8F8F40;
+  font-size:15px;
+  font-weight: 400px;
+  color: var(--ink);
+}
+.radio-box label::before{
+  content:""; width:19px; height:19px; border-radius:50%;
+  border:1px solid var(--primary-dark); display:inline-block; box-sizing:border-box;
+}
+.radio-box input:checked + label{
+  border-color: var(--primary);
+ 
+}
+.radio-box input:checked + label::before{
+  border-color: var(--primary);
+  box-shadow: inset 0 0 0 5px var(--primary);
+}
+
+/* Pill group (people count) */
+.pill-group{
+  display:flex; gap:14px; flex-wrap:wrap;margin-top: 21px;
+}
+.pill{
+  position:relative;
+}
+.pill input{ position:absolute; inset:0; opacity:0; pointer-events:none; }
+.pill label{
+  display:inline-flex; align-items:center; justify-content:center;
+  padding:23px 53px; border-radius:7px; border:1px solid var(--stroke);
+  background:#ffffff; min-width:166px;
+  box-shadow: 0px 0px 4px 0px #63636340;
+  font-size:15px;font-weight: 500; color:var(--ink); cursor:pointer;
+}
+.pill input:checked + label{
+  border-color: var(--primary-dark);
+  transform: translateY(1px);
+}
+
+/* Actions */
+.actions{max-width: 768px; margin:0 auto; margin-top:18px; display:flex; justify-content:center; }
+.actions a{
+  color: inherit;           /* Inherit text color from parent */
+  text-decoration: none;    /* Remove underline */
+ 
+}
+.btn{
+  appearance:none; border:none; cursor:pointer;
+  background: var(--primary-dark);
+  color:#ffffff; font-weight:600;
+  border-radius:7px; padding:12px 20px;
+  box-shadow: 0 12px 26px -12px rgba(93,64,55,.5);
+ 
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 20px;
+  margin-bottom: 39px;
+}
+
+.btn:active{ transform: translateY(1px); }
+
+/* Small screens tweaks */
+@media (max-width: 520px){
+  .veh-card label{ width: 88px; }
+  .pill label{ min-width: 100px; }
+}
+
+/* ============ MOBILE ONLY (≤600px) ============ */
+@media (max-width: 600px){
+
+  /* page spacing / step bar */
+  .stepbar-inner{
+    max-width: 100%;
+    padding: 8px 16px 12px;
+  }
+  .stepbar-text{
+    font-size: 12px;
+    padding: 8px 0 6px;
+  }
+  .progress{ height: 8px; }
+
+  .page{ padding: 0 16px; }
+  .head h1{ font-size: 20px; margin: 28px 0 6px; }
+  .head p{ font-size: 12px; }
+
+  /* VEHICLE TYPE: 3 columns */
+  .veh-list{
+    display: grid;                 /* switch from flex to grid */
+    grid-template-columns: repeat(3, 1fr);
+    gap: 14px;
+  }
+  .veh-card{
+    width: auto;                   /* let grid size them */
+    margin-top: 0;
+  }
+  .veh-card label{ width: 100%; }
+  .veh-card img{ width: 100%; }
+  .veh-card .txt{ font-size: 13px; padding: 6px 0 8px; }
+
+  /* radio rows width */
+  .radio-box label{
+    max-width: 100%;
+    padding: 12px;
+    font-size: 14px;
+  }
+  .block h3{font-size: 13px !important;}
+
+  /* PEOPLE COUNT: 2 columns */
+  .pill-group{
+    display: grid;                 /* 2×2 pill layout */
+    grid-template-columns: repeat(2, 1fr);
+    gap: 12px;
+    margin-top: 14px;
+  }
+  .pill label{
+    min-width: 0;
+    width: 100%;
+    padding: 16px 12px;
+    text-align: center;
+    font-size: 14px;
+  }
+
+  /* action button full width */
+  .actions .btn{
+    
+    margin-bottom: 28px;
+  }
+}
+
+
+/* for second quiz page  */
+
+/* ====== NEW: small heading helper for note under title ====== */
+.block-top{margin-bottom: 15px;}
+.block-top .hint{ color:var(--muted);font-size: 14px;font-weight: 400; }
+
+/* ====== NEW: Budget chips ====== */
+.chip-row{ display:flex; flex-wrap:wrap; gap:14px; }
+.chip-btn{ display:inline-flex; align-items:center; position:relative; }
+.chip-btn input{ position:absolute; inset:0; opacity:0; pointer-events:none; }
+.chip-btn span{
+  padding:12px 35px 12px;
+  border-radius:7px;
+  background:#ffffff;
+ box-shadow: 0px 0px 4px 0px #63636340;
+
+  font:400 15px/1.1 Poppins,system-ui;
+  color:var(--ink);
+  cursor:pointer;
+}
+.chip-btn input:checked + span{border: 1px solid var(--primary-dark); background-color: #f4f4f4; }
+
+/* ====== NEW: Priority cards grid ====== */
+.prio-grid{ display:grid; grid-template-columns:repeat(2,1fr); gap:14px; }
+.prio-card{
+  position:relative;
+  display:grid; grid-template-columns:auto 1fr; align-items:center; gap:12px;
+  padding:14px;
+  border:1px solid var(--stroke);
+  border-radius:7px;
+  background:#ffffff;
+ box-shadow: 0px 0px 4px 0px #8F8F8F40;
+  cursor:pointer; user-select:none;
+}
+.prio-card input{ position:absolute; inset:0; opacity:0; pointer-events:none; }
+.prio-card .txt .t{ font:600 14.5px/1.25 Poppins,system-ui; color:var(--ink); }
+.prio-card .txt .s{ font:400 12.5px/1.2 Poppins,system-ui; color:var(--muted); }
+
+
+.prio-card:has(input[type="checkbox"]:checked) {
+    border-color: var(--primary-dark);
+    background-color: #f4f4f4;
+}
+/* ====== NEW: Fuel preference pills ====== */
+.fuel-group{ display:flex; flex-wrap:wrap; gap:12px; }
+.fuel-pill{ position:relative; display:inline-flex; align-items:center; gap:8px; }
+.fuel-pill input{ position:absolute; inset:0; opacity:0; pointer-events:none; }
+
+.fuel-pill span{
+  display:inline-flex; align-items:center; gap:8px;
+  padding:12px 16px;
+  border:1px solid var(--stroke);
+  border-radius:8px;
+  background:#fff;
+  box-shadow:0 0 4px 0 #63636340;
+  font:500 14px/1.1 Poppins,system-ui;
+  color:var(--ink);
+  cursor:pointer;
+}
+.fuel-pill input:checked + .ico + span,
+.fuel-pill input:checked + span{ border-color:var(--primary-dark);background-color: #f4f4f4; }
+
+/* ====== NEW: Actions layout + subtle secondary button ====== */
+.actions.between{ justify-content:space-between; }
+.btn-soft{
+  background:#fff;
+  color:var(--primary);
+  border:1px solid var(--primary);
+}
+
+/* ====== MOBILE ONLY (≤600px) tweaks for step 2 ====== */
+@media (max-width:600px){
+  .chip-row{ gap:10px; }
+  .chip-btn span{ padding:10px 14px; font-size:13px; }
+
+  .prio-grid{ grid-template-columns:1fr; gap:12px; }
+  .prio-card{ padding:12px; }
+  .prio-card .txt .t{ font-size:14px; }
+  .prio-card .txt .s{ font-size:12px; }
+
+  .fuel-group{ gap:10px; }
+  .fuel-pill span{ padding:12px 14px; font-size:13px; }
+}
+
+
+/* for 3rd page  */
+/* --- Step 3 chips & grids --- */
+.help-line{
+  margin: 6px 0 10px;
+  color: var(--muted);
+  font-size: 12.5px;
+}
+
+.check-grid{
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
+  max-width: 720px;
+}
+
+.check-grid.two-cols{
+  grid-template-columns: 1fr 1fr;
+}
+
+.check-chip{ position: relative; }
+.check-chip input{ position:absolute; inset:0; opacity:0; pointer-events:none; }
+
+.check-chip label{
+  display:flex; align-items:flex-start; gap:10px;
+  padding:12px 14px;
+  background:#fff;
+  border:1px solid var(--stroke);
+  border-radius:8px;
+  box-shadow:0 0 4px 0 #8F8F8F40;
+  cursor:pointer; user-select:none;
+  transition: border-color .15s, transform .05s, box-shadow .15s;
+}
+
+.check-chip .ico{ width:18px; flex:0 0 18px; line-height:1; }
+.check-chip .t{ color:var(--ink); font-weight:500; }
+.check-chip small{ display:block; margin-top:2px; color:var(--muted); }
+
+.check-chip input:checked + label{
+  border-color: var(--primary);
+  box-shadow: 0 0 0 2px rgba(93,64,55,.12), 0 0 4px 0 #8F8F8F40;
+  transform: translateY(1px);
+}
+
+/* Buttons row with back/finish spaced */
+.actions.between{
+  justify-content: space-between;
+  gap: 12px;
+}
+.btn-ghost{
+  background: transparent;
+  color: var(--primary-dark);
+  border: 1.5px solid var(--primary-dark);
+}
+
+/* ---------- Mobile tweaks ---------- */
+@media (max-width: 600px){
+  .check-grid,
+  .check-grid.two-cols{
+    grid-template-columns: 1fr;      /* stack on mobile */
+  }
+  .check-chip label{ padding: 14px; }
+}
+
+

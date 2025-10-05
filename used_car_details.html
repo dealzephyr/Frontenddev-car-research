@@ -38,7 +38,8 @@
     <link rel="stylesheet" href="css/style.css" />
     <link rel="stylesheet" href="css/explore_cars.css">
     <link rel="stylesheet" href="css/new_car_detail.css">
-    <link rel="stylesheet" href="css/used_car_detail.css">
+    <link rel="stylesheet" href="css/used_car_details.css">
+    
       
   </head>
   
@@ -392,6 +393,21 @@ document.addEventListener('DOMContentLoaded', function() {
       </a>
 
     </nav>
+
+
+         <section class="toppart">
+      <nav aria-label="breadcrumb">
+        <ol class="breadcrumb">
+          <li class="breadcrumb-item">
+            <a href="home.html">Home</a>
+          </li>
+          <li class="breadcrumb-item active" aria-current="page">
+            <a href="used_car_details.html">Used Cars</a>
+          </li>
+        </ol>
+      </nav>
+    </section>
+    <main class="page">
 <!-- hero section  -->
 <script>
 document.addEventListener('DOMContentLoaded', () => {
@@ -585,9 +601,9 @@ Diesel</span>
           
           <div class="accordion mk-acc" id="specAccordion">
             <!-- Basic Info -->
-            <div class="accordion-item mk-item">
+           <div class="accordion-item mk-item">
                <button
-                  class="accordion-button mk-btn"
+                  class="accordion-button collapsed mk-btn"
                   type="button"
                   data-bs-toggle="collapse"
                   data-bs-target="#basicCollapse"
@@ -606,7 +622,7 @@ Basic Info
               </button>
               <div
                 id="basicCollapse"
-                class="accordion-collapse collapse show"
+                class="accordion-collapse collapse"
                 aria-labelledby="basicHeading"
                 data-bs-parent="#specAccordion"
               >
@@ -1621,9 +1637,9 @@ Modifications: None</li>
       </div>
 
       <!-- Cards -->
-      <div class="row g-4 custom-gap">
+      <div class="row g-4 custom-gap1">
         <!-- Loved Features -->
-        <div class="col-lg-5">
+        <div class="col-lg-6">
           <div class="mk-card-satisfaction p-4 h-100">
             <div class="d-inline-flex align-items-center gap-2 mb-3">
               <i class="bi bi-heart-fill text-primary-choco"></i>
@@ -1652,7 +1668,7 @@ Modifications: None</li>
         </div>
 
         <!-- Concerns -->
-        <div class="col-lg-5">
+        <div class="col-lg-6">
           <div class="mk-card-satisfaction p-4 h-100">
             <div class="d-inline-flex align-items-center gap-2 mb-3">
               <i class="bi bi-exclamation-octagon-fill text-danger"></i>
@@ -1723,13 +1739,6 @@ Modifications: None</li>
   <h3 class="text-center fw-bold mb-4">Other great options for you</h3>
 
   <div class="row g-2">
-    <!-- Mobile nav: arrows -->
-<button class="carousel-arrow carousel-prev" type="button" aria-label="Previous">
-  <i class="bi bi-chevron-left" aria-hidden="true"></i>
-</button>
-<button class="carousel-arrow carousel-next" type="button" aria-label="Next">
-  <i class="bi bi-chevron-right" aria-hidden="true"></i>
-</button>
 
 
 <!-- Mobile nav: dots (auto-filled by JS) -->
@@ -1834,11 +1843,136 @@ Modifications: None</li>
   </div>
 </section>
 
+<script>
+/* Other Options: mobile slider initializer */
+(function(){
+  const mq = window.matchMedia('(max-width: 575.98px)');
+  let teardown = null;
+
+  function init(){
+    const section = document.querySelector('#otheroptions');
+    if (!section) return;
+    const row = section.querySelector('.row');
+    if (!row) return;
+
+    // Re-home or create the dots *outside* the scroll area
+    let dots = section.querySelector('.carousel-dots');
+    if (!dots) {
+      dots = document.createElement('div');
+      dots.className = 'carousel-dots';
+      section.appendChild(dots);
+    } else if (dots.parentElement !== section) {
+      section.appendChild(dots);
+    }
+    dots.innerHTML = '';
+
+    // Build arrows (no HTML changes needed)
+    const prev = document.createElement('button');
+    prev.className = 'os-arrow os-prev';
+    prev.innerHTML = '<svg viewBox="0 0 24 24" fill="none"><path d="M15 18L9 12L15 6" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>';
+
+    const next = document.createElement('button');
+    next.className = 'os-arrow os-next';
+    next.innerHTML = '<svg viewBox="0 0 24 24" fill="none"><path d="M9 6L15 12L9 18" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>';
+
+    section.appendChild(prev);
+    section.appendChild(next);
+
+    // Slides = only the Bootstrap columns inside the row
+    const slides = Array.from(row.children).filter(n => n.className && /col-/.test(n.className));
+    if (!slides.length) return;
+
+    // Native smooth scroll for programmatic moves
+    row.style.scrollBehavior = 'smooth';
+
+    // Build dots
+    const dotEls = slides.map((_, i) => {
+      const b = document.createElement('button');
+      b.type = 'button';
+      b.addEventListener('click', () => goTo(i));
+      dots.appendChild(b);
+      return b;
+    });
+
+    // Compute left positions (robust against gaps/padding)
+    let positions = [];
+    function computePositions(){
+      positions = slides.map(s => s.offsetLeft - slides[0].offsetLeft);
+      updateUI();
+    }
+    computePositions();
+
+    // Index helpers
+    function nearestIndex(){
+      const x = row.scrollLeft;
+      let idx = 0, min = Infinity;
+      for (let i = 0; i < positions.length; i++){
+        const d = Math.abs(positions[i] - x);
+        if (d < min){ min = d; idx = i; }
+      }
+      return idx;
+    }
+
+    let lock = false; // suppress scroll handler during programmatic scroll
+    function goTo(i){
+      i = Math.max(0, Math.min(i, slides.length - 1));
+      lock = true;
+      row.scrollTo({ left: positions[i], behavior: 'smooth' });
+      setTimeout(() => { lock = false; updateUI(); }, 320);
+    }
+
+    function updateUI(){
+      const i = nearestIndex();
+      dotEls.forEach((d,j) => d.classList.toggle('is-active', j === i));
+      prev.disabled = i === 0;
+      next.disabled = i === slides.length - 1;
+    }
+
+    prev.addEventListener('click', () => goTo(nearestIndex() - 1));
+    next.addEventListener('click', () => goTo(nearestIndex() + 1));
+
+    let t;
+    function onScroll(){
+      if (lock) return;
+      clearTimeout(t);
+      t = setTimeout(updateUI, 80);
+    }
+    row.addEventListener('scroll', onScroll);
+    const onResize = () => computePositions();
+    window.addEventListener('resize', onResize);
+
+    // Initial state
+    updateUI();
+
+    // Cleanup when leaving mobile width
+    teardown = function(){
+      window.removeEventListener('resize', onResize);
+      row.removeEventListener('scroll', onScroll);
+      prev.remove();
+      next.remove();
+      // dots can stay; desktop CSS hides them
+    };
+  }
+
+  function handle(e){
+    if (e.matches) {                   // enter mobile
+      if (!teardown) init();
+    } else {                           // leave mobile
+      if (teardown) { teardown(); teardown = null; }
+    }
+  }
+
+  // Listen to width changes and run once
+  if (mq.addEventListener) mq.addEventListener('change', handle);
+  else mq.addListener(handle);
+  handle(mq);
+})();
+</script>
 
 
 <!-- for review popup -->
 
-<div class="modal fade mk-review-modal" id="mkReviewModal" tabindex="-1" aria-hidden="true" aria-labelledby="mkReviewTitle">
+<div class="modal fade mk-review-modal" id="mkReviewModal" tabindex="-1" aria-labelledby="mkReviewTitle">
   <div class="modal-dialog modal-dialog-centered modal-lg">
     <div class="modal-content">
       <button type="button" class="btn-close ms-auto p-3" data-bs-dismiss="modal" aria-label="Close"></button>
@@ -1947,6 +2081,7 @@ document.getElementById("enquiryForm").addEventListener("submit", e => {
   enquiryModal.style.display = "none";
 });
 </script>
+</main>
 
      <!-- FOOTER -->
     <footer class="footer-motokhabar pt-5 pb-4">

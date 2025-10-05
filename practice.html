@@ -2,402 +2,291 @@
 <html lang="en">
 <head>
 <meta charset="utf-8" />
-<meta name="viewport" content="width=device-width,initial-scale=1" />
-<title>Car Ownership Cost Calculator</title>
-<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Car Finder – Step 1</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
 
 <style>
-/* ---- Palette (yours) ---- */
+/* ====== Palette (yours) ====== */
 :root{
-  --primary-color:#5d4037;
-  --primary-light:#4e342e;
-  --primary-dark:#212121;
-  --secondary-color:#e2c2bb;
-  --text-on-primary:#ffffff;
-  --neutral-light:#ffffff;
-  --neutral-mid:#d4d4d4;
-  --neutral-dark:#757575;
+  --primary:#5d4037;
+  --primary-dark:#4e342e;
+  --ink:#212121;
+  --muted:#757575;
+  --soft:#f6f3f2;
+  --chip:#ffffff;
+  --stroke:#ededed;
+  --shadow: 0 10px 24px -14px rgba(0,0,0,.25);
 }
 
-/* ---- Base ---- */
 *{box-sizing:border-box}
 html,body{height:100%}
 body{
-  font-family:"Poppins",sans-serif;
-  background:#fffbf7; /* very soft warm white so cards pop */
-  color:var(--primary-dark);
-  font-size:14px;
   margin:0;
+  font-family:Poppins,system-ui,-apple-system,Segoe UI,Roboto,Ubuntu,"Helvetica Neue",Arial,"Noto Sans",sans-serif;
+  color:var(--ink);
+  background:#fff;
 }
+
+/* ====== Top step bar ====== */
+.stepbar{
+  position:sticky; top:0; z-index:1;
+  background:#fafafa; border-bottom:1px solid #f1f1f1;
+}
+.stepbar-inner{
+  max-width: 940px; margin: 0 auto; padding:10px 16px 12px;
+  font-size:12px; color:#9b9b9b;
+}
+.progress{
+  height:8px; background:#eee; border-radius:999px; overflow:hidden; margin-top:6px;
+}
+.progress > span{
+  display:block; height:100%; width:33%;
+  background:var(--primary); border-radius:inherit;
+}
+
+/* ====== Content ====== */
 .container{
-  max-width:1100px;
-  margin:40px auto 60px;
-  padding:0 16px;
+  max-width: 940px;
+  margin: 28px auto 60px;
+  padding: 0 16px;
 }
 
-/* ---- Section header ---- */
-.calc-head{
-  text-align:center;
-  margin-bottom:22px;
+.head{
+  text-align:center; margin-bottom:30px;
 }
-.calc-head .title{
-  font-size:22px;
-  font-weight:600;
-  display:inline-flex;
-  gap:10px;
-  align-items:center;
+.head h1{
+  font-size: clamp(18px,2.6vw,24px);
+  margin:0 0 6px; font-weight:700;
 }
-.calc-head .title i{
-  width:22px;height:22px;
-  display:inline-block;
-  border:2px solid var(--primary-color);
-  border-radius:4px;
+.head p{
+  font-size:14px; color:var(--muted); margin:0;
+}
+
+/* ====== Section blocks ====== */
+.block{ margin-bottom:28px; }
+.block h3{
+  font-size:14px; font-weight:600; margin:0 0 12px; color:#3a3a3a;
+}
+
+/* Vehicle type chips */
+.veh-list{
+  display:flex; gap:14px; flex-wrap:wrap;
+}
+.veh-card{
   position:relative;
 }
-.calc-head .title i:before{
-  content:"₹";
-  position:absolute; inset:0;
-  display:grid; place-items:center;
-  font-size:12px; color:var(--primary-color);
-  font-weight:600;
-}
-.calc-head .sub{
-  color:var(--neutral-dark);
-  margin-top:6px;
-  font-size:12.5px;
-}
-
-/* ---- Grid ---- */
-.calc-grid{
-  display:grid;
-  grid-template-columns:1fr;
-  gap:18px;
-}
-@media(min-width: 900px){
-  .calc-grid{ grid-template-columns: 1fr 1fr; }
-}
-
-/* ---- Card ---- */
-.panel{
-  background:#fff;
+.veh-card input{ position:absolute; inset:0; opacity:0; pointer-events:none; }
+.veh-card label{
+  display:flex; flex-direction:column; align-items:center; gap:6px;
+  width: 86px; padding:8px 8px 10px;
+  background:var(--chip);
+  border:1px solid var(--stroke);
   border-radius:14px;
-  box-shadow:0 12px 30px -14px rgba(0,0,0,.25);
-  padding:18px 18px 20px;
+  box-shadow: var(--shadow);
+  cursor:pointer; user-select:none;
+  transition: border-color .15s ease, box-shadow .15s ease, transform .05s ease;
 }
-.panel h3{
-  margin:0 0 8px;
-  font-size:16px;
-  font-weight:600;
+.veh-card img{
+  width:100%; aspect-ratio: 4/3; object-fit:cover; border-radius:10px;
 }
-.panel p.hint{
-  margin:0 0 14px;
-  color:var(--neutral-dark);
-  font-size:12.5px;
+.veh-card .txt{
+  font-size:12px; color:#4b4b4b;
+}
+.veh-card input:checked + label{
+  border-color: var(--primary);
+  box-shadow: 0 0 0 3px rgba(93,64,55,.15), var(--shadow);
+}
+.veh-card label:active{ transform: translateY(1px); }
+
+/* Radio boxes (purpose) */
+.radio-box{
+  position:relative; margin-bottom:10px;
+}
+.radio-box input{ position:absolute; inset:0; opacity:0; pointer-events:none; }
+.radio-box label{
+  display:flex; align-items:center; gap:10px;
+  padding:14px 14px;
+  border:1px solid var(--stroke);
+  border-radius:12px; background:#fff; box-shadow: var(--shadow);
+  cursor:pointer; transition: border-color .15s, background .15s;
+  font-size:14px;
+}
+.radio-box label::before{
+  content:""; width:18px; height:18px; border-radius:50%;
+  border:2px solid #cfcfcf; display:inline-block; box-sizing:border-box;
+}
+.radio-box input:checked + label{
+  border-color: var(--primary);
+  background:#fff9f7;
+}
+.radio-box input:checked + label::before{
+  border-color: var(--primary);
+  box-shadow: inset 0 0 0 5px var(--primary);
 }
 
-/* ---- Form controls ---- */
-.form-row{ margin-bottom:14px; }
-.label{
-  display:block;
-  font-weight:600;
-  font-size:12.5px;
-  margin-bottom:6px;
-  color:var(--primary-dark);
+/* Pill group (people count) */
+.pill-group{
+  display:flex; gap:10px; flex-wrap:wrap;
 }
-.input, .select{
-  width:100%;
-  border:1px solid #eee;
-  background:#fff;
-  border-radius:10px;
-  padding:12px 12px;
-  outline:none;
-  transition:border-color .15s;
-}
-.input:focus, .select:focus{ border-color:var(--secondary-color); }
-
-/* ---- Range (years) ---- */
-.range-wrap{ padding-right:10px; }
-.range-top{
-  display:flex; justify-content:space-between; align-items:center;
-  margin-bottom:6px;
-}
-.years-pill{
-  background:#f4f2f1;
-  color:#4b4543;
-  border-radius:999px;
-  padding:6px 12px;
-  font-size:12px;
-  font-weight:600;
-}
-input[type=range]{
-  -webkit-appearance:none; appearance:none;
-  width:100%; height:6px; border-radius:999px;
-  background:#e8e6e6; outline:none;
-}
-input[type=range]::-webkit-slider-thumb{
-  -webkit-appearance:none; appearance:none;
-  width:18px; height:18px; border-radius:50%;
-  background:var(--primary-color);
-  border:2px solid #fff; box-shadow:0 2px 8px rgba(0,0,0,.25);
-  cursor:pointer;
-}
-input[type=range]::-moz-range-thumb{
-  width:18px;height:18px;border-radius:50%;
-  background:var(--primary-color); border:2px solid #fff;
-  box-shadow:0 2px 8px rgba(0,0,0,.25);
-  cursor:pointer;
-}
-
-/* ---- Button ---- */
-.btn{
-  width:100%;
-  background:var(--primary-color);
-  color:var(--text-on-primary);
-  padding:12px 14px;
-  border:none; border-radius:10px;
-  font-weight:600;
-  cursor:pointer;
-  transition:filter .15s, transform .05s;
-}
-.btn:hover{ filter:brightness(1.05); }
-.btn:active{ transform:translateY(1px); }
-
-/* ---- Right panel (results) ---- */
-.results-blank{
-  min-height:420px;
-  border:2px dashed #eee;
-  border-radius:12px;
-  display:grid; place-items:center;
-  color:#a7a7a7;
-  text-align:center;
-  padding:36px 20px;
-}
-.icon-car{
-  width:46px;height:30px;border-radius:4px;
-  border:2px solid #bbb; margin:0 auto 8px;
+.pill{
   position:relative;
 }
-.icon-car:before,.icon-car:after{
-  content:""; position:absolute; bottom:-8px;
-  width:12px;height:12px;border-radius:50%; background:#bbb;
+.pill input{ position:absolute; inset:0; opacity:0; pointer-events:none; }
+.pill label{
+  display:inline-flex; align-items:center; justify-content:center;
+  padding:12px 18px; border-radius:12px; border:1px solid var(--stroke);
+  background:#fff; min-width:110px;
+  box-shadow: var(--shadow);
+  font-size:13px; color:#444; cursor:pointer;
+  transition: background .15s, color .15s, border-color .15s;
 }
-.icon-car:before{ left:6px } .icon-car:after{ right:6px }
-
-.breakdown{
-  display:none;
-}
-.breakdown.show{ display:block; }
-.row{
-  display:flex; justify-content:space-between; align-items:center;
-  padding:10px 0; border-bottom:1px dashed #eee;
-}
-.row:last-child{ border-bottom:0; }
-.k{ color:#4a4a4a; }
-.v{ font-weight:600; }
-.total{
-  margin-top:10px; padding-top:10px; border-top:1px solid #ececec;
-  display:flex; justify-content:space-between; align-items:center;
-  font-weight:700;
-}
-.small-note{ color:var(--neutral-dark); font-size:12px; margin-top:8px; }
-.badge-soft{
-  display:inline-block; background:#f6ebe8; color:#7b564f;
-  padding:4px 8px; border-radius:999px; font-size:11px; font-weight:600;
-}
-/* right panel states */
-.own-empty{
-  display:flex;
-  flex-direction:column;
-  align-items:center;
-  justify-content:center;
-  min-height:340px;
-  background:#fff;
-  border-radius:18px;
-  box-shadow:0 18px 40px -18px rgba(0,0,0,.25);
-}
-.own-empty .icon{ font-size:44px; margin-bottom:6px; }
-
-.own-result{
-  background:#fff;
-  border-radius:18px;
-  box-shadow:0 18px 40px -18px rgba(0,0,0,.25);
-  padding:20px 18px 22px;
+.pill input:checked + label{
+  background: var(--primary);
+  color:#fff; border-color: var(--primary);
 }
 
-/* header */
-.br-title{ margin:0 0 4px; font-size:18px; font-weight:600; }
-.br-sub{ margin:0 0 14px; color:var(--neutral-dark); font-size:13px; }
-
-/* rows */
-.br-list{ list-style:none; margin:0; padding:0; font-feature-settings:"tnum" 1,"lnum" 1; }
-.br-row{
-  display:flex; justify-content:space-between; align-items:center;
-  padding:14px 6px; border-bottom:1px solid #f0f0f0;
+/* Actions */
+.actions{ margin-top:18px; display:flex; justify-content:center; }
+.btn{
+  appearance:none; border:none; cursor:pointer;
+  background: var(--primary);
+  color:#fff; font-weight:600;
+  border-radius:10px; padding:12px 22px;
+  box-shadow: 0 12px 26px -12px rgba(93,64,55,.5);
+  transition: filter .15s, transform .05s;
 }
-.br-row:last-of-type{ border-bottom:none; }
+.btn:hover{ filter:brightness(1.03); }
+.btn:active{ transform: translateY(1px); }
 
-.k{ color:#2b2b2b; }
-.v{ font-weight:600; color:#2f2f2f; }
-.v.neg{ color:#be3d2d; }
-
-/* total */
-.br-total{
-  margin-top:12px; background:#f3f2f2; border-radius:12px;
-  padding:16px 10px; display:flex; justify-content:space-between; align-items:center;
+/* Small screens tweaks */
+@media (max-width: 520px){
+  .veh-card label{ width: 88px; }
+  .pill label{ min-width: 100px; }
 }
-.br-total .t{ font-size:16px; font-weight:700; }
-
-/* button */
-.br-action{
-  width:100%; margin-top:16px; background:transparent;
-  border:2px solid var(--primary-color); color:var(--primary-color);
-  border-radius:12px; padding:12px 14px; font-weight:600; cursor:pointer;
-  transition:all .15s ease;
-}
-.br-action:hover{ background:var(--primary-color); color:#fff; }
-
-/* compact on narrow sidebars */
-@media (max-width: 600px){
-  .own-result{ padding:18px 14px; }
-  .br-row, .br-total{ padding:12px 8px; }
-  .br-title{ font-size:17px; }
-}
-
 </style>
 </head>
 <body>
 
-<div class="container">
-  <!-- Header -->
-  <div class="calc-head">
-    <div class="title"><i></i> Car Ownership Cost Calculator</div>
-    <div class="sub">Understand the true cost of owning your dream car. Get a detailed breakdown of expenses over your desired ownership period.</div>
+<!-- Step / progress -->
+<div class="stepbar">
+  <div class="stepbar-inner">
+    Step 1 of 3
+    <div class="progress"><span style="width:33%"></span></div>
   </div>
-
-  <!-- Grid -->
-  <section class="calc-grid">
-    <!-- LEFT: form -->
-    <div class="panel">
-      <h3>Calculate Your Costs</h3>
-      <p class="hint">Enter details to get an estimated ownership cost.</p>
-
-      <div class="form-row">
-        <label class="label" for="model">Car Model</label>
-        <select id="model" class="select">
-          <option>Maruti Suzuki Swift</option>
-          <option>Hyundai Creta</option>
-          <option>Toyota Hyryder</option>
-          <option>Honda City</option>
-        </select>
-      </div>
-
-      <div class="form-row range-wrap">
-        <div class="range-top">
-          <label class="label" for="years">Ownership Duration</label>
-          <span class="years-pill"><span id="yearsOut">5</span> years</span>
-        </div>
-        <input id="years" type="range" min="1" max="10" step="1" value="5">
-      </div>
-
-      <div class="form-row">
-        <label class="label" for="kms">Kilometers per Year <span class="badge-soft">required</span></label>
-        <input id="kms" class="input" type="number" placeholder="e.g., 15000" value="15000" min="0">
-      </div>
-
-      <div class="form-row">
-        <label class="label" for="fuel">Fuel Type</label>
-        <select id="fuel" class="select">
-          <option value="petrol">Petrol</option>
-          <option value="diesel">Diesel</option>
-          <option value="ev">Electric (EV)</option>
-          <option value="hybrid">Hybrid</option>
-        </select>
-      </div>
-
-      <div class="form-row">
-        <label class="label" for="emi">Monthly EMI (Optional)</label>
-        <input id="emi" class="input" type="number" placeholder="e.g., 12,000" min="0">
-      </div>
-
-      <button id="calcBtn" class="btn">Calculate Ownership Cost</button>
-    </div>
-
-    <!-- RIGHT: results -->
-    <div class="panel">
-      <h3 class="br-title">Cost Breakdown</h3>
-  <p class="br-sub">Estimated total costs over the selected period.</p>
-
-  <ul class="br-list">
-    <li class="br-row">
-      <span class="k">Purchase Price</span>
-      <span class="v" id="br-purchase">$35,000</span>
-    </li>
-    <li class="br-row">
-      <span class="k">Estimated Resale Value</span>
-      <span class="v neg" id="br-resale">–$12,000</span>
-    </li>
-    <li class="br-row">
-      <span class="k">Net Purchase Cost</span>
-      <span class="v" id="br-net">$23,000</span>
-    </li>
-    <li class="br-row">
-      <span class="k">Fuel Cost</span>
-      <span class="v" id="br-fuel">$7,800</span>
-    </li>
-    <li class="br-row">
-      <span class="k">Service &amp; Maintenance</span>
-      <span class="v" id="br-maint">$3,200</span>
-    </li>
-    <li class="br-row">
-      <span class="k">Insurance Cost</span>
-      <span class="v" id="br-ins">$4,100</span>
-    </li>
-    <li class="br-row">
-      <span class="k">Total EMI Paid</span>
-      <span class="v" id="br-emi">$9,600</span>
-    </li>
-
-    <li class="br-total">
-      <span class="k t">Total Ownership Cost</span>
-      <span class="v t" id="br-total">$47,700</span>
-    </li>
-  </ul>
-
-  <button class="br-action" type="button" onclick="resetBreakdown()">
-    Calculate More Car Ownership
-  </button>
-  </section>
 </div>
 
-<script>
-  function money(n){
-    return n.toLocaleString('en-US',{style:'currency',currency:'USD',maximumFractionDigits:0});
-  }
+<main class="container">
+  <div class="head">
+    <h1>Let’s find your perfect car</h1>
+    <p>Answer a few quick questions about your lifestyle</p>
+  </div>
 
-  function showBreakdown(d){
-    // fill numbers
-    document.getElementById('br-purchase').textContent = money(d.purchase);
-    document.getElementById('br-resale').textContent   = '–' + money(d.resale);
-    document.getElementById('br-net').textContent      = money(d.netPurchase);
-    document.getElementById('br-fuel').textContent     = money(d.fuel);
-    document.getElementById('br-maint').textContent    = money(d.maintenance);
-    document.getElementById('br-ins').textContent      = money(d.insurance);
-    document.getElementById('br-emi').textContent      = money(d.emi);
-    document.getElementById('br-total').textContent    = money(d.total);
+  <!-- Q1 -->
+  <section class="block">
+    <h3>What type of vehicle are you looking for?</h3>
+    <div class="veh-list">
+      <!-- Replace img src with your thumbnails -->
+      <div class="veh-card">
+        <input type="radio" id="v-suv" name="veh" checked>
+        <label for="v-suv">
+          <img src="assets/images/cardetailsimg.png" alt="SUV">
+          <span class="txt">SUV</span>
+        </label>
+      </div>
+      <div class="veh-card">
+        <input type="radio" id="v-hatch" name="veh">
+        <label for="v-hatch">
+          <img src="assets/images/cardetailsimg.png" alt="Hatchback">
+          <span class="txt">Hatchback</span>
+        </label>
+      </div>
+      <div class="veh-card">
+        <input type="radio" id="v-sedan" name="veh">
+        <label for="v-sedan">
+          <img src="assets/images/cardetailsimg.png" alt="Sedan">
+          <span class="txt">Sedan</span>
+        </label>
+      </div>
+      <div class="veh-card">
+        <input type="radio" id="v-mpv" name="veh">
+        <label for="v-mpv">
+          <img src="assets/images/cardetailsimg.png" alt="MPV">
+          <span class="txt">MPV</span>
+        </label>
+      </div>
+      <div class="veh-card">
+        <input type="radio" id="v-ev" name="veh">
+        <label for="v-ev">
+          <img src="assets/images/cardetailsimg.png" alt="Electric">
+          <span class="txt">Electric</span>
+        </label>
+      </div>
+      <div class="veh-card">
+        <input type="radio" id="v-pickup" name="veh">
+        <label for="v-pickup">
+          <img src="assets/images/cardetailsimg.png" alt="Pickup">
+          <span class="txt">Pickup</span>
+        </label>
+      </div>
+    </div>
+  </section>
 
-    // swap states
-    document.getElementById('own-empty').hidden = true;
-    document.getElementById('own-result').hidden = false;
-  }
+  <!-- Q2 -->
+  <section class="block">
+    <h3>What’s your primary purpose for using the car?</h3>
 
-  function resetBreakdown(){
-    document.getElementById('own-result').hidden = true;
-    document.getElementById('own-empty').hidden = false;
-  }
+    <div class="radio-box">
+      <input type="radio" id="p-commute" name="purpose" checked>
+      <label for="p-commute">Daily commute</label>
+    </div>
+    <div class="radio-box">
+      <input type="radio" id="p-family" name="purpose">
+      <label for="p-family">Family trips</label>
+    </div>
+    <div class="radio-box">
+      <input type="radio" id="p-offrd" name="purpose">
+      <label for="p-offrd">Off-roading</label>
+    </div>
+    <div class="radio-box">
+      <input type="radio" id="p-city" name="purpose">
+      <label for="p-city">City driving</label>
+    </div>
+    <div class="radio-box">
+      <input type="radio" id="p-style" name="purpose">
+      <label for="p-style">Style &amp; performance</label>
+    </div>
+  </section>
 
-  // Example (remove when wiring up)
-  // showBreakdown({purchase:35000,resale:12000,netPurchase:23000,fuel:7800,maintenance:3200,insurance:4100,emi:9600,total:47700});
-</script>
+  <!-- Q3 -->
+  <section class="block">
+    <h3>How many people do you usually travel with?</h3>
+    <div class="pill-group" role="radiogroup" aria-label="Travel party size">
+      <div class="pill">
+        <input type="radio" id="n-justme" name="pax" checked>
+        <label for="n-justme">Just Me</label>
+      </div>
+      <div class="pill">
+        <input type="radio" id="n-1-2" name="pax">
+        <label for="n-1-2">1–2</label>
+      </div>
+      <div class="pill">
+        <input type="radio" id="n-3-5" name="pax">
+        <label for="n-3-5">3–5</label>
+      </div>
+      <div class="pill">
+        <input type="radio" id="n-6plus" name="pax">
+        <label for="n-6plus">6+</label>
+      </div>
+    </div>
+  </section>
+
+  <div class="actions">
+    <button class="btn" type="button">Next</button>
+  </div>
+</main>
 
 </body>
 </html>

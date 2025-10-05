@@ -113,8 +113,7 @@
                   name="person-outline"
                   style="width: 18px; height: 18px; margin-right:8px"
                 ></ion-icon>
-                  Hello, Login
-                  <span class="badge-dot ms-2"></span>
+                  Hello, Login<span class="badge-dot ms-1"></span>
                 </a>
               </li>
  <li class="nav-item lang-flag">
@@ -414,7 +413,7 @@ document.addEventListener('DOMContentLoaded', function() {
       <input type="hidden" name="brand" id="brandInput">
       <input type="hidden" name="model" id="modelInput">
       <input type="hidden" name="variant" id="variantInput">
-  <div class="finder-wrap">
+  
     <div class="finder-bar">
 
 
@@ -462,7 +461,7 @@ document.addEventListener('DOMContentLoaded', function() {
         <span><i class="bi bi-search"></i>&nbsp; Search</span>
       </button>
     </div>
-  </div>
+  
 </form>
       </div>
      <!-- Sub / CTA -->
@@ -472,7 +471,7 @@ document.addEventListener('DOMContentLoaded', function() {
           Take our intelligent car chooser quiz. Answer a few questions about your lifestyle, budget, and
           preferences to get personalized recommendations.
         </p>
-        <a href="#" class="btn btn-quiz">Start Quiz</a>
+        <a href="quiz_no_1.html" class="btn btn-quiz">Start Quiz</a>
       </div>
       
     </div>
@@ -505,7 +504,7 @@ document.addEventListener('DOMContentLoaded', function() {
 </script>
 
 <!-- Ad slider -->
-      <section class="ad-slider-sec my-5">
+<section class="ad-slider-sec my-5">
     <div class="ad-slider-container">
     <div class="ad-slider" id="adSlider">
         <img src="assets/images/ad-firstimage.png" alt="Ad 1">
@@ -513,8 +512,8 @@ document.addEventListener('DOMContentLoaded', function() {
         <img src="assets/images/ad-thirdimage.png" alt="Ad 3">
         <img src="assets/images/ad-fourthimage.png" alt="Ad 4">
         <img src="assets/images/ad-fifthimage.png" alt="">
+      </div>
     </div>
-</div>
 </section>
 <!-- JS for ad slider -->
  <script>
@@ -1449,6 +1448,51 @@ document.addEventListener('DOMContentLoaded', () => {
                     </div>
                   </div>
                 </article> 
+                <article class="car-card v2">
+                  <div class="car-card__media">
+                    <img
+                      src="assets/images/marutisuzuki.png"
+                      alt="Maruti Suzuki Swift"
+                    />
+                  </div>
+                  <div class="car-card__body">
+                    <h6 class="car-card__title">Maruti Suzuki Swift</h6>
+
+                    <div class="car-card__location"><span>
+                      <i class="bi bi-geo-alt-fill me-1"></i>
+                      Pokhara, Nepal</span>
+                    </div>
+
+                    <div class="car-card__divider"></div>
+
+                    <div class="car-card__row mb-2">
+                       <span>
+                      <i class="bi bi-speedometer2 me-2"></i>
+                     25,100 mileage</span>
+                    </div>
+
+                    <div class="car-card__grid mb-2">
+                      <div class="d-flex align-items-center">
+                        <span>                        <i class="bi bi-fuel-pump me-2"></i>Diesel</span>
+                      </div>
+                      <div class="d-flex align-items-center">
+                        <span>
+                        <i class="bi bi-people me-2"></i>Seater</span>
+                      </div>
+                    </div>
+
+                    <div class="car-card__price">Rs 9.70 - 10.93 Lakh*</div>
+
+                    <div class="d-flex gap-2">
+                      <button class="btn btn-primary btn-sm px-3">
+                        View Details
+                      </button>
+                      <button class="btn btn-secondary btn-sm px-3">
+                        Compare
+                      </button>
+                    </div>
+                  </div>
+                </article> 
                  <article class="car-card v2">
                   <div class="car-card__media">
                     <img
@@ -1588,8 +1632,8 @@ document.addEventListener('DOMContentLoaded', () => {
 
       
       <!-- Ad Video Section -->
-  <section class="container  my-5 p-4 research-cta bg-bleed">
-        <div class="row align-items-center g-5">
+  <section class="container  research-cta bg-bleed">
+        <div class="row align-items-center g-3">
           <!-- Left: media -->
           <div class="col-lg-6">
             <div class="research-media">
@@ -1605,9 +1649,9 @@ document.addEventListener('DOMContentLoaded', () => {
 
           <!-- Right: copy -->
           <div class="col-lg-6 advideo-right">
-            <div class="d-flex align-items-center gap-1 text-muted mb-2 small advideo-right-top">
+            <div class="align-items-center gap-1 text-muted mb-2 small advideo-right-top">
              <ion-icon name="star-outline"></ion-icon>
-</i>
+
               Best Car Research Platform</span>
             </div>
 
@@ -1686,7 +1730,9 @@ document.addEventListener('DOMContentLoaded', () => {
 
           <div class="col-6 col-md-4 col-lg-3">
             <a href="explore_cars.html" class="type-card">
+              <div class="image-wrapper">
               <img src="assets/images/marutisuzuki.png" alt="SUV" />
+              </div>
               <div class="type-info">
                 <h5>SUV</h5>
                 <span class="type-count">25 Vehicles</span>
@@ -1782,7 +1828,7 @@ document.addEventListener('DOMContentLoaded', () => {
       </section>
 
       <!-- Popular EVs -->
-        <section class="container my-5 p-4 popular-evs bg-bleed">
+        <section class="container my-5 popular-ev bg-bleed">
         <!-- heading + view all -->
         <div class="d-flex justify-content-between align-items-start mb-3">
           <div>
@@ -2144,7 +2190,7 @@ document.addEventListener('DOMContentLoaded', () => {
 </section>
 <!-- Expert Car reviews -->
 
-<section class="container my-5 expert-reviews ">
+<section class="container my-5 expert-reviews bg-bleed">
   <div class="d-flex justify-content-between align-items-start mb-3">
     <div>
       <h3 class="rankings-title mb-1">Expert Car Reviews</h3>
@@ -2252,11 +2298,39 @@ document.addEventListener('DOMContentLoaded', () => {
         </div>
       </article>
     </div>
+    <div class="col-12 col-lg-4">
+      <article class="review-card">
+        <div class="review-media">
+          <img src="assets/images/blog-image.jpg" alt="Hyundai Creta 2024 review">
+        </div>
+        <div class="review-body">
+          <div class="d-flex justify-content-between align-items-center mb-1">
+            <h5 class="review-title mb-0">Hyundai Creta 2024</h5>
+            <div class="rating">
+              <i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i>
+              <i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i>
+              <i class="bi bi-star-half"></i>
+              <small class="text-muted ms-1">4.8</small>
+            </div>
+          </div>
+          <div class="text-muted small mb-2">By Automotive Nepal</div>
+          <p class="review-excerpt">The new Creta impresses with its bold design and feature-rich interior. Perfect for Nepali roads.</p>
+          <div class="text-muted small mb-2">3 min read</div>
+          <div class="fw-semibold mb-2">Key Highlights:</div>
+          <div class="d-flex flex-wrap gap-2 mb-3 key">
+            <span class="chip">Spacious Interior</span>
+            <span class="chip">Feature-rich</span>
+            <span class="chip">Refined Ride</span>
+          </div>
+          <a href="#" class="btn btn-outline-choco">Read More</a>
+        </div>
+      </article>
+    </div>
   </div>
 </section>
 <!-- Popular Brands -->
 
-<section class="container my-5 brands-section">
+<section class="container brands-section">
   <div class="d-flex justify-content-between align-items-start "> 
   <div>
   <h3 class="section-title ">Popular Brands</h3>
@@ -2485,11 +2559,11 @@ document.addEventListener('DOMContentLoaded', () => {
 </section>
 
 <!--  Ai Expert Form -->
- <section class="ai-mini container my-4">
+ <section class="ai-mini container">
   <div class="ai-mini__card">
     <div class="ai-mini__head">Popular Questions:</div>
 
-    <div class="row g-2 mb-3">
+    <div class="row g-2 mb-4">
       <div class="col-12 col-md-6">
         <button type="button" class="ai-mini__pill w-100">Best family car under ₹15 lakh?</button>
       </div>

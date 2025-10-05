@@ -29,6 +29,7 @@
  border:1px solid #e8e8e8; color:var(--primary-light);
     font-size:clamp(9px,3.2vw,13px); font-weight:400;
     width: auto;
+    padding: 5px;
   }
 
   /* Layout: main + thumbs */
@@ -446,6 +447,94 @@ font-weight: 600;
     color: #757575;
     margin-bottom: 15px;
   }
+  /* Mobile-only carousel for #otheroptions */
+
+@media (max-width: 575.98px) {
+  #otheroptions { position: relative; }
+
+  /* Make the list swipeable */
+  #otheroptions .row {
+    display: flex !important;
+    flex-wrap: nowrap !important;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    scroll-snap-type: x mandatory;
+    scroll-padding-inline: 16px;
+    
+    margin: 0 !important;               /* remove Bootstrap row negative margins */
+    padding: 0 16px 28px;  
+                 /* bottom space for dots */
+  }
+
+  /* One slide per view */
+  #otheroptions .row > [class^="col-"],
+  #otheroptions .row > [class*=" col-"] {
+    flex: 0 0 100%;
+    max-width: 100%;
+    padding: 0 !important;
+    scroll-snap-align: start;
+    scroll-snap-stop: always;
+  }
+
+  /* Optional small tweaks */
+  #otheroptions .car-card.v2 { height: 100%; display: flex; flex-direction: column; }
+  #otheroptions .car-card__title { font-size: 14px; }
+  #otheroptions .car-card__price { font-size: 14px; }
+  #otheroptions .car-card__grid { gap: .25rem; }
+  #otheroptions .d-flex.gap-2 { gap: .4rem !important; }
+
+  /* Arrows (clickable) */
+  #otheroptions .os-arrow {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 40px;
+    height: 40px;
+    border: 0;
+    border-radius: 9999px;
+    background: rgba(0,0,0,.45);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    z-index: 4;
+    display: none;
+  }
+  #otheroptions .os-prev { left: 6px; }
+  #otheroptions .os-next { right: 6px; }
+  #otheroptions .os-arrow svg { width: 20px; height: 20px; }
+  #otheroptions .os-arrow[disabled]{ opacity:.3; cursor: default; }
+
+
+  /* Dots */
+  #otheroptions .carousel-dots {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    bottom: 6px;
+    display: flex;
+    gap: 6px;
+    z-index: 3;
+  }
+  #otheroptions .carousel-dots button {
+    width: 8px; height: 8px;
+    border-radius: 9999px;
+    border: 0;
+    background: #d4d4d4;
+  }
+  #otheroptions .carousel-dots button.is-active { background: #5d4037; }
+
+  /* Hide scrollbar (optional) */
+  #otheroptions .row::-webkit-scrollbar { display: none; }
+  #otheroptions .row { scrollbar-width: none; }
+}
+
+/* Desktop/Tablet: keep your normal layout; hide mobile UI */
+@media (min-width: 576px) {
+  #otheroptions .os-arrow,
+  #otheroptions .carousel-dots { display: none !important; }
+}
+
  
 
   

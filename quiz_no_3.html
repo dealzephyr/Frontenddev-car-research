@@ -36,15 +36,15 @@
     <!-- Custom CSS (with Bootstrap overrides) -->
     <link rel="stylesheet" href="css/style.css" />
     <link rel="stylesheet" href="css/explore_cars.css">
-    <link rel="stylesheet" href="css/news_and_blogs_listing.css">
-    <link rel="stylesheet" href="css/expert_car_reviews_listing.css">
+    <link rel="stylesheet" href="css/quiz_no_1.css">
+    
       
   </head>
   
   <body>
    
       
-
+    
     <header class="site-header sticky-top">
       <!-- TOP NAV -->
       <nav class="navbar navbar-expand-lg navbar-light header-top shadow-sm">
@@ -392,664 +392,235 @@ document.addEventListener('DOMContentLoaded', function() {
       </a>
 
     </nav>
-    
-     <section class="toppart">
+ <!-- Top breadcrump -->
+    <section class="toppart ">
       <nav aria-label="breadcrumb">
         <ol class="breadcrumb">
           <li class="breadcrumb-item">
             <a href="home.html">Home</a>
           </li>
           <li class="breadcrumb-item active" aria-current="page">
-            <a href="expert_car_reviews_listing.html">Expert Car Reviews</a>
+            <a href="quiz_no_3.html">Quiz</a>
           </li>
         </ol>
       </nav>
     </section>
-
-    <main class="page">
-    <!-- Expert Car reviews -->
- 
-<section class="container  expert-reviews ">
-  <div class="d-flex justify-content-between align-items-start">
-    <div>
-      <h3 class="rankings-title">Expert Car Reviews</h3>
-      <p class="rankings-sub">In-depth reviews from automotive experts</p>
+    <!-- Step bar -->
+<div class="stepbar">
+  <div class="stepbar-inner">
+    <div class="stepbar-text">
+      <span>Step 3 of 3</span>
+      <span>100%</span>
     </div>
+    <div class="progress"><span style="width:100%"></span></div>
   </div>
-  
+</div>
 
-  <div class="d-flex top-filter gap-4 mb-3">
-  <div class="d-flex mini-filter-item custom-gap mb-2">
-            <select id="brandSelect" class="mini-filter">
-              <option value="" hidden selected>Brand</option>
-              <option value="maruti">Maruti Suzuki</option>
-              <option value="toyota">Toyota</option>
-              <option value="hyundai">Hyundai</option>
-              <option value="honda">Honda</option>
-            </select>
+<main class="page">
+  <div class="head">
+    <h1>Add your personality and features</h1>
+    <p>Select options that reflect your style and preferences</p>
+  </div>
 
-            <select id="modelSelect" class="mini-filter">
-              <option value="" hidden selected>Model</option>
-            </select>
-          </div>
-          <div class="flex-shrink-0">
-            <button  class="btn btn-outline-secondary btn-sm px-3 search-btn">Search</button>
-          </div>
+  <!-- Block 1 : priorities (max 3) -->
+  <section class="block">
+    <h3>What matters most to you in a car?</h3>
+    <p class="help-line">Select up to <b>3</b> priorities (<span id="selCount">0</span>/3 selected)</p>
+
+    <div class="check-grid" id="prioGrid">
+      <!-- Each chip -->
+      <div class="check-chip">
+        <input type="checkbox" id="p-apple" data-group="prio">
+        <label for="p-apple">
+          <span class="ico"><svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+<path d="M12.4002 2.80005H7.6002C6.27471 2.80005 5.2002 3.87457 5.2002 5.20005V14.8C5.2002 16.1255 6.27471 17.2 7.6002 17.2H12.4002C13.7257 17.2 14.8002 16.1255 14.8002 14.8V5.20005C14.8002 3.87457 13.7257 2.80005 12.4002 2.80005Z" stroke="black" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M9.99961 15.1999C9.89281 15.1999 9.79233 15.1583 9.71681 15.0828C9.64121 15.0072 9.59961 14.9068 9.59961 14.7999C9.59961 14.7205 9.62289 14.6437 9.66705 14.5777C9.71113 14.5117 9.77321 14.4607 9.84649 14.4304C9.89529 14.4101 9.94681 14.3999 9.99961 14.3999C10.0258 14.3999 10.052 14.4025 10.0776 14.4076C10.1555 14.4231 10.2263 14.4609 10.2825 14.517C10.3386 14.5732 10.3764 14.644 10.3919 14.7219C10.4074 14.7997 10.3995 14.8797 10.3691 14.9529C10.3388 15.0263 10.2878 15.0884 10.2218 15.1325C10.1558 15.1766 10.079 15.1999 9.99961 15.1999Z" fill="black"/>
+<path d="M10.0002 15.6C9.78804 15.6 9.58452 15.5157 9.43452 15.3657C9.28452 15.2157 9.2002 15.0122 9.2002 14.8C9.2002 14.6418 9.24708 14.4871 9.335 14.3555C9.42292 14.224 9.54788 14.1215 9.69404 14.0609C9.8402 14.0003 10.0011 13.9845 10.1563 14.0154C10.3115 14.0463 10.454 14.1224 10.5659 14.2343C10.6778 14.3462 10.754 14.4887 10.7848 14.6439C10.8157 14.7991 10.7999 14.96 10.7393 15.1062C10.6788 15.2523 10.5762 15.3773 10.4447 15.4652C10.3131 15.5531 10.1584 15.6 10.0002 15.6Z" fill="black"/>
+</svg>
+</span>
+          <span class="t">Apple CarPlay / Android Auto</span>
           
-</div>
- <div class="d-flex justify-content-between top-filter gap-2 mb-3">
-  <div class="row g-3">
-    <!-- Card 1 -->
-    <div class="col-12 col-lg-4">
-      <article class="review-card">
-        <div class="review-media">
-          <img src="assets/images/blog-image.jpg" alt="Hyundai Creta 2024 review">
-        </div>
-        <div class="review-body">
-          <div class="d-flex justify-content-between align-items-center mb-1">
-            <h5 class="review-title mb-0">Hyundai Creta 2024</h5>
-            <div class="rating">
-              <i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i>
-              <i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i>
-              <i class="bi bi-star-half"></i>
-              <small class="text-muted ms-1">4.8</small>
-            </div>
-          </div>
+        </label>
+      </div>
 
-          <div class="text-muted small mb-2">By Automotive Nepal</div>
+      <div class="check-chip">
+        <input type="checkbox" id="p-sunroof" data-group="prio">
+        <label for="p-sunroof">
+          <span class="ico"><svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+<path d="M9.99967 14.1666C12.3009 14.1666 14.1663 12.3011 14.1663 9.99992C14.1663 7.69873 12.3009 5.83325 9.99967 5.83325C7.69849 5.83325 5.83301 7.69873 5.83301 9.99992C5.83301 12.3011 7.69849 14.1666 9.99967 14.1666Z" stroke="#1C274C"/>
+<path d="M10 1.66675V3.33341" stroke="#1C274C" stroke-linecap="round"/>
+<path d="M10 16.6667V18.3334" stroke="#1C274C" stroke-linecap="round"/>
+<path d="M3.33366 10H1.66699" stroke="#1C274C" stroke-linecap="round"/>
+<path d="M18.3337 10H16.667" stroke="#1C274C" stroke-linecap="round"/>
+<path d="M16.4815 3.5188L14.6299 5.21178" stroke="#1C274C" stroke-linecap="round"/>
+<path d="M3.51855 3.5188L5.37023 5.21178" stroke="#1C274C" stroke-linecap="round"/>
+<path d="M5.37041 14.6296L3.51855 16.4815" stroke="#1C274C" stroke-linecap="round"/>
+<path d="M16.4815 16.481L14.6299 14.6292" stroke="#1C274C" stroke-linecap="round"/>
+</svg>
+</span>
+          <span class="t">Sunroof / Moonroof</span>
+          
+        </label>
+      </div>
 
-          <p class="review-excerpt">
-            The new Creta impresses with its bold design and feature-rich interior.
-            Perfect for Nepali roads.
-          </p>
+      <div class="check-chip">
+        <input type="checkbox" id="p-360" data-group="prio">
+        <label for="p-360">
+          <span class="ico"><svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+<path d="M10 13.3333C11.3807 13.3333 12.5 12.214 12.5 10.8333C12.5 9.45254 11.3807 8.33325 10 8.33325C8.61929 8.33325 7.5 9.45254 7.5 10.8333C7.5 12.214 8.61929 13.3333 10 13.3333Z" stroke="#212121"/>
+<path d="M8.14848 17.5H11.8522C14.4531 17.5 15.7535 17.5 16.6877 16.8872C17.092 16.6218 17.4392 16.2809 17.7095 15.8839C18.3337 14.9667 18.3337 13.6899 18.3337 11.1363C18.3337 8.58283 18.3337 7.30601 17.7095 6.38883C17.4392 5.99178 17.092 5.65087 16.6877 5.38557C16.0873 4.99177 15.3359 4.85102 14.1853 4.80072C13.6362 4.80072 13.1636 4.39223 13.0559 3.86363C12.8943 3.07074 12.1852 2.5 11.3617 2.5H8.63891C7.81537 2.5 7.10628 3.07074 6.94477 3.86363C6.83709 4.39223 6.36437 4.80072 5.81533 4.80072C4.66477 4.85102 3.91328 4.99177 3.31303 5.38557C2.90862 5.65087 2.56139 5.99178 2.29118 6.38883C1.66699 7.30601 1.66699 8.58283 1.66699 11.1363C1.66699 13.6899 1.66699 14.9667 2.29118 15.8839C2.56139 16.2809 2.90862 16.6218 3.31303 16.8872C4.24719 17.5 5.54762 17.5 8.14848 17.5Z" stroke="#212121"/>
+<path d="M15.8333 8.33325H15" stroke="#212121" stroke-linecap="round"/>
+</svg>
+</span>
+          <span class="t">360º Camera</span>
+         
+        </label>
+      </div>
 
-          <div class="text-muted small mb-2">3 min read</div>
+      <div class="check-chip">
+        <input type="checkbox" id="p-acc" data-group="prio">
+        <label for="p-acc">
+          <span class="ico"><svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+<path d="M6.90801 1.42505H15.4163L11.5497 7.61672H14.6413L6.13301 16.9084L7.67467 10.7167H4.58301L6.90801 1.42505Z" stroke="#212121" stroke-miterlimit="10"/>
+</svg>
+</span>
+          <span class="t">Adaptive Cruise Control</span>
+          
+        </label>
+      </div>
 
-          <div class="fw-semibold mb-2 key">Key Highlights:</div>
-          <div class="d-flex flex-wrap gap-2 mb-3">
-            <span class="chip">Spacious Interior</span>
-            <span class="chip">Feature-rich</span>
-            <span class="chip">Refined Ride</span>
-            
-          </div>
+      <div class="check-chip">
+        <input type="checkbox" id="p-adas" data-group="prio">
+        <label for="p-adas">
+          <span class="ico"><svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+<path d="M18.0898 4.38945C14.5968 3.76289 13.1527 3.29883 9.99997 1.875C6.84723 3.29883 5.40309 3.76289 1.91012 4.38945C1.27731 14.4191 9.39762 17.8824 9.99997 18.125C10.6023 17.8824 18.7226 14.4191 18.0898 4.38945Z" stroke="#242424" stroke-linecap="round" stroke-linejoin="round"/>
+</svg>
+</span>
+          <span class="t">Lane Assist / Collision Detection</span>
+          
+        </label>
+      </div>
 
-          <a href="expert_car_review_detail.html" class="btn btn-outline-choco">Read More</a>
-        </div>
-      </article>
+      <div class="check-chip">
+        <input type="checkbox" id="p-wireless" data-group="prio">
+        <label for="p-wireless">
+          <span class="ico"><svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+<path d="M12.4002 2.80005H7.6002C6.27471 2.80005 5.2002 3.87457 5.2002 5.20005V14.8C5.2002 16.1255 6.27471 17.2 7.6002 17.2H12.4002C13.7257 17.2 14.8002 16.1255 14.8002 14.8V5.20005C14.8002 3.87457 13.7257 2.80005 12.4002 2.80005Z" stroke="black" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M9.99961 15.1999C9.89281 15.1999 9.79233 15.1583 9.71681 15.0828C9.64121 15.0072 9.59961 14.9068 9.59961 14.7999C9.59961 14.7205 9.62289 14.6437 9.66705 14.5777C9.71113 14.5117 9.77321 14.4607 9.84649 14.4304C9.89529 14.4101 9.94681 14.3999 9.99961 14.3999C10.0258 14.3999 10.052 14.4025 10.0776 14.4076C10.1555 14.4231 10.2263 14.4609 10.2825 14.517C10.3386 14.5732 10.3764 14.644 10.3919 14.7219C10.4074 14.7997 10.3995 14.8797 10.3691 14.9529C10.3388 15.0263 10.2878 15.0884 10.2218 15.1325C10.1558 15.1766 10.079 15.1999 9.99961 15.1999Z" fill="black"/>
+<path d="M10.0002 15.6C9.78804 15.6 9.58452 15.5157 9.43452 15.3657C9.28452 15.2157 9.2002 15.0122 9.2002 14.8C9.2002 14.6418 9.24708 14.4871 9.335 14.3555C9.42292 14.224 9.54788 14.1215 9.69404 14.0609C9.8402 14.0003 10.0011 13.9845 10.1563 14.0154C10.3115 14.0463 10.454 14.1224 10.5659 14.2343C10.6778 14.3462 10.754 14.4887 10.7848 14.6439C10.8157 14.7991 10.7999 14.96 10.7393 15.1062C10.6788 15.2523 10.5762 15.3773 10.4447 15.4652C10.3131 15.5531 10.1584 15.6 10.0002 15.6Z" fill="black"/>
+</svg>
+</span>
+          <span class="t">Wireless Phone Charging</span>
+         
+        </label>
+      </div>
     </div>
+  </section>
 
-    <!-- Duplicate for Card 2 -->
-    <div class="col-12 col-lg-4">
-      <article class="review-card">
-        <div class="review-media">
-          <img src="assets/images/blog-image.jpg" alt="Hyundai Creta 2024 review">
-        </div>
-        <div class="review-body">
-          <div class="d-flex justify-content-between align-items-center mb-1">
-            <h5 class="review-title mb-0">Hyundai Creta 2024</h5>
-            <div class="rating">
-              <i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i>
-              <i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i>
-              <i class="bi bi-star-half"></i>
-              <small class="text-muted ms-1">4.8</small>
-            </div>
-          </div>
-          <div class="text-muted small mb-2">By Automotive Nepal</div>
-          <p class="review-excerpt">The new Creta impresses with its bold design and feature-rich interior. Perfect for Nepali roads.</p>
-          <div class="text-muted small mb-2">3 min read</div>
-          <div class="fw-semibold mb-2">Key Highlights:</div>
-          <div class="d-flex flex-wrap gap-2 mb-3">
-            <span class="chip">Spacious Interior</span>
-            <span class="chip">Feature-rich</span>
-            <span class="chip">Refined Ride</span>
-          </div>
-          <a href="expert_car_review_detail.html" class="btn btn-outline-choco">Read More</a>
-        </div>
-      </article>
+  <!-- Block 2 : design style -->
+  <section class="block">
+    <h3>What kind of design do you like?</h3>
+
+    <div class="check-grid two-cols">
+      <div class="check-chip">
+        <input type="checkbox" id="d-sleek">
+        <label for="d-sleek">
+          <span class="ico"><svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+<path d="M4.16667 13.3333V16.6666M5 3.33325V6.66659M5.83333 14.9999H2.5M6.66667 4.99992H3.33333M10.8333 3.33325L12.294 7.03689C12.4506 7.43394 12.5289 7.63247 12.6488 7.79987C12.7551 7.94825 12.885 8.07818 13.0334 8.18444C13.2007 8.30434 13.3993 8.38267 13.7963 8.53925L17.5 9.99992L13.7963 11.4606C13.3993 11.6172 13.2007 11.6955 13.0334 11.8154C12.885 11.9217 12.7551 12.0516 12.6488 12.2C12.5289 12.3673 12.4506 12.5659 12.294 12.9629L10.8333 16.6666L9.37267 12.9629C9.21608 12.5659 9.13775 12.3673 9.01783 12.2C8.91158 12.0516 8.78167 11.9217 8.63325 11.8154C8.46592 11.6955 8.26736 11.6172 7.87031 11.4606L4.16667 9.99992L7.87031 8.53925C8.26736 8.38267 8.46592 8.30434 8.63325 8.18444C8.78167 8.07818 8.91158 7.94825 9.01783 7.79987C9.13775 7.63247 9.21608 7.43394 9.37267 7.03689L10.8333 3.33325Z" stroke="black" stroke-linecap="round" stroke-linejoin="round"/>
+</svg>
+</span>
+          <span class="t">Sleek &amp; Modern</span>
+        </label>
+      </div>
+
+      <div class="check-chip">
+        <input type="checkbox" id="d-bold">
+        <label for="d-bold">
+          <span class="ico"><svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+<g clip-path="url(#clip0_681_5211)">
+<path d="M7.54251 11.1732C7.46178 10.4325 7.1901 9.95707 6.93765 9.48292C6.61376 8.86623 6.35191 8.2189 6.15595 7.55046C5.48062 5.30787 5.43576 3.07426 6.18415 0.839367C6.31229 0.454924 6.2841 0.454924 6.77106 0C6.95431 0.135836 7.2042 0.24348 7.33363 0.433139C7.60395 0.825505 7.83407 1.2441 8.0205 1.68258C8.45932 2.74216 9.2463 3.62045 10.2516 4.17249C11.0473 4.62869 11.8355 5.10028 12.653 5.51035C14.0934 6.24079 15.0507 7.41206 15.744 8.81784C16.0147 9.37767 16.2389 9.95887 16.4142 10.5555C16.9511 12.3227 16.6243 14.0334 15.981 15.7032C15.744 16.317 15.4531 16.9155 15.1673 17.505C14.8777 18.1065 14.3873 18.5883 13.7807 18.8672C12.448 19.5002 11.0627 19.9641 9.5634 19.9987C7.62709 20.0423 6.10341 19.2298 4.86935 17.7805C3.92618 16.672 3.52765 15.3457 3.37387 13.9463C3.18277 12.3313 3.42607 10.6945 4.07868 9.20484C4.20925 8.90315 4.36936 8.61513 4.55667 8.34497C4.845 7.9349 5.21407 7.80419 5.59723 7.92721C6.04831 8.0733 6.18158 8.39623 6.20465 8.85372C6.26103 10.0506 6.36483 10.198 7.54251 11.1732ZM5.12052 10.7644C5.02313 10.9541 4.91548 11.0745 4.90139 11.2052C4.82706 11.9331 4.70917 12.6661 4.73095 13.3927C4.76043 14.3807 4.87576 15.3777 5.38707 16.2568C6.35971 17.9304 7.74114 18.9569 9.76715 18.8198C10.7556 18.747 11.7255 18.5137 12.6389 18.129C13.161 17.9359 13.5945 17.5585 13.8576 17.068C14.228 16.3542 14.6099 15.643 14.9148 14.901C15.3145 13.9466 15.4246 12.8958 15.2314 11.8793C15.0752 11.1657 14.8789 10.4614 14.6432 9.76997C14.3395 8.79862 13.7461 8.02332 12.9926 7.3467C12.2776 6.70597 11.4408 6.25745 10.6001 5.80893C9.47498 5.20279 8.32934 4.61331 7.5015 3.57788C7.4323 3.49074 7.27853 3.47024 7.06708 3.37669C7.05811 3.99564 6.99276 4.51208 7.05683 5.01185C7.25546 6.58038 7.62068 8.10021 8.41776 9.49702C8.72403 10.0314 8.91241 10.635 9.13923 11.2142C9.25066 11.4828 9.29624 11.7742 9.27217 12.064C9.24809 12.3537 9.15506 12.6336 9.00083 12.8801C8.09226 13.3671 7.3631 13.1838 6.73903 12.4188C6.36996 11.9639 5.97014 11.5358 5.56904 11.1066C5.42871 10.981 5.27874 10.8666 5.12052 10.7644Z" fill="black"/>
+<path d="M5.12097 10.7645C5.27933 10.8679 5.4293 10.9836 5.56949 11.1105C5.96803 11.5398 6.37041 11.9678 6.73947 12.4227C7.36355 13.1916 8.09271 13.371 9.00128 12.884C9.15551 12.6375 9.24854 12.3577 9.27262 12.0679C9.29669 11.7781 9.25111 11.4867 9.13968 11.2181C8.91286 10.6389 8.72448 10.0353 8.41821 9.50095C7.62113 8.10286 7.25591 6.58302 7.05728 5.01578C6.99321 4.516 7.05728 3.99957 7.06753 3.38062C7.27898 3.47416 7.43275 3.49467 7.50195 3.58181C8.32979 4.6134 9.47543 5.20287 10.6057 5.80773C11.4463 6.25753 12.2831 6.70476 12.9982 7.3455C13.7479 8.02212 14.345 8.79742 14.6487 9.76877C14.8827 10.4607 15.0774 11.1654 15.2318 11.8794C15.4229 12.8955 15.3111 13.9454 14.9102 14.8985C14.6052 15.6405 13.3686 16.2862 12.9982 17C12.7351 17.4905 13.1564 17.9334 12.6343 18.1266C11.7209 18.5112 10.7509 18.7445 9.76248 18.8173C7.73646 18.9454 6.35503 17.9202 5.38239 16.2543C4.8698 15.3752 4.75575 14.3782 4.72628 13.3902C4.70449 12.6636 4.82239 11.9306 4.89671 11.2027C4.91593 11.0695 5.02358 10.949 5.12097 10.7645Z" fill="white"/>
+</g>
+<defs>
+<clipPath id="clip0_681_5211">
+<rect width="20" height="20" fill="white"/>
+</clipPath>
+</defs>
+</svg>
+</span>
+          <span class="t">Bold &amp; Sporty</span>
+        </label>
+      </div>
+
+      <div class="check-chip">
+        <input type="checkbox" id="d-rugged">
+        <label for="d-rugged">
+          <span class="ico"><svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+<path d="M17.0833 15.4167H2.5L7.08333 7.91667L10 11.25L12.5 5L17.0833 15.4167Z" stroke="black" stroke-linecap="round" stroke-linejoin="round"/>
+</svg>
+</span>
+          <span class="t">Rugged &amp; Tough</span>
+        </label>
+      </div>
+
+      <div class="check-chip">
+        <input type="checkbox" id="d-simple">
+        <label for="d-simple">
+          <span class="ico"><svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+<g clip-path="url(#clip0_681_5198)">
+<path d="M19.4799 6.21226C17.8015 2.11575 13.6135 -0.437501 9.08713 0.0621952C4.50584 0.568415 0.790458 4.28379 0.284277 8.86497C-0.376047 14.8431 4.27263 20 10.2219 20H11.4994C13.0633 20 14.081 18.3538 13.3815 16.9548L11.6606 13.5138C11.5369 13.2667 11.6701 12.9689 11.9362 12.8964L16.8505 11.5563C19.1531 10.928 20.3848 8.42179 19.4799 6.21226ZM16.4118 9.94842L11.4977 11.2884C10.2166 11.6377 9.57545 13.0719 10.17 14.2596L11.8908 17.7002C12.0361 17.9909 11.8244 18.3333 11.4994 18.3333H10.2219C5.26308 18.3333 1.38984 14.0367 1.94091 9.04798C2.36138 5.2424 5.46445 2.1393 9.2701 1.71883C13.0492 1.30163 16.5384 3.42878 17.9376 6.84407C18.4633 8.12777 17.7477 9.58385 16.4118 9.94842Z" fill="black"/>
+<path d="M14.8057 5.83301C14.1157 5.83301 13.5557 6.39302 13.5557 7.08303C13.5557 7.77304 14.1157 8.33305 14.8057 8.33305C15.4957 8.33305 16.0557 7.77304 16.0557 7.08303C16.0557 6.39302 15.4957 5.83301 14.8057 5.83301Z" fill="black"/>
+<path d="M10.6387 3.33301C9.94868 3.33301 9.38867 3.89302 9.38867 4.58303C9.38867 5.27304 9.94868 5.83305 10.6387 5.83305C11.3287 5.83305 11.8887 5.27304 11.8887 4.58303C11.8887 3.89302 11.3287 3.33301 10.6387 3.33301Z" fill="black"/>
+<path d="M6.4717 4.99951C5.78169 4.99951 5.22168 5.55952 5.22168 6.24953C5.22168 6.93955 5.78169 7.49956 6.4717 7.49956C7.16171 7.49956 7.72172 6.93955 7.72172 6.24953C7.72172 5.55952 7.16171 4.99951 6.4717 4.99951Z" fill="black"/>
+<path d="M6.05473 10.4165C6.05473 9.72651 5.49472 9.1665 4.80471 9.1665C4.1147 9.1665 3.55469 9.72651 3.55469 10.4165C3.55469 11.1065 4.1147 11.6665 4.80471 11.6665C5.49472 11.6665 6.05473 11.1065 6.05473 10.4165Z" fill="black"/>
+<path d="M6.4717 13.333C5.78169 13.333 5.22168 13.893 5.22168 14.583C5.22168 15.273 5.78169 15.8331 6.4717 15.8331C7.16171 15.8331 7.72172 15.273 7.72172 14.583C7.72172 13.893 7.16171 13.333 6.4717 13.333Z" fill="black"/>
+</g>
+<defs>
+<clipPath id="clip0_681_5198">
+<rect width="20" height="20" fill="white"/>
+</clipPath>
+</defs>
+</svg>
+</span>
+          <span class="t">Sleek &amp; Modern</span>
+        </label>
+      </div>
     </div>
+  </section>
 
-    <!-- Card 3 -->
-    <div class="col-12 col-lg-4">
-      <article class="review-card">
-        <div class="review-media">
-          <img src="assets/images/blog-image.jpg" alt="Hyundai Creta 2024 review">
-        </div>
-        <div class="review-body">
-          <div class="d-flex justify-content-between align-items-center mb-1">
-            <h5 class="review-title mb-0">Hyundai Creta 2024</h5>
-            <div class="rating">
-              <i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i>
-              <i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i>
-              <i class="bi bi-star-half"></i>
-              <small class="text-muted ms-1">4.8</small>
-            </div>
-          </div>
-          <div class="text-muted small mb-2">By Automotive Nepal</div>
-          <p class="review-excerpt">The new Creta impresses with its bold design and feature-rich interior. Perfect for Nepali roads.</p>
-          <div class="text-muted small mb-2">3 min read</div>
-          <div class="fw-semibold mb-2">Key Highlights:</div>
-          <div class="d-flex flex-wrap gap-2 mb-3 key">
-            <span class="chip">Spacious Interior</span>
-            <span class="chip">Feature-rich</span>
-            <span class="chip">Refined Ride</span>
-          </div>
-          <a href="#" class="btn btn-outline-choco">Read More</a>
-        </div>
-      </article>
-    </div>
-    <div class="col-12 col-lg-4">
-      <article class="review-card">
-        <div class="review-media">
-          <img src="assets/images/blog-image.jpg" alt="Hyundai Creta 2024 review">
-        </div>
-        <div class="review-body">
-          <div class="d-flex justify-content-between align-items-center mb-1">
-            <h5 class="review-title mb-0">Hyundai Creta 2024</h5>
-            <div class="rating">
-              <i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i>
-              <i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i>
-              <i class="bi bi-star-half"></i>
-              <small class="text-muted ms-1">4.8</small>
-            </div>
-          </div>
-
-          <div class="text-muted small mb-2">By Automotive Nepal</div>
-
-          <p class="review-excerpt">
-            The new Creta impresses with its bold design and feature-rich interior.
-            Perfect for Nepali roads.
-          </p>
-
-          <div class="text-muted small mb-2">3 min read</div>
-
-          <div class="fw-semibold mb-2 key">Key Highlights:</div>
-          <div class="d-flex flex-wrap gap-2 mb-3">
-            <span class="chip">Spacious Interior</span>
-            <span class="chip">Feature-rich</span>
-            <span class="chip">Refined Ride</span>
-            
-          </div>
-
-          <a href="#" class="btn btn-outline-choco">Read More</a>
-        </div>
-      </article>
-    </div>
-    <div class="col-12 col-lg-4">
-      <article class="review-card">
-        <div class="review-media">
-          <img src="assets/images/blog-image.jpg" alt="Hyundai Creta 2024 review">
-        </div>
-        <div class="review-body">
-          <div class="d-flex justify-content-between align-items-center mb-1">
-            <h5 class="review-title mb-0">Hyundai Creta 2024</h5>
-            <div class="rating">
-              <i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i>
-              <i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i>
-              <i class="bi bi-star-half"></i>
-              <small class="text-muted ms-1">4.8</small>
-            </div>
-          </div>
-
-          <div class="text-muted small mb-2">By Automotive Nepal</div>
-
-          <p class="review-excerpt">
-            The new Creta impresses with its bold design and feature-rich interior.
-            Perfect for Nepali roads.
-          </p>
-
-          <div class="text-muted small mb-2">3 min read</div>
-
-          <div class="fw-semibold mb-2 key">Key Highlights:</div>
-          <div class="d-flex flex-wrap gap-2 mb-3">
-            <span class="chip">Spacious Interior</span>
-            <span class="chip">Feature-rich</span>
-            <span class="chip">Refined Ride</span>
-            
-          </div>
-
-          <a href="#" class="btn btn-outline-choco">Read More</a>
-        </div>
-      </article>
-    </div>
-    <div class="col-12 col-lg-4">
-      <article class="review-card">
-        <div class="review-media">
-          <img src="assets/images/blog-image.jpg" alt="Hyundai Creta 2024 review">
-        </div>
-        <div class="review-body">
-          <div class="d-flex justify-content-between align-items-center mb-1">
-            <h5 class="review-title mb-0">Hyundai Creta 2024</h5>
-            <div class="rating">
-              <i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i>
-              <i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i>
-              <i class="bi bi-star-half"></i>
-              <small class="text-muted ms-1">4.8</small>
-            </div>
-          </div>
-
-          <div class="text-muted small mb-2">By Automotive Nepal</div>
-
-          <p class="review-excerpt">
-            The new Creta impresses with its bold design and feature-rich interior.
-            Perfect for Nepali roads.
-          </p>
-
-          <div class="text-muted small mb-2">3 min read</div>
-
-          <div class="fw-semibold mb-2 key">Key Highlights:</div>
-          <div class="d-flex flex-wrap gap-2 mb-3">
-            <span class="chip">Spacious Interior</span>
-            <span class="chip">Feature-rich</span>
-            <span class="chip">Refined Ride</span>
-            
-          </div>
-
-          <a href="#" class="btn btn-outline-choco">Read More</a>
-        </div>
-      </article>
-    </div>
-    <div class="col-12 col-lg-4">
-      <article class="review-card">
-        <div class="review-media">
-          <img src="assets/images/blog-image.jpg" alt="Hyundai Creta 2024 review">
-        </div>
-        <div class="review-body">
-          <div class="d-flex justify-content-between align-items-center mb-1">
-            <h5 class="review-title mb-0">Hyundai Creta 2024</h5>
-            <div class="rating">
-              <i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i>
-              <i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i>
-              <i class="bi bi-star-half"></i>
-              <small class="text-muted ms-1">4.8</small>
-            </div>
-          </div>
-
-          <div class="text-muted small mb-2">By Automotive Nepal</div>
-
-          <p class="review-excerpt">
-            The new Creta impresses with its bold design and feature-rich interior.
-            Perfect for Nepali roads.
-          </p>
-
-          <div class="text-muted small mb-2">3 min read</div>
-
-          <div class="fw-semibold mb-2 key">Key Highlights:</div>
-          <div class="d-flex flex-wrap gap-2 mb-3">
-            <span class="chip">Spacious Interior</span>
-            <span class="chip">Feature-rich</span>
-            <span class="chip">Refined Ride</span>
-            
-          </div>
-
-          <a href="#" class="btn btn-outline-choco">Read More</a>
-        </div>
-      </article>
-    </div>
-    <div class="col-12 col-lg-4">
-      <article class="review-card">
-        <div class="review-media">
-          <img src="assets/images/blog-image.jpg" alt="Hyundai Creta 2024 review">
-        </div>
-        <div class="review-body">
-          <div class="d-flex justify-content-between align-items-center mb-1">
-            <h5 class="review-title mb-0">Hyundai Creta 2024</h5>
-            <div class="rating">
-              <i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i>
-              <i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i>
-              <i class="bi bi-star-half"></i>
-              <small class="text-muted ms-1">4.8</small>
-            </div>
-          </div>
-
-          <div class="text-muted small mb-2">By Automotive Nepal</div>
-
-          <p class="review-excerpt">
-            The new Creta impresses with its bold design and feature-rich interior.
-            Perfect for Nepali roads.
-          </p>
-
-          <div class="text-muted small mb-2">3 min read</div>
-
-          <div class="fw-semibold mb-2 key">Key Highlights:</div>
-          <div class="d-flex flex-wrap gap-2 mb-3">
-            <span class="chip">Spacious Interior</span>
-            <span class="chip">Feature-rich</span>
-            <span class="chip">Refined Ride</span>
-            
-          </div>
-
-          <a href="#" class="btn btn-outline-choco">Read More</a>
-        </div>
-      </article>
-    </div>
-    <div class="col-12 col-lg-4">
-      <article class="review-card">
-        <div class="review-media">
-          <img src="assets/images/blog-image.jpg" alt="Hyundai Creta 2024 review">
-        </div>
-        <div class="review-body">
-          <div class="d-flex justify-content-between align-items-center mb-1">
-            <h5 class="review-title mb-0">Hyundai Creta 2024</h5>
-            <div class="rating">
-              <i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i>
-              <i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i>
-              <i class="bi bi-star-half"></i>
-              <small class="text-muted ms-1">4.8</small>
-            </div>
-          </div>
-
-          <div class="text-muted small mb-2">By Automotive Nepal</div>
-
-          <p class="review-excerpt">
-            The new Creta impresses with its bold design and feature-rich interior.
-            Perfect for Nepali roads.
-          </p>
-
-          <div class="text-muted small mb-2">3 min read</div>
-
-          <div class="fw-semibold mb-2 key">Key Highlights:</div>
-          <div class="d-flex flex-wrap gap-2 mb-3">
-            <span class="chip">Spacious Interior</span>
-            <span class="chip">Feature-rich</span>
-            <span class="chip">Refined Ride</span>
-            
-          </div>
-
-          <a href="#" class="btn btn-outline-choco">Read More</a>
-        </div>
-      </article>
-    </div>
- <div class="text-center mt-4">
-          <button id="reviewsLoadMore" class="btn btn-secondary load px-4">Load More</button>
-        </div>
+  <div class="actions between">
+    <a href="quiz_no_2.html"><button class="btn btn-ghost" type="button">Back</button></a>
+    <a href="quiz_output.html"><button class="btn" type="button">Finish quiz</button></a>
   </div>
-  
-</section>
-
-<script>
-document.addEventListener("DOMContentLoaded", () => {
-  const section = document.querySelector(".expert-reviews");
-  if (!section) return;
-
-  const grid = section.querySelector(".row.g-3");
-  if (!grid) return;
-
-  // Direct children of the grid (your Bootstrap columns)
-  const cards = Array.from(
-    grid.querySelectorAll(':scope > [class^="col-"], :scope > [class*=" col-"]')
-  );
-
-  // Get / compute page size by breakpoint
-  const isMobile = () => window.matchMedia("(max-width: 575.98px)").matches;
-  const pageSizeFor = () => (isMobile() ? 3 : 6);
-
-  let pageSize = pageSizeFor();
-  let visibleCount = pageSize;
-
-  // Find or create "Load More" button
-  let loadBtn = section.querySelector("#reviewsLoadMore");
-  if (!loadBtn) {
-    const wrap = document.createElement("div");
-    wrap.className = "text-center mt-3";
-    loadBtn = document.createElement("button");
-    loadBtn.id = "reviewsLoadMore";
-    loadBtn.type = "button";
-    loadBtn.className = "btn btn-outline-choco";
-    loadBtn.textContent = "Load More";
-    wrap.appendChild(loadBtn);
-    section.appendChild(wrap);
-  }
-
-  function applyVisibility() {
-    cards.forEach((card, idx) => {
-      card.classList.toggle("d-none", idx >= visibleCount);
-    });
-    loadBtn.style.display = visibleCount >= cards.length ? "none" : "";
-  }
-
-  // Initial render
-  applyVisibility();
-
-  // Click: reveal next page
-  loadBtn.addEventListener("click", () => {
-    visibleCount = Math.min(visibleCount + pageSize, cards.length);
-    applyVisibility();
-  });
-
-  // Handle resize: keep the same number of "pages" shown when crossing breakpoints
-  let lastIsMobile = isMobile();
-  window.addEventListener("resize", () => {
-    const nowIsMobile = isMobile();
-    if (nowIsMobile === lastIsMobile) return; // no breakpoint change
-
-    const oldSize = pageSize;
-    const pagesShown = Math.max(1, Math.ceil(visibleCount / oldSize));
-
-    pageSize = pageSizeFor();
-    visibleCount = Math.min(pagesShown * pageSize, cards.length);
-
-    lastIsMobile = nowIsMobile;
-    applyVisibility();
-  });
-});
-</script>
-
-
-<!-- Popular Brands -->
-
-<section class="container my-5 brands-section bg-bleed">
-  <div class="d-flex justify-content-between align-items-start "> 
-  <div>
-  <h3 class="section-title ">Popular Brands</h3>
-  <p class="section-subtitle mb-0">Browse by car manufacturer</p>
-    </div>
-<a href="#" class="btn btn-secondary btn-sm view-btn">View All</a>
-</div>
- 
-<div class="row g-2 g-md-3">
-  <!-- Brand Cards - 4 on mobile, 5 on tablet, 7 on desktop -->
-    <div class="col-4 col-sm-5th col-lg-7th">
-      <div class="brand-card">
-        <img src="assets/images/brandimagehundai.jpg" alt="Hyundai Logo" class="brand-logo">
-        <h3 class="brand-name">Hyundai</h3>
-        <div class="brand-meta">
-          <span class="brand-count">25 Cars</span>
-          <button class="brand-arrow">
-            <ion-icon name="arrow-forward-outline"></ion-icon>
-
-          </button>
-        </div>
-      </div>
-    </div>
-    <div class="col-4 col-sm-5th col-lg-7th">
-      <div class="brand-card">
-        <img src="assets/images/brandimagehundai.jpg" alt="Hyundai Logo" class="brand-logo">
-        <h3 class="brand-name">Hyundai</h3>
-        <div class="brand-meta">
-          <span class="brand-count">25 Cars</span>
-          <button class="brand-arrow">
-            <ion-icon name="arrow-forward-outline"></ion-icon>
-
-          </button>
-        </div>
-      </div>
-    </div>
-        <div class="col-4 col-sm-5th col-lg-7th">
-      <div class="brand-card">
-        <img src="assets/images/brandimagehundai.jpg" alt="Hyundai Logo" class="brand-logo">
-        <h3 class="brand-name">Hyundai</h3>
-        <div class="brand-meta">
-          <span class="brand-count">25 Cars</span>
-          <button class="brand-arrow">
-            <ion-icon name="arrow-forward-outline"></ion-icon>
-
-          </button>
-        </div>
-      </div>
-    </div>
-
-        <div class="col-4 col-sm-5th col-lg-7th">
-      <div class="brand-card">
-        <img src="assets/images/brandimagehundai.jpg" alt="Hyundai Logo" class="brand-logo">
-        <h3 class="brand-name">Hyundai</h3>
-        <div class="brand-meta">
-          <span class="brand-count">25 Cars</span>
-          <button class="brand-arrow">
-          <ion-icon name="arrow-forward-outline"></ion-icon>
-
-          </button>
-        </div>
-      </div>
-    </div>
-        <div class="col-4 col-sm-5th col-lg-7th">
-      <div class="brand-card">
-        <img src="assets/images/brandimagehundai.jpg" alt="Hyundai Logo" class="brand-logo">
-        <h3 class="brand-name">Hyundai</h3>
-        <div class="brand-meta">
-          <span class="brand-count">25 Cars</span>
-          <button class="brand-arrow">
-           <ion-icon name="arrow-forward-outline"></ion-icon>
-
-          </button>
-        </div>
-      </div>
-    </div>
-        <div class="col-4 col-sm-5th col-lg-7th">
-      <div class="brand-card">
-        <img src="assets/images/brandimagehundai.jpg" alt="Hyundai Logo" class="brand-logo">
-        <h3 class="brand-name">Hyundai</h3>
-        <div class="brand-meta">
-          <span class="brand-count">25 Cars</span>
-          <button class="brand-arrow">
-           <ion-icon name="arrow-forward-outline"></ion-icon>
-
-          </button>
-        </div>
-      </div>
-    </div>
-        <div class="col-4 col-sm-5th col-lg-7th">
-      <div class="brand-card">
-        <img src="assets/images/brandimagehundai.jpg" alt="Hyundai Logo" class="brand-logo">
-        <h3 class="brand-name">Hyundai</h3>
-        <div class="brand-meta">
-          <span class="brand-count">25 Cars</span>
-          <button class="brand-arrow">
-            <ion-icon name="arrow-forward-outline"></ion-icon>
-
-          </button>
-        </div>
-      </div>
-    </div>
-        <div class="col-4 col-sm-5th col-lg-7th">
-      <div class="brand-card">
-        <img src="assets/images/brandimagehundai.jpg" alt="Hyundai Logo" class="brand-logo">
-        <h3 class="brand-name">Hyundai</h3>
-        <div class="brand-meta">
-          <span class="brand-count">25 Cars</span>
-          <button class="brand-arrow">
-            <ion-icon name="arrow-forward-outline"></ion-icon>
-
-          </button>
-        </div>
-      </div>
-    </div>
-        <div class="col-4 col-sm-5th col-lg-7th">
-      <div class="brand-card">
-        <img src="assets/images/brandimagehundai.jpg" alt="Hyundai Logo" class="brand-logo">
-        <h3 class="brand-name">Hyundai</h3>
-        <div class="brand-meta">
-          <span class="brand-count">25 Cars</span>
-          <button class="brand-arrow">
-            <ion-icon name="arrow-forward-outline"></ion-icon>
-
-          </button>
-        </div>
-      </div>
-    </div>
-        <div class="col-4 col-sm-5th col-lg-7th">
-      <div class="brand-card">
-        <img src="assets/images/brandimagehundai.jpg" alt="Hyundai Logo" class="brand-logo">
-        <h3 class="brand-name">Hyundai</h3>
-        <div class="brand-meta">
-          <span class="brand-count">25 Cars</span>
-          <button class="brand-arrow">
-           <ion-icon name="arrow-forward-outline"></ion-icon>
-
-          </button>
-        </div>
-      </div>
-    </div>
-        <div class="col-4 col-sm-5th col-lg-7th">
-      <div class="brand-card">
-        <img src="assets/images/brandimagehundai.jpg" alt="Hyundai Logo" class="brand-logo">
-        <h3 class="brand-name">Hyundai</h3>
-        <div class="brand-meta">
-          <span class="brand-count">25 Cars</span>
-          <button class="brand-arrow">
-           <ion-icon name="arrow-forward-outline"></ion-icon>
-
-          </button>
-        </div>
-      </div>
-    </div>
-        <div class="col-4 col-sm-5th col-lg-7th">
-      <div class="brand-card">
-        <img src="assets/images/brandimagehundai.jpg" alt="Hyundai Logo" class="brand-logo">
-        <h3 class="brand-name">Hyundai</h3>
-        <div class="brand-meta">
-          <span class="brand-count">25 Cars</span>
-          <button class="brand-arrow">
-            <ion-icon name="arrow-forward-outline"></ion-icon>
-
-          </button>
-        </div>
-      </div>
-    </div>
-        <div class="col-4 col-sm-5th col-lg-7th">
-      <div class="brand-card">
-        <img src="assets/images/brandimagehundai.jpg" alt="Hyundai Logo" class="brand-logo">
-        <h3 class="brand-name">Hyundai</h3>
-        <div class="brand-meta">
-          <span class="brand-count">25 Cars</span>
-          <button class="brand-arrow">
-           <ion-icon name="arrow-forward-outline"></ion-icon>
-
-          </button>
-        </div>
-      </div>
-    </div>
-        <div class="col-4 col-sm-5th col-lg-7th">
-      <div class="brand-card">
-        <img src="assets/images/brandimagehundai.jpg" alt="Hyundai Logo" class="brand-logo">
-        <h3 class="brand-name">Hyundai</h3>
-        <div class="brand-meta">
-          <span class="brand-count">25 Cars</span>
-          <button class="brand-arrow">
-           <ion-icon name="arrow-forward-outline"></ion-icon>
-
-          </button>
-        </div>
-      </div>
-    </div>
-        <div class="col-4 col-sm-5th col-lg-7th">
-      <div class="brand-card">
-        <img src="assets/images/brandimagehundai.jpg" alt="Hyundai Logo" class="brand-logo">
-        <h3 class="brand-name">Hyundai</h3>
-        <div class="brand-meta">
-          <span class="brand-count">25 Cars</span>
-          <button class="brand-arrow">
-           <ion-icon name="arrow-forward-outline"></ion-icon>
-
-          </button>
-        </div>
-      </div>
-    </div>
-</div>
-
-
-</section>
 </main>
- <!-- FOOTER -->
+
+<!-- limit to 3 setions +live counter -->
+ <!--
+ <script>
+  (function () {
+    const boxes = [...document.querySelectorAll('input[data-group="prio"]')];
+    const counter = document.getElementById('selCount');
+    function updateCount(){
+      const c = boxes.filter(b=>b.checked).length;
+      counter.textContent = c;
+    }
+    boxes.forEach(b=>{
+      b.addEventListener('change', e=>{
+        const selected = boxes.filter(x=>x.checked);
+        if(selected.length > 3){
+          // revert the last one
+          b.checked = false;
+        }
+        updateCount();
+      });
+    });
+    updateCount();
+  })();
+</script> 
+-->
+
+
+    <!-- FOOTER -->
     <footer class="footer-motokhabar pt-5 pb-4">
 
       <div class="row gx-4 footer-margin ">

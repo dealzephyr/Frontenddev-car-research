@@ -1,29 +1,116 @@
-:root{
-  --bg:#fafafa;
-  --card:#fff;
-  --ink:#212121;
-  --muted:#777;
-  --chip:#f4f4f4;
-  --line:#eaeaea;
-  --brand:#5d4037;    /* chocolate-ish */
-  --brand-2:#e2c2bb;  /* soft secondary */
-}
 
-
-
-
-h1{font-size:22px;margin:0 0 4px}
 .muted{color:var(--muted)}
-.pill-row{display:flex;gap:10px;flex-wrap:wrap}
-.pill{
-  border:1px solid var(--line);
-  background:var(--card);
-  border-radius:10px;
-  padding:8px 14px;
-  font-size:13px;
-  cursor:pointer;
+/* Metrics-based hero pill */
+/* spacing between each "Add a Vehicle" button */
+.pill-row{
+  display:flex;
+  flex-wrap:wrap;
+  align-items:center;
+  gap:14px;            /* ← space between pills horizontally & vertically */
 }
-.pill span{margin-right:6px}
+
+/* if your buttons are wrapped in .dropdown */
+.pill-row > .dropdown{ display:inline-flex; }  /* keeps pill size intact */
+
+.pill--hero{
+  /* your exact numbers */
+  max-width: 205px;
+  padding: 12px 21px;
+  gap: 11px;                   /* space between + and label */
+  border-radius: 5px;
+  border: 1px solid #4E342E;
+  box-shadow: 0px 24px 48px -12px #10182840;
+  opacity: 1;
+  transform: rotate(0deg);
+
+  /* layout + theme */
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--card);
+  color: var(--brand);
+  font-weight: 500;
+  font-size: 17px;
+  line-height: 20px;
+  cursor: pointer;
+}
+
+.pill--hero .pill__plus{
+  font-size: 17px;
+  line-height: 1;
+  color: var(--brand);
+}
+
+/* optional: subtle hover without inverting */
+.pill-row .pill.pill--hero:hover, .pill__plus:hover,
+.pill.pill--hero:hover{
+  border-color:#4E342E;                 /* keep brand border */
+  background:var(--brand);
+  color: #fff;               
+  box-shadow:0 28px 56px -14px #10182840;
+}
+
+.pill-row .pill.pill--hero:active,
+.pill.pill--hero:active{
+  transform:translateY(0);
+  box-shadow:0 18px 36px -18px #10182840;
+}
+/* wrapper */
+.av{
+  position: relative;
+  display: inline-block;
+  vertical-align: top;
+}
+
+/* make the pill full-width inside .av */
+.av .pill--hero{
+  display: block;
+  width: 100%;
+}
+
+/* ensure the “＋” inherits current text color on hover/fill */
+.pill--hero .pill--plus{ color: currentColor; }
+
+/* dropdown panel — same width as the pill */
+.av-panel{
+  position: absolute;
+  top: calc(100% + 8px);
+  left: 0;
+  width: 100%;
+  background: var(--card);
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  box-shadow: 0 24px 48px -12px rgba(16,24,40,.25);
+  overflow: hidden;        /* keep caret visible */
+  display: none;            /* hidden by default */
+  z-index: 50;
+}
+
+/* open state */
+.av.open .av-panel{ display: block; }
+
+/* rows inside panel */
+.av-panel .av-field{
+  all: unset;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start; /* label on left */
+  width: 100%;
+  padding: 12px 16px;
+  cursor: pointer;
+  color: var(--ink);
+  box-sizing: border-box;
+}
+.av-panel .av-field + .av-field{ border-top: 1px solid var(--line); }
+.av-panel .av-field:hover{ background: var(--chip); }
+
+/* label + caret */
+.av-field .av-label{ color: var(--muted); font-size: 14px; }
+.av-panel .av-field > svg{
+  margin-left: auto;   /* push caret to the right edge */
+  flex: 0 0 auto;
+  display: block;      /* avoid inline baseline gaps */
+}
 
 /* Sticky tabs */
 /* Sticky tabs — same styling, only layout fixes */
@@ -33,7 +120,7 @@ h1{font-size:22px;margin:0 0 4px}
   z-index: 10;
   background: linear-gradient(var(--bg), var(--bg)); /* unchanged */
   border: 1px solid var(--line);                     /* unchanged */
-  border-radius: 12px;                               /* unchanged */
+  border-radius: 7px;                               /* unchanged */
   padding: 6px;                                      /* unchanged */
   display: flex;
   align-items: center;        /* NEW: tidy vertical alignment */
@@ -41,7 +128,7 @@ h1{font-size:22px;margin:0 0 4px}
   flex-wrap: nowrap !important; /* NEW: keep in one line */
   overflow-x: auto;             /* NEW: scroll if overflow */
   white-space: nowrap;          /* NEW: prevent wrap */
-  margin: 10px 0 22px;        /* unchanged */
+  margin: 22px 0 22px;        /* unchanged */
   -webkit-overflow-scrolling: touch;
 }
 .section-tabs::-webkit-scrollbar{ display:none; }
@@ -52,7 +139,8 @@ h1{font-size:22px;margin:0 0 4px}
 .section-tabs a:visited{
   text-decoration: none;
   color: var(--ink);              /* keep your text color */
-  font-size: 13px;
+  font-size: 14px;
+  font-weight: 400;
   padding: 8px 12px;
   border-radius: 10px;
   display: inline-flex;           /* NEW: icon + label same line */
@@ -145,7 +233,56 @@ h1{font-size:22px;margin:0 0 4px}
   display:flex;align-items:center;gap:6px;margin-top:8px;font-size:12px
 }
 .stars{color:#ffb000}
+/* --- Car card → row-like (SVG version) --- */
 
+/* kill any old pseudo icons you had */
+.car-card .row-like li::before{ content:none !important; }
+
+/* layout + text */
+.car-card .row-like ul{
+  list-style:none;
+  margin:12px 0 0;
+  padding:0;
+  display:flex;
+  flex-direction:column;
+  gap:12px;
+}
+.car-card .row-like li{
+  display:flex;
+  align-items:center;
+  gap:12px;
+  font-size:14px;
+  color:var(--muted);
+  line-height:1.25;
+}
+
+/* the inline SVG badges on the left */
+.car-card .row-like .icon{
+  flex:0 0 28px;
+  width:28px; height:28px;
+  display:inline-block;
+  color:var(--muted);               /* make SVG inherit this */
+}
+
+/* make strokes/fills follow the currentColor */
+.car-card .row-like .icon [stroke] { stroke: currentColor; }
+.car-card .row-like .icon text,
+.car-card .row-like .icon [fill]:not([fill="none"]) { fill: currentColor; }
+
+/* star row */
+.car-card .row-like .stars{
+  display:inline-flex;
+  align-items:center;
+  gap:4px;
+}
+.car-card .row-like .stars svg{ width:20px; height:20px; }
+.car-card .row-like .stars svg path{
+  fill:#FFC107;                    /* gold stars */
+  stroke:#FFC107;
+}
+
+/* spacing for the numeric rating (uses your .muted) */
+.car-card .row-like .muted{ margin-left:10px; }
 
 /* FAQ */
 .faq{
@@ -297,43 +434,3 @@ h1{font-size:22px;margin:0 0 4px}
   color: var(--text-on-primary);
 }
 
-/* Tiny tweaks for small screens */
-@media (max-width: 480px){
-  .popular-comparisons .pc-title{ font-size: 20px; }
-  .popular-comparisons .pc-name{ font-size: 13.5px; }
-  .popular-comparisons .pc-price{ font-size: 12.5px; }
-}
-
-@media (max-width: 560px){
-  /* grid -> 2 columns */
-  #top-spec .car-grid{
-    grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
-    gap: 10px;
-  }
-
-  /* allow cards to shrink within their column */
-  #top-spec .car-card,
-  #top-spec .car-card__body{ width: 168px;; }
-
-
-
-  /* prevent long inline rows from forcing overflow */
-  #top-spec .car-card__location span,
-  #top-spec .car-card__row span,
-  #top-spec .car-card__grid span{
-    white-space: normal;
-  }
-
-  
-  /* Card fills cell; compact internals */
-  #top-spec .cards-track.is-active .car-card.v2{ width:168px !important; }
-  #top-spec .car-card__media img{ height:92px; object-fit:cover; }
-   #top-spec .car-card__body{ padding:9px; }
- #top-speck .car-card__title{ font-size:14px;margin-top: 10px; }
- #top-spec .car-card__location,
-  #top-spec .car-card__row,
-  #top-spec .car-card__grid{ font-size:12px; }
-  #top-spec .car-card__price{ font-size:12px; margin:10px 0 8px;}
-  
-  
-}

@@ -1,0 +1,702 @@
+:root{
+    --primary-color:#5d4037;
+    --primary-light:#4e342e;
+    --primary-dark:#212121;
+    --secondary-color:#e2c2bb;
+    --text-on-primary:#ffffff;
+    --neutral-light:#ffffff;
+    --neutral-mid:#d4d4d4;
+    --neutral-dark:#757575;
+
+    --bs-primary:#5d4037;
+    --bs-secondary:#e2c2bb;
+    --bs-body-font-family:"Poppins",sans-serif;
+  }
+
+  /* ----- cards / shells (your look) ----- */
+  .mk-card{
+    background:#fff;
+    border:1px solid #eee;
+    border-radius:16px;
+    box-shadow:0 8px 18px -10px rgba(0,0,0,.15);
+  }
+  .mk-card .mk-head{
+    padding:18px 20px 0;
+  }
+  .mk-card .mk-sub{ color:var(--neutral-dark); font-size:.9rem; }
+
+  /* ----- profile banner ----- */
+  .profile-banner{
+    padding:18px 22px;
+  }
+ /* hide input, keep it accessible */
+.visually-hidden{
+  position:absolute!important; width:1px; height:1px; padding:0; margin:-1px;
+  overflow:hidden; clip:rect(0,0,0,0); white-space:nowrap; border:0;
+}
+
+/* avatar sizing (as before) */
+.avatar-wrap{ position:relative; width:94px; height:94px; }
+.avatar-xl{ width:94px; height:94px; border-radius:50%; overflow:hidden; background:#f4f4f4; }
+.avatar-xl img{ width:100%; height:100%; object-fit:cover; }
+
+/* ICON-ONLY edit button (no circle) */
+.avatar-edit{
+  position:absolute;
+  right:-6px;                 /* tweak to match your mock */
+  bottom:6px;                 /* or use top:50%; transform:translateY(-50%) for side-middle */
+  display:inline-grid;
+  place-items:center;
+  padding:6px;                /* bigger tap target */
+  margin:-6px;                /* keep visual position tight */
+  background:transparent;
+  border:0;
+  box-shadow:none;
+  cursor:pointer;
+}
+
+/* icon styling */
+.avatar-edit i{ font-size:22px; line-height:1; color:var(--primary-color); }
+.avatar-edit svg{ width:22px; height:22px; display:block; }
+
+/* keyboard focus (visible but still icon-only) */
+.avatar-edit:focus-visible{
+  outline:2px solid var(--secondary-color);
+  outline-offset:2px;
+  border-radius:6px;
+}
+
+
+  /* stats right side */
+  .profile-name h3{
+    font-size:24px;
+    font-weight: 600;
+  }
+  .profile-meta span{
+    font-size:15px;
+    font-weight: 400;
+    color:var(--neutral-dark);
+  }
+  .profile-stats{ display:flex; gap:28px; }
+  .profile-stat .num{ font-weight:600; font-size:24px; color:#000; line-height:1; }
+  .profile-stat .lbl{ color:var(--neutral-dark); font-size:15px; font-weight: 400; }
+
+
+/* ===== First section (Profile banner) — mobile overrides ===== */
+@media (max-width: 575.98px){
+
+    .section-subtitle{
+      font-size: 12px;
+      margin-top: 8px;
+    }
+  /* container spacing */
+  .profile-banner{ padding:14px 16px; }
+
+  /* avatar to 54x54 */
+  .avatar-wrap,
+  .avatar-xl{ width:54px; height:54px; }
+  .avatar-edit{ right:-4px; bottom:-2px; } /* keep edit icon tucked in */
+.avatar-edit svg{ width:13.5px; height:13.5px; }
+  /* title → 20px, label → 13px */
+  .profile-name h3{ font-size:18px !important; }
+  .profile-meta span{ font-size:13px; }
+
+  /* stats layout */
+  .profile-stats{
+    gap:12px 18px;           /* nicer breathing room */
+    flex-direction: column;          /* allow wrapping on narrow screens */
+    margin-top:10px;
+  }
+  .profile-stat{
+    display:flex;
+    flex-direction:column;   /* num on its own line, label below */
+    line-height:1.2;
+    min-width:calc(50% - 9px); /* two stats per row; remove if not needed */
+  }
+
+  /* num → 20px, lbl → 13px with better margin */
+  .profile-stat .num{
+    font-size:20px;
+    margin-bottom:4px;       /* space between num and label */
+  }
+  .profile-stat .lbl{
+    font-size:13px;
+    color:var(--neutral-dark);
+  }
+}
+
+
+  /* ----- left column cards ----- */
+  /* Card container */
+.personal-card{ border-radius:16px; overflow:hidden; margin-bottom: 1.5rem !important;}
+
+/* Header bar like the mock */
+.pc-head{
+  padding:18px 20px;
+  background:#f4f4f4;          /* light band on top */
+  border-bottom:1px solid #eee;
+}
+.pc-title{ font-size:17px; font-weight: 500; color:var(--primary-dark); }
+
+/* Edit pill */
+.pc-edit{
+  display:inline-flex; align-items:center; gap:8px;
+  padding:6px 12px;
+  border-radius:12px;
+  border:2px solid var(--primary-color);
+  background:transparent;
+  color:var(--primary-color);
+  font-weight:600;
+}
+.pc-edit-ic{ display:inline-grid; place-items:center; width:18px; height:18px; }
+.pc-edit-ic svg{ width:18px; height:18px; }
+.pc-edit:hover{ background:rgba(93,64,55,.06); color:var(--primary-color); }
+
+/* Body spacing */
+.pc-body{ padding:22px 20px 24px; }
+
+/* Field blocks */
+.pc-field{ margin-top:22px; }
+.pc-label{
+display:flex; align-items:center; gap:10px;
+font-weight: 500;
+font-style: Medium;
+font-size: 14px;
+line-height: 100%;
+letter-spacing: 0%;
+color: #757575;
+
+}
+.pc-ic{ width:22px; height:22px; display:inline-grid; place-items:center; color:#8a8a8a; }
+.pc-ic svg{ width:17px; height:17px; }
+
+/* Values: bold and larger */
+.pc-value{
+  margin-top:6px;
+  padding-left:32px;            /* aligns under label text, accounting for icon+gap */
+  font-weight:500;
+  font-size:16px;             /* ~24px */
+  color:#212121;
+  line-height:100%;
+}
+
+/* Chips like soft pink with primary text */
+.pc-chip{
+  display:inline-block;
+  padding:.45rem 1rem;
+  border-radius:999px;
+  background:#E2C2BB;  /* soft secondary */
+  color:var(--primary-dark);
+  font-weight:400;
+  font-size:10px;
+  border:0;
+}
+
+
+
+/* Optional: reduce spacing on very small screens */
+@media (max-width:575.98px){
+  .pc-head{ padding:14px 16px; }
+  .pc-body{ padding:16px; }
+  .pc-value{ font-size:1.35rem; padding-left:30px; }
+}
+
+/* for edit mode */
+/* Personal Details – EDIT MODE */
+/* toggle visibility */
+#personal-details .pc-view[hidden],
+#personal-details .pc-form[hidden]{ display:none !important; }
+/* hide Edit button in edit mode */
+#personal-details.is-editing .js-edit{ display:none !important; }
+
+.pc-form .pc-label{
+  font-size:14px;               /* requested label size */
+  font-weight:500;
+  color:#757575;
+}
+.pc-form .pc-input{
+  height:48px;
+  border-radius:10px;
+  border:1px solid #e6e6e6;
+  background:#fff;
+  box-shadow:0 6px 16px -12px rgba(0,0,0,.45);
+  font-size: 14px;
+  font-weight: 500;
+}
+.pc-actions{
+  display:flex;
+  gap:12px;
+  margin-top:24px;
+}
+.pc-save{
+ font-size:14px; padding:10px 12px; border-radius:7px;
+}
+.pc-cancel{
+  border:2px solid var(--primary-color);
+  color:var(--primary-color);
+  background:#fff;
+   font-size:14px; padding:10px 12px; border-radius:7px;
+}
+/* Grid under the label, aligned with icon offset */
+.brand-grid{
+  display:grid;
+  grid-template-columns: 1fr 1fr;  /* two columns like the mock */
+  column-gap: 0px;
+  row-gap: 10px;
+  margin-top: 10px;
+  margin-left: 5px;              /* lines up under label text + icon */
+}
+
+/* Each checkbox row */
+.brand-check{
+  display:flex; align-items:center; gap:10px;
+  font-size:13px; color:#212121; font-weight:400;
+  line-height:1.3;
+}
+
+/* Native checkbox, styled to resemble the mock */
+.brand-check input[type="checkbox"]{
+  width:13px; height:13px;
+  accent-color: var(--primary-color);   /* tick color */
+  border:1.5px solid #d9d9d9;           /* light outline look */
+  border-radius:4px;
+  background:#fff;
+}
+
+/* Responsive: keep two columns on most phones; collapse on very narrow */
+@media (max-width: 400px){
+  .brand-grid{ grid-template-columns: 1fr; row-gap: 12px; }
+}
+
+/* Mobile tweaks (matches your responsive scale) */
+@media (max-width:575.98px){
+  .pc-body{ padding:16px; }                              /* you already use this pattern */
+  .pc-form .pc-input{ height:44px; }                     /* slightly shorter on mobile */
+  .pc-actions{ flex-direction:column; gap:10px; }
+  .pc-save, .pc-cancel{ width:100%; }                    /* full-width buttons on mobile */
+}
+
+/* Force 2 columns for Preferred Brands on mobile */
+@media (max-width: 575.98px){
+  .personal-card .brand-grid{
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+    column-gap: 16px;
+    row-gap: 12px;
+    margin-left: 28px; /* keep aligned under label+icon */
+  }
+  .personal-card .brand-check{
+    font-size: 13px;
+    gap: 8px;
+  }
+  .personal-card .brand-check input[type="checkbox"]{
+    width: 18px; height: 18px;
+  }
+}
+
+
+
+/* Card */
+.pw-card{ border-radius:16px; overflow:hidden; }
+
+/* Header strip */
+.pw-head{
+  padding:18px 20px;
+  background:#f4f4f4;
+  border-bottom:1px solid #eee;
+  gap:10px;
+}
+.pw-ic{ width:28px; height:28px; color:var(--primary-dark); display:grid; place-items:center; }
+.pw-ic svg{ width:17px; height:17px; display:block; }
+
+.pw-title{ font-size:17px; font-weight: 500; color:var(--primary-dark); }
+
+/* Body */
+.pw-body{ padding:22px 20px 24px; }
+.pw-group{ margin-bottom:22px; }
+
+/* Labels (match your left card) */
+.pw-label{
+  display:block;
+  font-weight:500;
+  font-style:normal;
+  font-size:14px;
+  line-height:1;
+  color:#757575;
+  margin-bottom:10px;
+}
+
+/* Inputs: pill-y, soft shadow like mock */
+.pw-input{
+  height:41px;
+  border-radius:7px !important;
+  border:1px solid #e6e6e6;
+  background:#fff;
+  box-shadow:0 6px 16px -12px rgba(0,0,0,.45);
+}
+.pw-input:focus{
+  border-color:var(--secondary-color);
+  box-shadow:0 0 0 4px rgba(226,194,187,.25);
+}
+
+/* Primary button (rounded, bold) */
+.pw-btn{
+  display:inline-block;
+  padding:10px 12px;
+  border-radius:7px;
+  background:var(--primary-color);
+  color:#ffffff;
+  font-weight:500;
+  font-size:14px;
+  border:0;
+  max-height: 38px;
+}
+.pw-btn:hover{ background:var(--primary-light); color:#fff; }
+.pw-btn:focus-visible{ outline:2px solid var(--secondary-color); outline-offset:2px; }
+
+/* Small-screen spacing */
+@media (max-width:575.98px){
+  .pw-head{ padding:14px 16px; }
+  .pw-body{ padding:16px; }
+}
+
+
+/* ===== Second section (Personal Details + Change Password) — mobile ===== */
+@media (max-width: 575.98px){
+
+  /* Personal Details card */
+  .personal-card .pc-head{ padding:16px; }
+  .personal-card .pc-body{ padding:18px 16px 20px; }
+
+  /* label 14px, icon slightly smaller */
+  .pc-label{
+    font-size:14px;
+    line-height:1;
+    gap:8px;
+  }
+  .pc-ic{ width:20px; height:20px; }
+  .pc-ic svg{ width:16px; height:16px; }
+
+  /* value 16px, sit nicely under label+icon */
+  .pc-value{
+    font-size:16px;
+    line-height:1.35;
+    padding-left:28px;     /* aligns with label after smaller icon */
+    margin-top:8px;
+  }
+
+  /* field spacing */
+  .pc-field{ margin-top:18px; }
+
+  /* chips breathing room (optional, looks closer to mock) */
+  .pc-chip{ margin:6px 8px 0 0; }
+
+  /* Change Password card (keep compact controls) */
+  .pw-head{ padding:14px 16px; }
+  .pw-body{ padding:16px; }
+  .pw-group{ margin-bottom:18px; }
+  .pw-input{ height:41px; border-radius:7px !important; }
+  .pw-btn{ font-size:14px; padding:10px 12px; border-radius:7px; }
+  
+}
+
+
+
+  /* ----- favourite cars section ----- */
+/* Section shell */
+.fav-card{ border-radius:16px; overflow:hidden; }
+.fav-head{ padding:18px 20px; background:#f4f4f4; border-bottom:1px solid #eee; }
+.fav-title{ font-size:17px; font-weight:500; color:var(--primary-dark); margin:0; }
+.fav-sub{ margin:4px 0 0; font-size:14px; color:#757575; }
+.fav-body{ padding:22px 20px 24px; overflow-x: auto;}
+
+
+/* 3-up grid (uses your existing .car-card styles) */
+.fav-grid{
+  display:flex;
+  flex-wrap:nowrap;               /* keep in one row */
+  gap:20px;                       /* same gap as mock */
+  width:max-content;              /* size to fit children so container can scroll */
+}
+
+.fav-grid > .car-card{ flex:0 0 auto; }  /* don’t shrink your fixed-width cards */
+
+
+/* optional responsive tweaks */
+@media (max-width:991.98px){ .fav-grid{ grid-template-columns:repeat(2,1fr); } }
+@media (max-width:575.98px){
+  .fav-body{ padding:16px; }
+  .fav-grid{ grid-template-columns:1fr; gap:16px; }
+}
+
+  /* forms */
+  .form-control{ border-radius:10px; }
+  .btn-hero{ background:var(--primary-color); color:#fff; border-radius:12px; }
+  .btn-hero:hover{ background:var(--primary-light); color:#fff; }
+
+  /* responsive tweaks */
+  @media (max-width: 991.98px){
+    .profile-stats{ width:100%; justify-content:space-between; }
+  }
+  @media (max-width: 575.98px){
+    .profile-banner{ padding:14px; }
+    .profile-stats{ gap:16px; }
+  }
+  
+
+/* ===== Favourite Cars: 2×2 grid on mobile ===== */
+@media (max-width: 575.98px){
+  .fav-body{
+    padding:16px;
+    overflow-x: visible;                 /* stop horizontal scrolling */
+  }
+
+  /* switch the row to a grid */
+  .fav-grid{
+    display: grid;                       /* was flex */
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 16px;                           /* tighter gaps */
+    width: 100%;
+  }
+
+  /* make the fixed-width cards fluid in grid */
+  .fav-grid > .car-card.v2{ width: 100%; }
+
+  /* tighten the card internals a bit */
+  .fav-grid .car-card__body{ padding: 12px 14px 14px; }
+  .fav-grid .car-card__price{ margin: 8px 0 10px; }
+
+  /* buttons: full-width, comfy spacing */
+  .fav-grid .btn{ width: 100%; }
+  .fav-grid .d-flex.gap-2{ gap: 10px; }
+
+   /* shrink the card itself */
+  .car-card.v2{ width:168px; margin:0; }
+
+  /* media strip */
+  .car-card__media img{
+    height:92px;              /* was 160px */
+    object-fit:cover;
+  }
+
+  /* body spacing + type */
+  .car-card__body{ padding:9px; }
+  .car-card__title{ font-size:14px; margin:10px 0 6px; }
+  .car-card__divider{ margin:6px 0 10px; }
+  .car-card__location,
+  .car-card__row,
+  .car-card__grid{ font-size:12px; }
+  .car-card__grid{ column-gap:6px; }
+  .car-card__price{ font-size:12px; margin:10px 0 8px; }
+
+  /* buttons */
+  .car-card.v2 .btn{ font-size:12px; line-height:1.15; padding:6px 10px; border-radius:6px; }
+
+}
+
+
+/* ===== Section shell ===== */
+/* ================================
+   Past Comparisons – FULL REPLACEMENT
+   ================================ */
+
+/* Section shell */
+.comps-sec{ border-radius:16px; overflow:hidden; margin-top: 24px; }
+.comps-head{ padding:18px 20px; background:#f4f4f4; border-bottom:1px solid #eee; }
+.comps-title{ font-size:17px; font-weight:500; color:var(--primary-dark); margin:0; }
+.comps-sub{ margin:4px 0 0; font-size:14px; color:#757575; }
+.comps-body{ padding:22px 20px 24px; }
+
+/* Slider shell */
+.comps-slider{
+  --slide-w: 550px;          /* card width on desktop (reduced to fit design) */
+  --gap: 20px;               /* space between cards */
+  --media-h: 161px;          /* image band height */
+  position: relative;
+}
+
+/* Track: horizontal scroll with snap + subtle edge fade */
+.comps-slider .cards-track{
+  display:flex;
+  gap:var(--gap);
+  overflow-x:auto;
+  -webkit-overflow-scrolling:touch;
+  overscroll-behavior-x:contain;
+  scroll-snap-type:x proximity;
+  scroll-behavior:smooth;
+  padding-bottom:4px;
+  /* edge hint fade */
+}
+.comps-slider .cards-track::-webkit-scrollbar{ display:none; }
+.comps-slider .cards-track{ scrollbar-width:none; }
+
+/* Each slide keeps fixed width & snaps */
+.comps-slider .cards-track > *{
+  flex:0 0 var(--slide-w);
+  scroll-snap-align:start;
+}
+
+/* Arrows – inside, centered on media band */
+.comps-slider .slider-btn{
+  position:absolute;
+  top:calc(22px + var(--media-h)/2);   /* 22px = body top padding */
+  transform:translateY(-50%);
+  width:44px; height:44px; border-radius:50%;
+  background:#fff; border:1px solid #e9e9e9;
+  display:grid; place-items:center; z-index:3;
+  box-shadow:0 12px 24px -12px rgba(0,0,0,.35);
+}
+.comps-slider .slider-btn.prev{ left:-20px; }
+.comps-slider .slider-btn.next{ right:-20px; }
+.comps-slider .slider-btn i{ font-size:18px; color:#212121; line-height:1; }
+.comps-slider .slider-btn.is-disabled{ opacity:1; pointer-events:none; }
+
+/* Card */
+.comps-sec .pc-card{
+  background:var(--neutral-light);
+  border-radius:16px;
+  border:1px solid #efefef;
+  box-shadow:0 20px 24px -4px rgba(16,24,40,.10);
+  overflow:hidden;
+  transition:transform .2s ease, box-shadow .2s ease;
+}
+.comps-sec .pc-card:hover{
+  transform:translateY(-2px);
+  box-shadow:0 22px 36px rgba(0,0,0,.10);
+}
+/* 1) Drop shadow under the whole slider row */
+.comps-slider .cards-track{
+  box-shadow: none !important;
+}
+
+/* 2) If the “white glow” edge-fade looks like a shadow */
+.comps-slider .cards-track{
+  -webkit-mask-image: none !important;
+  mask-image: none !important;
+}
+
+/* 3) If the circular arrows have a shadow */
+.comps-slider .slider-btn{ box-shadow: none !important; }
+
+/* 4) If the comparison cards themselves are casting the shadow */
+.comps-sec .pc-card,
+.comps-sec .pc-card:hover{ box-shadow: none !important; }
+/* Media (split) – FLEX so both halves keep height */
+.comps-sec .pc-media{
+  position:relative;
+  height:var(--media-h);
+  display:flex;
+  overflow:hidden;
+  background:#f5f5f5;
+  border-radius:16px 16px 0 0;
+}
+.comps-sec .pc-media::before{
+  content:"";
+  position:absolute; top:0; bottom:0; left:50%;
+  width:1px; background:#e7e7e7; transform:translateX(-.5px);
+}
+.comps-sec .pc-half{ flex:0 0 50%; height:100%; }
+.comps-sec .pc-media img{ width:100%; height:100%; object-fit:cover; display:block; }
+
+/* VS badge */
+.comps-sec .pc-vs{
+  position:absolute; left:50%; top:50%; transform:translate(-50%,-50%);
+  width:40px; height:40px; border-radius:999px;
+  background:var(--primary-color); color:var(--text-on-primary);
+  display:grid; place-items:center; font-size:12px; font-weight:700; text-transform:uppercase;
+  box-shadow:0 10px 18px -12px rgba(0,0,0,.35);
+}
+
+/* Body */
+.comps-sec .pc-body{ padding:18px; }
+.comps-sec .pc-cols{ display:grid; grid-template-columns:1fr 1fr; gap:10px 28px; }
+.comps-sec .pc-name{ font-weight:600; font-size:17px; color:#212121; line-height:1.2; }
+.comps-sec .pc-price{ font-weight:600; font-size:16px; color:#212121; margin-top:6px; }
+
+/* CTA */
+.comps-sec .pc-btn{
+  display:block; margin-top:18px; text-align:center;
+  padding:12px 14px; border-radius:12px;
+  border:2px solid var(--primary-color); color:var(--primary-color);
+  text-decoration:none; font-weight:600; background:#fff; transition:.18s;
+}
+.comps-sec .pc-btn:hover{ background:var(--primary-color); color:#fff; }
+
+/* Responsive trims */
+@media (max-width: 991.98px){
+  .comps-slider{ --slide-w: 600px; --media-h: 220px; }
+}
+@media (max-width: 575.98px){
+  .comps-body{ padding:16px; }
+  .comps-slider{ --slide-w: 86vw; --media-h: 200px; }
+  .comps-sec .pc-name{ font-size:18px; }
+}
+
+/* ===== Past Comparisons – mobile look (one card per slide) ===== */
+@media (max-width: 575.98px){
+
+  /* header + spacing */
+  .comps-head{ padding:16px; }
+  .comps-title{ font-size:17px; }          /* bigger title like mock */
+  .comps-sub{ font-size:14px; }
+  .comps-body{ padding:16px; }
+
+  /* slider: single, stretched card */
+  .comps-slider{
+    --slide-w: 100%;       /* exactly one card in view */
+    --gap: 12px;           /* small gap between slides */
+    --media-h: 140px;      /* shorter image band */
+  }
+  .comps-slider .cards-track{
+    -webkit-mask-image: none;              /* no edge fade on mobile */
+    mask-image: none;
+  }
+  .comps-slider .cards-track > *{
+    flex: 0 0 var(--slide-w);
+    scroll-snap-align: start;
+  }
+
+  /* media band: full-width, rounded top */
+  .comps-sec .pc-media{
+    height: var(--media-h);
+    display: flex;
+    overflow: hidden;
+    background:#f5f5f5;
+    border-radius:12px 12px 0 0;
+    position: relative;
+  }
+  .comps-sec .pc-half{ flex:0 0 50%; height:100%; }
+  .comps-sec .pc-media img{ width:100%; height:100%; object-fit:cover; display:block; }
+  .comps-sec .pc-media::before{
+    content:""; position:absolute; top:0; bottom:0; left:50%;
+    width:1px; background:#e7e7e7; transform:translateX(-.5px);
+  }
+
+  /* arrows inside, centered on media */
+  /* allow arrows to hang past the media edge */
+  .comps-body{ padding:16px; overflow: visible; }
+
+  /* arrows: centered on image band, half outside */
+  .comps-slider .slider-btn{
+    top: calc(16px + var(--media-h)/2);   /* 16px = body top padding */
+    transform: translateY(-50%);
+    width: 44px; height: 44px; z-index: 5;
+  }
+  .comps-slider .slider-btn.prev{ left: -18px; }  /* push to left edge */
+  .comps-slider .slider-btn.next{ right: -18px; } /* push to right edge */
+
+  /* body + type sizes */
+  .comps-sec .pc-body{ padding:1px; }
+  .comps-sec .pc-cols{ gap:10px 18px; }
+  .comps-sec .pc-name{ font-size:17px; line-height:100%; }
+  .comps-sec .pc-price{ font-size:16px; font-weight:600; margin-top:6px; }
+
+  /* CTA */
+  .comps-sec .pc-btn{
+    font-size:14px;
+    padding:12px 14px;
+    border-radius:10px;
+    margin-top:16px;
+  }
+}
+
