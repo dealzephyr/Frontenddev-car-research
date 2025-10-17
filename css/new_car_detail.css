@@ -119,33 +119,50 @@ margin-right: 36px;
   background: var(--primary-color);
   color: var(--text-on-primary);
   border: 0;
-  padding: 0.6rem 1.25rem;
+  padding: 0.6rem 13px;
   border-radius: 7px;
-
-  width: 119px;
   font-size: 13px;
   font-weight: 500 !important;
+  transition: all 0.3s ease;
+  transform: translateY(0);
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  white-space: nowrap;
 }
 .btn-hero:hover {
-  border: 1px solid var(--primary-light);
-  color: var(--primary-color);
+  background: var(--primary-light);
+  color: var(--text-on-primary);
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+.btn-hero:active {
+  transform: translateY(0);
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
 .btn-hero-outline {
   background: var(--neutral-light);
   color: var(--primary-color);
   border: 1px solid var(--primary-color);
-  padding: 0.6rem 1.25rem;
+  padding: 0.6rem 13px;
   border-radius: 7px;
   backdrop-filter: blur(4px);
   font-size: 13px;
-  padding: 4px 8px;
   font-weight: 500 !important;
+  transition: all 0.3s ease;
+  transform: translateY(0);
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+  white-space: nowrap;
 }
 .btn-hero-outline:hover {
   background: var(--primary-color);
   color: var(--neutral-light);
-  border: 1px soli var(--primary-color);
+  border: 1px solid var(--primary-color);
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+.btn-hero-outline:active {
+  transform: translateY(0);
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
 }
 .color-options {
   color: #757575;
@@ -236,7 +253,40 @@ margin-right: 36px;
   font-size: 14px;
   font-weight: 500 !important;
 }
-/* === Mobile-only: details on top, slider in middle, rating below slider === */
+/* Desktop carousel controls */
+.car-hero .carousel-control-prev,
+.car-hero .carousel-control-next {
+  top: 50%;
+  transform: translateY(-50%);
+  height: 40px;
+  width: 40px;
+  background: #ffffff;
+  border-radius: 50%;
+  border: 1px solid #e8e8e8;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.car-hero .carousel-control-prev {
+  left: -20px; /* position outside carousel, overlapping left panel */
+  right: auto;
+}
+
+.car-hero .carousel-control-next {
+  right: -20px; /* position outside carousel, overlapping right background */
+  left: auto;
+}
+
+.car-hero .carousel-control-prev i,
+.car-hero .carousel-control-next i {
+  font-size: 1.2rem;
+  color: #101828;
+}
+
+/* Mobile carousel controls */
 @media (max-width: 575.98px) {
   /* Make the hero row a vertical stack */
   .car-hero .row {
@@ -311,14 +361,12 @@ margin-right: 36px;
 }
 
   .car-hero .carousel-control-prev {
-    left: -20px; /* push to left edge */
+    left: -15px; /* position outside carousel on mobile */
     right: auto;
-    
-    
   }
 
   .car-hero .carousel-control-next {
-    right: -20px !important; /* push to right edge */
+    right: -15px !important; /* position outside carousel on mobile */
     left: auto;
     z-index: 1000;
   }
@@ -367,6 +415,7 @@ margin-right: 36px;
   background-color: #f5f5f5;
   border-radius: 7px;
   padding: 12px 0;
+  margin-top: 19px;
 }
 
 .specs-nav a {
@@ -402,7 +451,7 @@ margin-right: 36px;
   background: #fff;
   border-radius: 14px;
   box-shadow: 0 8px 18px -9px rgba(0, 0, 0, 0.25);
-  border: 1px solid #d4d4d4;
+  border: 1px solid #e8e8e8;
 }
 .mk-item + .mk-item {
   margin-top: 6px;
@@ -410,9 +459,17 @@ margin-right: 36px;
 
 .mk-btn {
   height: 89px;
+  border: none;
+  background: transparent;
+  border-radius: 7px;
 }
 .mk-btn:focus {
   box-shadow: none;
+  border: none;
+}
+.mk-btn:hover {
+  background: transparent;
+  border: none;
 }
 
 .mk-btn .accordion-header {
@@ -430,6 +487,7 @@ margin-right: 36px;
   background-color: #f4f4f4;
   border-radius: 17px;
   padding: 4px 3px;
+  border: 1px solid #e8e8e8;
 }
 
 .dropdown-arrow {
@@ -446,6 +504,8 @@ margin-right: 36px;
 .mk-acc .accordion-item {
   box-shadow: none !important;
   border: 1px solid #e8e8e8;
+  border-radius: 7px;
+  margin-bottom: 6px;
 }
 
 /* Spec grid  */
@@ -455,16 +515,20 @@ margin-right: 36px;
   gap: 0;
   border-radius: 0 0 14px 14px;
   overflow: hidden;
+  border-top: 1px solid #e8e8e8;
 }
 .mk-cell {
   display: grid;
   grid-template-columns: 1.1fr 1fr;
   align-items: center;
   padding: 12px 16px;
-  border-bottom: 1px solid #f1f1f1;
+  border-bottom: 1px solid #e8e8e8;
 }
 .mk-cell:nth-child(odd) {
   background: #fafafa;
+}
+.mk-cell:last-child {
+  border-bottom: none;
 }
 .mk-cell span {
   color: #777;
@@ -761,35 +825,19 @@ margin-right: 36px;
   background: var(--primary-color, #5d4037);
 }
 
-/* === Desktop (≥576px): right column shows 2 cards with a slim vertical scrollbar === */
-#ratings-reviews #reviewsTrack {
-  /* 2 × card height (161px) + gap-4 (24px) */
-  max-height: calc(161px * 2 + 24px);
-  overflow-y: auto;
-  overflow-x: hidden;
-  padding-right: 6px; /* room for scrollbar without shifting content */
-}
-
-/* Thin, subtle scrollbar ONLY inside reviewsTrack */
-#ratings-reviews #reviewsTrack {
-  scrollbar-width: thin; /* Firefox */
-  scrollbar-color: #c8c8c8 transparent; /* Firefox */
-}
-#ratings-reviews #reviewsTrack::-webkit-scrollbar {
-  width: 3px;
-  margin-left: 0 !important;
-}
-#ratings-reviews #reviewsTrack::-webkit-scrollbar-button {
+/* Hide extra review cards - show only first 2 */
+#ratings-reviews .individual-review:nth-child(n+3) {
   display: none;
 }
-#ratings-reviews #reviewsTrack::-webkit-scrollbar-track {
-  background: transparent;
-  margin: 6px 0;
+#ratings-reviews #reviewsTrack {
+  /* Match the height of the rating section (334px) */
+  height: 334px;
+  overflow: visible; /* remove scrolling */
+  padding-right: 0; /* remove scrollbar padding */
+  padding-bottom: 20px; /* keep bottom padding */
 }
-#ratings-reviews #reviewsTrack::-webkit-scrollbar-thumb {
-  background: #d4d4d4;
-  border-radius: 31px;
-}
+
+/* Remove scrollbar styles since scrolling is disabled */
 #ratings-reviews h2.fw-bold {
   font-size: 24px;
 }
@@ -1047,6 +1095,7 @@ margin-right: 36px;
   color: #757575;
   font-size: 15px;
   font-weight: 400;
+  margin-top: 8px;
 }
 
 /* Lists */
@@ -1204,8 +1253,8 @@ margin-right: 36px;
 }
 
 .mi-sep {
-  border: 1px;
-  border-top: 1px solid #d4d4d4;
+  
+  border: 1px solid #D9D9D9;
   margin: 18px 0 14px;
 }
 

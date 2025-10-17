@@ -1707,7 +1707,8 @@ position: absolute;
   .rankings-block .slider-shell .cards-track.is-active{
     display:grid !important;
     grid-template-columns: repeat(2, minmax(0,1fr));
-    gap:2px;
+    column-gap: 2px;
+    row-gap: 30px;
     overflow:visible !important;
     grid-auto-flow:row;
     scroll-snap-type:none;
@@ -1868,7 +1869,8 @@ position: absolute;
   .popular-cars #popularTrack{
     display: grid !important;
     grid-template-columns: repeat(2, minmax(0,1fr));
-    gap: 8px;
+    column-gap: 8px;
+    row-gap: 30px;
     overflow: visible !important;
     grid-auto-flow: row;
     scroll-snap-type: none;
@@ -1886,8 +1888,9 @@ position: absolute;
 
   /* Ensure same padding scale for both action buttons */
   .popular-cars #popularTrack .d-flex.gap-2 > .btn{
-    padding: 8px 12px !important;
+    padding: 6px 12px !important;
   }
+ 
 }
 
 @media (max-width: 300px){
@@ -2454,7 +2457,7 @@ margin-left: 7px;
 
   /* Ensure same padding scale for both action buttons */
   .popular-ev .d-flex.gap-2 > .btn{
-    padding: 8px 12px !important;
+    padding: 6px 12px !important;
   }
 }
 
@@ -2738,16 +2741,26 @@ line-height: 1;
   width: auto;
 }
 
-.type-info ion-icon{
-border: 1px solid #d4d4d4;
+.type-info ion-icon,
+.type-info i.bi{
+/* border: 1px solid #d4d4d4; */
 border-radius: 50%;
 color: var(--primary-light);
 float: right;
+padding: 5px;
+display: inline-flex;
+align-items: center;
+justify-content: center;
+width: 20px;
+height: 20px;
+font-size: 20px; /* thicker-looking arrow */
+background-color: #ebebeb; /* fill circle */
+transition-duration: 0.2s;
 
-
-padding: 2.63px;
 }
-.type-card:hover ion-icon{
+
+.type-card:hover ion-icon,
+.type-card:hover i.bi{
   transform: translateX(6px);
 }
 
@@ -3163,7 +3176,7 @@ padding: 2.63px;
 
 /* --- Phones (361–575.98px) — still 2×2 (4 total) --- */
 @media (min-width:361px) and (max-width:390px){
-  .featured-blogs{margin-left: 19px;}
+  .featured-blogs{ margin-left: auto; margin-right: auto; padding-left: 16px; padding-right: 16px; }
   
   .featured-blogs .row.g-4{ --bs-gutter-x:12px; --bs-gutter-y:14px; }
   .featured-blogs .row.g-4 > .col-12{
@@ -3261,20 +3274,31 @@ padding: 2.63px;
 
 /* --- ≤359.98px: tightest, 1-up --- */
 @media (max-width:359.98px){
-  .featured-blogs .row.g-4{ --bs-gutter-x: .75rem; --bs-gutter-y: .75rem; }
+  .featured-blogs .row.g-4{ --bs-gutter-x: .75rem; --bs-gutter-y: .75rem; justify-content: center; }
+  /* force 2 columns even on extra-small phones */
+  .featured-blogs .row.g-4 > .col-12{ flex: 0 0 50% !important; max-width: 50% !important; }
   .featured-blogs .blog-media img{ height: clamp(140px, 44vw, 180px); }
 }
 
 /* --- 360–575.98px: 2-up phones --- */
 @media (min-width:360px) and (max-width:575.98px){
   .featured-blogs{ padding-left: 16px; padding-right: 16px; }
-  .featured-blogs .row.g-4{ --bs-gutter-x: 1rem; --bs-gutter-y: 1rem; }
+  .featured-blogs .row.g-4{ --bs-gutter-x: 1rem; --bs-gutter-y: 1rem; justify-content: center; }
 
   /* force 2 columns even though HTML uses col-12 */
   .featured-blogs .row.g-4 > .col-12{
     flex: 0 0 50% !important; max-width: 50% !important;
   }
   .featured-blogs .blog-media img{ height: clamp(150px, 40vw, 210px); }
+}
+
+/* Ensure blog buttons render centered, single-line on mobile */
+@media (max-width:575.98px){
+  .featured-blogs .btn{
+    display: inline-flex; align-items: center; justify-content: center;
+    white-space: nowrap;
+  }
+  .featured-blogs .view-btn{ white-space: nowrap; }
 }
 
 /* --- 576–767.98px: 2-up small tablets, larger cards --- */

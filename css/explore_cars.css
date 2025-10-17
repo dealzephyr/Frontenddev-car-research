@@ -17,7 +17,7 @@
 
 /* breadcrumb */
 .toppart {
- margin-top: 16px;
+ margin-top: 32px;
 }
 
 .breadcrumb {
@@ -146,17 +146,13 @@ aside.col-lg-3 {
   font-size: 13px;
   line-height: 1;
   color: #212121;
+  padding: 16px 0; /* Increased padding top and bottom */
+  border-bottom: 1px solid #efefef;
+  margin-bottom: 12px;
 }
 
 .mk-chevron {
-  height: 18px;
-  width: 18px;
-  color: #212121;
-  transition: transform 0.2s ease;
-}
-
-.mk-filter-item[open] .mk-chevron {
-  transform: rotate(180deg);
+  display: none; /* Hide chevron icons since dropdowns are removed */
 }
 
 .mk-filter-body {
