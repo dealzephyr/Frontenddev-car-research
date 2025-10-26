@@ -620,10 +620,486 @@ font-size: 13px;
  color: #757575;
 }
 
+/* User dropdown specific styling */
+.hello-login .dropdown-menu {
+  min-width: 180px;
+  border: 1px solid #e5e5e5;
+  border-radius: 8px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  padding: 8px 0;
+  margin-top: 8px;
+  display: none; /* Hidden by default */
+  position: absolute;
+  top: 100%;
+  right: 0;
+  z-index: 9999; /* Higher z-index */
+  background-color: white; /* Ensure background is visible */
+  opacity: 0;
+  transform: translateY(-10px);
+  transition: all 0.3s ease;
+}
+
+.hello-login .dropdown-menu.show {
+  display: block !important;
+  opacity: 1 !important;
+  transform: translateY(0) !important;
+}
+
+.hello-login .dropdown-item {
+  padding: 10px 16px;
+  font-size: 14px;
+  color: var(--primary-dark);
+  display: flex;
+  align-items: center;
+  transition: all 0.2s ease;
+}
+
+.hello-login .dropdown-item:hover {
+  background-color: #f8f9fa;
+  color: var(--primary-color);
+}
+
+.hello-login .dropdown-item ion-icon {
+  color: var(--primary-color);
+}
+
+.hello-login .dropdown-divider {
+  margin: 6px 0;
+  border-color: #e5e5e5;
+}
+
+/* Dropdown toggle styling */
+.hello-login .dropdown-toggle::after {
+  margin-left: 8px;
+  border-top: 4px solid;
+  border-right: 4px solid transparent;
+  border-left: 4px solid transparent;
+  vertical-align: middle;
+}
+
+/* Ensure dropdown positioning works */
+.hello-login {
+  position: relative;
+}
+
+/* Ensure header doesn't clip dropdown */
+.header-top {
+  overflow: visible !important;
+}
+
+.header-actions {
+  overflow: visible !important;
+}
+
+/* Force dropdown to be visible when shown - consolidated rule */
+
+/* Select element styling for banner form */
+.select-wrapper {
+  position: relative;
+  width: 100%;
+}
+
+.filter-pill.form-select {
+  height: 47px;
+  width: 232px !important;
+  background: #ffffff;
+  border: 1px solid #efefef;
+  border-radius: 10px !important;
+  padding: 0 16px;
+  font-size: 14px;
+  color: #757575;
+  box-shadow: 0 8px 18px -10px rgba(0, 0, 0, 0.25);
+  appearance: none;
+  background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3e%3cpath fill='none' stroke='%23757575' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' d='m1 6 7 7 7-7'/%3e%3c/svg%3e");
+  background-repeat: no-repeat;
+  background-position: right 12px center;
+  background-size: 16px 12px;
+  padding-right: 40px;
+  transition: all 0.3s ease;
+}
+
+.filter-pill.form-select:focus {
+  border-color: #757575;
+  box-shadow: 0 0 0 0.2rem rgba(117, 117, 117, 0.25);
+  outline: 0;
+}
+
+.filter-pill.form-select option {
+  padding: 8px 12px;
+  color: #757575;
+}
+
+/* Responsive styles for form section */
+
+/* Very small mobile devices (<390px) */
+@media (max-width: 389px) {
+  #hero-finder-form {
+    width: 85% !important;
+  }
+}
+
+/* Mobile devices (≤576px) */
+@media (max-width: 576px) {
+  .hero-landing {
+    min-height: 400px !important;
+  }
+  
+  .finder-bar {
+    display: grid !important;
+    grid-template-columns: 1fr 1fr;
+    gap: 8px;
+    padding: 8px;
+    border-radius: 7px;
+  }
+  
+  .filter-pill.form-select {
+    height: 40px;
+    width: 100% !important;
+    font-size: 12px;
+    padding: 0 12px;
+    padding-right: 35px;
+    border-radius: 6px;
+  }
+  
+  .btn-search {
+    height: 40px;
+    font-size: 12px;
+    border-radius: 6px;
+    width: 100% !important;
+  }
+  
+  #hero-finder-form {
+    width: 90% !important;
+    padding: 12px;
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    top: 150px;
+  }
+  
+  /* Grid layout for mobile */
+  #hero-finder-form .finder-bar .select-wrapper:nth-child(1) {
+    grid-column: 1;
+  }
+  #hero-finder-form .finder-bar .select-wrapper:nth-child(2) {
+    grid-column: 2;
+  }
+  #hero-finder-form .finder-bar .select-wrapper:nth-child(3) {
+    grid-column: 1;
+  }
+  #hero-finder-form .finder-bar .btn-search {
+    grid-column: 2;
+    width: 100%;
+  }
+}
+
+/* iPhone 14 Pro specific (393px width) */
+@media (min-width: 390px) and (max-width: 395px) {
+  #hero-finder-form {
+    top: 185px !important;
+  }
+  
+  .hero-content {
+    padding-bottom: 0 !important;
+  }
+}
+
+@media (min-width: 400px) and (max-width: 768px) {
+  #hero-finder-form {
+    width: 90% !important;
+    padding: 12px;
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    top: 150px;
+  }
+
+}
+
+/* Small tablets (577px - 768px) */
+@media (min-width: 577px) and (max-width: 768px) {
+  .hero-landing {
+    min-height: 400px !important;
+  }
+  
+  .finder-bar {
+    display: grid !important;
+    grid-template-columns: 1fr 1fr;
+    gap: 10px;
+    padding: 10px;
+    border-radius: 7px;
+  }
+  
+  .filter-pill.form-select {
+    height: 44px;
+    width: 100% !important;
+    font-size: 13px;
+    padding: 0 14px;
+    padding-right: 38px;
+    border-radius: 7px;
+  }
+  
+  .btn-search {
+    height: 44px;
+    font-size: 13px;
+    border-radius: 7px;
+    width: 100% !important;
+  }
+  
+  #hero-finder-form {
+    width: 90% !important;
+    max-width: 500px;
+    padding: 16px;
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    top: 150px;
+  }
+  
+  /* Grid layout for tablets */
+  #hero-finder-form .finder-bar .select-wrapper:nth-child(1) {
+    grid-column: 1;
+  }
+  #hero-finder-form .finder-bar .select-wrapper:nth-child(2) {
+    grid-column: 2;
+  }
+  #hero-finder-form .finder-bar .select-wrapper:nth-child(3) {
+    grid-column: 1;
+  }
+  #hero-finder-form .finder-bar .btn-search {
+    grid-column: 2;
+    width: 100%;
+  }
+}
+
+/* Large tablets and small desktops (769px - 992px) */
+@media (min-width: 769px) and (max-width: 992px) {
+  .finder-bar {
+    display: flex !important;
+    align-items: center;
+    gap: 12px;
+    padding: 12px;
+    border-radius: 8px;
+  }
+  
+  .filter-pill.form-select {
+    height: 46px;
+    width: 200px !important;
+    font-size: 14px;
+    padding: 0 16px;
+    padding-right: 40px;
+    border-radius: 8px;
+  }
+  
+  .btn-search {
+    height: 46px;
+    font-size: 14px;
+    border-radius: 8px;
+    min-width: 120px;
+  }
+  
+  #hero-finder-form {
+    width: 85% !important;
+    max-width: 600px;
+    padding: 20px;
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    top: 200px;
+  }
+}
+
+/* Desktop devices (993px+) */
+@media (min-width: 993px) {
+  .finder-bar {
+    display: flex !important;
+    align-items: center;
+    gap: 16px;
+    padding: 16px;
+    border-radius: 8px;
+  }
+  
+  .filter-pill.form-select {
+    height: 47px;
+    width: 232px !important;
+    font-size: 14px;
+    padding: 0 16px;
+    padding-right: 40px;
+    border-radius: 8px;
+  }
+  
+  .btn-search {
+    height: 47px;
+    font-size: 14px;
+    border-radius: 8px;
+    min-width: 140px;
+  }
+  
+  #hero-finder-form {
+    width: 80% !important;
+    max-width: 700px;
+    padding: 24px;
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    top: 220px;
+  }
+}
+
+/* Extra large screens (1200px+) */
+@media (min-width: 1200px) {
+  .finder-bar {
+    gap: 20px;
+    padding: 20px;
+  }
+  
+  .filter-pill.form-select {
+    width: 250px !important;
+  }
+  
+  .btn-search {
+    min-width: 160px;
+  }
+  
+  #hero-finder-form {
+    max-width: 800px;
+    padding: 28px;
+  }
+}
 
 /* Open state: keep translateY AND add rotate */
 .filter-pill[aria-expanded="true"] .caret {
   transform: translateY(-50%) rotate(-180deg);
+}
+
+/* ==== Hero finder bar: place under heading with tight, separated fields ==== */
+/* Position the form directly below the hero title on all breakpoints */
+#hero-finder-form{
+  position: static !important;
+  left: auto !important;
+  top: auto !important;
+  transform: none !important;
+  width: 100% !important;
+  max-width: 1290px;
+  margin: 12px auto 0; /* just below the title */
+  display: flex;
+  justify-content: center;
+  padding: 0 !important;
+}
+
+/* Finder bar: no gaps between fields; unified container */
+#hero-finder-form .finder-bar{
+  gap: 0 !important;              /* no spacing between fields */
+  padding: 10px !important;       /* compact padding around the group */
+  background: transparent !important;
+  border: none !important;
+  border-radius: 0 !important;
+  box-shadow: none !important;
+  overflow: visible !important;   /* allow individual border radius */
+}
+
+/* Remove individual field borders/radii so fields butt together cleanly */
+/* Individual field styling with border radius */
+#hero-finder-form .filter-pill.form-select{
+  border: 1px solid #e0e0e0 !important;
+  border-radius: 8px !important;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.1) !important;
+}
+
+/* Remove right border radius for brand and model fields */
+#hero-finder-form .finder-bar .select-wrapper:nth-child(1) .filter-pill.form-select{
+  border-top-right-radius: 0 !important;
+  border-bottom-right-radius: 0 !important;
+}
+
+#hero-finder-form .finder-bar .select-wrapper:nth-child(2) .filter-pill.form-select{
+  border-top-right-radius: 0 !important;
+  border-bottom-right-radius: 0 !important;
+  border-top-left-radius: 0 !important;
+  border-bottom-left-radius: 0 !important;
+}
+
+/* Remove left border radius for variant field */
+#hero-finder-form .finder-bar .select-wrapper:nth-child(3) .filter-pill.form-select{
+  border-top-left-radius: 0 !important;
+  border-bottom-left-radius: 0 !important;
+}
+
+#hero-finder-form .btn-search{
+  border: 1px solid #4E342E !important;
+  border-radius: 8px !important;
+  background: #ffff !important;
+  color: #4E342E !important;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.1) !important;
+  width: 120px !important;
+  min-width: 120px !important;
+  transition: all 0.3s ease !important;
+}
+
+#hero-finder-form .btn-search:hover{
+  background: #4E342E !important;
+  color: #ffffff !important;
+}
+
+/* Remove vertical separators since fields now have individual borders */
+#hero-finder-form .finder-bar > *:not(:last-child)::after{
+  content: none !important;
+}
+
+/* --- Revert to previous layout on mobile (and small tablets) --- */
+@media (max-width: 768px){
+  /* Standardize hero height on all mobile devices */
+  .hero-landing {
+    min-height: 400px !important;
+  }
+  
+  /* restore absolute, centered finder position below hero for mobile */
+  #hero-finder-form{
+    position: absolute !important;
+    left: 50% !important;
+    transform: translateX(-50%) !important;
+    top: 150px !important;
+    width: 90% !important;
+    margin-top: 0 !important;
+  }
+
+  /* card-style finder removed; go back to compact grid with gaps */
+  #hero-finder-form .finder-bar{
+    display: grid !important;
+    grid-template-columns: 1fr 1fr !important;
+    gap: 8px !important;
+    padding: 8px !important;
+    background: transparent !important;
+    border: none !important;
+    border-radius: 0 !important;
+    box-shadow: none !important;
+    overflow: visible !important;
+  }
+
+  /* remove vertical separators on mobile */
+  #hero-finder-form .finder-bar > *:not(:last-child)::after{ content:none !important; }
+
+  /* bring back rounded, bordered fields/buttons */
+  #hero-finder-form .filter-pill.form-select{
+    border: 1px solid #efefef !important;
+    border-radius: 6px !important;
+    box-shadow: 0 8px 18px -10px rgba(0,0,0,0.25) !important;
+  }
+  #hero-finder-form .btn-search{
+    border: 1px solid #4E342E !important;
+    border-radius: 6px !important;
+    background: #ffff !important;
+    color: #4E342E !important;
+    box-shadow: 0 8px 18px -10px rgba(0,0,0,0.25) !important;
+    width: 120px !important;
+    min-width: 120px !important;
+    transition: all 0.3s ease !important;
+  }
+
+  #hero-finder-form .btn-search:hover{
+    background: #4E342E !important;
+    color: #ffffff !important;
+  }
 }
 
 
@@ -635,17 +1111,18 @@ font-size: 13px;
   height: 46px;
   border-radius: 7px;
   padding: 0 16px;
-  background: #fff;
-  border: 1px solid #efefef;
-  color: var(--primary-light);
+  background: #4E342E;
+  border: 1px solid #4E342E;
+  color: #ffffff;
   box-shadow: 0 8px 18px -10px rgba(0, 0, 0, 0.25);
   white-space: nowrap;
   font-size: 14px;
 }
 
 .btn-search:hover {
-  color: var(--neutral-light);
-  background: var(--primary-color);
+  color: #ffffff;
+  background: #5d4037;
+  border-color: #5d4037;
 }
 
 .btn-search i {
@@ -840,7 +1317,7 @@ font-size: 13px;
 #hero-finder-form .finder-bar .dropdown .btn:focus{
   border: 1px solid #757575;
 }
-.btn-search{background-color: var(--primary-light); color: #ffffff;margin-left: 0px !important;}
+.btn-search{background-color: #4E342E !important; color: #ffffff !important;margin-left: 0px !important;}
   
 }
 
@@ -876,8 +1353,6 @@ font-size: 13px;
 
   /* centered content, same stack as ≤400px */
   .hero-content{
-   
-    padding-top: 0 !important;
     margin-top: 0;
     display:flex; flex-direction:column; align-items:center; text-align:center; gap:0;
   }
@@ -911,7 +1386,7 @@ font-size: 13px;
     order:4 !important;
     position:absolute;
     left:50%; transform:translateX(-50%);
-    top: clamp(200px, 40vw, 230px);    /* scales with hero height */
+    top: clamp(200px, 40vw, 230px) !important;    /* scales with hero height */
     width: min(92%, 620px);
     background:#ffffff;
     border-radius:12px;
@@ -1041,7 +1516,7 @@ font-size: 13px;
 
    #hero-finder-form .finder-bar .dropdown .btn, #hero-finder-form .btn-search{border-radius: 11px !important;}
  #hero-finder-form .btn-search{
-    background: var(--primary-light) !important;
+    background: #4E342E !important;
     color: #ffffff !important;
   }
   /* Center the CTA button under the copy */
