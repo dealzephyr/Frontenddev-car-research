@@ -741,7 +741,7 @@ font-size: 13px;
 /* Mobile devices (≤576px) */
 @media (max-width: 576px) {
   .hero-landing {
-    min-height: 400px !important;
+    min-height: 350px !important;
   }
   
   .finder-bar {
@@ -1050,7 +1050,7 @@ font-size: 13px;
 @media (max-width: 768px){
   /* Standardize hero height on all mobile devices */
   .hero-landing {
-    min-height: 400px !important;
+    min-height: 250px !important;
   }
   
   /* restore absolute, centered finder position below hero for mobile */
@@ -1637,7 +1637,7 @@ font-size: 13px;
  
   @media (max-width: 575.98px) {
     .ad-slider img {
-      height: 63px;
+      height: 130px;
     }
   }
   
@@ -1761,14 +1761,39 @@ z-index: 10; /* Ensure above cards */
   color: #212121;
 }
 .slider-btn.prev {
-  left: -20px;
+  left: -6px;
 }
 .slider-btn.next {
-  right:-20px;
+  right:-6px;
 }
 
 
 /* --- Car card v2 --- */
+/* Arrow responsiveness */
+@media (max-width: 991.98px){
+  .rankings-block .slider-btn{
+    width: 36px; height: 36px; /* larger tap target */
+  }
+  .rankings-block .slider-btn i{ font-size: inherit; line-height: 1; }
+  .rankings-block .slider-btn.prev{ left: -6px; }
+  .rankings-block .slider-btn.next{ right: -6px; }
+  /* Add side padding so arrows don't overlap cards */
+  .rankings-block .slider-shell{ padding-inline: 28px; }
+}
+
+@media (max-width: 575.98px){
+  .rankings-block .slider-btn{
+    width: 40px; height: 40px; /* even larger on phones */
+    box-shadow: 2px 3px 6px rgba(0,0,0,0.2);
+  }
+  .rankings-block .slider-btn i{ font-size: inherit; line-height: 1; }
+  /* keep vertically centered but slightly above thumbs */
+  .rankings-block .slider-btn{ top: 45%; }
+  .rankings-block .slider-btn.prev{ left: -6px; }
+  .rankings-block .slider-btn.next{ right: -6px; }
+  /* Increase inset on smaller phones */
+  .rankings-block .slider-shell{ padding-inline: 36px; }
+}
 .car-card.v2 {
   width: 275px;
   background: #ffffff;
@@ -2047,10 +2072,12 @@ z-index: 10; /* Ensure above cards */
   margin: 12px auto 0;               /* centers if parent is block */
   flex: 0 0 auto;                    /* don't stretch in flex rows */
 
-  /* fixed sizing (responsive) */
-  width: 301px;                      /* fixed width */
-   height: 31px;
-   margin-top:20px !important;              /* safety on tiny phones */
+  /* sizing */
+  width: auto;                        /* shrink to content */
+  height: 31px;
+  margin-top:20px !important;              /* safety on tiny phones */
+  padding-left: 10px;                 /* reduced left/right padding */
+  padding-right: 10px;
 
   /* styling */
  
@@ -2175,21 +2202,26 @@ position: absolute;
     border: 0;
     padding: 0;
   }
-  .rankings-block .slider-btn{ display: none !important; }
+  /* Show arrows on mobile and center icon inside circle */
+  .rankings-block .slider-btn{ display: inline-flex !important; align-items: center; justify-content: center; }
 
   /* IMPORTANT: keep filtering — only active track shows */
   .rankings-block .slider-shell .cards-track[data-cat]{ display:none !important; }
+  /* Make the cards track behave like a horizontal slider showing 2 cards */
   .rankings-block .slider-shell .cards-track.is-active{
-    display:grid !important;
-    grid-template-columns: repeat(2, minmax(0,1fr));
-    column-gap: 2px;
-    row-gap: 30px;
-    overflow:visible !important;
-    grid-auto-flow:row;
-    scroll-snap-type:none;
-    padding-bottom:0px;
+    display: grid !important;
+    grid-auto-flow: column !important;
+    grid-auto-columns: calc(50% - 8px) !important; /* two columns per view */
+    gap: 16px !important;
+    overflow-x: auto !important;
+    overflow-y: hidden !important;
+    scroll-snap-type: x mandatory !important;
+    padding-bottom: 8px !important;
     margin-right: 19px;
   }
+
+  /* Ensure each card fills its column */
+  .rankings-block .cards-track.is-active .car-card.v2{ width: 100% !important; }
   .rankings-block .rankings-title {font-size: 19px !important;line-height: 1;}
   .rankings-block p{font-size: 13px !important; margin-top: 10px;}
 
@@ -2250,7 +2282,19 @@ position: absolute;
   .rankings-block .rankings-tabs{
     display: flex;
     justify-content: flex-start;
+    flex-wrap: nowrap;              /* keep tabs on one line */
+    overflow-x: auto;               /* enable horizontal scroll */
+    overflow-y: hidden;
+    -webkit-overflow-scrolling: touch; /* smooth iOS scrolling */
+    white-space: nowrap;            /* prevent wrap for safety */
   }
+
+  /* prevent flex items from shrinking so labels remain readable */
+  .rankings-block .rankings-tabs .nav-item{ flex: 0 0 auto; }
+
+  /* hide scrollbar (Firefox/IE/Edge/Chrome/Safari) */
+  .rankings-block .rankings-tabs{ scrollbar-width: none; -ms-overflow-style: none; }
+  .rankings-block .rankings-tabs::-webkit-scrollbar{ display: none; }
 
   .rankings-block .slider-shell{
     margin-left: auto;
@@ -4781,6 +4825,19 @@ color: var(--neutral-dark);
   }
   .footer-bottom-links .list-inline-item:not(:last-child){
     margin-right: 1rem;
+  }
+}
+
+/* Mobile: normalize section subtitles sizing across home */
+@media (max-width: 575.98px){
+  .rankings-block .rankings-sub,
+  .popular-cars .rankings-sub,
+  .popular-ev .rankings-sub,
+  .featured-blogs .rankings-sub,
+  .expert-reviews .rankings-sub,
+  .rankings-sub{
+    font-size: 14px !important;
+    line-height: 16px !important;
   }
 }
 

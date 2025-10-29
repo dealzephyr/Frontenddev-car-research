@@ -641,20 +641,28 @@ document.addEventListener('DOMContentLoaded', function() {
             <!-- Tabs / Menu -->
             <ul class="rankings-tabs nav mb-3">
               <li class="nav-item">
-                <button class="nav-link active" data-filter="budget">
-                  Budget Cars
-                </button>
+                <button class="nav-link active" data-filter="hatchback">Hatchback</button>
               </li>
               <li class="nav-item">
-                <button class="nav-link" data-filter="suvs">SUVs</button>
-                
-              </li>
-              
-              <li class="nav-item">
-                <button class="nav-link" data-filter="sedans">Sedans</button>
+                <button class="nav-link" data-filter="pickup-truck">Pickup Truck</button>
               </li>
               <li class="nav-item">
-                <button class="nav-link" data-filter="evs">EVs</button>
+                <button class="nav-link" data-filter="suv">SUV</button>
+              </li>
+              <li class="nav-item">
+                <button class="nav-link" data-filter="sedan">Sedan</button>
+              </li>
+              <li class="nav-item">
+                <button class="nav-link" data-filter="convertible">Convertible</button>
+              </li>
+              <li class="nav-item">
+                <button class="nav-link" data-filter="coupe">Coupe</button>
+              </li>
+              <li class="nav-item">
+                <button class="nav-link" data-filter="mpv">MPV</button>
+              </li>
+              <li class="nav-item">
+                <button class="nav-link" data-filter="van">Van</button>
               </li>
             </ul>
 
@@ -670,8 +678,8 @@ document.addEventListener('DOMContentLoaded', function() {
               </button>
               </div>
 
-  <!-- Budget (default visible) -->
-  <div class="cards-track is-active" data-cat="budget">
+  <!-- Hatchback (default visible) -->
+  <div class="cards-track is-active" data-cat="hatchback">
     <!-- repeat your .car-card v2 items here -->
     <article class="car-card v2">
                   <div class="car-card__media">
@@ -901,8 +909,8 @@ document.addEventListener('DOMContentLoaded', function() {
    
   </div>
 
-  <!-- SUVs -->
-  <div class="cards-track" data-cat="suvs">
+  <!-- SUV -->
+  <div class="cards-track" data-cat="suv">
       <article class="car-card v2">
                   <div class="car-card__media">
                     <img
@@ -1038,8 +1046,8 @@ document.addEventListener('DOMContentLoaded', function() {
                 </article>
   </div>
 
-  <!-- Sedans -->
-  <div class="cards-track" data-cat="sedans">
+  <!-- Sedan -->
+  <div class="cards-track" data-cat="sedan">
      <article class="car-card v2">
                   <div class="car-card__media">
                     <img
@@ -1175,8 +1183,8 @@ document.addEventListener('DOMContentLoaded', function() {
                 </article>
   </div>
 
-  <!-- EVs -->
-  <div class="cards-track" data-cat="evs">
+  <!-- Convertible -->
+  <div class="cards-track" data-cat="convertible">
       <article class="car-card v2">
                   <div class="car-card__media">
                     <img
@@ -1311,7 +1319,178 @@ document.addEventListener('DOMContentLoaded', function() {
                   </div>
                 </article>
   </div>
-<button type="button" class="rankings-load-btn " aria-expanded="false">View More</button>
+  <!-- Pickup Truck -->
+  <div class="cards-track" data-cat="pickup-truck">
+      <article class="car-card v2">
+                  <div class="car-card__media">
+                    <img
+                      src="assets/images/marutisuzuki.png"
+                      alt="Pickup Truck Example"
+                    />
+                  </div>
+                  <div class="car-card__body">
+                    <h6 class="car-card__title">Pickup Truck Example</h6>
+                    <div class="car-card__location"><span>
+                      <i class="bi bi-geo-alt-fill me-1"></i>
+                      Kathmandu, Nepal</span>
+                    </div>
+                    <div class="car-card__divider"></div>
+                    <div class="car-card__row mb-2">
+                       <span>
+                      <i class="bi bi-speedometer2 me-2"></i>
+                     10,000 mileage</span>
+                    </div>
+                    <div class="car-card__grid mb-2">
+                      <div class="d-flex align-items-center">
+                        <span> <i class="bi bi-fuel-pump me-2"></i>Diesel</span>
+                      </div>
+                      <div class="d-flex align-items-center">
+                        <span>
+                        <i class="bi bi-people me-2"></i>5 Seater</span>
+                      </div>
+                    </div>
+                    <div class="car-card__price">Rs 25.00 - 35.00 Lakh*</div>
+                    <div class="d-flex gap-2">
+                      <button class="btn btn-primary btn-sm px-3">
+                        View Details
+                      </button>
+                      <button class="btn btn-secondary btn-sm px-3">
+                        Compare
+                      </button>
+                    </div>
+                  </div>
+                </article>
+  </div>
+
+  <!-- Coupe -->
+  <div class="cards-track" data-cat="coupe">
+      <article class="car-card v2">
+                  <div class="car-card__media">
+                    <img
+                      src="assets/images/marutisuzuki.png"
+                      alt="Coupe Example"
+                    />
+                  </div>
+                  <div class="car-card__body">
+                    <h6 class="car-card__title">Coupe Example</h6>
+                    <div class="car-card__location"><span>
+                      <i class="bi bi-geo-alt-fill me-1"></i>
+                      Kathmandu, Nepal</span>
+                    </div>
+                    <div class="car-card__divider"></div>
+                    <div class="car-card__row mb-2">
+                       <span>
+                      <i class="bi bi-speedometer2 me-2"></i>
+                     8,500 mileage</span>
+                    </div>
+                    <div class="car-card__grid mb-2">
+                      <div class="d-flex align-items-center">
+                        <span> <i class="bi bi-fuel-pump me-2"></i>Petrol</span>
+                      </div>
+                      <div class="d-flex align-items-center">
+                        <span>
+                        <i class="bi bi-people me-2"></i>4 Seater</span>
+                      </div>
+                    </div>
+                    <div class="car-card__price">Rs 30.00 - 45.00 Lakh*</div>
+                    <div class="d-flex gap-2">
+                      <button class="btn btn-primary btn-sm px-3">
+                        View Details
+                      </button>
+                      <button class="btn btn-secondary btn-sm px-3">
+                        Compare
+                      </button>
+                    </div>
+                  </div>
+                </article>
+  </div>
+
+  <!-- MPV -->
+  <div class="cards-track" data-cat="mpv">
+      <article class="car-card v2">
+                  <div class="car-card__media">
+                    <img
+                      src="assets/images/marutisuzuki.png"
+                      alt="MPV Example"
+                    />
+                  </div>
+                  <div class="car-card__body">
+                    <h6 class="car-card__title">MPV Example</h6>
+                    <div class="car-card__location"><span>
+                      <i class="bi bi-geo-alt-fill me-1"></i>
+                      Kathmandu, Nepal</span>
+                    </div>
+                    <div class="car-card__divider"></div>
+                    <div class="car-card__row mb-2">
+                       <span>
+                      <i class="bi bi-speedometer2 me-2"></i>
+                     15,000 mileage</span>
+                    </div>
+                    <div class="car-card__grid mb-2">
+                      <div class="d-flex align-items-center">
+                        <span> <i class="bi bi-fuel-pump me-2"></i>Diesel</span>
+                      </div>
+                      <div class="d-flex align-items-center">
+                        <span>
+                        <i class="bi bi-people me-2"></i>7 Seater</span>
+                      </div>
+                    </div>
+                    <div class="car-card__price">Rs 20.00 - 28.00 Lakh*</div>
+                    <div class="d-flex gap-2">
+                      <button class="btn btn-primary btn-sm px-3">
+                        View Details
+                      </button>
+                      <button class="btn btn-secondary btn-sm px-3">
+                        Compare
+                      </button>
+                    </div>
+                  </div>
+                </article>
+  </div>
+
+  <!-- Van -->
+  <div class="cards-track" data-cat="van">
+      <article class="car-card v2">
+                  <div class="car-card__media">
+                    <img
+                      src="assets/images/marutisuzuki.png"
+                      alt="Van Example"
+                    />
+                  </div>
+                  <div class="car-card__body">
+                    <h6 class="car-card__title">Van Example</h6>
+                    <div class="car-card__location"><span>
+                      <i class="bi bi-geo-alt-fill me-1"></i>
+                      Kathmandu, Nepal</span>
+                    </div>
+                    <div class="car-card__divider"></div>
+                    <div class="car-card__row mb-2">
+                       <span>
+                      <i class="bi bi-speedometer2 me-2"></i>
+                     12,000 mileage</span>
+                    </div>
+                    <div class="car-card__grid mb-2">
+                      <div class="d-flex align-items-center">
+                        <span> <i class="bi bi-fuel-pump me-2"></i>Petrol</span>
+                      </div>
+                      <div class="d-flex align-items-center">
+                        <span>
+                        <i class="bi bi-people me-2"></i>8 Seater</span>
+                      </div>
+                    </div>
+                    <div class="car-card__price">Rs 18.00 - 24.00 Lakh*</div>
+                    <div class="d-flex gap-2">
+                      <button class="btn btn-primary btn-sm px-3">
+                        View Details
+                      </button>
+                      <button class="btn btn-secondary btn-sm px-3">
+                        Compare
+                      </button>
+                    </div>
+                  </div>
+                </article>
+  </div>
+
 </div>
 
 
