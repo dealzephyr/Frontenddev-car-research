@@ -402,9 +402,156 @@ document.addEventListener('DOMContentLoaded', function() {
     </section>
  <main class="page">
  <!-- FIlter buttons for mobile view  -->
-<div class="mobile-filterbar" role="group" aria-label="Mobile filters">
-<button class="chip"> Filter <ion-icon name="funnel"></ion-icon></button>
-  <button class="chip"> Choose your car options <ion-icon name="options"></ion-icon></button>
+<div class="mobile-filterbar d-sm-none" role="group" aria-label="Mobile filters">
+  <button class="chip" type="button" data-bs-toggle="offcanvas" data-bs-target="#mobileFilter" aria-controls="mobileFilter">Filter <ion-icon name="funnel"></ion-icon></button>
+  <button class="chip" type="button" data-bs-toggle="offcanvas" data-bs-target="#mobileChooser" aria-controls="mobileChooser">Choose your car options <ion-icon name="options"></ion-icon></button>
+  
+</div>
+
+<!-- Offcanvas: Filters (placed outside hidden container) -->
+<div class="offcanvas offcanvas-start" tabindex="-1" id="mobileFilter" aria-labelledby="mobileFilterLabel">
+  <div class="offcanvas-header">
+    <h6 class="offcanvas-title" id="mobileFilterLabel">Filters</h6>
+    <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+  </div>
+  <div class="offcanvas-body">
+    <div class="row g-2">
+      <div class="col-12">
+        <label class="form-label small mb-1">Sort by</label>
+        <div class="d-flex flex-column gap-1">
+          <div class="form-check">
+            <input class="form-check-input" type="radio" name="mSort" id="mSortPopular" value="popular">
+            <label class="form-check-label small" for="mSortPopular">Popular</label>
+          </div>
+          <div class="form-check">
+            <input class="form-check-input" type="radio" name="mSort" id="mSortPriceAsc" value="price-asc">
+            <label class="form-check-label small" for="mSortPriceAsc">Price: Low → High</label>
+          </div>
+          <div class="form-check">
+            <input class="form-check-input" type="radio" name="mSort" id="mSortPriceDesc" value="price-desc">
+            <label class="form-check-label small" for="mSortPriceDesc">Price: High → Low</label>
+          </div>
+        </div>
+      </div>
+      <div class="col-12">
+        <label class="form-label small mb-1">Fuel Type</label>
+        <div class="d-flex flex-wrap gap-2">
+          <div class="form-check"><input class="form-check-input" type="checkbox" value="Petrol" id="mFuelPetrol"><label class="form-check-label small" for="mFuelPetrol">Petrol</label></div>
+          <div class="form-check"><input class="form-check-input" type="checkbox" value="Diesel" id="mFuelDiesel"><label class="form-check-label small" for="mFuelDiesel">Diesel</label></div>
+          <div class="form-check"><input class="form-check-input" type="checkbox" value="Electric/Hybrid" id="mFuelElectric"><label class="form-check-label small" for="mFuelElectric">Electric</label></div>
+          <div class="form-check"><input class="form-check-input" type="checkbox" value="Electric/Hybrid" id="mFuelHybrid"><label class="form-check-label small" for="mFuelHybrid">Hybrid</label></div>
+        </div>
+      </div>
+      <div class="col-12">
+        <label class="form-label small mb-1">Sitting Capacity</label>
+        <div class="d-flex flex-wrap gap-2">
+          <div class="form-check"><input class="form-check-input" type="checkbox" value="4" id="mSeats4"><label class="form-check-label small" for="mSeats4">4</label></div>
+          <div class="form-check"><input class="form-check-input" type="checkbox" value="5" id="mSeats5"><label class="form-check-label small" for="mSeats5">5</label></div>
+          <div class="form-check"><input class="form-check-input" type="checkbox" value="7plus" id="mSeats7"><label class="form-check-label small" for="mSeats7">7+</label></div>
+        </div>
+      </div>
+      <div class="col-12">
+        <label class="form-label small mb-1">Transmission</label>
+        <div class="d-flex flex-wrap gap-2">
+          <div class="form-check"><input class="form-check-input" type="checkbox" value="Manual" id="mTransManual"><label class="form-check-label small" for="mTransManual">Manual</label></div>
+          <div class="form-check"><input class="form-check-input" type="checkbox" value="Automatic" id="mTransAuto"><label class="form-check-label small" for="mTransAuto">Automatic</label></div>
+        </div>
+      </div>
+      <div class="col-12">
+        <label class="form-label small mb-1">MPG</label>
+        <div class="d-flex flex-wrap gap-2">
+          <div class="form-check"><input class="form-check-input" type="checkbox" value="15-20" id="mMpg1520"><label class="form-check-label small" for="mMpg1520">15–20</label></div>
+          <div class="form-check"><input class="form-check-input" type="checkbox" value="20-30" id="mMpg2030"><label class="form-check-label small" for="mMpg2030">20–30</label></div>
+          <div class="form-check"><input class="form-check-input" type="checkbox" value="30plus" id="mMpg30plus"><label class="form-check-label small" for="mMpg30plus">30+</label></div>
+        </div>
+      </div>
+      <div class="col-12">
+        <label class="form-label small mb-1">Drive Train</label>
+        <div class="d-flex flex-wrap gap-2">
+          <div class="form-check"><input class="form-check-input" type="checkbox" value="FWD" id="mDriveFwd"><label class="form-check-label small" for="mDriveFwd">FWD</label></div>
+          <div class="form-check"><input class="form-check-input" type="checkbox" value="RWD" id="mDriveRwd"><label class="form-check-label small" for="mDriveRwd">RWD</label></div>
+          <div class="form-check"><input class="form-check-input" type="checkbox" value="AWD" id="mDriveAwd"><label class="form-check-label small" for="mDriveAwd">AWD/4WD</label></div>
+        </div>
+      </div>
+      <div class="col-12">
+        <label class="form-label small mb-1">Engine</label>
+        <div class="d-flex flex-wrap gap-2">
+          <div class="form-check"><input class="form-check-input" type="checkbox" value="lt1_2" id="mEngineLt12"><label class="form-check-label small" for="mEngineLt12">&lt; 1.2L</label></div>
+          <div class="form-check"><input class="form-check-input" type="checkbox" value="1_2-2_0" id="mEngine12to20"><label class="form-check-label small" for="mEngine12to20">1.2–2.0L</label></div>
+          <div class="form-check"><input class="form-check-input" type="checkbox" value="gt2_0" id="mEngineGt20"><label class="form-check-label small" for="mEngineGt20">&gt; 2.0L</label></div>
+        </div>
+      </div>
+      <div class="col-12">
+        <label class="form-label small mb-1">Features</label>
+        <div class="d-flex flex-wrap gap-2">
+          <div class="form-check"><input class="form-check-input" type="checkbox" value="Sunroof" id="mFeatSunroof"><label class="form-check-label small" for="mFeatSunroof">Sunroof</label></div>
+          <div class="form-check"><input class="form-check-input" type="checkbox" value="Cruise Control" id="mFeatCruise"><label class="form-check-label small" for="mFeatCruise">Cruise Control</label></div>
+          <div class="form-check"><input class="form-check-input" type="checkbox" value="Parking Sensors" id="mFeatParking"><label class="form-check-label small" for="mFeatParking">Parking Sensors</label></div>
+        </div>
+      </div>
+    </div>
+    <div class="d-flex justify-content-between mt-3">
+      <button id="mClearFilters" class="btn btn-outline-secondary btn-sm">Clear</button>
+      <button id="mApplyFilters" class="btn btn-primary btn-sm" data-bs-dismiss="offcanvas">Apply Filters</button>
+    </div>
+  </div>
+</div>
+
+<!-- Offcanvas: Choose Your Car (placed outside hidden container) -->
+<div class="offcanvas offcanvas-start" tabindex="-1" id="mobileChooser" aria-labelledby="mobileChooserLabel">
+  <div class="offcanvas-header">
+    <h6 class="offcanvas-title" id="mobileChooserLabel">Choose your car</h6>
+    <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+  </div>
+  <div class="offcanvas-body">
+    <div class="row g-2">
+      <div class="col-6">
+        <label class="form-label small mb-1">Brand</label>
+        <div class="dropdown w-100">
+          <button class="btn btn-light w-100 text-start dropdown-toggle" type="button" id="mBrandBtn" data-bs-toggle="dropdown" aria-expanded="false">Brand</button>
+          <ul class="dropdown-menu w-100" aria-labelledby="mBrandBtn" id="mBrandMenu">
+            <li><a class="dropdown-item" data-value="maruti">Maruti Suzuki</a></li>
+            <li><a class="dropdown-item" data-value="toyota">Toyota</a></li>
+            <li><a class="dropdown-item" data-value="hyundai">Hyundai</a></li>
+            <li><a class="dropdown-item" data-value="honda">Honda</a></li>
+          </ul>
+        </div>
+        <input type="hidden" id="mBrand" value="">
+      </div>
+      <div class="col-6">
+        <label class="form-label small mb-1">Model</label>
+        <div class="dropdown w-100">
+          <button class="btn btn-light w-100 text-start dropdown-toggle" type="button" id="mModelBtn" data-bs-toggle="dropdown" aria-expanded="false">Model</button>
+          <ul class="dropdown-menu w-100" aria-labelledby="mModelBtn" id="mModelMenu"></ul>
+        </div>
+        <input type="hidden" id="mModel" value="">
+      </div>
+      <div class="col-6">
+        <label class="form-label small mb-1">Year</label>
+        <div class="dropdown w-100">
+          <button class="btn btn-light w-100 text-start dropdown-toggle" type="button" id="mYearBtn" data-bs-toggle="dropdown" aria-expanded="false">Year</button>
+          <ul class="dropdown-menu w-100" aria-labelledby="mYearBtn" id="mYearMenu"></ul>
+        </div>
+        <input type="hidden" id="mYear" value="">
+      </div>
+      <div class="col-6">
+        <label class="form-label small mb-1">Price</label>
+        <div class="dropdown w-100">
+          <button class="btn btn-light w-100 text-start dropdown-toggle" type="button" id="mPriceBtn" data-bs-toggle="dropdown" aria-expanded="false">Price Range</button>
+          <ul class="dropdown-menu w-100" aria-labelledby="mPriceBtn" id="mPriceMenu">
+            <li><a class="dropdown-item" data-value="under15">Under Rs 15 Lakh</a></li>
+            <li><a class="dropdown-item" data-value="15-25">Rs 15-25 Lakh</a></li>
+            <li><a class="dropdown-item" data-value="25-35">Rs 25-35 Lakh</a></li>
+            <li><a class="dropdown-item" data-value="35-50">Rs 35-50 Lakh</a></li>
+          </ul>
+        </div>
+        <input type="hidden" id="mPrice" value="">
+      </div>
+    </div>
+    <div class="d-flex justify-content-end mt-3">
+      <button id="mChooseBtn" class="btn btn-primary btn-sm" data-bs-dismiss="offcanvas">Choose Your Car</button>
+    </div>
+  </div>
 </div>
 
   <section class="container my-4 ">
@@ -790,6 +937,174 @@ document.addEventListener('DOMContentLoaded', function() {
   </section>
 </main>
 
+
+<script>
+document.addEventListener('DOMContentLoaded', () => {
+  const brandSelect = document.getElementById('brandSelect');
+  const modelSelect = document.getElementById('modelSelect');
+  const yearSelect  = document.getElementById('yearSelect');
+  const priceSelect = document.getElementById('priceSelect');
+
+  function dispatchChange(el){ if (!el) return; el.dispatchEvent(new Event('change', { bubbles:true })); }
+
+  // Mobile chooser → sync to desktop selects
+  const mBrand = document.getElementById('mBrand');
+  const mModel = document.getElementById('mModel');
+  const mYear  = document.getElementById('mYear');
+  const mPrice = document.getElementById('mPrice');
+  const mBrandBtn = document.getElementById('mBrandBtn');
+  const mModelBtn = document.getElementById('mModelBtn');
+  const mYearBtn  = document.getElementById('mYearBtn');
+  const mPriceBtn = document.getElementById('mPriceBtn');
+  const mBrandMenu= document.getElementById('mBrandMenu');
+  const mModelMenu= document.getElementById('mModelMenu');
+  const mYearMenu = document.getElementById('mYearMenu');
+  const mPriceMenu= document.getElementById('mPriceMenu');
+
+  function bindMenu(menuEl, hiddenEl, btnEl){
+    if (!menuEl) return;
+    menuEl.addEventListener('click', (e) => {
+      const a = e.target.closest('a.dropdown-item');
+      if (!a) return;
+      e.preventDefault();
+      const val = a.getAttribute('data-value') || '';
+      const label = a.textContent.trim();
+      if (hiddenEl) hiddenEl.value = val;
+      if (btnEl) btnEl.textContent = label || btnEl.textContent;
+      if (hiddenEl === mBrand) {
+        // when brand changes, reset model/year and rebuild menus
+        if (mModel) mModel.value = '';
+        if (mYear)  mYear.value  = '';
+        if (mModelBtn) mModelBtn.textContent = 'Model';
+        if (mYearBtn)  mYearBtn.textContent  = 'Year';
+        populateMobileModelYear();
+      }
+    });
+  }
+  bindMenu(mBrandMenu, mBrand, mBrandBtn);
+  bindMenu(mPriceMenu, mPrice, mPriceBtn);
+  const mChooseBtn = document.getElementById('mChooseBtn');
+
+  // Populate mobile Model/Year based on desktop data
+  function populateMobileModelYear(){
+    const b = (mBrand?.value || '').toLowerCase();
+    const grid = document.querySelector('.cards-grid');
+    const cards = grid ? Array.from(grid.querySelectorAll(':scope > [class*="col-"]')) : [];
+    const scope = b ? cards.filter(c => (c.dataset.brand||'').toLowerCase() === b) : cards;
+    const models = [...new Set(scope.map(c => c.dataset.model).filter(Boolean))].sort();
+    const years  = [...new Set(scope.map(c => c.dataset.year).filter(Boolean))].sort((a,b)=>b-a);
+    if (mModelMenu){
+      mModelMenu.innerHTML = models.map(m => `<li><a class=\"dropdown-item\" data-value=\"${m}\">${m}</a></li>`).join('');
+      bindMenu(mModelMenu, mModel, mModelBtn);
+    }
+    if (mYearMenu){
+      mYearMenu.innerHTML = years.map(y => `<li><a class=\"dropdown-item\" data-value=\"${y}\">${y}</a></li>`).join('');
+      bindMenu(mYearMenu, mYear, mYearBtn);
+    }
+  }
+  // brand change handled via bindMenu above
+
+  // Populate when offcanvas opens
+  const chooserEl = document.getElementById('mobileChooser');
+  if (chooserEl) chooserEl.addEventListener('shown.bs.offcanvas', populateMobileModelYear);
+
+  mChooseBtn && mChooseBtn.addEventListener('click', () => {
+    if (brandSelect && mBrand) { brandSelect.value = mBrand.value; dispatchChange(brandSelect); }
+    // wait a tick so desktop model/year repopulate, then set values
+    setTimeout(() => {
+      if (modelSelect && mModel) modelSelect.value = mModel.value;
+      if (yearSelect  && mYear)  yearSelect.value  = mYear.value;
+      dispatchChange(modelSelect); dispatchChange(yearSelect);
+      if (priceSelect && mPrice) { priceSelect.value = mPrice.value; dispatchChange(priceSelect); }
+    }, 0);
+  });
+
+  // Mobile filter → sync to sidebar checkboxes (mk-filter-card)
+  function setAsideChecked(key, value, checked){
+    const sel = `.mk-filter-card [data-key="${key}"][value="${CSS.escape(value)}"]`;
+    const inp = document.querySelector(sel);
+    if (inp) {
+      inp.checked = !!checked;
+      inp.dispatchEvent(new Event('change', { bubbles:true }));
+    }
+  }
+  const mSortRadios = Array.from(document.querySelectorAll('input[name="mSort"]'));
+  const mapFuel = {
+    Petrol: 'Petrol', Diesel: 'Diesel', 'Electric/Hybrid': 'Electric/Hybrid'
+  };
+  const mFuelPetrol  = document.getElementById('mFuelPetrol');
+  const mFuelDiesel  = document.getElementById('mFuelDiesel');
+  const mFuelElectric= document.getElementById('mFuelElectric');
+  const mFuelHybrid  = document.getElementById('mFuelHybrid');
+  const mSeats4 = document.getElementById('mSeats4');
+  const mSeats5 = document.getElementById('mSeats5');
+  const mSeats7 = document.getElementById('mSeats7');
+  const mTransManual = document.getElementById('mTransManual');
+  const mTransAuto   = document.getElementById('mTransAuto');
+  const mMpg1520 = document.getElementById('mMpg1520');
+  const mMpg2030 = document.getElementById('mMpg2030');
+  const mMpg30plus = document.getElementById('mMpg30plus');
+  const mDriveFwd = document.getElementById('mDriveFwd');
+  const mDriveRwd = document.getElementById('mDriveRwd');
+  const mDriveAwd = document.getElementById('mDriveAwd');
+  const mEngineLt12 = document.getElementById('mEngineLt12');
+  const mEngine12to20 = document.getElementById('mEngine12to20');
+  const mEngineGt20 = document.getElementById('mEngineGt20');
+  const mFeatSunroof = document.getElementById('mFeatSunroof');
+  const mFeatCruise  = document.getElementById('mFeatCruise');
+  const mFeatParking = document.getElementById('mFeatParking');
+  const mApplyFilters= document.getElementById('mApplyFilters');
+  const mClearFilters= document.getElementById('mClearFilters');
+
+  mApplyFilters && mApplyFilters.addEventListener('click', () => {
+    // sort (radio group)
+    const selectedSort = mSortRadios.find(r => r.checked)?.value || '';
+    document.querySelectorAll('.mk-filter-card [data-key="sort"]').forEach(r => { r.checked = false; });
+    if (selectedSort) {
+      const r = document.querySelector(`.mk-filter-card [data-key="sort"][value="${CSS.escape(selectedSort)}"]`);
+      if (r) r.checked = true, r.dispatchEvent(new Event('change', { bubbles:true }));
+    }
+    // fuel
+    setAsideChecked('fuel', mapFuel.Petrol,   mFuelPetrol && mFuelPetrol.checked);
+    setAsideChecked('fuel', mapFuel.Diesel,   mFuelDiesel && mFuelDiesel.checked);
+    setAsideChecked('fuel', mapFuel['Electric/Hybrid'], mFuelElectric && mFuelElectric.checked);
+    setAsideChecked('fuel', mapFuel['Electric/Hybrid'], mFuelHybrid && mFuelHybrid.checked);
+    // seats
+    setAsideChecked('seats', '4', mSeats4 && mSeats4.checked);
+    setAsideChecked('seats', '5', mSeats5 && mSeats5.checked);
+    setAsideChecked('seats', '7plus', mSeats7 && mSeats7.checked);
+    // transmission
+    setAsideChecked('transmission', 'Manual',    mTransManual && mTransManual.checked);
+    setAsideChecked('transmission', 'Automatic', mTransAuto && mTransAuto.checked);
+    // mpg
+    setAsideChecked('mpg', '15-20',  mMpg1520 && mMpg1520.checked);
+    setAsideChecked('mpg', '20-30',  mMpg2030 && mMpg2030.checked);
+    setAsideChecked('mpg', '30plus', mMpg30plus && mMpg30plus.checked);
+    // drivetrain
+    setAsideChecked('drivetrain', 'FWD', mDriveFwd && mDriveFwd.checked);
+    setAsideChecked('drivetrain', 'RWD', mDriveRwd && mDriveRwd.checked);
+    setAsideChecked('drivetrain', 'AWD', mDriveAwd && mDriveAwd.checked);
+    // engine
+    setAsideChecked('engine', 'lt1_2',   mEngineLt12 && mEngineLt12.checked);
+    setAsideChecked('engine', '1_2-2_0', mEngine12to20 && mEngine12to20.checked);
+    setAsideChecked('engine', 'gt2_0',   mEngineGt20 && mEngineGt20.checked);
+    // features
+    setAsideChecked('features', 'Sunroof',          mFeatSunroof && mFeatSunroof.checked);
+    setAsideChecked('features', 'Cruise Control',   mFeatCruise  && mFeatCruise.checked);
+    setAsideChecked('features', 'Parking Sensors',  mFeatParking && mFeatParking.checked);
+  });
+
+  mClearFilters && mClearFilters.addEventListener('click', () => {
+    // clear mobile toggles
+    [mFuelPetrol,mFuelDiesel,mFuelElectric,mFuelHybrid,mSeats4,mSeats5,mSeats7,mTransManual,mTransAuto,
+     mMpg1520,mMpg2030,mMpg30plus,mDriveFwd,mDriveRwd,mDriveAwd,mEngineLt12,mEngine12to20,mEngineGt20,
+     mFeatSunroof,mFeatCruise,mFeatParking].forEach(i => { if (i) i.checked = false; });
+    mSortRadios.forEach(r => r.checked = false);
+    // clear sidebar
+    document.getElementById('clearBtn')?.click();
+  });
+});
+</script>
 
 
 

@@ -46,6 +46,7 @@
 .breadcrumb-item.active a {
   font-weight: 500;
   color: #212121;
+  padding-left: 4px;
 }
 
 /* Base stays as you have it … */
@@ -70,7 +71,7 @@
   .breadcrumb-item + .breadcrumb-item::before{
     width: 12px;
     height: 12px;
-    margin-top: 2px;                /* visually centered with smaller font */
+    margin-top: 4px;                /* visually centered with smaller font */
   }
 }
 
@@ -352,7 +353,7 @@ aside.col-lg-3 {
   .cards-grid {
     display: grid !important;
     grid-template-columns: repeat(2, 1fr);
-    column-gap: 10px;
+    column-gap: clamp(12px, 3vw, 18px);
     row-gap: 20px;
     margin-left: 10px !important;
     margin-right: 19px !important;
@@ -413,6 +414,52 @@ aside.col-lg-3 {
     height: 36px;
     margin: 20px auto;
     display: block;
+  }
+
+  /* Offcanvas theming (mobile panels) */
+  .offcanvas.offcanvas-start{
+    width: 86vw;                 /* comfortable width on phones */
+    max-width: 420px;
+    border-right: 1px solid #efefef;
+    font-family: var(--bs-body-font-family, "Poppins", sans-serif);
+  }
+  .offcanvas .offcanvas-header{
+    border-bottom: 1px solid #efefef;
+  }
+  .offcanvas .offcanvas-title{
+    font-weight: 600;
+    color: var(--primary-dark);
+  }
+  .offcanvas .form-label{
+    color: var(--primary-dark);
+    font-weight: 600;
+  }
+  .offcanvas .form-select.form-select-sm,
+  .offcanvas .form-check-input{
+    border-radius: 6px;
+    border: 1px solid #e7e7e7;
+  }
+  .offcanvas .btn-primary{
+    background: var(--primary-color);
+    border-color: var(--primary-color);
+    padding: 10px 20px;
+    border-radius: 7px;
+
+  }
+  .offcanvas .btn-primary:hover{
+    background: var(--primary-light);
+    border-color: var(--primary-light);
+  }
+  .offcanvas .btn-outline-secondary{
+    color: var(--primary-color);
+    border-color: var(--primary-color);
+    padding: 0px 18px;
+    
+  }
+  .offcanvas .btn-outline-secondary:hover{
+    color:#fff;
+    background: var(--primary-color);
+    border-color: var(--primary-color);
   }
 }
 

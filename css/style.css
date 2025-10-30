@@ -3995,7 +3995,7 @@ transition-duration: 0.2s;
   .expert-reviews .review-title{ font-size:14px; }
   .expert-reviews .review-excerpt{ font-size:12px; margin-bottom: 11px;}
   .expert-reviews .btn.btn-outline-choco{ padding:3px 12px; font-size:12px; height: 25px; }
-  .expert-reviews .chip{ font-size:10px; padding:6px 10px; }
+  .expert-reviews .chip{ font-size:10px; padding:4px 8px; }
   .expert-reviews .key{ font-size:12px; }
   .expert-reviews .d-flex.gap-2{
     display: block !important; /* override Bootstrap flex */
@@ -4071,7 +4071,7 @@ transition-duration: 0.2s;
   }
   .expert-reviews .chip{
     font-size: clamp(10px, 1.4vw, 12px) !important;
-    padding: 5px 10px !important;
+    padding: 4px 8px !important;
   }
   .expert-reviews .rating .bi-star-fill,
   .expert-reviews .rating .bi-star-half{
