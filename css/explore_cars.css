@@ -367,8 +367,16 @@ aside.col-lg-3 {
   /* Card fill cell; compact internals */
   .cards-grid .car-card.v2 {
     width: 100% !important;
-    max-width: 168px;
+    max-width: none;
     margin: 0 auto;
+  }
+
+  /* Add a small extra right margin to left-column cards only */
+  .cards-grid > [class*="col-"]:nth-child(2n+1) .car-card.v2{
+    margin-right: clamp(6px, 2vw, 10px);
+  }
+  .cards-grid > [class*="col-"]:nth-child(2n) .car-card.v2{
+    margin-right: 0;
   }
   
   .cards-grid .car-card__media img {

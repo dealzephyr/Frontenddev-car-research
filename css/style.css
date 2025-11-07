@@ -404,7 +404,7 @@ header, .navbar, .header-container { max-width: 100%; }
     font-size: 12px;
   }
 .mobile-menu-list .nav-item {
-    border-bottom: 2px solid #e5e5e5; /* light gray line */
+    border-bottom: 1px solid #e5e5e5; /* light gray line */
    
   }
   .mobile-menu-list .nav-item:last-child {
@@ -1551,7 +1551,7 @@ font-size: 13px;
 }
 
 .ad-slider::-webkit-scrollbar {
-  display: block; /* Chrome, Safari */
+  display: none; /* Chrome, Safari */
 }
 
 .ad-slider img {
@@ -3349,11 +3349,11 @@ transition-duration: 0.2s;
 } 
 @media (min-width:576px) and (max-width:991.98px){
   .browsebytype.container{
-    /* escape parent fixed container width */
-    width: 100vw !important;
-    max-width: 100vw !important;
-    margin-left: calc(50% - 50vw) !important;
-    margin-right: calc(50% - 50vw) !important;
+    /* avoid 100vw which can cause horizontal scrollbars */
+    width: 100% !important;
+    max-width: 100% !important;
+    margin-left: 0 !important;
+    margin-right: 0 !important;
     padding-left: clamp(12px, 3vw, 24px) !important;
     padding-right: clamp(12px, 3vw, 24px) !important;
   }
@@ -3997,9 +3997,8 @@ transition-duration: 0.2s;
   .expert-reviews .btn.btn-outline-choco{ padding:3px 12px; font-size:12px; height: 25px; }
   .expert-reviews .chip{ font-size:10px; padding:4px 8px; }
   .expert-reviews .key{ font-size:12px; }
-  .expert-reviews .d-flex.gap-2{
-    display: block !important; /* override Bootstrap flex */
-  }
+  /* Keep Key Highlights chips row as flex on very small phones as well */
+  .expert-reviews .review-body .d-flex.flex-wrap.gap-2{ display:flex !important; flex-wrap:wrap !important; gap: 8px !important; }
 }
 
 /* <= 359px — tightest */
@@ -4013,6 +4012,8 @@ transition-duration: 0.2s;
   .expert-reviews{ padding-left: 16px; padding-right: 16px; }
   .expert-reviews .row.g-3{ --bs-gutter-x: 1rem; --bs-gutter-y: 1rem; }
   .expert-reviews .review-media img{ height: clamp(150px, 42vw, 200px); }
+  /* Keep Key Highlights layout same as desktop on mobile */
+  .expert-reviews .review-body .d-flex.flex-wrap.gap-2{ display:flex !important; flex-wrap:wrap !important; gap: 8px !important; }
 }
 
 /* 576–767.98px — 2-up (override col-12), bigger cards than phones */
@@ -4089,6 +4090,15 @@ transition-duration: 0.2s;
 @media (min-width:992px){
   .expert-reviews .row.g-3{ --bs-gutter-x: 1.25rem; --bs-gutter-y: 1.25rem; }
   .expert-reviews .review-media img{ height: clamp(160px, 18vw, 220px); }
+}
+
+/* Expert Reviews: tune Key Highlights padding inside cards */
+.expert-reviews .review-body .key{ margin-bottom: 6px !important; }
+.expert-reviews .review-body .d-flex.flex-wrap.gap-2.mb-3,
+.expert-reviews .review-body .d-flex.flex-wrap.gap-2.key{
+  padding-top: 4px;
+  padding-bottom: 4px;
+  margin-right: 4px;
 }
 
 /* >= 1200px — slightly taller imagery for richer look */

@@ -1,5 +1,16 @@
 
 /* Four-column comparison table styles */
+.page .container{
+  max-width: 1200px;
+  margin-left: auto !important;
+  margin-right: auto !important;
+}
+.page .container > section{
+  width: 100%;
+  margin-left: auto;
+  margin-right: auto;
+}
+
 .compare-spec-table {
   width: 100%;
   border-collapse: collapse;
@@ -10,7 +21,7 @@
   display: grid;
   grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
   background: #f8f9fa;
-  border-bottom: 2px solid #e9ecef;
+  /* border-bottom: 2px solid #e9ecef; */
   font-weight: 600;
   font-size: 14px;
 }
@@ -18,7 +29,7 @@
 .compare-spec-row {
   display: grid;
   grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
-  border-bottom: 1px solid #e9ecef;
+  /* border-bottom: 1px solid #e9ecef; */
   min-height: 48px;
   align-items: center;
 }
@@ -57,10 +68,24 @@
 
 /* Responsive adjustments */
 @media (max-width: 768px) {
+  /* Keep all main sections centered within the container on mobile */
+  .page .container{
+    max-width: 100% !important;
+    margin-left: auto !important;
+    margin-right: auto !important;
+    padding-left: 16px !important;
+    padding-right: 16px !important;
+  }
+  .page .container > *{ margin-left:auto; margin-right:auto; }
+
+  /* Preserve desktop-style 4-car columns with horizontal scroll */
+  .compare-spec-table{ overflow-x:auto; -webkit-overflow-scrolling:touch; }
   .compare-header-row,
-  .compare-spec-row {
-    grid-template-columns: 1fr;
-    gap: 8px;
+  .compare-spec-row{
+    grid-template-columns: minmax(140px, 180px) repeat(4, minmax(160px, 1fr));
+    gap: 12px;
+    width: max-content;
+    padding-bottom: 6px;
   }
   
   .compare-label,
@@ -71,10 +96,7 @@
     text-align: left;
   }
   
-  .compare-car {
-    background: #f8f9fa;
-    font-weight: 600;
-  }
+  .compare-car { background:#f8f9fa; font-weight:600; }
 }
 /* Metrics-based hero pill */
 /* spacing between each "Add a Vehicle" button */
@@ -83,6 +105,8 @@
   flex-wrap:wrap;
   align-items:center;
   gap:14px;            /* ← space between pills horizontally & vertically */
+  justify-content: center; /* center the pills row */
+  margin: 40px 0px 50px 0px;
 }
 
 /* if your buttons are wrapped in .dropdown */
@@ -194,17 +218,17 @@
   position: sticky; 
   top: 0;
   z-index: 10;
-  background: linear-gradient(var(--bg), var(--bg)); /* unchanged */
-  border: 1px solid var(--line);                     /* unchanged */
-  border-radius: 7px;                               /* unchanged */
-  padding: 6px;                                      /* unchanged */
+  background: #f5f5f5;              /* match new car detail */
+  border: none;                      /* match new car detail (no outer border) */
+  border-radius: 7px;
+  padding: 12px 0;                   /* match new car detail */
   display: flex;
-  align-items: center;        /* NEW: tidy vertical alignment */
-  gap: 10px;                  /* unchanged */
-  flex-wrap: nowrap !important; /* NEW: keep in one line */
-  overflow-x: auto;             /* NEW: scroll if overflow */
-  white-space: nowrap;          /* NEW: prevent wrap */
-  margin: 22px 0 22px;        /* unchanged */
+  align-items: center;
+  gap: 0;                            /* keep items flush for dividers */
+  flex-wrap: nowrap !important;
+  overflow-x: auto;
+  white-space: nowrap;
+  margin: 19px 0 19px;
   -webkit-overflow-scrolling: touch;
 }
 .section-tabs::-webkit-scrollbar{ display:none; }
@@ -214,22 +238,38 @@
 .section-tabs a:link,
 .section-tabs a:visited{
   text-decoration: none;
-  color: var(--ink);              /* keep your text color */
+  color: #212121;                 /* match new car detail */
   font-size: 14px;
-  font-weight: 400;
-  padding: 8px 12px;
-  border-radius: 10px;
-  display: inline-flex;           /* NEW: icon + label same line */
-  align-items: center;            /* NEW */
-  gap: 8px;                       /* NEW */
-  line-height: 1;                 /* NEW */
-  white-space: nowrap;            /* NEW */
+  font-weight: 500;               /* match new car detail */
+  padding: 0 20px;                /* match new car detail */
+  border-right: 1px solid #d4d4d4;/* divider like new car detail */
+  border-radius: 0;               /* no pill rounding */
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  line-height: 1;
+  white-space: nowrap;
 }
+.section-tabs a:last-child{ border-right: none; }
 
 /* Hover keeps your background + color */
-.section-tabs a:hover{
-  background: var(--chip);        /* unchanged */
-  color: var(--ink);              /* ensure hover doesn’t change text color */
+.section-tabs a:hover{ color: #000; }
+
+/* Mobile: horizontal scrolling tabs when overflowing */
+@media (max-width: 575.98px){
+  .section-tabs{
+    overflow-x: auto !important;
+    white-space: nowrap !important;
+    -webkit-overflow-scrolling: touch;
+    overscroll-behavior-x: contain;
+    scroll-snap-type: x proximity; /* nicer feel, optional */
+  }
+  .section-tabs a{
+    flex: 0 0 auto;               /* prevent shrinking; enable horizontal flow */
+    scroll-snap-align: start;     /* align labels when scrolling */
+  }
+  .section-tabs{ -ms-overflow-style: none; scrollbar-width: none; }
+  .section-tabs::-webkit-scrollbar{ display: none; }
 }
 
 /* Override global svg reset only here */
@@ -267,11 +307,11 @@
   grid-template-columns: repeat(4, 1fr);
   gap:16px;
 }
-@media(max-width:557px){
-   .page .section-tabs{
-    display: none !important;
-  }
-}
+/* Keep section tabs visible on all device widths */
+
+/* Smooth scroll and anchor offset for sticky headers/tabs */
+html{ scroll-behavior: smooth; }
+.spec-anchor{ scroll-margin-top: 110px; }
 @media (max-width: 1100px){
   .car-grid{grid-template-columns: repeat(3, 1fr);}
 }
@@ -373,6 +413,65 @@
 }
 .faq > summary::-webkit-details-marker{display:none}
 .faq-body{padding:0 14px 12px;border-top:1px solid var(--line);color:var(--muted)}
+
+/* === Compare page FAQ – match design === */
+.faqs{ background:#f5f5f5; border-radius:8px; padding: 8px 8px 12px; }
+.faqs .faq{
+  background: transparent;      /* no card on the question row */
+  border: none;                 /* remove card border at details root */ /* separator for each FAQ */
+  border-radius: 6px;
+  margin-bottom:12px;
+  overflow: visible;
+  padding-bottom: 10px;         /* space before the divider */
+}
+.faqs .faq > summary{
+  list-style:none;
+  display:flex;
+  align-items:center;
+  gap:10px;
+  padding:16px 20px;
+  font-weight:400;              /* updated per request */
+  font-size:15px;               /* updated per request */
+  color:#212121;
+  cursor:pointer;
+  background: transparent;      /* no card background on question */
+}
+.faqs .faq > summary::-webkit-details-marker{ display:none; }
+.faqs .faq > summary::before{
+  content:'\203A'; /* single right-pointing angle quotation mark */
+  display:inline-block;
+  font-size:18px;
+  color:#757575;
+  line-height:1;
+  transform-origin:center;
+  transition:transform .2s ease;
+}
+.faqs .faq[open] > summary::before{ transform: rotate(90deg); }
+.faqs .faq .faq-body{
+  /* start collapsed */
+  max-height: 0;               /* use max-height for CSS-only animation */
+  overflow: hidden;
+  opacity: 0;
+  transform: translateY(-4px);
+  padding: 0 20px;             /* animate padding in */
+  margin-top: 0;
+  border: 1px solid transparent;   /* fade border in */
+  border-radius:6px;
+  color:#505050;
+  font-size:15px;               /* updated per request */
+  font-weight:400;              /* explicit weight */
+  background:#ffffff;
+  transition: max-height .32s ease, opacity .22s ease, transform .22s ease, padding .22s ease, margin-top .22s ease, border-color .22s ease;
+  will-change: max-height, opacity, transform;
+}
+.faqs .faq[open] .faq-body{
+  max-height: 600px;           /* large enough to reveal expected content */
+  opacity: 1;
+  transform: translateY(0);
+  padding:14px 20px 16px;
+  margin-top:8px;               /* gap between question and answer card */
+  border-color: #e5e5e5;        /* show the card border */
+}
 
 /* Small helpers */
 .s{font-size:12px}
