@@ -1372,7 +1372,10 @@ font-size: 13px;
 
   .btn-quiz{
     order:3 !important;
-    display:inline-block;
+    display:inline-flex;
+    align-items:center;
+    justify-content:center;
+    text-align:center;
     width: clamp(100px, 24vw, 140px);
     height: clamp(33px, 7vw, 40px);
     font-size: clamp(13px, 3.4vw, 15px);
