@@ -1,0 +1,1546 @@
+/* palette hooks you already use */
+:root {
+  --primary-color: #5d4037;
+  --primary-light: #4e342e;
+  --primary-dark: #212121;
+  --secondary-color: #e2c2bb;
+  --text-on-primary: #ffffff;
+  --neutral-light: #ffffff;
+  --neutral-mid: #d4d4d4;
+  --neutral-dark: #757575;
+
+  /* Bootstrap color hooks (quick theme) */
+  --bs-primary: #5d4037;
+  --bs-secondary: #e2c2bb;
+  --bs-body-font-family: "Poppins", sans-serif;
+}
+:root {
+  --mi-icon: #7b61ff; /* purple calendar */
+}
+
+.herosec{
+  display: block;
+  overflow: visible;
+}
+/* wrapper with dual gradient & big radius like the mock */
+.car-hero .row {
+  --bs-gutter-x: 0;
+  
+}
+
+@media (min-width: 992px) {
+  .car-hero .row {
+    display: grid;
+    grid-template-columns: 1fr 400px; /* left grows, right is 557px */
+    align-items: center;
+  }
+}
+
+.hero-right {
+  padding-right: 0 !important;
+ 
+}
+#heroCarCarousel{
+margin-right: 36px;
+
+} /* sticks to the right edge */
+
+/* (nice-to-have) keep the image clean inside the carousel */
+.hero-right .carousel-inner {
+  border-radius: 16px;
+  overflow: hidden;
+}
+.hero-right .car-shot {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+.car-hero {
+  background: linear-gradient(
+      90deg,
+      rgba(255, 255, 255, 0) 47.68%,
+      #feffd3 100%
+    ),
+    linear-gradient(
+      270.14deg,
+      rgba(0, 0, 0, 0) 10.42%,
+      rgba(78, 52, 46, 0.2) 99.88%
+    );
+}
+.car-hero .hero-right {
+  width: 100% !important;            /* let the grid control its width */
+  justify-content: center !important; /* center the carousel */
+}
+
+
+@media (min-width: 992px) {
+  .car-hero .row {
+    grid-template-columns: 1fr 557px; /* give the right column the space it needs */
+  }
+}
+
+
+
+/* left side padding on small screens */
+.hero-left {
+  background: transparent;
+  margin-left: 73px;
+  width: 553px;
+}
+
+.hero-left .year {
+  color: #000000;
+  font-weight: 500 !important;
+  font-size: 16px;
+
+  margin-top: 30px;
+}
+.hero-left h1 {
+  color: #000000;
+  font-weight: 500 !important;
+  font-size: 38px;
+}
+.hero-left .starts {
+  color: #757575;
+  font-weight: 400 !important;
+  font-size: 14px;
+
+  margin-top: 9px;
+}
+.hero-left .price {
+  color: #000000;
+  font-weight: 500 !important;
+  font-size: 16px;
+}
+
+/* buttons */
+.btn-hero {
+  background: var(--primary-color);
+  color: var(--text-on-primary);
+  border: 0;
+  padding: 0.6rem 13px;
+  border-radius: 7px;
+  font-size: 13px;
+  font-weight: 500 !important;
+  transition: all 0.3s ease;
+  transform: translateY(0);
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  white-space: nowrap;
+}
+.btn-hero:hover {
+  background: var(--primary-light);
+  color: var(--text-on-primary);
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+.btn-hero:active {
+  transform: translateY(0);
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.btn-hero-outline {
+  background: var(--neutral-light);
+  color: var(--primary-color);
+  border: 1px solid var(--primary-color);
+  padding: 0.6rem 13px;
+  border-radius: 7px;
+  backdrop-filter: blur(4px);
+  font-size: 13px;
+  font-weight: 500 !important;
+  transition: all 0.3s ease;
+  transform: translateY(0);
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+  white-space: nowrap;
+}
+.btn-hero-outline:hover {
+  background: var(--primary-color);
+  color: var(--neutral-light);
+  border: 1px solid var(--primary-color);
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+.btn-hero-outline:active {
+  transform: translateY(0);
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+}
+.color-options {
+  color: #757575;
+  font-size: 13px;
+  font-weight: 400 !important;
+}
+/* colour dots */
+.swatch {
+  width: 15px;
+  height: 15px;
+  border-radius: 999px;
+  display: inline-block;
+  box-shadow: 1px 4px 4px 0px #00000040;
+}
+
+/* right side image constraints so the car sits nicely */
+.hero-right {
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2));
+  width: 557px;
+  display: flex;
+  justify-content: flex-start;
+}
+
+.car-shot {
+  object-fit: contain;
+  height: 420px; /* adjust if your image aspect differs */
+  border: none;
+}
+
+/* round nav buttons */
+.hero-nav {
+  
+  top: 50%;
+  transform: translateY(-50%);
+  width: 40px;
+  height: 40px;
+  border-radius: 53px;
+  background: #ffffff !important;
+  border: 0;
+  display: grid;
+  place-items: center;
+  box-shadow: 3px 4px 4px 0px #00000040;
+
+  opacity: 1; /* override Bootstrap’s default fade */
+}
+
+
+.car-hero,
+.car-hero .hero-carousel-wrapper,
+#heroCarCarousel {
+  overflow: visible !important;
+  position: relative; /* ensure a positioning context */
+}
+
+.hero-carousel-wrapper {
+ /* fixed width for the carousel */
+  margin: 0 auto; /* pushes it to the right */
+  position: relative;
+  
+}
+.hero-carousel-wrapper img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  object-position: center;
+}
+
+.hero-nav i {
+  font-size: 1.4rem;
+  color: #101828;
+}
+.rating{
+  margin-top: 12px !important;
+}
+.rating .rate {
+  color: #757575 !important;
+  font-size: 14px !important;
+  font-weight: 500 !important;
+}
+.text-warning i {
+  font-size: 12px;
+  color: #d4af37 !important;
+  padding-bottom: 8px;
+
+}
+.rating .rev {
+  color: var(--primary-color) !important;
+  font-size: 14px;
+  font-weight: 500 !important;
+}
+/* Desktop carousel controls */
+.car-hero .carousel-control-prev,
+.car-hero .carousel-control-next {
+  top: 50%;
+  transform: translateY(-50%);
+  height: 40px;
+  width: 40px;
+  background: #ffffff;
+  border-radius: 50%;
+  border: 1px solid #e8e8e8;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.car-hero .carousel-control-prev {
+  left: -20px; /* position outside carousel, overlapping left panel */
+  right: auto;
+}
+
+.car-hero .carousel-control-next {
+  right: -20px; /* position outside carousel, overlapping right background */
+  left: auto;
+}
+
+.car-hero .carousel-control-prev i,
+.car-hero .carousel-control-next i {
+  font-size: 1.2rem;
+  color: #101828;
+}
+
+/* Mobile carousel controls */
+@media (max-width: 575.98px) {
+  /* Make the hero row a vertical stack */
+  .car-hero .row {
+    display: flex;
+    flex-direction: column;
+    width: 363px;
+  
+  }
+
+  /* Flatten the left column so its children can be re-ordered */
+  .car-hero .hero-left {
+    display: contents; /* children become flex items of the .row */
+  }
+
+  /* Left-side children take full width */
+  .car-hero .hero-left > * {
+    width: 100%;
+  }
+
+  /* Put the carousel AFTER the left-side content */
+  .car-hero .hero-right {
+    order: 2;
+    width: 100%;
+    justify-content: center;
+    padding: 0 8px 8px;
+    display: flex;
+  }
+
+  /* Move the rating block BELOW the carousel */
+  .car-hero .hero-left > .rating {
+    order: 3;
+    margin: 8px 12px 0;
+  }
+  /* Target within the car-hero context */
+  .car-hero .d-flex.gap-2 {
+    display: flex !important;
+  }
+
+  .car-hero .hero-carousel-wrapper {
+    width: 100% !important;
+    height: 169px;
+    max-width: 100%;
+    margin: 0 auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+   .car-hero .carousel-item {
+    width: 100% !important;   /* overrides 557px */
+  }
+
+  
+  .car-hero .carousel-control-prev,
+  .car-hero .carousel-control-next {
+    top: 50%; /* keep vertically centered */
+    transform: translateY(-50%); /* true vertical centering */
+    height: 21px;
+    width: 21px;
+    background: #ffffff; /* optional circle bg */
+    border-radius: 50%; /* optional rounded */
+
+    display: flex; /* centers icon */
+    align-items: center;
+    justify-content: center;
+   
+    padding: 0;
+    
+  }
+#heroCarCarousel .hero-nav svg {
+  width: 10px !important;   /* or use variables */
+  height: 10px !important;
+}
+
+  .car-hero .carousel-control-prev {
+    left: -15px; /* position outside carousel on mobile */
+    right: auto;
+  }
+
+  .car-hero .carousel-control-next {
+    right: -15px !important; /* position outside carousel on mobile */
+    left: auto;
+    z-index: 1000;
+  }
+
+
+  .hero-left .year {
+    font-size: 12px;
+  }
+  .hero-left h1 {
+    color: #000000;
+    font-weight: 600 !important;
+    font-size: 28px;
+  }
+  .hero-left .starts {
+    color: #757575;
+    font-weight: 400 !important;
+    font-size: 14px;
+
+    margin-top: 9px;
+  }
+
+  /* buttons */
+  .btn-hero {
+    font-size: 12px;
+    font-weight: 400 !important;
+  }
+
+  .btn-hero-outline {
+    font-size: 12px;
+    font-weight: 400 !important;
+  }
+
+  .color-options {
+      flex: 0 0 100% !important;
+    font-size: 12px;
+    display: block; /* forces label on its own line */
+    margin-bottom: 4px; /* spacing before swatches */
+  }
+  
+}
+
+/* navigation below  section  */
+.specs-nav {
+  display: flex;
+  justify-content: center;
+  background-color: #f5f5f5;
+  border-radius: 7px;
+  padding: 12px 0;
+  margin-top: 19px;
+}
+
+.specs-nav a {
+  font-weight: 500;
+  color: #212121;
+  font-size: 14px;
+  padding: 0 20px;
+  text-decoration: none;
+  border-right: 1px solid #d4d4d4;
+}
+
+.specs-nav a:last-child {
+  border-right: none;
+}
+
+.specs-nav a:hover {
+  color: #000;
+  transform: translateY(-2px);
+}
+
+/* Technical specification and right part */
+/* Cards & accordion shells */
+#tech-specs .head {
+  font-size: 24px;
+  font-weight: 700 !important;
+}
+#tech-specs .subhead {
+  font-size: 14px;
+  font-weight: 400;
+}
+.mk-item,
+.mk-sidecard {
+  background: #fff;
+  border-radius: 14px;
+  box-shadow: 0 8px 18px -9px rgba(0, 0, 0, 0.25);
+  border: 1px solid #e8e8e8;
+}
+.mk-item + .mk-item {
+  margin-top: 6px;
+}
+
+.mk-btn {
+  height: 89px;
+  border: none;
+  background: transparent;
+  border-radius: 7px;
+}
+.mk-btn:focus {
+  box-shadow: none;
+  border: none;
+}
+.mk-btn:hover {
+  background: transparent;
+  border: none;
+}
+
+.mk-btn .accordion-header {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 16px !important;
+  justify-content: space-between;
+  width: 100%;
+}
+.accordion-button::after {
+  display: none !important;
+}
+.accordion-button .dropdown-arrow {
+  background-color: #f4f4f4;
+  border-radius: 17px;
+  padding: 4px 3px;
+  border: 1px solid #e8e8e8;
+}
+
+.dropdown-arrow {
+  font-size: 18px;
+  transition: transform 0.2s ease;
+  margin-left: auto;
+}
+/* rotate chevron when open */
+.accordion-button:not(.collapsed) .dropdown-arrow {
+  transform: rotate(180deg);
+}
+
+/* remove Bootstrap default borders */
+.mk-acc .accordion-item {
+  box-shadow: none !important;
+  border: 1px solid #e8e8e8;
+  border-radius: 7px;
+  margin-bottom: 6px;
+}
+
+/* Spec grid  */
+.mk-spec-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0;
+  border-radius: 0 0 14px 14px;
+  overflow: hidden;
+  border-top: 1px solid #e8e8e8;
+}
+.mk-cell {
+  display: grid;
+  grid-template-columns: 1.1fr 1fr;
+  align-items: center;
+  padding: 12px 16px;
+  border-bottom: 1px solid #e8e8e8;
+}
+.mk-cell:nth-child(odd) {
+  background: #fafafa;
+}
+.mk-cell:last-child {
+  border-bottom: none;
+}
+.mk-cell span {
+  color: #777;
+  font-size: 0.95rem;
+}
+.mk-cell strong {
+  color: #212121;
+  font-weight: 600;
+}
+
+/* Right column cards */
+.mk-sidecard {
+  padding: 16px;
+  width: 330px;
+  margin-left: 50px;
+}
+.mk-sidecard h6 {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 18px;
+}
+.mk-bullets {
+  padding-left: 1rem;
+  margin: 0;
+}
+.mk-bullets li {
+  margin-bottom: 0.4rem;
+}
+.mk-chevron {
+  display: none;
+}
+/* Background for interest text */
+.small.text-muted.mb-3 {
+  background-color: #f4f4f4;
+  padding: 5px 14px;
+  border-radius: 12px;
+}
+.monthemi {
+  font-size: 13px;
+}
+
+/* Button background color */
+#emiBtn {
+  background-color: var(--primary-light);
+}
+/* Modal Background */
+.emi-modal {
+  display: none;
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.6);
+  z-index: 9999;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Modal Content */
+.emi-modal-content {
+  background: #fff;
+  width: 524px;
+  max-width: 95%;
+  height: auto; /* make flexible, not forced */
+  max-height: 90vh;
+  overflow-y: auto;
+  border-radius: 12px;
+  border-top: 1px solid #D4D4D4;
+  box-shadow: 0px 20px 24px -4px #00000040;
+  padding: 24px;
+  position: relative;
+  animation: fadeIn 0.3s ease;
+}
+
+/* Close button */
+.close-btn {
+  position: absolute;
+  top: 14px;
+  right: 18px;
+  font-size: 22px;
+  cursor: pointer;
+}
+
+/* Title + subtitle */
+.emi-title {
+  font-size: 20px;
+  font-weight: 700;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+.emi-subtitle {
+  font-size: 14px;
+  color: #757575;
+  margin-bottom: 20px;
+}
+
+/* Inputs */
+.form-label {
+  font-weight: 600;
+  margin-top: 12px;
+  margin-bottom: 6px;
+  display: block;
+}
+.form-control {
+  width: 100%;
+  padding: 10px;
+  border-radius: 8px;
+  border: 1px solid #ddd;
+  margin-bottom: 10px;
+  font-size: 14px;
+}
+
+/* Buttons */
+.btn-submit {
+  background: #5d4037;
+  color: #fff;
+  border: none;
+  padding: 12px;
+  border-radius: 8px;
+  font-weight: 600;
+  width: 100%;
+  margin-top: 12px;
+  cursor: pointer;
+}
+.btn-submit:hover {
+  background: #4e342e;
+}
+
+/* Result section */
+.emi-result {
+  margin-top: 16px;
+  padding: 12px;
+  background: #e2c2bb;
+  border-radius: 8px;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(-20px);}
+  to   { opacity: 1; transform: translateY(0);}
+}
+
+/* technical */
+@media (max-width: 575.98px) {
+  .specs-nav {
+    display: none;
+  }
+  .mk-btn .accordion-header {
+    font-size: 15px;
+    font-weight: 600;
+  }
+  /* Make the container flex */
+  #tech-specs {
+    display: flex;
+    flex-direction: column;
+  }
+
+  #tech-specs .row.g-4 > .col-lg-4 {
+    order: 1;
+  }
+  #tech-specs .row.g-4 > .col-lg-12 {
+    order: 2;
+  }
+  #tech-specs .row.g-4 > .col-lg-8 {
+    order: 3;
+  }
+
+  /* Make the right-column cards full width on mobile */
+  #tech-specs .mk-sidecard {
+    width: 100%;
+    margin: 0 0 12px 0; /* drop the desktop left margin */
+  }
+
+  /* Specs grid: one column on mobile */
+  #tech-specs .mk-spec-grid {
+    grid-template-columns: 1fr;
+  }
+  #tech-specs .mk-cell {
+    grid-template-columns: 1fr;
+    row-gap: 4px;
+  }
+
+  .mk-sidecard h6 {
+    font-size: 17px !important;
+  }
+
+  .mk-bullets li {
+    font-size: 13px;
+  }
+  #emiOut {
+    font-weight: 600 !important;
+  }
+  #emiBtn {
+    font-size: 14px;
+    font-weight: 500;
+  }
+
+  #tech-specs .head {
+    font-size: 20px;
+    font-weight: 700 !important;
+  }
+
+  .mk-card-satisfaction h5 {
+    font-size: 15px;
+  }
+
+  .mk-card-satisfaction span {
+    font-size: 13px;
+  }
+}
+
+/* Review section  */
+/* Card shell (soft shadow + rounded) */
+#ratings-reviews {
+  margin-bottom: 0px !important;
+  padding-top: 43px !important;
+  padding-bottom: 39px;
+
+}
+
+.mk-card-review {
+  background: #fffefa;
+  border: none;
+  border-radius: 12px;
+  box-shadow: 0px 4px 4px 0px #00000040;
+}
+
+.overall-rating {
+  height: 334px;
+  width: 482px;
+  padding: 42px;
+}
+.overall-rating h4 {
+  font-size: 17px;
+  font-weight: 600;
+  color: #212121;
+}
+.mk-rating-label {
+ 
+  color: #757575 !important;
+  font-size: 15px;
+  font-weight: 400;
+}
+
+.individual-review {
+  height: 161px;
+  width: 551px;
+  padding: 22px;
+  color: #757575;
+  margin-left: 27px;
+}
+.individual-review .text-muted {
+  font-size: 12px;
+  font-weight: 400;
+}
+.individual-review p {
+  font-size: 14px !important;
+  font-weight: 400;
+}
+.rating-stars {
+  display: flex;
+  align-items: center;
+  gap: 2px; /* Optional: adds small space between stars */
+}
+
+/* Category rows */
+.mk-rating-row {
+  display: grid;
+  grid-template-columns: 1fr auto auto;
+  align-items: center;
+  gap: 12px;
+  padding: 10px 0;
+}
+
+.mk-rating-score {
+  font-weight: 600;
+  font-size: 17px;
+  color: #212121;
+}
+
+/* Progress bar look (thin rounded with subtle track) */
+.mk-rating-bar {
+  position: relative;
+  height: 7px;
+  border-radius: 64px;
+  background: #d4d4d4;
+  width: 128px;
+}
+.mk-rating-fill {
+  position: absolute;
+  inset: 0 auto 0 0;
+  height: 100%;
+  border-radius: 64px;
+  background: var(--primary-color, #5d4037);
+}
+
+/* Hide extra review cards - show only first 2 */
+#ratings-reviews .individual-review:nth-child(n+3) {
+  display: none;
+}
+#ratings-reviews #reviewsTrack {
+  /* Match the height of the rating section (334px) */
+  height: 334px;
+  overflow: visible; /* remove scrolling */
+  padding-right: 0; /* remove scrollbar padding */
+  padding-bottom: 20px; /* keep bottom padding */
+}
+
+/* Remove scrollbar styles since scrolling is disabled */
+#ratings-reviews h2.fw-bold {
+  font-size: 24px;
+}
+#ratings-reviews .ratings-number {
+  font-size: 24px !important;
+  font-weight: 600 !important;
+}
+@media (max-width: 575.98px) {
+  /* Section spacing & headings */
+  #ratings-reviews {
+    padding-top: 16px !important;
+    padding-bottom: 16px !important;
+    margin-bottom: 0 !important;
+  }
+  #ratings-reviews .mb-4 {
+    margin-bottom: 10px !important;
+  }
+  #ratings-reviews h2.fw-bold {
+    font-size: 20px;
+    font-weight: 700 !important;
+  }
+  #ratings-reviews p.text-muted {
+    font-size: 12px;
+    line-height: 1.3;
+    margin: 0;
+    text-align: center;
+  }
+
+  /* Stack columns; remove desktop offsets */
+  #ratings-reviews .main-review {
+    margin-left: 0 !important;
+  }
+  #ratings-reviews .col-lg-5,
+  #ratings-reviews .col-lg-7 {
+    flex: 0 0 100%;
+    max-width: 100%;
+    width: 100%;
+  }
+
+  /* Card shell */
+  #ratings-reviews .mk-card-review {
+    border-radius: 10px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.12);
+    background: #fffefa;
+  }
+
+  /* Overall rating (left card) */
+  #ratings-reviews .overall-rating {
+    width: 100% !important;
+    height: auto !important;
+    padding: 16px !important;
+  }
+  #ratings-reviews .overall-rating h4 {
+    font-size: 16px;
+    margin-bottom: 10px;
+  }
+  #ratings-reviews .overall-rating > .d-flex {
+    align-items: center !important;
+    gap: 12px !important;
+  }
+  #ratings-reviews .overall-rating .display-5 {
+    font-size: 30px;
+    line-height: 1;
+    margin: 0;
+  }
+  #ratings-reviews .rating-stars {
+    display: flex;
+    align-items: center;
+    gap: 4px;
+    line-height: 0;
+  }
+  #ratings-reviews .rating-stars svg {
+    width: 14px;
+    height: 14px;
+    display: block;
+  }
+  #ratings-reviews .text-muted.small {
+    font-size: 12px;
+    line-height: 1.2;
+    margin-top: 2px;
+  }
+
+  /* ===== PROGRESS ROWS: fixed label + fixed score + fluid bar =====
+     This locks alignment so every bar starts/ends at the same place. */
+  #ratings-reviews .mk-rating-row {
+    display: grid;
+    grid-template-columns: 116px 1fr 40px; /* label | bar | score */
+    align-items: center;
+    column-gap: 10px;
+    padding: 8px 0;
+  }
+  #ratings-reviews .mk-rating-label {
+    font-size: 13px !important;
+    color: #757575 !important;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis; /* long labels won’t push the bar */
+  }
+  #ratings-reviews .mk-rating-bar {
+    position: relative;
+    width: 100% !important; /* override desktop 128px */
+    min-width: 0; /* critical inside grid */
+    height: 6px;
+    background: #d4d4d4;
+    border-radius: 64px;
+    margin: 0;
+    align-self: center;
+  }
+  #ratings-reviews .mk-rating-fill {
+    position: absolute;
+    left: 0;
+    top: 0;
+    bottom: 0;
+    border-radius: 64px;
+    background: var(--primary-color, #5d4037);
+  }
+  #ratings-reviews .mk-rating-score {
+    width: 40px; /* equals 3rd grid track */
+    text-align: right;
+    font-weight: 600;
+    font-size: 14px;
+    line-height: 1.1;
+    color: #212121;
+    font-variant-numeric: tabular-nums; /* equal-width digits = tidy */
+  }
+
+  /* Individual review cards (right column) */
+  #ratings-reviews .individual-review {
+    width: 100% !important;
+    height: auto !important;
+    padding: 16px !important;
+    margin-left: 0 !important;
+    color: #757575;
+  }
+  #ratings-reviews .individual-review > .d-flex:first-child {
+    align-items: center !important;
+    gap: 8px !important;
+  }
+  #ratings-reviews .individual-review p {
+    font-size: 14px !important;
+    line-height: 1.45;
+    margin: 8px 0;
+  }
+  #ratings-reviews .individual-review img.rounded-circle {
+    width: 28px;
+    height: 28px;
+    display: block;
+  }
+  #ratings-reviews #reviewsTrack {
+    gap: 12px !important;
+  }
+
+  /* Optional: if your .bg-bleed needs tighter sides on mobile */
+  #ratings-reviews.bg-bleed {
+    padding-left: 0;
+    padding-right: 0;
+  }
+
+  #ratings-reviews #reviewsTrack {
+    display: flex !important;
+    flex-direction: row !important;
+    gap: 12px !important;
+    overflow-x: auto;
+    overflow-y: visible;
+    scroll-snap-type: x mandatory;
+    -webkit-overflow-scrolling: touch;
+    max-height: none; /* undo desktop lock */
+    padding-right: 0;
+    -ms-overflow-style: none; /* IE & Edge */
+    scrollbar-width: none; /* Firefox */
+  }
+  #ratings-reviews .individual-review {
+    min-width: 100%;
+    scroll-snap-align: start;
+  }
+
+  /* Dots (you already have #reviewsDots in HTML) */
+  #ratings-reviews .reviews-dots {
+    display: flex !important;
+    justify-content: center;
+    align-items: center;
+    gap: 3px;
+    margin-top: 16px !important;
+  }
+  #ratings-reviews .reviews-dots .dot {
+    width: 9px;
+    height: 9px;
+    min-width: 9px; /* stop flex from stretching */
+    min-height: 9px;
+    border-radius: 50%;
+    background: #d4d4d4;
+    border: none;
+    padding: 0; /* remove default button padding */
+    line-height: 0; /* collapse text height */
+    display: inline-block;
+  }
+  #ratings-reviews .reviews-dots .dot.is-active {
+    background: #757575; /* active */
+  }
+
+  #ratings-reviews #reviewsTrack::-webkit-scrollbar {
+    display: none; /* Chrome, Safari */
+  }
+}
+
+/* Owner satisfaction */
+/* Reusable card shell */
+#owner-satisfaction h2 {
+  font-size: 24px;
+  font-weight: 700;
+  color: #212121;
+}
+#owner-satisfaction p {
+  font-size: 14px;
+  font-weight: 400;
+  color: #757575;
+}
+
+.mk-card-satisfaction {
+  /* width: 482px; */
+  background: #f4f4f4;
+  border: none;
+  border-radius: 12px;
+  box-shadow: 0px 2px 4px 0px #00000040;
+}
+
+/* KPI chips */
+.kpi-dot {
+  width: 60px;
+  height: 60px;
+  margin: 0 auto 10px;
+  border-radius: 50%;
+  display: grid;
+  place-items: center;
+}
+
+.bg-green-100 {
+  background: #d3f4de;
+  color: green;
+}
+.bg-blue-100 {
+  background: #ccdbee;
+}
+.bg-lilac-100 {
+  background: #e2d8ee;
+}
+
+.kpi-value {
+  font-size: 24px;
+  font-weight: 600;
+  color: #212121;
+  line-height: 1;
+}
+.kpi-label {
+  color: #757575;
+  font-size: 15px;
+  font-weight: 400;
+  margin-top: 8px;
+}
+
+/* Lists */
+.mk-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+.mk-list-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  padding: 14px 0;
+  font-size: 14px;
+}
+
+.mk-score {
+  font-weight: 600;
+}
+
+/* small helper */
+.text-primary-choco {
+  color: var(--primary-color);
+}
+.custom-gap1{
+  margin-top: 30px;
+}
+
+
+/* ===== Owner Satisfaction — mobile layout (≤575px) ===== */
+@media (max-width: 575.98px) {
+  /* KPIs row: force 1-per-row on phones */
+  #owner-satisfaction
+    .row.g-4.justify-content-center.text-center.mb-4
+    > [class^="col-"],
+  #owner-satisfaction
+    .row.g-4.justify-content-center.text-center.mb-4
+    > [class*=" col-"] {
+    flex: 0 0 100%;
+    max-width: 100%;
+  }
+
+  /* Stack the two articles/cards: Loved Features first, Concerns second */
+  #owner-satisfaction .custom-gap1 {
+    display: flex; /* stack vertically on mobile */
+    flex-direction: column;
+    gap: 12px;
+    margin-left: 0 !important; /* remove any desktop offset */
+    margin-right: 0 !important;
+  }
+
+  /* Ensure columns/cards are full-width when stacked */
+  #owner-satisfaction .custom-gap1 > [class^="col-"],
+  #owner-satisfaction .custom-gap1 > [class*=" col-"] {
+    flex: 0 0 100%;
+    max-width: 100%;
+    order: initial;
+  }
+
+  /* Reorder explicitly: first child = Most Loved (top), last child = Concerns (below) */
+  #owner-satisfaction .custom-gap1 > [class^="col-"]:first-child {
+    order: 1;
+  }
+  #owner-satisfaction .custom-gap1 > [class^="col-"]:last-child {
+    order: 2;
+  }
+
+  /* Make the satisfaction cards fluid */
+  #owner-satisfaction .mk-card-satisfaction {
+    width: 100% !important;
+    padding: 16px !important;
+    border-radius: 16px;
+  }
+
+  /* Optional: compact KPI visuals for small screens */
+  #owner-satisfaction .kpi-dot {
+    width: 45px;
+    height: 45px;
+    margin: 0 auto 8px;
+  }
+  #owner-satisfaction .kpi-value {
+    font-size: 20px;
+  }
+  #owner-satisfaction .kpi-label {
+    font-size: 14px;
+  }
+  #owner-satisfaction h2 {
+    font-size: 20px;
+    font-weight: 700 !important;
+  }
+}
+
+/* market insights */
+
+#market-insights {
+  height: 442px;
+  margin-bottom: 0px !important;
+  padding-top: 43px !important;
+}
+
+.market-insights-header h2 {
+  color: #212121;
+  font-size: 24px;
+  font-weight: 700;
+}
+
+.market-insights-header p {
+  font-size: 14px;
+  font-weight: 400;
+}
+
+.mi-card {
+  margin-top: 20px;
+  background: #ffffff;
+  border: 1px solid var(--mi-border);
+  border-radius: 18px;
+  box-shadow: var(--mi-shadow);
+  padding: 28px 32px;
+  max-width: 643px;
+  margin-inline: auto;
+  box-shadow: 0px 2px 4px 0px #00000040;
+}
+
+.mi-title {
+  font-weight: 600;
+  font-size: 17px;
+
+  color: #212121;
+}
+
+/* Rows (term/value) */
+.mi-row {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 16px;
+  padding: 8px 0;
+}
+
+.mi-term {
+  color: #757575;
+  font-size: 14px;
+  font-weight: 400;
+}
+
+.mi-val {
+  color: var(--primary-color);
+  font-weight: 600;
+  font-size: 14px;
+}
+
+.mi-danger {
+  color: #c72500;
+}
+
+.mi-sep {
+  
+  border: 1px solid #D9D9D9;
+  margin: 18px 0 14px;
+}
+
+/* Calendar + big number */
+.mi-icon {
+  color: var(--mi-icon);
+  font-size: 14px;
+}
+
+.mi-bignum {
+  font-size: 16px;
+  font-weight: 600;
+  color: #212121;
+}
+
+/* for popup */
+/* ---- Review modal (scoped) ---- */
+.mk-review-modal {
+  --mk-primary: var(--primary-color);
+  --mk-primary-dark: var(--primary-light);
+}
+
+.mk-review-modal .modal-content {
+  border: 0;
+  border-radius: 12px;
+
+  width: 524px;
+  box-shadow: 0px 20px 24px -4px #00000040;
+}
+.mk-review-modal .modal-body {
+  padding: 43px;
+}
+.mk-review-modal .btn-close {
+text-decoration: none;
+  position: relative;
+  right: 15px;
+  top: 14px;
+  pointer-events: auto;
+}
+
+
+/* inputs */
+.mk-review-modal .form-control {
+  border-radius: 7px;
+  border: 1px solid #e7e5e0;
+  box-shadow: 0px 0px 4px 0px #00000040 inset,
+    0 8px 20px -16px rgba(0, 0, 0, 0.25);
+}
+
+/* submit button (custom class so we don't touch global .btn-primary) */
+.mk-review-modal .mk-btn-primary {
+  background: var(--mk-primary);
+  border-color: var(--mk-primary);
+  width: 144px;
+  font-size: 14px;
+  font-weight: 500;
+  color: #ffffff;
+}
+.mk-review-modal .mk-btn-primary:hover {
+  background: #ffffff;
+  color: var(--primary-light);
+  border-color: var(--primary-light);
+}
+.mk-review-modal .btn-outline-secondary {
+  color: var(--primary-light);
+  background-color: #ffffff;
+  border-color: var(--primary-light);
+  font-size: 14px;
+  font-weight: 500;
+  width: 102px;
+}
+.mk-review-modal .btn-outline-secondary:hover {
+  color: #ffffff;
+  border-color: #ffffff;
+  background-color: var(--primary-light);
+}
+.mk-review-modal .overallrating {
+  font-size: 16px;
+  font-weight: 500;
+}
+
+/* stars (scoped) */
+.mk-review-modal .mk-rating {
+  display: inline-flex;
+  flex-direction: row-reverse;
+  gap: 8px;
+}
+.mk-review-modal .mk-rating input {
+  appearance: none;
+  -webkit-appearance: none;
+}
+.mk-review-modal .mk-rating label {
+  font-size: 28px;
+  color: #d8d8d8;
+  cursor: pointer;
+  user-select: none;
+  margin: 0;
+}
+.form-label {
+  font-size: 16px;
+  font-weight: 500;
+  color: #212121;
+}
+.form-control {
+  font-size: 14px;
+  font-weight: 400;
+  color: #757575;
+}
+#mkReviewForm .form-control {
+  border: none !important;
+  border-radius: 7px;
+}
+
+.mk-review-modal .mk-rating label:hover,
+.mk-review-modal .mk-rating label:hover ~ label,
+.mk-review-modal .mk-rating input:checked ~ label {
+  color: #d4af37;
+}
+.btn-close:focus {
+  opacity: 1 !important; /* remove fade effect */
+  outline: none !important;
+  box-shadow: none !important; /* no focus glow */
+  border: none !important; /* no border */
+  width: auto;
+  height: auto;
+}
+/* Mobile responsive styles - for screens up to 575px only */
+@media (max-width: 575px) {
+    .mk-review-modal .modal-dialog {
+        margin: 0 !important;
+        max-width: none !important;
+        height: 100vh;
+        display: flex;
+        align-items: flex-start;
+        justify-content: center;
+        padding-top: 0;
+    }
+
+    .mk-review-modal .modal-content {
+        width: 366px !important;
+        height: auto !important; /* Auto height to fit content */
+        min-height: 600px !important; /* Minimum height */
+        max-height: 90vh !important; /* Maximum height */
+        position: fixed !important;
+        top: 50% !important;
+        left: 50% !important;
+        transform: translate(-50%, -50%) !important;
+        border-radius: 12px !important;
+        border-top: 1px solid #F4F4F4 !important;
+        box-shadow: 0px 20px 24px -4px #00000040 !important;
+        background: #FFFFFF !important;
+        margin: 0 !important;
+        overflow-y: auto;
+    }
+
+    .mk-review-modal .modal-body {
+        padding: 20px !important;
+        overflow-y: visible;
+    }
+
+    /* Header font size - 25px */
+    .mk-review-modal #mkReviewTitle {
+        font-size: 25px !important;
+        font-weight: bold !important;
+    }
+
+    /* Sub header font size - 12px */
+    .mk-review-modal .text-muted {
+        font-size: 12px !important;
+    }
+
+    /* Other text font size - 16px */
+    .mk-review-modal .form-label,
+    .mk-review-modal .overallrating,
+    .mk-review-modal .form-control {
+        font-size: 16px !important;
+    }
+
+    /* Adjust form controls for mobile */
+    .mk-review-modal .form-control {
+        padding: 10px !important;
+        border-radius: 7px !important;
+    }
+
+    .mk-review-modal textarea.form-control {
+        min-height: 80px !important;
+    }
+
+    /* Button adjustments for mobile - keep same line and 14px */
+    .mk-review-modal .mk-btn-primary,
+    .mk-review-modal .btn-outline-secondary {
+        font-size: 14px !important; /* Keep 14px as requested */
+        padding: 8px 16px !important; /* Smaller padding for mobile */
+        width: auto !important; /* Auto width */
+    }
+
+    /* Keep buttons on same line (don't stack) */
+    .mk-review-modal .d-flex.justify-content-end {
+        flex-direction: row !important; /* Keep horizontal layout */
+        gap: 12px !important;
+        justify-content: flex-end !important;
+    }
+
+    /* Specific button widths to match desktop */
+    .mk-review-modal .mk-btn-primary {
+        width: 144px !important;
+    }
+
+    .mk-review-modal .btn-outline-secondary {
+        width: 102px !important;
+    }
+
+    /* Stars adjustment for mobile */
+    .mk-review-modal .mk-rating {
+        justify-content: center;
+        margin: 16px 0;
+    }
+
+    .mk-review-modal .mk-rating label {
+        font-size: 32px !important;
+    }
+
+    /* Close button adjustment */
+    .mk-review-modal .btn-close {
+        right: 10px !important;
+        top: 10px !important;
+        z-index: 10;
+    }
+
+    /* Full width name/email fields on mobile */
+    .mk-review-modal .row.g-3 .col-sm-6 {
+        width: 100% !important;
+        max-width: 100% !important;
+        flex: 0 0 100% !important;
+    }
+}
+
+/* For very small screens (less than 400px width) */
+@media (max-width: 400px) {
+    .mk-review-modal .modal-content {
+        width: calc(100vw - 26px) !important;
+        left: 13px !important;
+        right: 13px !important;
+        transform: translateY(-50%) !important;
+    }
+}
+
+@media (max-width: 575.98px) {
+  .market-insights-header h2 {
+    font-size: 20px;
+  }
+
+  .mi-card h5 {
+    font-size: 15px;
+  }
+
+  .mi-card span {
+    font-size: 13px;
+  }
+}
+
+/* Smooth anchor jump + offset so headings aren't hidden under sticky bars */
+:root {
+  --anchor-offset: 88px;
+} /* desktop default */
+@media (max-width: 575.98px) {
+  :root {
+    --anchor-offset: 72px;
+  } /* mobile default */
+}
+
+/* Smooth scrolling for anchor links */
+html {
+  scroll-behavior: smooth;
+}
+
+/* Viewport offset for browsers that honor it */
+html {
+  scroll-padding-top: var(--anchor-offset);
+}
+
+/* Extra-safe: each target section keeps space above when linked */
+#tech-specs,
+#ratings-reviews,
+#owner-satisfaction,
+#market-insights,
+#ownership-history {
+  scroll-margin-top: var(--anchor-offset);
+}

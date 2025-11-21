@@ -14,32 +14,9 @@
   --shadow-soft:0 4px 21px -10px rgba(0,0,0,.25);
 }
 
-@media (max-width: 991.98px){
-  main.page{
-    padding-bottom: calc(96px + env(safe-area-inset-bottom, 0));
-  }
-}
-
-main.page{
-  padding-left: clamp(20px, 4vw, 72px);
-  padding-right: clamp(20px, 4vw, 72px);
-}
-
-@media (max-width: 767.98px){
-  .page .container,
-  .main-part{
-    padding-left: clamp(16px, 4vw, 24px);
-    padding-right: clamp(16px, 4vw, 24px);
-  }
-}
-
 /* Meta bar */
 .post-meta{
-  display:flex;
-  align-items:center;
-  justify-content:space-between;
-  gap:12px;
-  flex-wrap:wrap;
+  display:flex;align-items:center;justify-content:space-between;gap:12px
 }
 .meta-left{display:flex;align-items:center;gap:10px}
 .author-avatar{width:36px;height:36px;border-radius:999px;object-fit:cover}
@@ -48,30 +25,21 @@ main.page{
 
 /* Grid layout */
 .detail-layout{
-  display:grid;
-  gap:clamp(18px, 3vw, 32px);
-  margin-bottom:20px;
+  display:grid;gap:30px;margin-bottom:20px;
   grid-template-columns:1fr;
 }
-.detail-layout > *{ min-width:0; }
 @media (min-width:992px){
-  .detail-layout{
-    grid-template-columns:minmax(0,1.65fr) minmax(260px,0.95fr);
-    align-items:start;
-  }
+  .detail-layout{ grid-template-columns:1.65fr .95fr; }
+
 }
 
 @media (max-width: 575.98px){
-  .post-meta{
-    flex-direction:column;
-    align-items:flex-start;
-    gap:8px;
-  }
-  .author-avatar{width:24px;height:24px;}
-  .author-name{font-weight:500;font-size:12px;}
-  .meta-date{font-size:10px;font-weight:500;}
-  .section h3{font-size:16px !important;}
-  .section p{font-size:13px;}
+.author-avatar{width: 24px; height: 24px;}
+.author-name{font-weight:500;font-size:12px}
+.meta-date{font-size:10px; font-weight: 500;}
+.detail-layout h3{font-size: 15px !important;}
+.detail-layout h3{font-size: 14px;}
+
 }
 
 /* Cards */
@@ -114,32 +82,16 @@ main.page{
 .feature figcaption{font-size:12px;padding:6px 6px;color:#555}
 
 /* Right column (sticky on desktop only) */
-.right-sticky{
-  display:flex;
-  flex-direction:column;
-  gap:16px;
-  width:100%;
-}
+.right-sticky{display:flex;flex-direction:column;gap:16px}
 @media (min-width:992px){ .right-sticky{ position:sticky; top:12px; } }
 @media (max-width:991.98px){ .right-sticky{ position:static; } }
 
 /* Ad/banner */
-.ad-block{width:100%;}
 .ad{display:block;overflow:hidden}
 .ad img{width:100%;border-radius:var(--card-radius)}
 
 /* News/review cards (sidebar) */
-.articles{
-  display:flex;
-  flex-direction:column;
-  gap:16px;
-  width:100%;
-}
-@media (min-width:1200px){
-  .articles{
-    max-width:360px;
-  }
-}
+.articles{display:flex;flex-direction:column;gap:16px ; width: 75%;}
 .news-card{display:grid;grid-template-columns:1fr;overflow:hidden; box-shadow:0px 4px 4px -1px #1018281A;
  ;}
 .news-media{width:100%;aspect-ratio:16/9;object-fit:cover}
@@ -152,37 +104,14 @@ main.page{
 .articles .view-all{
   border-color:#5d4037;
   color:#5d4037;
-  display:inline-flex;
-  align-items:center;
-  justify-content:center;
-  min-height:40px;
-  padding:0 24px;
 }
 .articles .view-all:hover{background:#f7f7f7}
 
 .right-sticky .articles .view-all{
-  width:auto;
-  margin:6px auto 0;
-  align-self:center;
-}
-
-.related-heading{
-  font-size:18px;
-  font-weight:600;
-  color:var(--primary-dark);
-  margin:8px 0 4px;
-}
-
-/* Load more buttons (parity with Read More) */
-.cards-carousel .cc-load-more,
-.latest-videos .grid-load-more{
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  width:auto;
-  margin:12px auto 0;
-  gap:8px;
-  align-self:center;
+  display: inline-flex;
+  width: auto !important;              /* override any previous 100% rule */
+  margin: 6px auto 0;                  /* center within .articles */
+  align-self: center;
 }
 
 /* tiny, clean */
@@ -199,29 +128,94 @@ main.page{
 .section h3{font-size:18px;font-weight:600}
 .section p{font-size:14px;color:var(--neutral-dark)}
 
-@media (max-width: 991.98px){
-  .detail-layout{
-    grid-template-columns:1fr;
-  }
-}
+/* Phone tweaks: full-bleed feel, no fixed widths */
 
-@media (max-width: 767.98px){
-  .right-sticky{
-    gap:20px;
+
+/* Very small screens: stack features / metrics tightly */
+/* ===== MOBILE ORDER (≤575.98px) ===== */
+/* ===== ONE COMBINED MOBILE BLOCK (≤575.98px) ===== */
+@media (max-width: 575.98px){
+
+
+
+  /* Flatten the two columns so we can reorder across them */
+  .detail-layout{ display:flex; flex-direction:column; gap:10px; }
+  .detail-layout > div:first-child,
+  .detail-layout > aside{ display:contents; }
+
+  /* Push everything later by default, then pull up items we care about */
+  .detail-layout > * { order: 100; }
+
+  /* 1) herosec */
+  .herosec{ order: 1 !important; }
+
+  /* 2) Competes with > p  (first .section) — show only paragraph here */
+  .detail-layout > div:first-child .section:nth-of-type(1){ display: contents !important; }
+  .detail-layout > div:first-child .section:nth-of-type(1) h3{ order: 2!important; }
+  .detail-layout > div:first-child .section:nth-of-type(1) p{ order: 2 !important; }
+
+  /* 3 & 4) Looks like — figure first, then heading + paragraph */
+  .detail-layout > div:first-child .section:nth-of-type(2){ display: contents !important; }
+  /* 3) figure immediately after Competes */
+  .detail-layout > div:first-child .section:nth-of-type(2) figure,
+  .detail-layout > div:first-child .section:nth-of-type(2) .inline-figure{
+    order: 3 !important;
   }
+  /* 4) then heading + paragraph together */
+  .detail-layout > div:first-child .section:nth-of-type(2) h3{
+    display:block !important; order:4 !important; margin:0 0 6px;
+  }
+  .detail-layout > div:first-child .section:nth-of-type(2) p{ order:4 !important; }
+
+  /* 5) two spec blueprints */
+  .two{ order: 5 !important; }
+
+  /* 6) Dimensions & Styling (third .section) */
+  .detail-layout > div:first-child .section:nth-of-type(3){ order: 6 !important; }
+
+  /* 7) Performance & Handling (fourth .section) */
+  .detail-layout > div:first-child .section:nth-of-type(4){ order: 7 !important; }
+
+  /* 8 & 9) Interior & Tech — figure first, then heading + paragraph */
+  .detail-layout > div:first-child .section:nth-of-type(5){ display: contents !important; }
+  /* 8) figure/grid right after Performance */
+  .detail-layout > div:first-child .section:nth-of-type(5) figure,
+  .detail-layout > div:first-child .section:nth-of-type(5) .inline-figure,
+  .detail-layout > div:first-child .section:nth-of-type(5) .feature-grid{
+    order: 8 !important;
+  }
+  /* 9) then heading + paragraph together */
+  .detail-layout > div:first-child .section:nth-of-type(5) h3{
+    display:block !important; order:9 !important; margin:0 0 6px;
+  }
+  .detail-layout > div:first-child .section:nth-of-type(5) p{ order:9 !important; }
+
+  /* 10) Release & Pricing (sixth .section) */
+  .detail-layout > div:first-child .section:nth-of-type(6){ order: 10 !important; }
+
+  /* 11) Socials */
+  .share-row{ order: 11 !important; }
+
+  /* 12) Ad (full width) — wrapper that contains .ad */
+  .right-sticky > div:has(.ad){ order: 12 !important; width:100% !important; }
+  .right-sticky > div:has(.ad) .ad{ display:block; width:100%; }
+  .right-sticky > div:has(.ad) .ad img{ width:100%; height:auto; border-radius:20px; }
+
+  /* 13) Articles — 2 columns */
   .articles{
-    display:grid;
-    grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
-    gap:14px;
+    order: 13 !important;
+    width:100% !important;
+    display:grid !important;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap:12px;
   }
-  .articles .news-card{
-    width:100%;
-  }
+  .articles .news-card{ width:100% !important; }
+
+  /* 14) View All — centered below the grid */
   .articles .view-all{
-    grid-column:1 / -1;
-    display:flex;
-    width:100%;
-    justify-content:center;
-    margin-top:6px;
+    grid-column: 1 / -1;
+    justify-self: center;
+    width: max-content;
+    margin-top: 6px;
   }
 }

@@ -98,7 +98,7 @@ main.page > .container{
 }
 
 .site-logo {
-  width: 120px;
+  width: 140px;
   height: 40px;
   object-fit: contain;
   margin-top: -8px;
@@ -118,13 +118,11 @@ margin: 0 auto;
 .header-search .input-group-text {
   border: 0;
   color: var(--neutral-dark);
-  font-size: 1rem;
-  padding-right:4px;
 }
 .search-input {
   border: 0;
   height: 34px;
-  padding: 8px 14px 6px 2px;
+  padding: 8px 14px 6px 4px;
   font-size:14px;
  
 }
@@ -320,14 +318,6 @@ header, .navbar, .header-container { max-width: 100%; }
    TOP NAV — MOBILE & TABLET (≤991.98)
    */
 @media (max-width:992px){
-  .header-search .input-group-text{
-    font-size:0.9rem;
-  }
-  .search-input{
-    font-size:12.5px;
-    padding-top:6px;
-    padding-bottom:6px;
-  }
   /* Tight side padding; keep one row */
   .header-top.navbar{ padding: 0 8px; flex-wrap: nowrap !important; }
 
@@ -338,7 +328,7 @@ header, .navbar, .header-container { max-width: 100%; }
 
   /* Brand left, everything else next to it (small fixed gap) */
   .header-top .navbar-brand{
-    margin-right: 14px !important;   /* extra breathing room before search */
+    margin-right: 6px !important;   /* <— key: reduces logo→content gap */
     flex: 0 0 auto !important;
   }
 
@@ -347,41 +337,37 @@ header, .navbar, .header-container { max-width: 100%; }
   .header-top #topNav.collapse:not(.show){
     display:flex !important; flex-direction:row !important;
     align-items:center !important; justify-content:flex-start !important;
-    flex: 1 1 auto !important; width:auto !important; height:auto !important;
-    visibility:visible !important; gap:8px; min-width:0;
+    flex: 0 0 auto !important; width:auto !important; height:auto !important;
+    visibility:visible !important;
   }
 
-  /* Keep the search visible and full-width */
-  .header-top #topNav > .header-search{
-    display:block !important;
-    flex:1 1 auto;
-    min-width:0;
-    margin:0 6px 0 0;
-    max-width:calc(100% - 16px);
-  }
-  .header-top #topNav > .header-search .input-group{
-    width:100%;
-    max-width:none;
-    margin:0;
-  }
-  .header-top #topNav > .header-search{
-    width:100%;
-  }
-  .header-search .input-group{
-    width:100%;
-    max-width:none;
-  }
+  /* Hide the search on ≤991.98 to avoid wrapping */
+  .header-top #topNav > .header-search{ display:none !important; }
 
   /* Right actions: tight spacing */
   .header-top .header-actions{
     display:flex !important; flex-direction:row !important; align-items:center !important;
     flex-wrap: nowrap !important; gap: 6px !important; margin-left: 6px !important;
-    flex:0 0 auto !important;
   }
 
+  /* Hide Notification (2nd item) on mobile/tablet */
+  .header-top .header-actions > li:nth-child(2){ display:none !important; }
+  .header-top .header-actions > li:nth-child(1){ display:none !important; }
   .header-top .header-actions .badge-dot{ display:none !important; }
   .header-top .header-actions .person-outline{height: 5px !important;}
-  .header-top .header-actions .hello-login{ display:none !important; }
+
+  /* Reorder: Hello/Login (3rd) first, Compare (1st) second, Flag (4th) third */
+  .header-top .header-actions > li:nth-child(3){ order:1; } /* Hello, Login */
+
+  .header-top .header-actions > li:nth-child(4){ order:3; } /* Flag */
+
+  /* Hello/Login compact */
+  .header-top .header-actions > li:nth-child(3) .nav-link{
+    display:inline-flex !important; align-items:center !important;
+    gap:4px !important; font-size: 14px !important; line-height:1 !important;
+    padding:0!important; white-space:nowrap !important;
+    margin-right: 20px !important; /* space from flag */
+  }
   /* Flag compact */
   .header-top .flag-nepal{
     width:27px; height:27px; display:inline-flex !important; align-items:center; justify-content:center;
@@ -390,11 +376,11 @@ header, .navbar, .header-container { max-width: 100%; }
   .header-top .flag-nepal img{ max-width:80%; max-height:80%; }
    /* Hamburger button next to flag */
   .navbar-toggler{ border:0; outline:0; background:transparent; padding:2px 4px; }
-  .navbar-toggler svg{ width:22px; height:22px; color: var(--primary-color); display:block; }
+  .navbar-toggler svg{ width:22px; height:22px; color: var(--primary-dark); display:block; }
 
 
   /* Logo size on phones/tablets */
-  .site-logo{ width: 98px !important; height:auto !important; margin:0 !important; object-fit:contain; }
+  .site-logo{ width: 123px !important; height:auto !important; margin:0 !important; object-fit:contain; }
   
   
 
@@ -430,12 +416,15 @@ header, .navbar, .header-container { max-width: 100%; }
 .header-top .header-actions .nav-notification { display:none !important; }
 
 /* Explicit order for mobile */
-.header-top .header-actions .lang-flag     { order:1; }
-.header-top .header-actions .nav-hamburger { order:2; display:flex !important; }
+.header-top .header-actions .hello-login   { order:1;}
+.header-top .header-actions .lang-flag     { order:2; }
+.header-top .header-actions .nav-hamburger { order:3; display:flex !important; }
 
   /* Kill the huge right gap on the flag */
   .flag-nepal{ margin-right: 0 !important; }
 
+  /* Keep the group tight */
+  .header-top .header-actions{ gap:0px !important; }
 #mobileMenu,
   #mobileMenu.collapse,
   #mobileMenu.collapsing,
@@ -1383,17 +1372,12 @@ font-size: 13px;
 
   .btn-quiz{
     order:3 !important;
-    display:inline-flex;
-    align-items:center;
-    justify-content:center;
-    text-align:center;
+    display:inline-block;
     width: clamp(100px, 24vw, 140px);
     height: clamp(33px, 7vw, 40px);
     font-size: clamp(13px, 3.4vw, 15px);
     font-weight:600;
     margin-top: clamp(10px, 2.2vw, 12px);
-    margin-left:auto;
-    margin-right:auto;
 
   }
 
